@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Fem Femten hjælper virksomheder med at omsætte strategi, data og AI til daglig drift. Book en AI-workshop på 2½ time.">
+<title>Fem Femten</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&family=Libre+Caslon+Text:ital@1&display=swap">
+<style>
+  :root {
+    --navy: #1b1a4a;
+    --navy-deep: #113e4f;
+    --lightblue: #d1deed;
+    --sage: #b0cfc9;
+    --orange: #eb4634;
+    --paper: #ffffff;
+    --tint: #eef3f9;
+    --ink: #1b1a4a;
+    --ink-soft: #4c5470;
+    --line: #d9e2ee;
+    --card: #ffffff;
+    --hero-ink: #1b1a4a;
+    --btn-ink: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #131230;
+      --tint: #1b1a44;
+      --ink: #e9edf6;
+      --ink-soft: #a9b1c9;
+      --line: #33325e;
+      --card: #201f4e;
+      --navy: #e9edf6;
+      --lightblue: #33518a;
+      --orange: #f0604f;
+      --hero-ink: #e9edf6;
+      --btn-ink: #ffffff;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #131230;
+    --tint: #1b1a44;
+    --ink: #e9edf6;
+    --ink-soft: #a9b1c9;
+    --line: #33325e;
+    --card: #201f4e;
+    --navy: #e9edf6;
+    --lightblue: #33518a;
+    --orange: #f0604f;
+    --hero-ink: #e9edf6;
+    --btn-ink: #ffffff;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.02rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .wrap { max-width: 64rem; margin: 0 auto; padding: 0 1.4rem; }
+  a { color: inherit; }
+
+  /* Header */
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.3rem 0;
+  }
+  .wordmark {
+    font-weight: 800; font-size: 1.25rem; letter-spacing: -0.01em;
+    color: var(--navy); text-decoration: none;
+  }
+  .wordmark span { color: var(--orange); }
+  .topbar a.contact {
+    font-weight: 700; font-size: 0.92rem; text-decoration: none;
+    border: 1.5px solid var(--navy); border-radius: 3px;
+    padding: 0.45rem 1rem; color: var(--navy);
+  }
+  .topbar a.contact:hover { background: var(--tint); }
+
+  /* Hero */
+  .hero { padding: 3.5rem 0 3rem; max-width: 46rem; }
+  .kicker {
+    font-size: 0.74rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--ink-soft); margin-bottom: 1rem;
+  }
+  h1 {
+    font-size: clamp(2rem, 5.5vw, 3.1rem); font-weight: 800;
+    line-height: 1.08; letter-spacing: -0.02em; text-wrap: balance;
+    color: var(--hero-ink); margin: 0 0 1.1rem;
+  }
+  .lead {
+    font-family: "Libre Caslon Text", Georgia, serif; font-style: italic;
+    font-size: 1.18rem; line-height: 1.6; color: var(--ink-soft);
+    max-width: 38rem; margin: 0 0 1.6rem;
+  }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
+  .btn {
+    display: inline-block; background: var(--orange); color: var(--btn-ink);
+    font-weight: 700; font-size: 0.95rem; text-decoration: none;
+    padding: 0.8rem 1.4rem; border-radius: 3px;
+  }
+  .btn:hover { filter: brightness(1.07); }
+  .btn:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+  .cta-row .quiet { font-size: 0.92rem; color: var(--ink-soft); }
+  .cta-row .quiet a { color: var(--ink); font-weight: 500; }
+
+  h2 {
+    font-size: 1.45rem; font-weight: 800; letter-spacing: -0.015em;
+    text-wrap: balance; margin: 0 0 0.5rem; color: var(--ink);
+  }
+  .section { padding: 2.6rem 0; }
+  .section-intro { color: var(--ink-soft); max-width: 40rem; margin: 0 0 1.6rem; }
+
+  /* Workshop banner */
+  .workshop {
+    background: #1b1a4a; color: #f2f5fb;
+    border-radius: 6px; padding: 2rem 2rem 1.8rem; margin: 1rem 0 0;
+    position: relative; overflow: hidden;
+  }
+  .workshop::after {
+    content: ""; position: absolute; right: -1.2rem; top: -2.5rem;
+    width: 11rem; height: 16rem; transform: rotate(18deg);
+    background: repeating-linear-gradient(90deg, rgba(209,222,237,0.28) 0 0.55rem, transparent 0.55rem 2.1rem);
+    pointer-events: none;
+  }
+  .workshop .kicker { color: #b0cfc9; }
+  .workshop h2 { color: #ffffff; max-width: 30rem; position: relative; z-index: 1; }
+  .workshop p { color: #ccd6ea; max-width: 34rem; position: relative; z-index: 1; }
+  .workshop .facts {
+    display: flex; flex-wrap: wrap; gap: 1.8rem; margin: 1.3rem 0 1.5rem;
+    position: relative; z-index: 1;
+  }
+  .workshop .facts div b {
+    display: block; font-size: 1.15rem; font-weight: 800; color: #ffffff;
+    font-variant-numeric: tabular-nums;
+  }
+  .workshop .facts div span { font-size: 0.82rem; color: #aebadd; }
+  .workshop .facts .deal b { color: #b0cfc9; }
+  .workshop .btn { position: relative; z-index: 1; }
+
+  /* Services */
+  .grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1.1rem;
+  }
+  .svc {
+    background: var(--card); border: 1px solid var(--line); border-radius: 6px;
+    padding: 1.4rem 1.5rem 1.3rem;
+  }
+  .svc h3 { margin: 0 0 0.45rem; font-size: 1.05rem; font-weight: 700; }
+  .svc p { margin: 0 0 0.7rem; font-size: 0.93rem; color: var(--ink-soft); }
+  .svc ul { margin: 0; padding-left: 1.1rem; font-size: 0.9rem; color: var(--ink-soft); }
+  .svc li { margin-bottom: 0.25rem; }
+  .svc .tag {
+    display: inline-block; font-size: 0.68rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--orange); margin-bottom: 0.6rem;
+  }
+
+  /* References */
+  .refs { background: var(--tint); border-radius: 6px; padding: 1.8rem 2rem; }
+  .refs .logos {
+    display: flex; flex-wrap: wrap; gap: 0.6rem 2rem; margin-top: 0.9rem;
+    font-weight: 700; font-size: 1rem; color: var(--ink);
+  }
+  .refs p { color: var(--ink-soft); margin: 0; max-width: 42rem; }
+
+  /* Story */
+  .story { max-width: 42rem; border-left: 3px solid var(--orange); padding-left: 1.4rem; }
+  .story p { margin: 0 0 0.9rem; color: var(--ink-soft); }
+  .story p:first-child {
+    font-family: "Libre Caslon Text", Georgia, serif; font-style: italic;
+    font-size: 1.08rem; color: var(--ink);
+  }
+
+  footer {
+    border-top: 1px solid var(--line); margin-top: 2.5rem;
+    padding: 1.6rem 0 2.4rem; font-size: 0.85rem; color: var(--ink-soft);
+    display: flex; flex-wrap: wrap; gap: 0.4rem 1.6rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="topbar">
+    <a class="wordmark" href="#">Fem Femten<span>.</span></a>
+    <a class="contact" href="mailto:ralf@femfemten.com">Kontakt</a>
+  </nav>
+
+  <header class="hero">
+    <div class="kicker">5:15 · Rådgivere med hænderne i maskinen · København</div>
+    <h1>Vælg rigtigt. Sæt retning. Få det eksekveret.</h1>
+    <p class="lead">Vi hjælper virksomheder med at omsætte strategi, data og AI til noget, der kører i daglig drift. Ikke slides, der samler støv.</p>
+    <div class="cta-row">
+      <a class="btn" href="#workshop">Book en AI-workshop</a>
+      <span class="quiet">eller <a href="#ydelser">se, hvad vi laver</a></span>
+    </div>
+  </header>
+
+  <section class="section" id="workshop">
+    <div class="workshop">
+      <div class="kicker">Aktuelt tilbud</div>
+      <h2>AI der virker. Kom konkret i gang på 2½ time.</h2>
+      <p>Vi kommer ud til jer, viser use cases vi selv har bygget og har i drift, og lægger jeres forretning på bordet. I går derfra med en prioriteret liste over de 2-3 steder, hvor AI flytter mest hos netop jer. Skriftlig opsamling med prisoverslag følger med. Ingen binding bagefter.</p>
+      <div class="facts">
+        <div><b>2½ time</b><span>hos jer, ingen forberedelse</span></div>
+        <div><b>18.000 kr.</b><span>fast pris, ekskl. moms</span></div>
+        <div class="deal"><b>10.000 kr.</b><span>lige nu, mod en times ærlig feedback</span></div>
+      </div>
+      <a class="btn" href="mailto:ralf@femfemten.com?subject=AI-workshop">Skriv, så finder vi en dato</a>
+    </div>
+  </section>
+
+  <section class="section" id="ydelser">
+    <h2>Det hjælper vi med</h2>
+    <p class="section-intro">Konkrete leverancer, man kan købe. Ikke abstrakt ledelsesrådgivning. Kernen er den samme hele vejen: vælg rigtigt, sæt retning, og få det eksekveret.</p>
+    <div class="grid">
+      <div class="svc">
+        <span class="tag">Data &amp; AI</span>
+        <h3>Fra AI-ambition til drift</h3>
+        <p>Hvor giver AI mening hos jer, hvad skal være på plads først, og hvordan kommer den første løsning i drift?</p>
+        <ul>
+          <li>AI-readiness og use case-prioritering</li>
+          <li>Datafundament og governance</li>
+          <li>Automatisering af manuelle arbejdsgange</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <span class="tag">Strategi → eksekvering</span>
+        <h3>Fra beslutning til fremdrift</h3>
+        <p>Når alt føles vigtigt, og strategien ikke bliver til handling, hjælper vi med at prioritere og holde tempo.</p>
+        <ul>
+          <li>Porteføljeprioritering</li>
+          <li>Strategieksekvering og roadmaps</li>
+          <li>PMO og transformationsstyring</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <span class="tag">Ledelsesrådgivning</span>
+        <h3>Sparring, når beslutningerne er svære</h3>
+        <p>Tæt sparring med ledelsen om retning, prioritering og de beslutninger, der ikke kan uddelegeres.</p>
+        <ul>
+          <li>Strategisk ledelsessparring</li>
+          <li>Beslutnings- og governancemodel</li>
+          <li>Operating model, roller og ansvar</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <span class="tag">IT-forenkling</span>
+        <h3>Færre systemer, mindre friktion</h3>
+        <p>Overblik over applikationslandskabet og en realistisk vej fra legacy til et landskab, der kan udvikles på.</p>
+        <ul>
+          <li>Applikationsportefølje og konsolidering</li>
+          <li>Legacy-modernisering og målbillede</li>
+          <li>Data der sidder fast i gamle systemer</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="refs">
+      <h2>Vi har leveret hos</h2>
+      <p>Fra store, regulerede organisationer til ejerledede virksomheder. Som ledere, konsulenter og bygherrer.</p>
+      <div class="logos">
+        <span>Novo Nordisk</span><span>PFA</span><span>DS Norden</span><span>VetNet</span><span>Copenhagen Merch</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="kontakt">
+    <h2>Hvem er vi</h2>
+    <div class="story">
+      <p>Fem Femten er bygget på en simpel holdning: rådgivning er først noget værd, når den bliver til noget. Vi har siddet på begge sider af bordet. Som ledere i store, regulerede organisationer, hvor styring og dokumentation ikke er til forhandling, og som selvstændige i små virksomheder, hvor der ikke er råd til projekter uden effekt.</p>
+      <p>Vi bygger selv med værktøjerne hver dag, og vi har årelang erfaring med at omsætte teknologi til forretning. Derfor anbefaler vi kun det, vi selv kan stå inde for, og I får en ærlig vurdering, også når svaret er, at I ikke skal købe noget af os.</p>
+      <p>Vi holder af små hold, korte veje fra beslutning til handling, og leverancer man kan pege på, når vi er gået igen.</p>
+    </div>
+    <div class="cta-row" style="margin-top:1.4rem">
+      <a class="btn" href="mailto:ralf@femfemten.com">Skriv til os</a>
+      <span class="quiet">eller ring: <a href="tel:+4521600984">+45 21 60 09 84</a></span>
+    </div>
+  </section>
+
+  <footer>
+    <span>5:15 ApS · CVR 44 63 20 12</span>
+    <span><a href="mailto:ralf@femfemten.com">ralf@femfemten.com</a></span>
+    <span><a href="tel:+4521600984">+45 21 60 09 84</a></span>
+    <span>femfemten.com</span>
+  </footer>
+</div>
+</body>
+</html>

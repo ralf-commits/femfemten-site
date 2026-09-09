@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="AI-workshop på 2½ time hos jer: use cases i drift, jeres forretning på bordet, og en prioriteret plan. Fast pris.">
+<meta name="robots" content="noindex">
+<title>AI der virker</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+  :root {
+    --paper: #F7F5F0;
+    --ink: #1A2E37;
+    --ink-soft: #46595F;
+    --line: #DCD8CD;
+    --accent: #1553B8;
+    --accent-ink: #FFFFFF;
+    --card: #FFFFFF;
+    --amber: #B26A10;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #131D22;
+      --ink: #E8E4DA;
+      --ink-soft: #A3ADA9;
+      --line: #2C3A40;
+      --accent: #6FA1F2;
+      --accent-ink: #0E1B2E;
+      --card: #1B272D;
+      --amber: #E0A24E;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #131D22;
+    --ink: #E8E4DA;
+    --ink-soft: #A3ADA9;
+    --line: #2C3A40;
+    --accent: #6FA1F2;
+    --accent-ink: #0E1B2E;
+    --card: #1B272D;
+    --amber: #E0A24E;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    font-size: 1.06rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+  .wrap {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.4rem 5rem;
+  }
+  h1, h2, h3, .eyebrow, .fact b, .cta a, .step-n {
+    font-family: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  }
+  h1 {
+    font-size: clamp(1.9rem, 5.5vw, 2.9rem);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+    margin: 0.9rem 0 1rem;
+  }
+  h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    margin: 0 0 0.7rem;
+  }
+  p { margin: 0 0 1rem; }
+
+  header { padding-top: 3.2rem; }
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 2px;
+    padding: 0.3rem 0.6rem;
+  }
+  .lede {
+    font-size: 1.16rem;
+    color: var(--ink-soft);
+    max-width: 38rem;
+  }
+
+  .facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    border-block: 1px solid var(--line);
+    margin: 2.2rem 0 2.8rem;
+  }
+  .fact {
+    flex: 1 1 10rem;
+    padding: 0.9rem 1rem 0.9rem 0;
+    border-right: 1px solid var(--line);
+    padding-left: 1rem;
+  }
+  .fact:first-child { padding-left: 0; }
+  .fact:last-child { border-right: none; }
+  .fact b {
+    display: block;
+    font-size: 1.05rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+  }
+  .fact span {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+
+  section { margin-bottom: 2.8rem; }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    counter-reset: step;
+    margin-top: 1.2rem;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 2.6rem 1fr;
+    gap: 0 1rem;
+    padding: 1.1rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .step:last-child { border-bottom: 1px solid var(--line); }
+  .step-n {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--accent);
+    line-height: 1.2;
+    font-variant-numeric: tabular-nums;
+  }
+  .step h3 {
+    margin: 0 0 0.3rem;
+    font-size: 1.02rem;
+    font-weight: 700;
+  }
+  .step p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+  }
+
+  .outcome {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    padding: 1.3rem 1.5rem;
+  }
+  .outcome ul {
+    margin: 0.6rem 0 0;
+    padding-left: 1.2rem;
+  }
+  .outcome li { margin-bottom: 0.4rem; }
+
+  .price-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.6rem;
+    margin-bottom: 0.4rem;
+  }
+  .price {
+    font-family: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    font-size: 2.1rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+  .price small {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--ink-soft);
+  }
+  .fineprint {
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+  }
+
+  .cta {
+    margin-top: 1.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    align-items: center;
+  }
+  .cta a.button {
+    background: var(--accent);
+    color: var(--accent-ink);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.75rem 1.3rem;
+    border-radius: 3px;
+  }
+  .cta a.button:hover { filter: brightness(1.08); }
+  .cta a.button:focus-visible {
+    outline: 2px solid var(--amber);
+    outline-offset: 2px;
+  }
+  .cta .alt {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+  .cta .alt a { color: var(--accent); }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding-top: 1.2rem;
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="eyebrow" id="tilbadge">En invitation</span>
+    <h1 id="headline">AI der virker. Kom konkret i&nbsp;gang.</h1>
+    <p class="lede">De fleste virksomheder er forbi spørgsmålet om, hvorvidt AI er vigtigt. Nu vil de i gang: prøve det af på egen forretning, få erfaring, komme ud over rampen. Men det er svært at vide, hvor man skal starte, og om ens data og systemer overhovedet er klar.</p>
+  </header>
+
+  <div class="facts">
+    <div class="fact"><b>2½ time</b><span>ét møde, ingen forberedelse hos jer</span></div>
+    <div class="fact"><b>Hos jer</b><span>vi kommer ud, hele holdet om bordet</span></div>
+    <div class="fact"><b>18.000 kr.</b><span>fast pris, ekskl. moms</span></div>
+    <div class="fact"><b>Konkret output</b><span>prioriteret liste med jeres bedste cases</span></div>
+  </div>
+
+  <section>
+    <h2>Hvor det typisk strammer</h2>
+    <p>Vores erfaring er, at det oftest er tre steder: <em>data og viden</em>, der sidder fast i gamle systemer. Behov for AI, hvor <em>følsomme data ikke må forlade huset</em>. Og <em>manuelle arbejdsgange</em> som tilbud, mails, dokumenter og opfølgning, hvor en agent kunne tage det tunge løft, hvis tingene var gjort klar.</p>
+  </section>
+
+  <section>
+    <h2>Sådan foregår workshoppen</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <div>
+          <h3>Hvad kan AI i dag, vist med rigtige løsninger</h3>
+          <p>Ikke slides om fremtiden, men use cases vi selv har bygget og som kører i daglig drift: tilbud der lægges klar på minutter, mødenoter der bliver til opgaver, data trukket ud af legacy-systemer.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <div>
+          <h3>Jeres forretning på bordet</h3>
+          <p>Hvor går tiden tabt hos jer? Hvor sidder data fast? Har I forudsætningerne på plads? Vi kortlægger sammen med jeres folk, der kender hverdagen.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <div>
+          <h3>Hvor starter I?</h3>
+          <p>Vi prioriterer mulighederne efter værdi og realisme, så I går fra "vi burde gøre noget med AI" til "vi starter her".</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="outcome">
+      <h2>Det går I hjem med</h2>
+      <p>Efter workshoppen sender vi en kort opsamling:</p>
+      <ul>
+        <li>De 2-3 cases hos jer med størst potentiale, i prioriteret rækkefølge.</li>
+        <li>Vores bud på, hvordan den første kommer i gang, med prisoverslag.</li>
+        <li>En ærlig vurdering af, om jeres data og systemer er klar.</li>
+      </ul>
+      <p style="margin-bottom:0">Om I løber videre med os, selv eller med nogle helt tredje, styrer I.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Eksemplerne og rådene er valgt til jer</h2>
+    <p id="branchelinje">Små virksomheder kommer hurtigt i gang med AI, men får ofte fart uden retning. Store virksomheder har styringen i orden, men planlægger sig til sikkerhed og lærer for lidt undervejs. Kunsten er at ligge imellem: test hurtigt nok til at blive klogere, og styr det godt nok til, at det kan skaleres. Vi har leveret i begge verdener, og workshoppen tilpasses jeres branche, størrelse og virkelighed.</p>
+  </section>
+
+  <section>
+    <h2>Tre spørgsmål, vi ville stille jer først</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">?</div>
+        <div><p>Hvor i forretningen venter kunder på svar, der kunne ligge klar på minutter i stedet for dage?</p></div>
+      </div>
+      <div class="step">
+        <div class="step-n">?</div>
+        <div><p>Hvilke tal og rapporter samler I i hånden hver måned, som burde samle sig selv?</p></div>
+      </div>
+      <div class="step">
+        <div class="step-n">?</div>
+        <div><p>Hvis en AI skulle bruge jeres data i morgen, hvor ville det så gøre ondt først?</p></div>
+      </div>
+    </div>
+    <p style="margin-top:0.9rem" class="fineprint">Vil I høre, hvad vi ville svare? Det er den samtale, workshoppen starter.</p>
+  </section>
+
+  <section>
+    <h2>Hvem er vi?</h2>
+    <p>Et hold med hver vores rolle: nogle af os bygger med AI-værktøjerne hver dag, andre har årelang erfaring med at omsætte teknologi til forretning. Vi har bygget løsninger, der kører i daglig drift, ikke demoer. Vi har automatiseret manuelle processer, gjort porteføljestyring og opfølgning fra ledermøder automatisk, og gjort data og systemer klar til AI, også i store og regulerede organisationer. Baggrunde fra lifescience og finans til salg, ledelse og SMV.</p>
+  </section>
+
+  <section>
+    <h2>Pris og næste skridt</h2>
+    <div class="price-row">
+      <span class="price">18.000 kr. <small>ekskl. moms · fast pris</small></span>
+    </div>
+    <p class="fineprint">2½ times workshop hos jer, forberedelse på jeres branche, og skriftlig opsamling med prioriterede cases. Ingen binding til noget som helst bagefter.</p>
+    <div class="outcome" style="margin-top:1.1rem">
+      <h2 style="font-size:1.05rem">Lige nu: 10.000 kr. mod en times feedback</h2>
+      <p style="margin-bottom:0">Vi er i gang med at skærpe workshoppen og vil gerne have ærlig feedback fra de første kunder. Giver I os en times feedback efter workshoppen, er prisen 10.000 kr. i stedet for 18.000 kr. I sparer 8.000 kr.</p>
+    </div>
+    <div class="cta">
+      <a class="button" href="mailto:ralf@femfemten.com?subject=AI-workshop">Svar, så finder vi en dato</a>
+      <span class="alt">Eller ring til Ralf Nielsen: <a href="tel:+4521600984">+45 21 60 09 84</a></span>
+    </div>
+  </section>
+
+  <footer>
+    <span id="foot">Ralf Nielsen · ralf@femfemten.com · +45 21 60 09 84</span>
+  </footer>
+</div>
+
+<script>
+  (function () {
+    var p = new URLSearchParams(location.search);
+    var til = (p.get('til') || p.get('firma') || '').trim().slice(0, 60);
+    if (til) {
+      var badge = document.getElementById('tilbadge');
+      badge.textContent = 'Forberedt til ' + til;
+      document.getElementById('headline').textContent =
+        'En AI-workshop hos ' + til + '. Konkret, på 2½ time.';
+      document.title = 'AI-workshop · ' + til;
+    }
+    var branche = (p.get('branche') || '').trim().slice(0, 60);
+    if (branche) {
+      var el = document.getElementById('branchelinje');
+      el.textContent =
+        'Vi møder ikke op med et standardoplæg. Inden workshoppen sætter vi os ind i ' +
+        branche + ', og eksemplerne vi viser, er valgt efter, hvor virksomheder som jeres typisk henter mest værdi. Kunsten er at teste hurtigt nok til at blive klogere, og styre det godt nok til, at det kan skaleres. Vi har leveret i begge verdener.';
+    }
+  })();
+</script>
+</body>
+</html>
