@@ -139,6 +139,21 @@
   .workshop .facts div span { font-size: 0.82rem; color: #aebadd; }
   .workshop .facts .deal b { color: #b0cfc9; }
   .workshop .btn { position: relative; z-index: 1; }
+  .workshop .variants {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1rem; margin: 1.3rem 0 1.5rem; position: relative; z-index: 1;
+  }
+  .workshop .variant {
+    background: rgba(209,222,237,0.1); border: 1px solid rgba(209,222,237,0.25);
+    border-radius: 5px; padding: 1.1rem 1.2rem;
+  }
+  .workshop .variant h3 { margin: 0 0 0.4rem; font-size: 1rem; font-weight: 700; color: #ffffff; }
+  .workshop .variant p { margin: 0; font-size: 0.92rem; }
+  .workshop .variant a { color: #b0cfc9; }
+  .workshop .dealnote {
+    margin: 1rem 0 0; font-size: 0.88rem; color: #aebadd;
+    position: relative; z-index: 1;
+  }
 
   /* Services */
   .grid {
@@ -194,24 +209,10 @@
     <h1>Vælg rigtigt. Sæt retning. Få det eksekveret.</h1>
     <p class="lead">Vi hjælper virksomheder med at omsætte strategi, data og AI til noget, der kører i daglig drift. Ikke slides, der samler støv.</p>
     <div class="cta-row">
-      <a class="btn" href="#workshop">Book en AI-workshop</a>
-      <span class="quiet">eller <a href="#ydelser">se, hvad vi laver</a></span>
+      <a class="btn" href="#ydelser">Se, hvad vi hjælper med</a>
+      <span class="quiet">eller <a href="#workshop">start med en workshop</a></span>
     </div>
   </header>
-
-  <section class="section" id="workshop">
-    <div class="workshop">
-      <div class="kicker">Aktuelt tilbud</div>
-      <h2>AI der virker. Kom konkret i gang på 2½ time.</h2>
-      <p>Vi kommer ud til jer, viser use cases vi selv har bygget og har i drift, og lægger jeres forretning på bordet. I går derfra med en prioriteret liste over de 2-3 steder, hvor AI flytter mest hos netop jer. Skriftlig opsamling med prisoverslag følger med. Ingen binding bagefter.</p>
-      <div class="facts">
-        <div><b>2½ time</b><span>hos jer, ingen forberedelse</span></div>
-        <div><b>18.000 kr.</b><span>fast pris, ekskl. moms</span></div>
-        <div class="deal"><b>10.000 kr.</b><span>lige nu, mod en times ærlig feedback</span></div>
-      </div>
-      <a class="btn" href="mailto:ralf@femfemten.com?subject=AI-workshop">Skriv, så finder vi en dato</a>
-    </div>
-  </section>
 
   <section class="section" id="ydelser">
     <h2>Det hjælper vi med</h2>
@@ -257,6 +258,26 @@
           <li>Data der sidder fast i gamle systemer</li>
         </ul>
       </div>
+    </div>
+  </section>
+
+  <section class="section" id="workshop">
+    <div class="workshop">
+      <div class="kicker">Sådan starter et samarbejde typisk</div>
+      <h2>En workshop på 2½ time hos jer</h2>
+      <p>Den letteste måde at finde ud af, om vi kan gøre en forskel hos jer. Vi kommer ud, lægger jeres forretning på bordet, og I går derfra med en prioriteret plan og en skriftlig opsamling. Fast pris 18.000 kr. ekskl. moms, ingen binding bagefter. Vinklen vælger I:</p>
+      <div class="variants">
+        <div class="variant">
+          <h3>Hvor står I?</h3>
+          <p>Afklaring på tværs af strategi, systemer, data og organisation. Hvad er det rette næste skridt for netop jer, med eller uden AI?</p>
+        </div>
+        <div class="variant">
+          <h3>Kom i gang med AI</h3>
+          <p>Konkret og hands-on: use cases i drift, jeres muligheder prioriteret, og en plan for den første løsning. <a href="workshop.html">Læs mere om formatet</a>.</p>
+        </div>
+      </div>
+      <a class="btn" href="mailto:ralf@femfemten.com?subject=Workshop">Skriv, så finder vi en dato</a>
+      <p class="dealnote">Lige nu: 10.000 kr. for de første kunder, mod en times ærlig feedback bagefter.</p>
     </div>
   </section>
 
