@@ -432,5 +432,23 @@
     apply(initial);
   })();
 </script>
+<script>
+  window.goatcounter = {
+    path: function () {
+      var p = new URLSearchParams(location.search);
+      var path = location.pathname;
+      if (p.get('til')) path += '?til=' + p.get('til');
+      return path;
+    }
+  };
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a') : null;
+    if (!a || !window.goatcounter || !window.goatcounter.count) return;
+    var h = a.getAttribute('href') || '';
+    if (h.indexOf('mailto:') === 0) goatcounter.count({ path: 'klik-mail', title: 'Klik: skriv mail', event: true });
+    else if (h.indexOf('tel:') === 0) goatcounter.count({ path: 'klik-ring', title: 'Klik: ring op', event: true });
+  });
+</script>
+<script data-goatcounter="https://femfemten.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
