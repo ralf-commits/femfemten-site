@@ -3,52 +3,44 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Fem Femten hjælper virksomheder med at omsætte strategi, data og AI til daglig drift. Book en AI-workshop på 2½ time.">
+<meta name="description" content="Fem Femten hjælper virksomheder med at sætte retning, komme i gang og skalere det, der virker. Strategi, data og AI omsat til daglig drift.">
 <title>Fem Femten</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&family=Libre+Caslon+Text:ital@1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800;9..40,900&family=Libre+Caslon+Text:ital@0;1&display=swap">
 <style>
   :root {
     --navy: #1b1a4a;
-    --navy-deep: #113e4f;
+    --teal: #113e4f;
     --lightblue: #d1deed;
     --sage: #b0cfc9;
     --orange: #eb4634;
     --paper: #ffffff;
-    --tint: #eef3f9;
+    --tint: #eaf0f8;
     --ink: #1b1a4a;
     --ink-soft: #4c5470;
-    --line: #d9e2ee;
+    --line: #d7dfec;
     --card: #ffffff;
-    --hero-ink: #1b1a4a;
-    --btn-ink: #ffffff;
+    --band-ink: #f4f7fc;
+    --band-soft: #c3cde6;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --paper: #131230;
-      --tint: #1b1a44;
+      --paper: #121129;
+      --tint: #1a1940;
       --ink: #e9edf6;
       --ink-soft: #a9b1c9;
-      --line: #33325e;
-      --card: #201f4e;
-      --navy: #e9edf6;
-      --lightblue: #33518a;
+      --line: #312f60;
+      --card: #1e1d4a;
       --orange: #f0604f;
-      --hero-ink: #e9edf6;
-      --btn-ink: #ffffff;
     }
   }
   :root[data-theme="dark"] {
-    --paper: #131230;
-    --tint: #1b1a44;
+    --paper: #121129;
+    --tint: #1a1940;
     --ink: #e9edf6;
     --ink-soft: #a9b1c9;
-    --line: #33325e;
-    --card: #201f4e;
-    --navy: #e9edf6;
-    --lightblue: #33518a;
+    --line: #312f60;
+    --card: #1e1d4a;
     --orange: #f0604f;
-    --hero-ink: #e9edf6;
-    --btn-ink: #ffffff;
   }
 
   body {
@@ -62,106 +54,87 @@
   .wrap { max-width: 64rem; margin: 0 auto; padding: 0 1.4rem; }
   a { color: inherit; }
 
-  /* Header */
-  .topbar {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.3rem 0;
+  .lines {
+    position: absolute; pointer-events: none;
+    background: repeating-linear-gradient(90deg,
+      rgba(209,222,237,0.3) 0 0.6rem, transparent 0.6rem 2.3rem);
+    transform: rotate(18deg);
   }
-  .wordmark {
-    font-weight: 800; font-size: 1.25rem; letter-spacing: -0.01em;
-    color: var(--navy); text-decoration: none;
-  }
-  .wordmark span { color: var(--orange); }
-  .topbar a.contact {
-    font-weight: 700; font-size: 0.92rem; text-decoration: none;
-    border: 1.5px solid var(--navy); border-radius: 3px;
-    padding: 0.45rem 1rem; color: var(--navy);
-  }
-  .topbar a.contact:hover { background: var(--tint); }
 
-  /* Hero */
-  .hero { padding: 3.5rem 0 3rem; max-width: 46rem; }
-  .kicker {
-    font-size: 0.74rem; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.14em; color: var(--ink-soft); margin-bottom: 1rem;
-  }
-  h1 {
-    font-size: clamp(2rem, 5.5vw, 3.1rem); font-weight: 800;
-    line-height: 1.08; letter-spacing: -0.02em; text-wrap: balance;
-    color: var(--hero-ink); margin: 0 0 1.1rem;
-  }
-  .lead {
-    font-family: "Libre Caslon Text", Georgia, serif; font-style: italic;
-    font-size: 1.18rem; line-height: 1.6; color: var(--ink-soft);
-    max-width: 38rem; margin: 0 0 1.6rem;
-  }
-  .cta-row { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
-  .btn {
-    display: inline-block; background: var(--orange); color: var(--btn-ink);
-    font-weight: 700; font-size: 0.95rem; text-decoration: none;
-    padding: 0.8rem 1.4rem; border-radius: 3px;
-  }
-  .btn:hover { filter: brightness(1.07); }
-  .btn:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
-  .cta-row .quiet { font-size: 0.92rem; color: var(--ink-soft); }
-  .cta-row .quiet a { color: var(--ink); font-weight: 500; }
-
-  h2 {
-    font-size: 1.45rem; font-weight: 800; letter-spacing: -0.015em;
-    text-wrap: balance; margin: 0 0 0.5rem; color: var(--ink);
-  }
-  .section { padding: 2.6rem 0; }
-  .section-intro { color: var(--ink-soft); max-width: 40rem; margin: 0 0 1.6rem; }
-
-  /* Workshop banner */
-  .workshop {
-    background: #1b1a4a; color: #f2f5fb;
-    border-radius: 6px; padding: 2rem 2rem 1.8rem; margin: 1rem 0 0;
+  .heroband {
+    background: #1b1a4a; color: var(--band-ink);
     position: relative; overflow: hidden;
   }
-  .workshop::after {
-    content: ""; position: absolute; right: -1.2rem; top: -2.5rem;
-    width: 11rem; height: 16rem; transform: rotate(18deg);
-    background: repeating-linear-gradient(90deg, rgba(209,222,237,0.28) 0 0.55rem, transparent 0.55rem 2.1rem);
-    pointer-events: none;
+  .heroband .lines { right: -3rem; top: -6rem; width: 20rem; height: 34rem; }
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; padding: 1.4rem 0; position: relative; z-index: 1;
   }
-  .workshop .kicker { color: #b0cfc9; }
-  .workshop h2 { color: #ffffff; max-width: 30rem; position: relative; z-index: 1; }
-  .workshop p { color: #ccd6ea; max-width: 34rem; position: relative; z-index: 1; }
-  .workshop .facts {
-    display: flex; flex-wrap: wrap; gap: 1.8rem; margin: 1.3rem 0 1.5rem;
-    position: relative; z-index: 1;
+  .wordmark {
+    font-weight: 900; font-size: 1.3rem; letter-spacing: -0.01em;
+    color: #ffffff; text-decoration: none;
   }
-  .workshop .facts div b {
-    display: block; font-size: 1.15rem; font-weight: 800; color: #ffffff;
-    font-variant-numeric: tabular-nums;
+  .wordmark span { color: var(--orange); }
+  .topnav { display: flex; align-items: center; gap: 0.8rem; }
+  .topbar a.contact {
+    font-weight: 700; font-size: 0.92rem; text-decoration: none;
+    border: 1.5px solid #d1deed; border-radius: 3px;
+    padding: 0.45rem 1rem; color: #d1deed;
   }
-  .workshop .facts div span { font-size: 0.82rem; color: #aebadd; }
-  .workshop .facts .deal b { color: #b0cfc9; }
-  .workshop .btn { position: relative; z-index: 1; }
-  .workshop .variants {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    gap: 1rem; margin: 1.3rem 0 1.5rem; position: relative; z-index: 1;
+  .topbar a.contact:hover { background: rgba(209,222,237,0.12); }
+  .langswitch {
+    background: none; border: none; cursor: pointer;
+    font-family: inherit; font-weight: 700; font-size: 0.92rem;
+    color: #aebadd; padding: 0.45rem 0.5rem; letter-spacing: 0.04em;
   }
-  .workshop .variant {
-    background: rgba(209,222,237,0.1); border: 1px solid rgba(209,222,237,0.25);
-    border-radius: 5px; padding: 1.1rem 1.2rem;
+  .langswitch:hover { color: #ffffff; }
+  .langswitch:focus-visible { outline: 2px solid #d1deed; outline-offset: 2px; }
+
+  .hero { padding: 4.5rem 0 4.5rem; max-width: 46rem; position: relative; z-index: 1; }
+  .kicker {
+    font-size: 0.74rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.16em; margin-bottom: 1.1rem; color: var(--sage);
   }
-  .workshop .variant h3 { margin: 0 0 0.4rem; font-size: 1rem; font-weight: 700; color: #ffffff; }
-  .workshop .variant p { margin: 0; font-size: 0.92rem; }
-  .workshop .variant a { color: #b0cfc9; }
-  .workshop .dealnote {
-    margin: 1rem 0 0; font-size: 0.88rem; color: #aebadd;
-    position: relative; z-index: 1;
+  .heroband h1 {
+    font-size: clamp(2.2rem, 6vw, 3.6rem); font-weight: 900;
+    line-height: 1.05; letter-spacing: -0.02em; text-wrap: balance;
+    color: #ffffff; margin: 0 0 1.2rem;
+  }
+  .heroband h1 em { font-style: normal; color: #d1deed; }
+  .lead {
+    font-family: "Libre Caslon Text", Georgia, serif; font-style: italic;
+    font-size: 1.2rem; line-height: 1.6; color: var(--band-soft);
+    max-width: 36rem; margin: 0 0 2rem;
+  }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+  .btn {
+    display: inline-block; background: var(--orange); color: #ffffff;
+    font-weight: 700; font-size: 0.95rem; text-decoration: none;
+    padding: 0.85rem 1.5rem; border-radius: 3px;
+  }
+  .btn:hover { filter: brightness(1.07); }
+  .btn:focus-visible { outline: 2px solid #d1deed; outline-offset: 2px; }
+  .cta-row .quiet { font-size: 0.92rem; color: var(--band-soft); }
+  .cta-row .quiet a { color: #d1deed; }
+
+  h2 {
+    font-size: 1.55rem; font-weight: 800; letter-spacing: -0.015em;
+    text-wrap: balance; margin: 0 0 0.5rem; color: var(--ink);
+  }
+  .section { padding: 3.2rem 0; }
+  .section-intro { color: var(--ink-soft); max-width: 40rem; margin: 0 0 1.8rem; }
+  .section-kicker {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.16em; color: var(--orange); margin-bottom: 0.6rem;
   }
 
-  /* Services */
   .grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     gap: 1.1rem;
   }
   .svc {
-    background: var(--card); border: 1px solid var(--line); border-radius: 6px;
+    background: var(--card); border: 1px solid var(--line);
+    border-top: 3px solid var(--navy); border-radius: 0 0 6px 6px;
     padding: 1.4rem 1.5rem 1.3rem;
   }
   .svc h3 { margin: 0 0 0.45rem; font-size: 1.05rem; font-weight: 700; }
@@ -174,142 +147,324 @@
     color: var(--orange); margin-bottom: 0.6rem;
   }
 
-  /* References */
-  .refs { background: var(--tint); border-radius: 6px; padding: 1.8rem 2rem; }
-  .refs .logos {
-    display: flex; flex-wrap: wrap; gap: 0.6rem 2rem; margin-top: 0.9rem;
-    font-weight: 700; font-size: 1rem; color: var(--ink);
+  .workshop {
+    background: #1b1a4a; color: #ccd6ea;
+    border-radius: 6px; padding: 2.2rem 2.2rem 2rem; margin: 1rem 0 0;
+    position: relative; overflow: hidden;
   }
-  .refs p { color: var(--ink-soft); margin: 0; max-width: 42rem; }
+  .workshop .lines { right: -2rem; top: -3rem; width: 12rem; height: 20rem; }
+  .workshop .kicker { color: var(--sage); }
+  .workshop h2 { color: #ffffff; max-width: 32rem; position: relative; z-index: 1; }
+  .workshop > p { max-width: 36rem; position: relative; z-index: 1; }
+  .variants {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1rem; margin: 1.4rem 0 1.6rem; position: relative; z-index: 1;
+  }
+  .variant {
+    background: rgba(209,222,237,0.09); border: 1px solid rgba(209,222,237,0.28);
+    border-radius: 5px; padding: 1.15rem 1.25rem;
+  }
+  .variant h3 { margin: 0 0 0.4rem; font-size: 1rem; font-weight: 700; color: #ffffff; }
+  .variant p { margin: 0; font-size: 0.92rem; }
+  .variant a { color: var(--sage); }
+  .workshop .btn { position: relative; z-index: 1; }
+  .dealnote {
+    margin: 1.1rem 0 0; font-size: 0.88rem; color: #aebadd;
+    position: relative; z-index: 1;
+  }
 
-  /* Story */
-  .story { max-width: 42rem; border-left: 3px solid var(--orange); padding-left: 1.4rem; }
+  /* Erfaring: lyseblåt bånd, to verdener */
+  .refsband { background: #d1deed; color: #1b1a4a; }
+  .refsband .section { padding: 2.8rem 0; }
+  .refsband h2 { color: #1b1a4a; }
+  .worlds {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+    gap: 1.2rem; margin-top: 1.4rem;
+  }
+  .world {
+    background: rgba(255,255,255,0.55); border-left: 3px solid #1b1a4a;
+    border-radius: 0 5px 5px 0; padding: 1.2rem 1.4rem;
+  }
+  .world h3 { margin: 0 0 0.3rem; font-size: 1.02rem; font-weight: 800; color: #1b1a4a; }
+  .world p { margin: 0 0 0.6rem; font-size: 0.92rem; color: #3c486e; }
+  .world .names { font-weight: 800; font-size: 0.98rem; color: #1b1a4a; }
+
+  .story { max-width: 42rem; border-left: 3px solid var(--orange); padding-left: 1.5rem; }
   .story p { margin: 0 0 0.9rem; color: var(--ink-soft); }
-  .story p:first-child {
-    font-family: "Libre Caslon Text", Georgia, serif; font-style: italic;
-    font-size: 1.08rem; color: var(--ink);
-  }
+  .story p:first-child { color: var(--ink); font-weight: 500; }
 
-  footer {
-    border-top: 1px solid var(--line); margin-top: 2.5rem;
-    padding: 1.6rem 0 2.4rem; font-size: 0.85rem; color: var(--ink-soft);
-    display: flex; flex-wrap: wrap; gap: 0.4rem 1.6rem;
+  .footband {
+    background: #1b1a4a; color: #aebadd; position: relative; overflow: hidden;
+    margin-top: 2rem;
   }
+  .footband .lines { left: -4rem; bottom: -8rem; width: 14rem; height: 24rem; }
+  .footband footer {
+    padding: 2rem 0 2.4rem; font-size: 0.88rem;
+    display: flex; flex-wrap: wrap; gap: 0.4rem 1.8rem;
+    position: relative; z-index: 1;
+  }
+  .footband a { color: #d1deed; }
 </style>
 </head>
 <body>
+<div class="heroband">
+  <div class="lines"></div>
+  <div class="wrap">
+    <nav class="topbar">
+      <a class="wordmark" href="#">Fem Femten<span>.</span></a>
+      <div class="topnav">
+        <button class="langswitch" id="langswitch" type="button" aria-label="Switch language">EN</button>
+        <a class="contact" href="mailto:hello@femfemten.com" data-i18n="contact">Kontakt</a>
+      </div>
+    </nav>
+    <header class="hero">
+      <div class="kicker" data-i18n="kicker">Strategi · Data &amp; AI · Eksekvering</div>
+      <h1 data-i18n="h1">Sæt retning. Kom i gang. <em>Skalér det, der virker.</em></h1>
+      <p class="lead" data-i18n="lead">Man vælger ikke rigtigt på et whiteboard. Man tager et kvalificeret valg, kommer i gang og bliver klogere i virkeligheden. Vi hjælper med begge dele.</p>
+      <div class="cta-row">
+        <a class="btn" href="#ydelser" data-i18n="cta1">Se, hvad vi hjælper med</a>
+        <span class="quiet" data-i18n="cta2">eller <a href="#workshop">start med en workshop</a></span>
+      </div>
+    </header>
+  </div>
+</div>
+
 <div class="wrap">
-  <nav class="topbar">
-    <a class="wordmark" href="#">Fem Femten<span>.</span></a>
-    <a class="contact" href="mailto:ralf@femfemten.com">Kontakt</a>
-  </nav>
-
-  <header class="hero">
-    <div class="kicker">5:15 · Rådgivere med hænderne i maskinen · København</div>
-    <h1>Vælg rigtigt. Sæt retning. Få det eksekveret.</h1>
-    <p class="lead">Vi hjælper virksomheder med at omsætte strategi, data og AI til noget, der kører i daglig drift. Ikke slides, der samler støv.</p>
-    <div class="cta-row">
-      <a class="btn" href="#ydelser">Se, hvad vi hjælper med</a>
-      <span class="quiet">eller <a href="#workshop">start med en workshop</a></span>
-    </div>
-  </header>
-
   <section class="section" id="ydelser">
-    <h2>Det hjælper vi med</h2>
-    <p class="section-intro">Konkrete leverancer, man kan købe. Ikke abstrakt ledelsesrådgivning. Kernen er den samme hele vejen: vælg rigtigt, sæt retning, og få det eksekveret.</p>
+    <div class="section-kicker" data-i18n="svcKicker">Ydelser</div>
+    <h2 data-i18n="svcH2">Det hjælper vi med</h2>
+    <p class="section-intro" data-i18n="svcIntro">Konkrete leverancer med et tydeligt output. Kernen er den samme hele vejen: tag et kvalificeret valg, kom i gang, og skalér det, der virker.</p>
     <div class="grid">
       <div class="svc">
-        <span class="tag">Data &amp; AI</span>
-        <h3>Fra AI-ambition til drift</h3>
-        <p>Hvor giver AI mening hos jer, hvad skal være på plads først, og hvordan kommer den første løsning i drift?</p>
+        <span class="tag" data-i18n="s1tag">Data &amp; AI</span>
+        <h3 data-i18n="s1h">Fra AI-ambition til drift</h3>
+        <p data-i18n="s1p">Hvor giver AI mening hos jer, hvad skal være på plads først, og hvordan kommer den første løsning i drift?</p>
         <ul>
-          <li>AI-readiness og use case-prioritering</li>
-          <li>Datafundament og governance</li>
-          <li>Automatisering af manuelle arbejdsgange</li>
+          <li data-i18n="s1a">AI-readiness og use case-prioritering</li>
+          <li data-i18n="s1b">Datafundament og governance</li>
+          <li data-i18n="s1c">Automatisering af manuelle arbejdsgange</li>
         </ul>
       </div>
       <div class="svc">
-        <span class="tag">Strategi → eksekvering</span>
-        <h3>Fra beslutning til fremdrift</h3>
-        <p>Når alt føles vigtigt, og strategien ikke bliver til handling, hjælper vi med at prioritere og holde tempo.</p>
+        <span class="tag" data-i18n="s2tag">Strategi → eksekvering</span>
+        <h3 data-i18n="s2h">Fra beslutning til fremdrift</h3>
+        <p data-i18n="s2p">Når alt føles vigtigt, og strategien ikke bliver til handling, hjælper vi med at prioritere og holde tempo.</p>
         <ul>
-          <li>Porteføljeprioritering</li>
-          <li>Strategieksekvering og roadmaps</li>
-          <li>PMO og transformationsstyring</li>
+          <li data-i18n="s2a">Porteføljeprioritering</li>
+          <li data-i18n="s2b">Strategieksekvering og roadmaps</li>
+          <li data-i18n="s2c">PMO og transformationsstyring</li>
         </ul>
       </div>
       <div class="svc">
-        <span class="tag">Ledelsesrådgivning</span>
-        <h3>Sparring, når beslutningerne er svære</h3>
-        <p>Tæt sparring med ledelsen om retning, prioritering og de beslutninger, der ikke kan uddelegeres.</p>
+        <span class="tag" data-i18n="s3tag">Ledelsesrådgivning</span>
+        <h3 data-i18n="s3h">Sparring, når beslutningerne er svære</h3>
+        <p data-i18n="s3p">Tæt sparring med ledelsen om retning, prioritering og de beslutninger, der ikke kan uddelegeres.</p>
         <ul>
-          <li>Strategisk ledelsessparring</li>
-          <li>Beslutnings- og governancemodel</li>
-          <li>Operating model, roller og ansvar</li>
+          <li data-i18n="s3a">Strategisk ledelsessparring</li>
+          <li data-i18n="s3b">Beslutnings- og governancemodel</li>
+          <li data-i18n="s3c">Operating model, roller og ansvar</li>
         </ul>
       </div>
       <div class="svc">
-        <span class="tag">IT-forenkling</span>
-        <h3>Færre systemer, mindre friktion</h3>
-        <p>Overblik over applikationslandskabet og en realistisk vej fra legacy til et landskab, der kan udvikles på.</p>
+        <span class="tag" data-i18n="s4tag">IT-forenkling</span>
+        <h3 data-i18n="s4h">Færre systemer, mindre friktion</h3>
+        <p data-i18n="s4p">Overblik over applikationslandskabet og en realistisk vej fra legacy til et landskab, der kan udvikles på.</p>
         <ul>
-          <li>Applikationsportefølje og konsolidering</li>
-          <li>Legacy-modernisering og målbillede</li>
-          <li>Data der sidder fast i gamle systemer</li>
+          <li data-i18n="s4a">Applikationsportefølje og konsolidering</li>
+          <li data-i18n="s4b">Legacy-modernisering og målbillede</li>
+          <li data-i18n="s4c">Data der sidder fast i gamle systemer</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section class="section" id="workshop">
+  <section class="section" id="workshop" style="padding-top:0">
     <div class="workshop">
-      <div class="kicker">Sådan starter et samarbejde typisk</div>
-      <h2>En workshop på 2½ time hos jer</h2>
-      <p>Den letteste måde at finde ud af, om vi kan gøre en forskel hos jer. Vi kommer ud, lægger jeres forretning på bordet, og I går derfra med en prioriteret plan og en skriftlig opsamling. Fast pris 18.000 kr. ekskl. moms, ingen binding bagefter. Vinklen vælger I:</p>
+      <div class="lines"></div>
+      <div class="kicker" data-i18n="wKicker">Sådan starter et samarbejde typisk</div>
+      <h2 data-i18n="wH2">En workshop på 2½ time hos jer</h2>
+      <p data-i18n="wP">Den letteste måde at finde ud af, om vi kan gøre en forskel hos jer. Vi kommer ud, lægger jeres forretning på bordet, og I går derfra med en prioriteret plan og en skriftlig opsamling. Fast pris 18.000 kr. ekskl. moms, ingen binding bagefter. Vi har bedst erfaring med to tilgange:</p>
       <div class="variants">
         <div class="variant">
-          <h3>Hvor står I?</h3>
-          <p>Afklaring på tværs af strategi, systemer, data og organisation. Hvad er det rette næste skridt for netop jer, med eller uden AI?</p>
+          <h3 data-i18n="v1h">Hvor står I?</h3>
+          <p data-i18n="v1p">Afklaring på tværs af strategi, systemer, data og organisation. Hvad er det rette næste skridt for netop jer, med eller uden AI?</p>
         </div>
         <div class="variant">
-          <h3>Kom i gang med AI</h3>
-          <p>Konkret og hands-on: use cases i drift, jeres muligheder prioriteret, og en plan for den første løsning. <a href="workshop.html">Læs mere om formatet</a>.</p>
+          <h3 data-i18n="v2h">Kom i gang med AI</h3>
+          <p data-i18n="v2p">Konkret og hands-on: use cases i drift, jeres muligheder prioriteret, og en plan for den første løsning. <a href="workshop.html">Læs mere om formatet</a>.</p>
         </div>
       </div>
-      <a class="btn" href="mailto:ralf@femfemten.com?subject=Workshop">Skriv, så finder vi en dato</a>
-      <p class="dealnote">Lige nu: 10.000 kr. for de første kunder, mod en times ærlig feedback bagefter.</p>
+      <a class="btn" href="mailto:hello@femfemten.com?subject=Workshop" data-i18n="wBtn">Skriv, så finder vi en dato</a>
+      <p class="dealnote" data-i18n="wDeal">Lige nu: 10.000 kr. for de første kunder, mod en times ærlig feedback bagefter.</p>
     </div>
   </section>
-
-  <section class="section">
-    <div class="refs">
-      <h2>Vi har leveret hos</h2>
-      <p>Fra store, regulerede organisationer til ejerledede virksomheder. Som ledere, konsulenter og bygherrer.</p>
-      <div class="logos">
-        <span>Novo Nordisk</span><span>PFA</span><span>DS Norden</span><span>VetNet</span><span>Copenhagen Merch</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="kontakt">
-    <h2>Hvem er vi</h2>
-    <div class="story">
-      <p>Fem Femten er bygget på en simpel holdning: rådgivning er først noget værd, når den bliver til noget. Vi har siddet på begge sider af bordet. Som ledere i store, regulerede organisationer, hvor styring og dokumentation ikke er til forhandling, og som selvstændige i små virksomheder, hvor der ikke er råd til projekter uden effekt.</p>
-      <p>Vi bygger selv med værktøjerne hver dag, og vi har årelang erfaring med at omsætte teknologi til forretning. Derfor anbefaler vi kun det, vi selv kan stå inde for, og I får en ærlig vurdering, også når svaret er, at I ikke skal købe noget af os.</p>
-      <p>Vi holder af små hold, korte veje fra beslutning til handling, og leverancer man kan pege på, når vi er gået igen.</p>
-    </div>
-    <div class="cta-row" style="margin-top:1.4rem">
-      <a class="btn" href="mailto:ralf@femfemten.com">Skriv til os</a>
-      <span class="quiet">eller ring: <a href="tel:+4521600984">+45 21 60 09 84</a></span>
-    </div>
-  </section>
-
-  <footer>
-    <span>5:15 ApS · CVR 44 63 20 12</span>
-    <span><a href="mailto:ralf@femfemten.com">ralf@femfemten.com</a></span>
-    <span><a href="tel:+4521600984">+45 21 60 09 84</a></span>
-    <span>femfemten.com</span>
-  </footer>
 </div>
+
+<div class="refsband">
+  <div class="wrap">
+    <section class="section">
+      <h2 data-i18n="rH2">Erfaring fra både de største og de helt små</h2>
+      <div class="worlds">
+        <div class="world">
+          <h3 data-i18n="r1h">De største</h3>
+          <p data-i18n="r1p">Lifescience, finans og shipping, hvor styring, dokumentation og skala ikke er til forhandling.</p>
+        </div>
+        <div class="world">
+          <h3 data-i18n="r2h">De helt små</h3>
+          <p data-i18n="r2p">Ejerledede virksomheder, hvor hver time skal skabe værdi, og løsningerne skal virke fra dag ét.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="section" id="kontakt">
+    <div class="section-kicker" data-i18n="aKicker">Hvem er vi</div>
+    <h2 data-i18n="aH2">Rådgivning, der bliver til noget</h2>
+    <div class="story">
+      <p data-i18n="aP1">Rådgivning er først noget værd, når den bliver til noget. Vi har siddet på begge sider af bordet: som ledere i store, regulerede organisationer, og som selvstændige i små virksomheder, hvor der ikke er råd til projekter uden effekt.</p>
+      <p data-i18n="aP2">Vi har stor erfaring i at få forretning og teknologi til at understøtte hinanden: at omsætte behov til systemer, der faktisk bliver brugt, og teknologi til resultater, der kan måles. Og vi bygger selv med værktøjerne hver dag. Derfor anbefaler vi kun det, vi selv kan stå inde for, og I får en ærlig vurdering, også når svaret er, at I ikke skal købe noget af os.</p>
+      <p data-i18n="aP3">Vi holder af små hold, korte veje fra beslutning til handling, og leverancer man kan pege på, når vi er gået igen.</p>
+    </div>
+    <div class="cta-row" style="margin-top:1.6rem">
+      <a class="btn" href="mailto:hello@femfemten.com" data-i18n="cBtn">Skriv til os</a>
+      <span class="quiet" style="color:var(--ink-soft)" data-i18n="cAlt">eller ring: <a href="tel:+4521600984" style="color:var(--ink)">+45 21 60 09 84</a></span>
+    </div>
+  </section>
+</div>
+
+<div class="footband">
+  <div class="lines"></div>
+  <div class="wrap">
+    <footer>
+      <span>5:15 ApS · CVR 44 63 20 12</span>
+      <span><a href="mailto:hello@femfemten.com">hello@femfemten.com</a></span>
+      <span><a href="tel:+4521600984">+45 21 60 09 84</a></span>
+      <span>femfemten.com</span>
+    </footer>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var t = {
+      da: {
+        contact: 'Kontakt',
+        kicker: 'Strategi · Data &amp; AI · Eksekvering',
+        h1: 'Sæt retning. Kom i gang. <em>Skalér det, der virker.</em>',
+        lead: 'Man vælger ikke rigtigt på et whiteboard. Man tager et kvalificeret valg, kommer i gang og bliver klogere i virkeligheden. Vi hjælper med begge dele.',
+        cta1: 'Se, hvad vi hjælper med',
+        cta2: 'eller <a href="#workshop">start med en workshop</a>',
+        svcKicker: 'Ydelser',
+        svcH2: 'Det hjælper vi med',
+        svcIntro: 'Konkrete leverancer med et tydeligt output. Kernen er den samme hele vejen: tag et kvalificeret valg, kom i gang, og skalér det, der virker.',
+        s1tag: 'Data &amp; AI', s1h: 'Fra AI-ambition til drift',
+        s1p: 'Hvor giver AI mening hos jer, hvad skal være på plads først, og hvordan kommer den første løsning i drift?',
+        s1a: 'AI-readiness og use case-prioritering', s1b: 'Datafundament og governance', s1c: 'Automatisering af manuelle arbejdsgange',
+        s2tag: 'Strategi → eksekvering', s2h: 'Fra beslutning til fremdrift',
+        s2p: 'Når alt føles vigtigt, og strategien ikke bliver til handling, hjælper vi med at prioritere og holde tempo.',
+        s2a: 'Porteføljeprioritering', s2b: 'Strategieksekvering og roadmaps', s2c: 'PMO og transformationsstyring',
+        s3tag: 'Ledelsesrådgivning', s3h: 'Sparring, når beslutningerne er svære',
+        s3p: 'Tæt sparring med ledelsen om retning, prioritering og de beslutninger, der ikke kan uddelegeres.',
+        s3a: 'Strategisk ledelsessparring', s3b: 'Beslutnings- og governancemodel', s3c: 'Operating model, roller og ansvar',
+        s4tag: 'IT-forenkling', s4h: 'Færre systemer, mindre friktion',
+        s4p: 'Overblik over applikationslandskabet og en realistisk vej fra legacy til et landskab, der kan udvikles på.',
+        s4a: 'Applikationsportefølje og konsolidering', s4b: 'Legacy-modernisering og målbillede', s4c: 'Data der sidder fast i gamle systemer',
+        wKicker: 'Sådan starter et samarbejde typisk',
+        wH2: 'En workshop på 2½ time hos jer',
+        wP: 'Den letteste måde at finde ud af, om vi kan gøre en forskel hos jer. Vi kommer ud, lægger jeres forretning på bordet, og I går derfra med en prioriteret plan og en skriftlig opsamling. Fast pris 18.000 kr. ekskl. moms, ingen binding bagefter. Vi har bedst erfaring med to tilgange:',
+        v1h: 'Hvor står I?',
+        v1p: 'Afklaring på tværs af strategi, systemer, data og organisation. Hvad er det rette næste skridt for netop jer, med eller uden AI?',
+        v2h: 'Kom i gang med AI',
+        v2p: 'Konkret og hands-on: use cases i drift, jeres muligheder prioriteret, og en plan for den første løsning. <a href="workshop.html">Læs mere om formatet</a>.',
+        wBtn: 'Skriv, så finder vi en dato',
+        wDeal: 'Lige nu: 10.000 kr. for de første kunder, mod en times ærlig feedback bagefter.',
+        rH2: 'Erfaring fra både de største og de helt små',
+        r1h: 'De største',
+        r1p: 'Lifescience, finans og shipping, hvor styring, dokumentation og skala ikke er til forhandling.',
+        r2h: 'De helt små',
+        r2p: 'Ejerledede virksomheder, hvor hver time skal skabe værdi, og løsningerne skal virke fra dag ét.',
+        aKicker: 'Hvem er vi',
+        aH2: 'Rådgivning, der bliver til noget',
+        aP1: 'Rådgivning er først noget værd, når den bliver til noget. Vi har siddet på begge sider af bordet: som ledere i store, regulerede organisationer, og som selvstændige i små virksomheder, hvor der ikke er råd til projekter uden effekt.',
+        aP2: 'Vi har stor erfaring i at få forretning og teknologi til at understøtte hinanden: at omsætte behov til systemer, der faktisk bliver brugt, og teknologi til resultater, der kan måles. Og vi bygger selv med værktøjerne hver dag. Derfor anbefaler vi kun det, vi selv kan stå inde for, og I får en ærlig vurdering, også når svaret er, at I ikke skal købe noget af os.',
+        aP3: 'Vi holder af små hold, korte veje fra beslutning til handling, og leverancer man kan pege på, når vi er gået igen.',
+        cBtn: 'Skriv til os',
+        cAlt: 'eller ring: <a href="tel:+4521600984" style="color:var(--ink)">+45 21 60 09 84</a>'
+      },
+      en: {
+        contact: 'Contact',
+        kicker: 'Strategy · Data &amp; AI · Execution',
+        h1: 'Set the course. Get moving. <em>Scale what works.</em>',
+        lead: 'The right call isn’t made on a whiteboard. You make an informed choice, get moving, and learn from reality. We help with both.',
+        cta1: 'What we do',
+        cta2: 'or <a href="#workshop">start with a workshop</a>',
+        svcKicker: 'Services',
+        svcH2: 'What we do',
+        svcIntro: 'Well-defined engagements with a clear outcome. The thread running through all of it: make an informed choice, get moving, and scale what works.',
+        s1tag: 'Data &amp; AI', s1h: 'From ambition to production',
+        s1p: 'Where AI genuinely fits your business, what has to be in place first, and how the first solution makes it into everyday use.',
+        s1a: 'AI readiness and use-case prioritisation', s1b: 'Data foundations and governance', s1c: 'Automating manual workflows',
+        s2tag: 'Strategy → execution', s2h: 'From decisions to momentum',
+        s2p: 'When everything feels urgent and strategy stalls on its way to action, we help you prioritise and keep up the pace.',
+        s2a: 'Portfolio prioritisation', s2b: 'Strategy execution and roadmaps', s2c: 'PMO and transformation management',
+        s3tag: 'Leadership advisory', s3h: 'Sparring for the hard calls',
+        s3p: 'Close sparring with leadership on direction, priorities and the decisions only you can make.',
+        s3a: 'Strategic sparring for leaders', s3b: 'Decision-making and governance', s3c: 'Operating model, roles and accountability',
+        s4tag: 'IT simplification', s4h: 'Fewer systems, less drag',
+        s4p: 'A clear view of your application landscape and a realistic route from legacy to a platform you can build on.',
+        s4a: 'Application portfolio and consolidation', s4b: 'Legacy modernisation and target architecture', s4c: 'Unlocking data stuck in old systems',
+        wKicker: 'How most engagements begin',
+        wH2: 'A 2½-hour workshop at your offices',
+        wP: 'The quickest way to find out whether we can move the needle for you. We come to you, put your business on the table, and you leave with a prioritised plan and a written summary. Fixed fee of DKK 18,000 ex. VAT, no strings attached. Two approaches have served our clients best:',
+        v1h: 'Where do you stand?',
+        v1p: 'A clear-eyed look across strategy, systems, data and organisation. What is genuinely the right next move for you, with or without AI?',
+        v2h: 'Getting started with AI',
+        v2p: 'Hands-on and specific: solutions running in production today, your opportunities ranked, and a plan for shipping the first one. <a href="workshop.html">More about the format</a>.',
+        wBtn: 'Get in touch and we’ll find a date',
+        wDeal: 'Right now: DKK 10,000 for our first clients, in exchange for an hour of honest feedback.',
+        rH2: 'At home with the very largest and the very smallest',
+        r1h: 'The largest',
+        r1p: 'Life science, finance and shipping, where governance, documentation and scale are non-negotiable.',
+        r2h: 'The smallest',
+        r2p: 'Owner-led companies where every hour has to count and solutions must work from day one.',
+        aKicker: 'Who we are',
+        aH2: 'Advice that gets built',
+        aP1: 'Advice only counts once something exists because of it. We’ve sat on both sides of the table: leading in large, regulated organisations, and running small companies with no room for projects that don’t deliver.',
+        aP2: 'Much of our work is about making business and technology pull in the same direction: turning needs into systems people actually use, and technology into results you can measure. We build with these tools ourselves, every day, so we only recommend what we’d stake our own name on. And you’ll get a straight answer, even when it’s that you shouldn’t buy anything from us.',
+        aP3: 'We believe in small teams, short distances from decision to action, and work you can point to after we’re gone.',
+        cBtn: 'Write to us',
+        cAlt: 'or call: <a href="tel:+4521600984" style="color:var(--ink)">+45 21 60 09 84</a>'
+      }
+    };
+
+    var current = 'da';
+    function setLang(lang) {
+      if (!t[lang]) return;
+      current = lang;
+      document.documentElement.lang = lang;
+      var dict = t[lang];
+      var els = document.querySelectorAll('[data-i18n]');
+      for (var i = 0; i < els.length; i++) {
+        var key = els[i].getAttribute('data-i18n');
+        if (dict[key]) els[i].innerHTML = dict[key];
+      }
+      document.getElementById('langswitch').textContent = lang === 'da' ? 'EN' : 'DA';
+      try { localStorage.setItem('lang', lang); } catch (e) {}
+    }
+
+    document.getElementById('langswitch').addEventListener('click', function () {
+      setLang(current === 'da' ? 'en' : 'da');
+    });
+
+    var initial = 'da';
+    var qp = new URLSearchParams(location.search).get('lang');
+    if (qp === 'en' || qp === 'da') { initial = qp; }
+    else { try { var s = localStorage.getItem('lang'); if (s === 'en' || s === 'da') initial = s; } catch (e) {} }
+    if (initial !== 'da') setLang(initial);
+  })();
+</script>
+
 </body>
 </html>
