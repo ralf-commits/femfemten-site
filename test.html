@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Hvor AI-parate er I? 9 konkrete spørgsmål om data, arbejdsgange og beslutninger. Ærligt resultat med det samme, ingen mail påkrævet.">
+<title>Hvor AI-parate er I?</title>
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800;9..40,900&family=Libre+Caslon+Text:ital@1&display=swap">
+<style>
+  :root {
+    --navy: #1b1a4a;
+    --lightblue: #d1deed;
+    --sage: #b0cfc9;
+    --orange: #eb4634;
+    --paper: #ffffff;
+    --ink: #1b1a4a;
+    --ink-soft: #4c5470;
+    --line: #d7dfec;
+    --card: #f4f7fc;
+    --band-soft: #c3cde6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #121129;
+      --ink: #e9edf6;
+      --ink-soft: #a9b1c9;
+      --line: #312f60;
+      --card: #1e1d4a;
+      --orange: #f0604f;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #121129;
+    --ink: #e9edf6;
+    --ink-soft: #a9b1c9;
+    --line: #312f60;
+    --card: #1e1d4a;
+    --orange: #f0604f;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.02rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .wrap { max-width: 44rem; margin: 0 auto; padding: 0 1.4rem; }
+  a { color: inherit; }
+
+  .lines {
+    position: absolute; pointer-events: none;
+    background: repeating-linear-gradient(90deg,
+      rgba(209,222,237,0.3) 0 0.6rem, transparent 0.6rem 2.3rem);
+    transform: rotate(18deg);
+  }
+  .heroband {
+    background: #1b1a4a; color: #f4f7fc;
+    position: relative; overflow: hidden;
+  }
+  .heroband .lines { right: -3rem; top: -5rem; width: 14rem; height: 24rem; }
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 0; position: relative; z-index: 1;
+  }
+  .wordmark { display: inline-flex; align-items: center; }
+  .wordmark img { height: 2.3rem; width: auto; display: block; filter: brightness(0) invert(1); }
+  .hero { padding: 3rem 0 3.2rem; position: relative; z-index: 1; }
+  .eyebrow {
+    display: inline-block; font-size: 0.72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.15em;
+    color: var(--sage); border: 1px solid var(--sage);
+    border-radius: 2px; padding: 0.32rem 0.65rem; margin-bottom: 1.1rem;
+  }
+  .heroband h1 {
+    font-size: clamp(1.9rem, 5.5vw, 2.8rem); font-weight: 900;
+    line-height: 1.08; letter-spacing: -0.018em; text-wrap: balance;
+    color: #ffffff; margin: 0 0 1rem;
+  }
+  .lede {
+    font-family: "Libre Caslon Text", Georgia, serif; font-style: italic;
+    font-size: 1.1rem; color: #c3cde6; max-width: 36rem; margin: 0;
+  }
+
+  .quiz { padding: 2.4rem 0 1rem; }
+  .q { margin-bottom: 2rem; }
+  .q h2 {
+    font-size: 1.05rem; font-weight: 700; margin: 0 0 0.7rem;
+    letter-spacing: -0.005em;
+  }
+  .q h2 .n { color: var(--orange); font-weight: 900; margin-right: 0.4rem; }
+  .opts { display: flex; flex-direction: column; gap: 0.5rem; }
+  .opt {
+    display: flex; align-items: flex-start; gap: 0.7rem;
+    border: 1px solid var(--line); border-radius: 5px;
+    padding: 0.75rem 1rem; cursor: pointer; background: var(--card);
+    font-size: 0.96rem;
+  }
+  .opt:hover { border-color: var(--orange); }
+  .opt input { margin-top: 0.25rem; accent-color: var(--orange); }
+  .opt:has(input:checked) { border-color: var(--orange); outline: 1px solid var(--orange); }
+
+  .submitrow {
+    position: sticky; bottom: 0; background: var(--paper);
+    border-top: 1px solid var(--line);
+    padding: 1rem 0 1.2rem; display: flex; align-items: center; gap: 1rem;
+  }
+  .btn {
+    display: inline-block; background: var(--orange); color: #ffffff;
+    border: none; cursor: pointer;
+    font-family: inherit; font-weight: 700; font-size: 0.98rem;
+    padding: 0.85rem 1.5rem; border-radius: 3px;
+  }
+  .btn:hover { filter: brightness(1.07); }
+  .btn:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+  .progress { font-size: 0.92rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+
+  .result { padding: 1rem 0 3rem; }
+  .resultcard {
+    background: #1b1a4a; color: #ccd6ea; border-radius: 6px;
+    padding: 2rem 2rem 1.8rem; position: relative; overflow: hidden;
+  }
+  .resultcard .lines { right: -2rem; top: -3rem; width: 10rem; height: 18rem; }
+  .resultcard .kicker {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.15em; color: var(--sage); margin-bottom: 0.6rem;
+  }
+  .resultcard h2 {
+    color: #ffffff; font-size: 1.5rem; font-weight: 900;
+    margin: 0 0 0.7rem; position: relative; z-index: 1;
+  }
+  .resultcard p { position: relative; z-index: 1; margin: 0 0 1rem; }
+  .resultcard ol { position: relative; z-index: 1; margin: 0 0 1.2rem; padding-left: 1.3rem; }
+  .resultcard li { margin-bottom: 0.5rem; }
+  .resultcard .cta { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; position: relative; z-index: 1; }
+  .resultcard a.btn { text-decoration: none; }
+  .resultcard .alt { font-size: 0.92rem; color: #aebadd; }
+  .resultcard .alt a { color: #d1deed; }
+
+  .footband {
+    background: #1b1a4a; color: #aebadd; position: relative; overflow: hidden;
+    margin-top: 2rem;
+  }
+  .footband .lines { left: -4rem; bottom: -8rem; width: 12rem; height: 20rem; }
+  .footband footer { padding: 1.8rem 0 2.2rem; font-size: 0.88rem; position: relative; z-index: 1; }
+  .footband a { color: #d1deed; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="heroband">
+  <div class="lines"></div>
+  <div class="wrap">
+    <nav class="topbar">
+      <a class="wordmark" href="index.html" aria-label="Fem Femten"><img src="logo.png" alt="5.15"></a>
+    </nav>
+    <header class="hero">
+      <span class="eyebrow">Gratis · 2 minutter · Intet login</span>
+      <h1>Hvor AI-parate er I?</h1>
+      <p class="lede">9 konkrete spørgsmål om jeres data, arbejdsgange og beslutninger. I får et ærligt resultat med det samme. Ingen mail påkrævet, ingen fangst.</p>
+    </header>
+  </div>
+</div>
+
+<div class="wrap">
+  <form class="quiz" id="quiz">
+    <div class="q">
+      <h2><span class="n">1</span>Hvor ligger jeres priser, produkter og stamdata?</h2>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q1" value="2">Samlet i ét eller få systemer, som folk faktisk bruger</label>
+        <label class="opt"><input type="radio" name="q1" value="1">Spredt over systemer, Excel-ark og mapper</label>
+        <label class="opt"><input type="radio" name="q1" value="0">I hoveder, indbakker og gamle filer, ingen har overblik</label>
+      </div>
+    </div>
+    <div class="q">
+      <h2><span class="n">2</span>Hvor lang tid tager et typisk tilbud eller svar til en kunde?</h2>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q2" value="2">Minutter til en time, det meste ligger klar</label>
+        <label class="opt"><input type="radio" name="q2" value="1">Timer, der skal samles ting fra flere steder</label>
+        <label class="opt"><input type="radio" name="q2" value="0">Dage, og nogle gange taber vi ordren på ventetiden</label>
+      </div>
+    </div>
+    <div class="q">
+      <h2><span class="n">3</span>Hvem ejer jeres kundedata?</h2>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q3" value="2">Klart ejerskab, én ved hvor de bor og hvad de må bruges til</label>
+        <label class="opt"><input type="radio" name="q3" value="1">Delvist, det afhænger af hvilke data man spørger om</label>
+        <label class="opt"><input type="radio" name="q3" value="0">Godt spørgsmål, det har ingen svaret på før</label>
+      </div>
+    </div>
+    <div class="q">
+      <h2><span class="n">4</span>Hvor meget af månedens rapportering samles i hånden?</h2>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q4" value="2">Lidt, det meste trækkes automatisk</label>
+        <label class="opt"><input type="radio" name="q4" value="1">En del, faste ark der skal opdateres manuelt</label>
+        <label class="opt"><input type="radio" name="q4" value="0">Det meste, der går dage med copy-paste hver måned</label>
+      </div>
+    </div>
+    <div class="q">
+      <h2><span class="n">5</span>Hvor langt er I med AI-værktøjer i forretningen?</h2>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q5" value="2">Mindst ét værktøj er i reel daglig brug</label>
+        <label class="opt"><input type="radio" name="q5" value="1">Der eksperimenteres hist og her, uden fælles retning</label>
+        <label class="opt"><input type="radio" name="q5" value="0">Nogle bruger det privat, forretningen gør ikke</label>
+      </div>
+    </div>
+    <div class="q">
+      <h2><span class="n">6</span>Må jeres data bruges i cloud- og AI-tjenester?</h2>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q6" value="2">Ja, eller vi har klare regler for hvad der må og ikke må</label>
+        <label class="opt"><input type="radio" name="q6" value="1">Noget må, men grænsen er aldrig blevet trukket op</label>
+        <label class="opt"><input type="radio" name="q6" value="0">Uafklaret, så i praksis tør ingen bruge noget</label>
+      </div>
+    </div>
+    <div class="q">
+      <h2><span class="n">7</span>Hvem beslutter, når der skal indføres et nyt system eller værktøj?</h2>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q7" value="2">Én person eller et lille forum, der faktisk beslutter</label>
+        <label class="opt"><input type="radio" name="q7" value="1">Flere skal ind over, og det trækker ud</label>
+        <label class="opt"><input type="radio" name="q7" value="0">Det ender ofte med, at der ikke besluttes noget</label>
+      </div>
+    </div>
+    <div class="q">
+      <h2><span class="n">8</span>Hvor bor jeres vigtigste arbejdsgange?</h2>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q8" value="2">I systemer med faste trin, som nye folk kan læres op i</label>
+        <label class="opt"><input type="radio" name="q8" value="1">I en blanding af systemer, Excel og mails</label>
+        <label class="opt"><input type="radio" name="q8" value="0">I hovederne på nøglepersoner</label>
+      </div>
+    </div>
+    <div class="q">
+      <h2><span class="n">9</span>Hvis jeres vigtigste system driller i morgen, hvem fikser det?</h2>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q9" value="2">Det ved vi, der er en klar ansvarlig eller leverandør</label>
+        <label class="opt"><input type="radio" name="q9" value="1">Det finder vi nok ud af, men det tager tid</label>
+        <label class="opt"><input type="radio" name="q9" value="0">Det afhænger af én bestemt person, og alle ved hvem</label>
+      </div>
+    </div>
+    <div class="submitrow">
+      <button class="btn" type="submit">Se jeres resultat</button>
+      <span class="progress" id="progress">0 af 9 besvaret</span>
+    </div>
+  </form>
+
+  <section class="result" id="result" hidden>
+    <div class="resultcard">
+      <div class="lines"></div>
+      <div class="kicker">Jeres resultat</div>
+      <h2 id="r-title"></h2>
+      <p id="r-desc"></p>
+      <ol id="r-recs"></ol>
+      <div class="cta">
+        <a class="btn" href="workshop.html">Se workshoppen, der starter her</a>
+        <span class="alt">eller skriv direkte: <a href="mailto:ralf@femfemten.com?subject=Parathedstest">ralf@femfemten.com</a></span>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="footband">
+  <div class="lines"></div>
+  <div class="wrap">
+    <footer>
+      <span>Fem Femten · 5:15 ApS · <a href="mailto:hello@femfemten.com">hello@femfemten.com</a> · <a href="index.html">femfemten.com</a></span>
+    </footer>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var form = document.getElementById('quiz');
+    var progress = document.getElementById('progress');
+    var N = 9;
+
+    function answered() {
+      var n = 0;
+      for (var i = 1; i <= N; i++) {
+        if (form.querySelector('input[name="q' + i + '"]:checked')) n++;
+      }
+      return n;
+    }
+
+    form.addEventListener('change', function () {
+      progress.textContent = answered() + ' af ' + N + ' besvaret';
+    });
+
+    var profiles = [
+      {
+        min: 0, max: 6, key: 'fundament',
+        title: 'Fundamentet først',
+        desc: 'AI oven på rod giver bare hurtigere rod. Jeres data og arbejdsgange sidder fast i ark, indbakker og hoveder, og det er dér, tiden reelt forsvinder. Den gode nyhed: netop derfor er gevinsten stor, og første skridt behøver ikke at handle om AI overhovedet.',
+        recs: [
+          'Saml prislister, kundedata eller produktdata ét sted, start med det område, der gør mest ondt.',
+          'Vælg én manuel arbejdsgang og skriv trinnene ned. Det, der kan beskrives, kan aflastes.',
+          'Udpeg én ejer af beslutningen om systemer, så afklaring ikke dør i rundkreds.'
+        ]
+      },
+      {
+        min: 7, max: 12, key: 'taettere',
+        title: 'Tættere på end I tror',
+        desc: 'I har mere på plads end de fleste, men et par steder strammer det: typisk uafklarede dataregler, spredte kilder eller beslutninger, der trækker ud. Det er præcis den profil, hvor én velvalgt første løsning kan flytte meget på kort tid.',
+        recs: [
+          'Træk grænsen op for, hvad jeres data må bruges til i cloud- og AI-tjenester. En side papir er nok.',
+          'Vælg en første use case, hvor data allerede er samlet, og hvor tiden i dag kan måles.',
+          'Sæt en deadline for beslutningen, ikke kun for projektet.'
+        ]
+      },
+      {
+        min: 13, max: 18, key: 'klar',
+        title: 'Klar til at bygge',
+        desc: 'I har fundamentet, som de fleste mangler: samlede data, ejerskab og beslutningskraft. Jeres største risiko er ikke at fejle, men at vente, mens mindre parate konkurrenter lærer hurtigere, fordi de er i gang.',
+        recs: [
+          'Vælg én arbejdsgang med målbar tid, og sæt et mål: fra timer til minutter.',
+          'Byg den første løsning helt i drift inden for få uger, ikke som pilot ved siden af.',
+          'Brug den første gevinst som intern reklame. Momentum er halvdelen af en AI-rejse.'
+        ]
+      }
+    ];
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (answered() < N) {
+        progress.textContent = 'Besvar alle ' + N + ' spørgsmål (' + answered() + ' af ' + N + ')';
+        return;
+      }
+      var sum = 0;
+      for (var i = 1; i <= N; i++) {
+        sum += parseInt(form.querySelector('input[name="q' + i + '"]:checked').value, 10);
+      }
+      var p = profiles.filter(function (x) { return sum >= x.min && sum <= x.max; })[0];
+      document.getElementById('r-title').textContent = p.title + ' (' + sum + ' af 18 point)';
+      document.getElementById('r-desc').textContent = p.desc;
+      var ol = document.getElementById('r-recs');
+      ol.innerHTML = '';
+      for (var j = 0; j < p.recs.length; j++) {
+        var li = document.createElement('li');
+        li.textContent = p.recs[j];
+        ol.appendChild(li);
+      }
+      document.getElementById('result').hidden = false;
+      document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+      if (window.goatcounter && window.goatcounter.count) {
+        goatcounter.count({ path: 'test-resultat-' + p.key, title: 'Testresultat: ' + p.title, event: true });
+      }
+    });
+  })();
+</script>
+<script data-goatcounter="https://femfemten.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
