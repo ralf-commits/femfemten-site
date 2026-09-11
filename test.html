@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Hvor AI-parate er I? 9 konkrete spørgsmål om data, arbejdsgange og beslutninger. Ærligt resultat med det samme, ingen mail påkrævet.">
+<meta name="description" content="Hvor AI-parate er I? 12 konkrete spørgsmål, resultat på fire dimensioner med det samme. Ingen mail påkrævet.">
 <title>Hvor AI-parate er I?</title>
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800;9..40,900&family=Libre+Caslon+Text:ital@1&display=swap">
@@ -18,7 +18,6 @@
     --ink-soft: #4c5470;
     --line: #d7dfec;
     --card: #f4f7fc;
-    --band-soft: #c3cde6;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
@@ -67,6 +66,13 @@
   }
   .wordmark { display: inline-flex; align-items: center; }
   .wordmark img { height: 2.3rem; width: auto; display: block; filter: brightness(0) invert(1); }
+  .langswitch {
+    background: none; border: none; cursor: pointer;
+    font-family: inherit; font-weight: 700; font-size: 0.92rem;
+    color: #aebadd; padding: 0.45rem 0.5rem; letter-spacing: 0.04em;
+  }
+  .langswitch:hover { color: #ffffff; }
+  .langswitch:focus-visible { outline: 2px solid #d1deed; outline-offset: 2px; }
   .hero { padding: 3rem 0 3.2rem; position: relative; z-index: 1; }
   .eyebrow {
     display: inline-block; font-size: 0.72rem; font-weight: 700;
@@ -85,12 +91,18 @@
   }
 
   .quiz { padding: 2.4rem 0 1rem; }
-  .q { margin-bottom: 2rem; }
+  .dimhead {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.15em; color: var(--orange);
+    margin: 2.4rem 0 1rem; padding-top: 1.4rem; border-top: 1px solid var(--line);
+  }
+  .dimhead:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+  .q { margin-bottom: 1.8rem; }
   .q h2 {
     font-size: 1.05rem; font-weight: 700; margin: 0 0 0.7rem;
     letter-spacing: -0.005em;
   }
-  .q h2 .n { color: var(--orange); font-weight: 900; margin-right: 0.4rem; }
+  .q h2 .n { color: var(--ink-soft); font-weight: 900; margin-right: 0.4rem; }
   .opts { display: flex; flex-direction: column; gap: 0.5rem; }
   .opt {
     display: flex; align-items: flex-start; gap: 0.7rem;
@@ -109,7 +121,7 @@
   }
   .btn {
     display: inline-block; background: var(--orange); color: #ffffff;
-    border: none; cursor: pointer;
+    border: none; cursor: pointer; text-decoration: none;
     font-family: inherit; font-weight: 700; font-size: 0.98rem;
     padding: 0.85rem 1.5rem; border-radius: 3px;
   }
@@ -117,27 +129,65 @@
   .btn:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
   .progress { font-size: 0.92rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
 
-  .result { padding: 1rem 0 3rem; }
+  .result { padding: 1rem 0 2rem; }
   .resultcard {
     background: #1b1a4a; color: #ccd6ea; border-radius: 6px;
-    padding: 2rem 2rem 1.8rem; position: relative; overflow: hidden;
+    padding: 2rem 2rem 1.9rem; position: relative; overflow: hidden;
   }
   .resultcard .lines { right: -2rem; top: -3rem; width: 10rem; height: 18rem; }
+  .resultcard > * { position: relative; z-index: 1; }
   .resultcard .kicker {
     font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
     letter-spacing: 0.15em; color: var(--sage); margin-bottom: 0.6rem;
   }
   .resultcard h2 {
-    color: #ffffff; font-size: 1.5rem; font-weight: 900;
-    margin: 0 0 0.7rem; position: relative; z-index: 1;
+    color: #ffffff; font-size: 1.5rem; font-weight: 900; margin: 0 0 0.7rem;
   }
-  .resultcard p { position: relative; z-index: 1; margin: 0 0 1rem; }
-  .resultcard ol { position: relative; z-index: 1; margin: 0 0 1.2rem; padding-left: 1.3rem; }
-  .resultcard li { margin-bottom: 0.5rem; }
-  .resultcard .cta { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; position: relative; z-index: 1; }
-  .resultcard a.btn { text-decoration: none; }
-  .resultcard .alt { font-size: 0.92rem; color: #aebadd; }
-  .resultcard .alt a { color: #d1deed; }
+  .resultcard p { margin: 0 0 1rem; }
+
+  .bars { margin: 1.4rem 0 1.6rem; display: flex; flex-direction: column; gap: 0.9rem; }
+  .bar-row { display: grid; grid-template-columns: 11rem 1fr 3.2rem; gap: 0 0.9rem; align-items: center; }
+  .bar-label { font-size: 0.88rem; font-weight: 700; color: #e6ebf6; }
+  .bar-track {
+    display: block; height: 0.65rem; background: rgba(209,222,237,0.16);
+    border-radius: 4px; overflow: hidden;
+  }
+  .bar-fill { display: block; height: 100%; background: #d1deed; border-radius: 4px; }
+  .bar-val { font-size: 0.85rem; color: #aebadd; font-variant-numeric: tabular-nums; text-align: right; }
+  @media (max-width: 34rem) {
+    .bar-row { grid-template-columns: 1fr 3.2rem; }
+    .bar-label { grid-column: 1 / -1; margin-bottom: 0.15rem; }
+  }
+
+  .verdicts { margin: 0 0 1.3rem; padding: 0; list-style: none; }
+  .verdicts li { margin-bottom: 0.55rem; font-size: 0.95rem; }
+  .verdicts b { color: #ffffff; }
+
+  .recs { border-top: 1px solid rgba(209,222,237,0.25); padding-top: 1.2rem; margin-bottom: 1.4rem; }
+  .recs h3 {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.15em; color: var(--sage); margin: 0 0 0.7rem;
+  }
+  .recs ol { margin: 0; padding-left: 1.3rem; }
+  .recs li { margin-bottom: 0.5rem; }
+
+  .ctarow { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; margin-bottom: 1.3rem; }
+  .leadbox {
+    background: rgba(209,222,237,0.1); border: 1px solid rgba(209,222,237,0.28);
+    border-radius: 5px; padding: 1.1rem 1.3rem;
+  }
+  .leadbox p { margin: 0 0 0.8rem; font-size: 0.95rem; }
+  .leadbox .small { font-size: 0.85rem; color: #aebadd; margin: 0.8rem 0 0; }
+  .leadbox .small button {
+    background: none; border: none; cursor: pointer; font-family: inherit;
+    color: #d1deed; text-decoration: underline; font-size: 0.85rem; padding: 0;
+  }
+  [hidden] { display: none !important; }
+  @media print {
+    .heroband, .quiz, .footband { display: none !important; }
+    .resultcard { background: #ffffff !important; color: #1b1a4a !important; }
+    .resultcard h2, .verdicts b { color: #1b1a4a !important; }
+  }
 
   .footband {
     background: #1b1a4a; color: #aebadd; position: relative; overflow: hidden;
@@ -146,7 +196,6 @@
   .footband .lines { left: -4rem; bottom: -8rem; width: 12rem; height: 20rem; }
   .footband footer { padding: 1.8rem 0 2.2rem; font-size: 0.88rem; position: relative; z-index: 1; }
   .footband a { color: #d1deed; }
-  [hidden] { display: none !important; }
 </style>
 </head>
 <body>
@@ -155,105 +204,38 @@
   <div class="wrap">
     <nav class="topbar">
       <a class="wordmark" href="index.html" aria-label="Fem Femten"><img src="logo.png" alt="5.15"></a>
+      <button class="langswitch" id="langswitch" type="button" aria-label="Switch language">EN</button>
     </nav>
     <header class="hero">
-      <span class="eyebrow">Gratis · 2 minutter · Intet login</span>
-      <h1>Hvor AI-parate er I?</h1>
-      <p class="lede">9 konkrete spørgsmål om jeres data, arbejdsgange og beslutninger. I får et ærligt resultat med det samme. Ingen mail påkrævet, ingen fangst.</p>
+      <span class="eyebrow" data-i18n="badge">Gratis · 3 minutter · Intet login</span>
+      <h1 data-i18n="h1">Hvor AI-parate er I?</h1>
+      <p class="lede" data-i18n="lede">12 konkrete spørgsmål om jeres data, arbejdsgange, mennesker og regler. I får resultatet på fire dimensioner med det samme. Ingen mail påkrævet, ingen fangst.</p>
     </header>
   </div>
 </div>
 
 <div class="wrap">
-  <form class="quiz" id="quiz">
-    <div class="q">
-      <h2><span class="n">1</span>Hvor ligger jeres priser, produkter og stamdata?</h2>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="q1" value="2">Samlet i ét eller få systemer, som folk faktisk bruger</label>
-        <label class="opt"><input type="radio" name="q1" value="1">Spredt over systemer, Excel-ark og mapper</label>
-        <label class="opt"><input type="radio" name="q1" value="0">I hoveder, indbakker og gamle filer, ingen har overblik</label>
-      </div>
-    </div>
-    <div class="q">
-      <h2><span class="n">2</span>Hvor lang tid tager et typisk tilbud eller svar til en kunde?</h2>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="q2" value="2">Minutter til en time, det meste ligger klar</label>
-        <label class="opt"><input type="radio" name="q2" value="1">Timer, der skal samles ting fra flere steder</label>
-        <label class="opt"><input type="radio" name="q2" value="0">Dage, og nogle gange taber vi ordren på ventetiden</label>
-      </div>
-    </div>
-    <div class="q">
-      <h2><span class="n">3</span>Hvem ejer jeres kundedata?</h2>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="q3" value="2">Klart ejerskab, én ved hvor de bor og hvad de må bruges til</label>
-        <label class="opt"><input type="radio" name="q3" value="1">Delvist, det afhænger af hvilke data man spørger om</label>
-        <label class="opt"><input type="radio" name="q3" value="0">Godt spørgsmål, det har ingen svaret på før</label>
-      </div>
-    </div>
-    <div class="q">
-      <h2><span class="n">4</span>Hvor meget af månedens rapportering samles i hånden?</h2>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="q4" value="2">Lidt, det meste trækkes automatisk</label>
-        <label class="opt"><input type="radio" name="q4" value="1">En del, faste ark der skal opdateres manuelt</label>
-        <label class="opt"><input type="radio" name="q4" value="0">Det meste, der går dage med copy-paste hver måned</label>
-      </div>
-    </div>
-    <div class="q">
-      <h2><span class="n">5</span>Hvor langt er I med AI-værktøjer i forretningen?</h2>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="q5" value="2">Mindst ét værktøj er i reel daglig brug</label>
-        <label class="opt"><input type="radio" name="q5" value="1">Der eksperimenteres hist og her, uden fælles retning</label>
-        <label class="opt"><input type="radio" name="q5" value="0">Nogle bruger det privat, forretningen gør ikke</label>
-      </div>
-    </div>
-    <div class="q">
-      <h2><span class="n">6</span>Må jeres data bruges i cloud- og AI-tjenester?</h2>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="q6" value="2">Ja, eller vi har klare regler for hvad der må og ikke må</label>
-        <label class="opt"><input type="radio" name="q6" value="1">Noget må, men grænsen er aldrig blevet trukket op</label>
-        <label class="opt"><input type="radio" name="q6" value="0">Uafklaret, så i praksis tør ingen bruge noget</label>
-      </div>
-    </div>
-    <div class="q">
-      <h2><span class="n">7</span>Hvem beslutter, når der skal indføres et nyt system eller værktøj?</h2>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="q7" value="2">Én person eller et lille forum, der faktisk beslutter</label>
-        <label class="opt"><input type="radio" name="q7" value="1">Flere skal ind over, og det trækker ud</label>
-        <label class="opt"><input type="radio" name="q7" value="0">Det ender ofte med, at der ikke besluttes noget</label>
-      </div>
-    </div>
-    <div class="q">
-      <h2><span class="n">8</span>Hvor bor jeres vigtigste arbejdsgange?</h2>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="q8" value="2">I systemer med faste trin, som nye folk kan læres op i</label>
-        <label class="opt"><input type="radio" name="q8" value="1">I en blanding af systemer, Excel og mails</label>
-        <label class="opt"><input type="radio" name="q8" value="0">I hovederne på nøglepersoner</label>
-      </div>
-    </div>
-    <div class="q">
-      <h2><span class="n">9</span>Hvis jeres vigtigste system driller i morgen, hvem fikser det?</h2>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="q9" value="2">Det ved vi, der er en klar ansvarlig eller leverandør</label>
-        <label class="opt"><input type="radio" name="q9" value="1">Det finder vi nok ud af, men det tager tid</label>
-        <label class="opt"><input type="radio" name="q9" value="0">Det afhænger af én bestemt person, og alle ved hvem</label>
-      </div>
-    </div>
-    <div class="submitrow">
-      <button class="btn" type="submit">Se jeres resultat</button>
-      <span class="progress" id="progress">0 af 9 besvaret</span>
-    </div>
-  </form>
+  <form class="quiz" id="quiz"></form>
 
   <section class="result" id="result" hidden>
     <div class="resultcard">
       <div class="lines"></div>
-      <div class="kicker">Jeres resultat</div>
+      <div class="kicker" data-i18n="rKicker">Jeres resultat</div>
       <h2 id="r-title"></h2>
       <p id="r-desc"></p>
-      <ol id="r-recs"></ol>
-      <div class="cta">
-        <a class="btn" href="workshop.html">Se workshoppen, der starter her</a>
-        <span class="alt">eller skriv direkte: <a href="mailto:ralf@femfemten.com?subject=Parathedstest">ralf@femfemten.com</a></span>
+      <div class="bars" id="r-bars"></div>
+      <ul class="verdicts" id="r-verdicts"></ul>
+      <div class="recs">
+        <h3 data-i18n="rRecsH">Start her</h3>
+        <ol id="r-recs"></ol>
+      </div>
+      <div class="ctarow">
+        <a class="btn" href="workshop.html" data-i18n="rCta">Se workshoppen, der starter præcis her</a>
+      </div>
+      <div class="leadbox">
+        <p data-i18n="rLeadP">Vil I have vores øjne på resultatet? Send det til os, og få en ærlig reaktion på, hvad vi ville gøre først hos jer. Gratis, og uden salgstale.</p>
+        <a class="btn" id="r-lead" href="#" data-i18n="rLeadBtn">Send resultatet, og få vores reaktion</a>
+        <p class="small"><button type="button" id="r-print" data-i18n="rPrint">Eller gem resultatet som PDF</button></p>
       </div>
     </div>
   </section>
@@ -270,81 +252,273 @@
 
 <script>
   (function () {
+    var DIMS = ['data', 'flow', 'people', 'rules'];
+
+    var t = {
+      da: {
+        badge: 'Gratis · 3 minutter · Intet login',
+        h1: 'Hvor AI-parate er I?',
+        lede: '12 konkrete spørgsmål om jeres data, arbejdsgange, mennesker og regler. I får resultatet på fire dimensioner med det samme. Ingen mail påkrævet, ingen fangst.',
+        rKicker: 'Jeres resultat',
+        rRecsH: 'Start her',
+        rCta: 'Se workshoppen, der starter præcis her',
+        rLeadP: 'Vil I have vores øjne på resultatet? Send det til os, og få en ærlig reaktion på, hvad vi ville gøre først hos jer. Gratis, og uden salgstale.',
+        rLeadBtn: 'Send resultatet, og få vores reaktion',
+        rPrint: 'Eller gem resultatet som PDF',
+        submit: 'Se jeres resultat',
+        progress: '{n} af 12 besvaret',
+        progressMissing: 'Besvar alle 12 spørgsmål ({n} af 12)',
+        of: 'af',
+        points: 'point',
+        strongest: 'Stærkest',
+        weakest: 'Svagest',
+        mailSubject: 'Vores parathedsresultat',
+        mailIntro: 'Hej Fem Femten. Vi har taget jeres parathedstest og vil gerne have jeres reaktion.',
+        dimNames: { data: 'Data', flow: 'Arbejdsgange', people: 'Mennesker & beslutninger', rules: 'Regler & robusthed' },
+        dimVerdicts: {
+          data: ['Jeres data er flaskehalsen. Alt andet venter på det her.', 'Data findes, men skal samles og ejes, før de kan arbejde for jer.', 'Jeres data er klar til at blive sat i arbejde.'],
+          flow: ['Arbejdet bor i hoveder. Det kan ikke aflastes, før det kan beskrives.', 'Nogle arbejdsgange er klar til aflastning, andre skal først skrives ned.', 'Beskrevne arbejdsgange: det bedste udgangspunkt for automatisering.'],
+          people: ['Beslutninger og vaner er jeres største bremse, ikke teknikken.', 'Der er energi, men den mangler retning og et mandat.', 'I kan beslutte, og I har lyst til at prøve. Det er sjældnere, end man tror.'],
+          rules: ['Uafklarede regler betyder, at ingen tør bruge noget. Start her.', 'Træk grænserne op på papir, så eksperimenterne kan starte trygt.', 'Klare rammer: I kan eksperimentere uden at ligge søvnløse.']
+        },
+        dimRecs: {
+          data: 'Saml prislister, kunde- eller produktdata ét sted. Start med det område, der gør mest ondt.',
+          flow: 'Vælg én manuel arbejdsgang og skriv trinnene ned. Det, der kan beskrives, kan aflastes.',
+          people: 'Udpeg én ejer af beslutningen, og sæt en deadline for beslutningen, ikke kun projektet.',
+          rules: 'Træk grænsen op for, hvad jeres data må i cloud- og AI-tjenester. En side papir er nok.'
+        },
+        profiles: {
+          fundament: { title: 'Fundamentet først', desc: 'AI oven på rod giver bare hurtigere rod. Jeres tid forsvinder i ark, indbakker og hoveder, og det er dér, arbejdet skal starte. Den gode nyhed: netop derfor er gevinsten stor, og første skridt behøver ikke at handle om AI overhovedet.' },
+          taettere: { title: 'Tættere på end I tror', desc: 'I har mere på plads end de fleste, men et par dimensioner strammer. Det er præcis den profil, hvor én velvalgt første løsning kan flytte meget på kort tid, hvis den vælges der, hvor fundamentet allerede holder.' },
+          klar: { title: 'Klar til at bygge', desc: 'I har fundamentet, som de fleste mangler: samlede data, beskrevne arbejdsgange og beslutningskraft. Jeres største risiko er ikke at fejle. Det er at vente, mens mindre parate konkurrenter lærer hurtigere, fordi de er i gang.' }
+        },
+        dimHeads: { data: 'Del 1 · Jeres data', flow: 'Del 2 · Jeres arbejdsgange', people: 'Del 3 · Mennesker og beslutninger', rules: 'Del 4 · Regler og robusthed' },
+        questions: [
+          { d: 'data', q: 'Hvor ligger jeres priser, produkter og stamdata?', a: ['Samlet i ét eller få systemer, som folk faktisk bruger', 'Spredt over systemer, Excel-ark og mapper', 'I hoveder, indbakker og gamle filer'] },
+          { d: 'data', q: 'Hvem ejer jeres kundedata?', a: ['Klart ejerskab: én ved, hvor de bor, og hvad de må bruges til', 'Delvist: det afhænger af, hvilke data man spørger om', 'Godt spørgsmål. Det har ingen svaret på før'] },
+          { d: 'data', q: 'Hvor meget af månedens rapportering samles i hånden?', a: ['Lidt: det meste trækkes automatisk', 'En del: faste ark, der skal opdateres manuelt', 'Det meste: der går dage med copy-paste hver måned'] },
+          { d: 'flow', q: 'Hvor lang tid tager et typisk tilbud eller kundesvar?', a: ['Minutter til en time: det meste ligger klar', 'Timer: der skal samles ting fra flere steder', 'Dage: og nogle gange taber vi ordren på ventetiden'] },
+          { d: 'flow', q: 'Hvor bor jeres vigtigste arbejdsgange?', a: ['I systemer med faste trin, som nye folk kan læres op i', 'I en blanding af systemer, Excel og mails', 'I hovederne på nøglepersoner'] },
+          { d: 'flow', q: 'En ny medarbejder starter mandag. Hvornår kan de arbejde selvstændigt?', a: ['Inden for uger: det vigtigste er beskrevet', 'Efter måneder: det meste er mesterlære', 'Det afhænger helt af, hvem de kommer til at sidde ved siden af'] },
+          { d: 'people', q: 'Hvem beslutter, når der skal indføres nye systemer eller værktøjer?', a: ['Én person eller et lille forum, der faktisk beslutter', 'Flere skal ind over, og det trækker ud', 'Det ender ofte med, at der ikke besluttes noget'] },
+          { d: 'people', q: 'Hvor langt er I med AI i forretningen?', a: ['Mindst ét værktøj er i reel daglig brug', 'Der eksperimenteres hist og her, uden fælles retning', 'Nogle bruger det privat. Forretningen gør ikke'] },
+          { d: 'people', q: 'Hvordan tager organisationen imod nye værktøjer?', a: ['Nysgerrigt: folk prøver gerne ting af', 'Blandet: det står og falder med et par ildsjæle', 'Trætte: der har været for mange nye systemer'] },
+          { d: 'rules', q: 'Må jeres data bruges i cloud- og AI-tjenester?', a: ['Ja, eller vi har klare regler for, hvad der må og ikke må', 'Noget må, men grænsen er aldrig trukket op', 'Uafklaret, så i praksis tør ingen bruge noget'] },
+          { d: 'rules', q: 'Jeres vigtigste system driller i morgen. Hvem fikser det?', a: ['Det ved vi: der er en klar ansvarlig eller leverandør', 'Det finder vi nok ud af, men det tager tid', 'Det afhænger af én bestemt person, og alle ved hvem'] },
+          { d: 'rules', q: 'Ved I, hvor jeres følsomme data ligger? Persondata, kontrakter, priser?', a: ['Ja, det er kortlagt og styret', 'Nogenlunde: vi ved det vigtigste, men det er ikke skrevet ned', 'Nej, det ville kræve en eftersøgning'] }
+        ]
+      },
+      en: {
+        badge: 'Free · 3 minutes · No login',
+        h1: 'How AI-ready are you?',
+        lede: '12 concrete questions about your data, workflows, people and rules. You get a result across four dimensions right away. No email required, no catch.',
+        rKicker: 'Your result',
+        rRecsH: 'Start here',
+        rCta: 'See the workshop that starts exactly here',
+        rLeadP: 'Want our eyes on the result? Send it to us and get an honest take on what we would do first at your company. Free, and no sales pitch.',
+        rLeadBtn: 'Send the result and get our take',
+        rPrint: 'Or save the result as a PDF',
+        submit: 'See your result',
+        progress: '{n} of 12 answered',
+        progressMissing: 'Answer all 12 questions ({n} of 12)',
+        of: 'of',
+        points: 'points',
+        strongest: 'Strongest',
+        weakest: 'Weakest',
+        mailSubject: 'Our readiness result',
+        mailIntro: 'Hi Fem Femten. We took your readiness test and would like your take.',
+        dimNames: { data: 'Data', flow: 'Workflows', people: 'People & decisions', rules: 'Rules & resilience' },
+        dimVerdicts: {
+          data: ['Your data is the bottleneck. Everything else is waiting on this.', 'The data exists, but it needs gathering and ownership before it can work for you.', 'Your data is ready to be put to work.'],
+          flow: ['The work lives in people’s heads. It can’t be offloaded until it can be described.', 'Some workflows are ready to be offloaded, others need writing down first.', 'Described workflows: the best possible starting point for automation.'],
+          people: ['Decisions and habits are your biggest brake, not the technology.', 'There is energy, but it lacks direction and a mandate.', 'You can decide, and you want to try things. That is rarer than you’d think.'],
+          rules: ['Unclear rules mean nobody dares use anything. Start here.', 'Draw the lines on paper so experiments can start safely.', 'Clear guardrails: you can experiment without losing sleep.']
+        },
+        dimRecs: {
+          data: 'Gather price lists, customer or product data in one place. Start where it hurts the most.',
+          flow: 'Pick one manual workflow and write down the steps. What can be described can be offloaded.',
+          people: 'Appoint one owner of the decision, and set a deadline for the decision, not just the project.',
+          rules: 'Draw the line for what your data may be used for in cloud and AI services. One page is enough.'
+        },
+        profiles: {
+          fundament: { title: 'Foundations first', desc: 'AI on top of a mess just gives you a faster mess. Your time disappears into spreadsheets, inboxes and heads, and that is where the work should start. The good news: that is exactly why the payoff is big, and the first step doesn’t need to involve AI at all.' },
+          taettere: { title: 'Closer than you think', desc: 'You have more in place than most, but a couple of dimensions are tight. This is exactly the profile where one well-chosen first solution can move a lot in a short time, if it is picked where the foundation already holds.' },
+          klar: { title: 'Ready to build', desc: 'You have the foundation most companies lack: gathered data, described workflows and the ability to decide. Your biggest risk isn’t failing. It is waiting while less ready competitors learn faster because they are moving.' }
+        },
+        dimHeads: { data: 'Part 1 · Your data', flow: 'Part 2 · Your workflows', people: 'Part 3 · People and decisions', rules: 'Part 4 · Rules and resilience' },
+        questions: [
+          { d: 'data', q: 'Where do your prices, products and master data live?', a: ['In one or a few systems people actually use', 'Spread across systems, spreadsheets and folders', 'In heads, inboxes and old files'] },
+          { d: 'data', q: 'Who owns your customer data?', a: ['Clear ownership: one person knows where it lives and what it may be used for', 'Partly: it depends which data you ask about', 'Good question. Nobody has answered that before'] },
+          { d: 'data', q: 'How much of the monthly reporting is assembled by hand?', a: ['Little: most of it is pulled automatically', 'Some: fixed sheets that need manual updates', 'Most of it: days of copy-paste every month'] },
+          { d: 'flow', q: 'How long does a typical quote or customer reply take?', a: ['Minutes to an hour: most of it is ready to go', 'Hours: things need gathering from several places', 'Days: and sometimes we lose the order to the wait'] },
+          { d: 'flow', q: 'Where do your most important workflows live?', a: ['In systems with fixed steps that new people can be trained in', 'In a mix of systems, spreadsheets and email', 'In the heads of key people'] },
+          { d: 'flow', q: 'A new employee starts Monday. When can they work independently?', a: ['Within weeks: the essentials are written down', 'After months: most of it is apprenticeship', 'It depends entirely on who they end up sitting next to'] },
+          { d: 'people', q: 'Who decides when a new system or tool is introduced?', a: ['One person or a small forum that actually decides', 'Several people need to weigh in, and it drags', 'It often ends with no decision at all'] },
+          { d: 'people', q: 'How far along are you with AI in the business?', a: ['At least one tool is in real daily use', 'Scattered experiments, no shared direction', 'Some use it privately. The business doesn’t'] },
+          { d: 'people', q: 'How does the organisation receive new tools?', a: ['Curiously: people are happy to try things', 'Mixed: it depends on a few enthusiasts', 'Tired: there have been too many new systems'] },
+          { d: 'rules', q: 'May your data be used in cloud and AI services?', a: ['Yes, or we have clear rules for what may and may not', 'Some of it may, but the line was never drawn', 'Unresolved, so in practice nobody dares use anything'] },
+          { d: 'rules', q: 'Your most important system breaks tomorrow. Who fixes it?', a: ['We know: there is a clear owner or vendor', 'We would figure it out, but it takes time', 'It depends on one specific person, and everyone knows who'] },
+          { d: 'rules', q: 'Do you know where your sensitive data lives? Personal data, contracts, prices?', a: ['Yes, it is mapped and governed', 'Roughly: we know the essentials, but it isn’t written down', 'No, that would require a search party'] }
+        ]
+      }
+    };
+
+    var current = 'da';
     var form = document.getElementById('quiz');
-    var progress = document.getElementById('progress');
-    var N = 9;
+
+    function dict() { return t[current]; }
+
+    function renderQuiz() {
+      var d = dict();
+      var saved = {};
+      for (var i = 0; i < 12; i++) {
+        var c = form.querySelector('input[name="q' + i + '"]:checked');
+        if (c) saved[i] = c.value;
+      }
+      var html = '';
+      var lastDim = '';
+      for (var j = 0; j < d.questions.length; j++) {
+        var q = d.questions[j];
+        if (q.d !== lastDim) {
+          html += '<div class="dimhead">' + d.dimHeads[q.d] + '</div>';
+          lastDim = q.d;
+        }
+        html += '<div class="q"><h2><span class="n">' + (j + 1) + '</span>' + q.q + '</h2><div class="opts">';
+        var vals = [2, 1, 0];
+        for (var k = 0; k < 3; k++) {
+          var checked = saved[j] === String(vals[k]) ? ' checked' : '';
+          html += '<label class="opt"><input type="radio" name="q' + j + '" value="' + vals[k] + '"' + checked + '>' + q.a[k] + '</label>';
+        }
+        html += '</div></div>';
+      }
+      html += '<div class="submitrow"><button class="btn" type="submit">' + d.submit +
+        '</button><span class="progress" id="progress">' + d.progress.replace('{n}', String(answered())) + '</span></div>';
+      form.innerHTML = html;
+    }
 
     function answered() {
       var n = 0;
-      for (var i = 1; i <= N; i++) {
+      for (var i = 0; i < 12; i++) {
         if (form.querySelector('input[name="q' + i + '"]:checked')) n++;
       }
       return n;
     }
 
-    form.addEventListener('change', function () {
-      progress.textContent = answered() + ' af ' + N + ' besvaret';
-    });
-
-    var profiles = [
-      {
-        min: 0, max: 6, key: 'fundament',
-        title: 'Fundamentet først',
-        desc: 'AI oven på rod giver bare hurtigere rod. Jeres data og arbejdsgange sidder fast i ark, indbakker og hoveder, og det er dér, tiden reelt forsvinder. Den gode nyhed: netop derfor er gevinsten stor, og første skridt behøver ikke at handle om AI overhovedet.',
-        recs: [
-          'Saml prislister, kundedata eller produktdata ét sted, start med det område, der gør mest ondt.',
-          'Vælg én manuel arbejdsgang og skriv trinnene ned. Det, der kan beskrives, kan aflastes.',
-          'Udpeg én ejer af beslutningen om systemer, så afklaring ikke dør i rundkreds.'
-        ]
-      },
-      {
-        min: 7, max: 12, key: 'taettere',
-        title: 'Tættere på end I tror',
-        desc: 'I har mere på plads end de fleste, men et par steder strammer det: typisk uafklarede dataregler, spredte kilder eller beslutninger, der trækker ud. Det er præcis den profil, hvor én velvalgt første løsning kan flytte meget på kort tid.',
-        recs: [
-          'Træk grænsen op for, hvad jeres data må bruges til i cloud- og AI-tjenester. En side papir er nok.',
-          'Vælg en første use case, hvor data allerede er samlet, og hvor tiden i dag kan måles.',
-          'Sæt en deadline for beslutningen, ikke kun for projektet.'
-        ]
-      },
-      {
-        min: 13, max: 18, key: 'klar',
-        title: 'Klar til at bygge',
-        desc: 'I har fundamentet, som de fleste mangler: samlede data, ejerskab og beslutningskraft. Jeres største risiko er ikke at fejle, men at vente, mens mindre parate konkurrenter lærer hurtigere, fordi de er i gang.',
-        recs: [
-          'Vælg én arbejdsgang med målbar tid, og sæt et mål: fra timer til minutter.',
-          'Byg den første løsning helt i drift inden for få uger, ikke som pilot ved siden af.',
-          'Brug den første gevinst som intern reklame. Momentum er halvdelen af en AI-rejse.'
-        ]
+    function setLang(lang) {
+      if (!t[lang]) return;
+      current = lang;
+      document.documentElement.lang = lang;
+      var d = dict();
+      var els = document.querySelectorAll('[data-i18n]');
+      for (var i = 0; i < els.length; i++) {
+        var key = els[i].getAttribute('data-i18n');
+        if (d[key]) els[i].innerHTML = d[key];
       }
-    ];
+      document.getElementById('langswitch').textContent = lang === 'da' ? 'EN' : 'DA';
+      document.title = lang === 'da' ? 'Hvor AI-parate er I?' : 'How AI-ready are you?';
+      renderQuiz();
+      if (!document.getElementById('result').hidden) showResult();
+      try { localStorage.setItem('lang', lang); } catch (e) {}
+    }
+
+    function scores() {
+      var s = { data: 0, flow: 0, people: 0, rules: 0 };
+      var d = dict();
+      for (var i = 0; i < 12; i++) {
+        var c = form.querySelector('input[name="q' + i + '"]:checked');
+        if (c) s[d.questions[i].d] += parseInt(c.value, 10);
+      }
+      return s;
+    }
+
+    function showResult() {
+      var d = dict();
+      var s = scores();
+      var total = s.data + s.flow + s.people + s.rules;
+      var pKey = total <= 8 ? 'fundament' : total <= 16 ? 'taettere' : 'klar';
+      var p = d.profiles[pKey];
+
+      document.getElementById('r-title').textContent = p.title + ' · ' + total + ' ' + d.of + ' 24 ' + d.points;
+      document.getElementById('r-desc').textContent = p.desc;
+
+      var bars = document.getElementById('r-bars');
+      bars.innerHTML = '';
+      var sorted = DIMS.slice().sort(function (a, b) { return s[b] - s[a]; });
+      for (var i = 0; i < DIMS.length; i++) {
+        var k = DIMS[i];
+        var row = document.createElement('div');
+        row.className = 'bar-row';
+        row.innerHTML = '<span class="bar-label">' + d.dimNames[k] + '</span>' +
+          '<span class="bar-track"><span class="bar-fill" style="width:' + Math.max(4, (s[k] / 6) * 100) + '%"></span></span>' +
+          '<span class="bar-val">' + s[k] + ' ' + d.of + ' 6</span>';
+        bars.appendChild(row);
+      }
+
+      var band = function (v) { return v <= 2 ? 0 : v <= 4 ? 1 : 2; };
+      var vd = document.getElementById('r-verdicts');
+      vd.innerHTML = '';
+      var strongest = sorted[0], weakest = sorted[sorted.length - 1];
+      var li1 = document.createElement('li');
+      li1.innerHTML = '<b>' + d.strongest + ': ' + d.dimNames[strongest] + '.</b> ' + d.dimVerdicts[strongest][band(s[strongest])];
+      var li2 = document.createElement('li');
+      li2.innerHTML = '<b>' + d.weakest + ': ' + d.dimNames[weakest] + '.</b> ' + d.dimVerdicts[weakest][band(s[weakest])];
+      vd.appendChild(li1); vd.appendChild(li2);
+
+      var recs = document.getElementById('r-recs');
+      recs.innerHTML = '';
+      var weakTwo = sorted.slice(-2).reverse();
+      for (var j = 0; j < weakTwo.length; j++) {
+        var li = document.createElement('li');
+        li.textContent = d.dimRecs[weakTwo[j]];
+        recs.appendChild(li);
+      }
+
+      var lines = [d.mailIntro, ''];
+      lines.push(p.title + ' (' + total + '/24)');
+      for (var m = 0; m < DIMS.length; m++) {
+        lines.push(d.dimNames[DIMS[m]] + ': ' + s[DIMS[m]] + '/6');
+      }
+      document.getElementById('r-lead').href = 'mailto:ralf@femfemten.com?subject=' +
+        encodeURIComponent(d.mailSubject) + '&body=' + encodeURIComponent(lines.join('\n'));
+
+      document.getElementById('result').hidden = false;
+      return pKey;
+    }
+
+    form.addEventListener('change', function () {
+      var el = document.getElementById('progress');
+      if (el) el.textContent = dict().progress.replace('{n}', String(answered()));
+    });
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      if (answered() < N) {
-        progress.textContent = 'Besvar alle ' + N + ' spørgsmål (' + answered() + ' af ' + N + ')';
+      var el = document.getElementById('progress');
+      if (answered() < 12) {
+        if (el) el.textContent = dict().progressMissing.replace('{n}', String(answered()));
         return;
       }
-      var sum = 0;
-      for (var i = 1; i <= N; i++) {
-        sum += parseInt(form.querySelector('input[name="q' + i + '"]:checked').value, 10);
-      }
-      var p = profiles.filter(function (x) { return sum >= x.min && sum <= x.max; })[0];
-      document.getElementById('r-title').textContent = p.title + ' (' + sum + ' af 18 point)';
-      document.getElementById('r-desc').textContent = p.desc;
-      var ol = document.getElementById('r-recs');
-      ol.innerHTML = '';
-      for (var j = 0; j < p.recs.length; j++) {
-        var li = document.createElement('li');
-        li.textContent = p.recs[j];
-        ol.appendChild(li);
-      }
-      document.getElementById('result').hidden = false;
+      var pKey = showResult();
       document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
       if (window.goatcounter && window.goatcounter.count) {
-        goatcounter.count({ path: 'test-resultat-' + p.key, title: 'Testresultat: ' + p.title, event: true });
+        goatcounter.count({ path: 'test-resultat-' + pKey, title: 'Testresultat: ' + pKey, event: true });
       }
     });
+
+    document.getElementById('langswitch').addEventListener('click', function () {
+      setLang(current === 'da' ? 'en' : 'da');
+    });
+    document.getElementById('r-print').addEventListener('click', function () { window.print(); });
+    document.getElementById('r-lead').addEventListener('click', function () {
+      if (window.goatcounter && window.goatcounter.count) {
+        goatcounter.count({ path: 'test-lead', title: 'Testresultat sendt til os', event: true });
+      }
+    });
+
+    var initial = 'da';
+    var qp = new URLSearchParams(location.search).get('lang');
+    if (qp === 'en' || qp === 'da') { initial = qp; }
+    else { try { var sv = localStorage.getItem('lang'); if (sv === 'en' || sv === 'da') initial = sv; } catch (e) {} }
+    if (initial !== 'da') { setLang(initial); } else { renderQuiz(); }
   })();
 </script>
 <script data-goatcounter="https://femfemten.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
