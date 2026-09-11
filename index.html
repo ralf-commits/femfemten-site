@@ -155,6 +155,28 @@
     text-transform: uppercase; letter-spacing: 0.12em;
     color: var(--orange); margin-bottom: 0.6rem;
   }
+  .svc .morelink {
+    display: inline-block; margin-top: 0.8rem; font-size: 0.88rem;
+    font-weight: 700; color: var(--ink);
+  }
+
+  /* Ydelser i dybden */
+  .deep {
+    border-top: 1px solid var(--line); padding: 2rem 0 1.9rem;
+    max-width: 42rem;
+  }
+  .deep:first-of-type { border-top: none; padding-top: 0.4rem; }
+  .deep h3 {
+    margin: 0.3rem 0 0.6rem; font-size: 1.2rem; font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+  .deep p { margin: 0 0 1rem; color: var(--ink-soft); }
+  .deep .whenh {
+    font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--ink-soft); margin-bottom: 0.5rem;
+  }
+  .deep ul { margin: 0; padding-left: 1.15rem; color: var(--ink-soft); font-size: 0.95rem; }
+  .deep li { margin-bottom: 0.35rem; }
 
   .workshop {
     background: #1b1a4a; color: #ccd6ea;
@@ -254,6 +276,7 @@
           <li data-i18n="s1b">Datafundament og governance</li>
           <li data-i18n="s1c">Automatisering af manuelle arbejdsgange</li>
         </ul>
+        <a class="morelink" href="#deep-d1" data-i18n="more">Læs mere</a>
       </div>
       <div class="svc">
         <span class="tag" data-i18n="s2tag">Strategi → eksekvering</span>
@@ -264,6 +287,7 @@
           <li data-i18n="s2b">Strategieksekvering og roadmaps</li>
           <li data-i18n="s2c">PMO og transformationsstyring</li>
         </ul>
+        <a class="morelink" href="#deep-d2" data-i18n="more">Læs mere</a>
       </div>
       <div class="svc">
         <span class="tag" data-i18n="s3tag">Ledelsesrådgivning</span>
@@ -274,6 +298,7 @@
           <li data-i18n="s3b">Beslutnings- og governancemodel</li>
           <li data-i18n="s3c">Operating model, roller og ansvar</li>
         </ul>
+        <a class="morelink" href="#deep-d3" data-i18n="more">Læs mere</a>
       </div>
       <div class="svc">
         <span class="tag" data-i18n="s4tag">IT-forenkling</span>
@@ -284,7 +309,55 @@
           <li data-i18n="s4b">Legacy-modernisering og målbillede</li>
           <li data-i18n="s4c">Data der sidder fast i gamle systemer</li>
         </ul>
+        <a class="morelink" href="#deep-d4" data-i18n="more">Læs mere</a>
       </div>
+    </div>
+  </section>
+
+  <section class="section" id="dybde" style="padding-top:1.4rem">
+    <div class="deep" id="deep-d1">
+      <span class="tag" style="display:inline-block;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--orange)" data-i18n="s1tag">Data &amp; AI</span>
+      <h3 data-i18n="d1h">Fra idé til løsning i drift</h3>
+      <p data-i18n="d1p">Vi hjælper med at finde de steder, hvor AI kan gøre en målbar forskel hos jer, få fundamentet på plads, og bygge den første løsning, så den bliver brugt i hverdagen. Hvor data ikke må forlade huset, arbejder vi med private AI-opsætninger.</p>
+      <div class="whenh" data-i18n="whenH">Typisk relevant, når</div>
+      <ul>
+        <li data-i18n="d1w1">Der er mange idéer, men ingen fælles retning</li>
+        <li data-i18n="d1w2">Data ligger spredt i systemer, ark og indbakker</li>
+        <li data-i18n="d1w3">Følsomme data sætter grænser for, hvad I tør bruge</li>
+      </ul>
+    </div>
+    <div class="deep" id="deep-d2">
+      <span class="tag" style="display:inline-block;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--orange)" data-i18n="s2tag">Strategi → eksekvering</span>
+      <h3 data-i18n="d2h">Fra beslutning til fremdrift</h3>
+      <p data-i18n="d2p">Vi hjælper med at prioritere porteføljen, omsætte strategi til roadmaps og ansvar, og holde fremdriften med en styring, der er tydelig uden at være tung.</p>
+      <div class="whenh" data-i18n="whenH">Typisk relevant, når</div>
+      <ul>
+        <li data-i18n="d2w1">Der er for mange initiativer i gang, og alt føles vigtigt</li>
+        <li data-i18n="d2w2">Strategien er besluttet, men bliver ikke til handling</li>
+        <li data-i18n="d2w3">Ledelsen mangler overblik over status og fremdrift</li>
+      </ul>
+    </div>
+    <div class="deep" id="deep-d3">
+      <span class="tag" style="display:inline-block;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--orange)" data-i18n="s3tag">Ledelsesrådgivning</span>
+      <h3 data-i18n="d3h">Sparring og beslutningskraft</h3>
+      <p data-i18n="d3p">Vi er tæt sparringspartner for ledelsen om retning og prioritering, og vi hjælper med at indrette beslutningsfora, roller og ansvar, så beslutninger bliver truffet og fulgt til dørs.</p>
+      <div class="whenh" data-i18n="whenH">Typisk relevant, når</div>
+      <ul>
+        <li data-i18n="d3w1">Beslutninger tager for lang tid eller bliver ikke truffet</li>
+        <li data-i18n="d3w2">Ansvar falder mellem stole, når noget går på tværs</li>
+        <li data-i18n="d3w3">Organisationen er vokset fra sin måde at arbejde på</li>
+      </ul>
+    </div>
+    <div class="deep" id="deep-d4">
+      <span class="tag" style="display:inline-block;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--orange)" data-i18n="s4tag">IT-forenkling</span>
+      <h3 data-i18n="d4h">Færre systemer, mindre teknisk gæld</h3>
+      <p data-i18n="d4p">Vi skaber overblik over applikationslandskabet, finder kandidater til konsolidering og udfasning, og lægger en realistisk plan for vejen fra legacy til et landskab, der kan udvikles på.</p>
+      <div class="whenh" data-i18n="whenH">Typisk relevant, når</div>
+      <ul>
+        <li data-i18n="d4w1">Systemlandskabet er vokset uden en samlet plan</li>
+        <li data-i18n="d4w2">Centrale systemer er gamle, sårbare eller svære at ændre</li>
+        <li data-i18n="d4w3">Ingen har det fulde overblik over systemer og omkostninger</li>
+      </ul>
     </div>
   </section>
 
@@ -382,6 +455,28 @@
         s4tag: 'IT-forenkling', s4h: 'Færre systemer, mindre friktion',
         s4p: 'Overblik over applikationslandskabet og en realistisk vej fra legacy til et landskab, der kan udvikles på.',
         s4a: 'Applikationsportefølje og konsolidering', s4b: 'Legacy-modernisering og målbillede', s4c: 'Data der sidder fast i gamle systemer',
+        more: 'Læs mere',
+        whenH: 'Typisk relevant, når',
+        d1h: 'Fra idé til løsning i drift',
+        d1p: 'Vi hjælper med at finde de steder, hvor AI kan gøre en målbar forskel hos jer, få fundamentet på plads, og bygge den første løsning, så den bliver brugt i hverdagen. Hvor data ikke må forlade huset, arbejder vi med private AI-opsætninger.',
+        d1w1: 'Der er mange idéer, men ingen fælles retning',
+        d1w2: 'Data ligger spredt i systemer, ark og indbakker',
+        d1w3: 'Følsomme data sætter grænser for, hvad I tør bruge',
+        d2h: 'Fra beslutning til fremdrift',
+        d2p: 'Vi hjælper med at prioritere porteføljen, omsætte strategi til roadmaps og ansvar, og holde fremdriften med en styring, der er tydelig uden at være tung.',
+        d2w1: 'Der er for mange initiativer i gang, og alt føles vigtigt',
+        d2w2: 'Strategien er besluttet, men bliver ikke til handling',
+        d2w3: 'Ledelsen mangler overblik over status og fremdrift',
+        d3h: 'Sparring og beslutningskraft',
+        d3p: 'Vi er tæt sparringspartner for ledelsen om retning og prioritering, og vi hjælper med at indrette beslutningsfora, roller og ansvar, så beslutninger bliver truffet og fulgt til dørs.',
+        d3w1: 'Beslutninger tager for lang tid eller bliver ikke truffet',
+        d3w2: 'Ansvar falder mellem stole, når noget går på tværs',
+        d3w3: 'Organisationen er vokset fra sin måde at arbejde på',
+        d4h: 'Færre systemer, mindre teknisk gæld',
+        d4p: 'Vi skaber overblik over applikationslandskabet, finder kandidater til konsolidering og udfasning, og lægger en realistisk plan for vejen fra legacy til et landskab, der kan udvikles på.',
+        d4w1: 'Systemlandskabet er vokset uden en samlet plan',
+        d4w2: 'Centrale systemer er gamle, sårbare eller svære at ændre',
+        d4w3: 'Ingen har det fulde overblik over systemer og omkostninger',
         wKicker: 'Sådan starter et samarbejde typisk',
         wH2: 'En workshop på 2½ time hos jer',
         wP: 'Den letteste måde at finde ud af, om vi kan gøre en forskel hos jer. Vi kommer ud, lægger jeres forretning på bordet, og I går derfra med en prioriteret plan og en skriftlig opsamling. Fast pris 18.000 kr. ekskl. moms, ingen binding bagefter. Vi har bedst erfaring med to tilgange:',
@@ -427,6 +522,28 @@
         s4tag: 'IT simplification', s4h: 'Fewer systems, less drag',
         s4p: 'A clear view of your application landscape and a realistic route from legacy to a platform you can build on.',
         s4a: 'Application portfolio and consolidation', s4b: 'Legacy modernisation and target architecture', s4c: 'Unlocking data stuck in old systems',
+        more: 'Read more',
+        whenH: 'Typically relevant when',
+        d1h: 'From idea to a solution in production',
+        d1p: 'We help you find the places where AI can make a measurable difference, get the foundation in place, and build the first solution so it actually gets used. Where data can’t leave the building, we work with private AI setups.',
+        d1w1: 'There are plenty of ideas, but no shared direction',
+        d1w2: 'Data is scattered across systems, spreadsheets and inboxes',
+        d1w3: 'Sensitive data limits what you dare to use',
+        d2h: 'From decisions to momentum',
+        d2p: 'We help you prioritise the portfolio, turn strategy into roadmaps and ownership, and keep up momentum with governance that is clear without being heavy.',
+        d2w1: 'Too many initiatives are running, and everything feels important',
+        d2w2: 'The strategy is decided but never turns into action',
+        d2w3: 'Leadership lacks a view of status and progress',
+        d3h: 'Sparring and the ability to decide',
+        d3p: 'We are a close sparring partner to leadership on direction and priorities, and we help shape decision forums, roles and accountability so decisions get made and followed through.',
+        d3w1: 'Decisions take too long or don’t get made',
+        d3w2: 'Accountability falls between chairs when work crosses teams',
+        d3w3: 'The organisation has outgrown the way it works',
+        d4h: 'Fewer systems, less technical debt',
+        d4p: 'We map the application landscape, find candidates for consolidation and retirement, and lay out a realistic path from legacy to a landscape you can build on.',
+        d4w1: 'The system landscape has grown without an overall plan',
+        d4w2: 'Core systems are old, fragile or hard to change',
+        d4w3: 'Nobody has the full picture of systems and costs',
         wKicker: 'How most engagements begin',
         wH2: 'A 2½-hour workshop at your offices',
         wP: 'The quickest way to find out whether we can move the needle for you. We come to you, put your business on the table, and you leave with a prioritised plan and a written summary. Fixed fee of DKK 18,000 ex. VAT, no strings attached. Two approaches have served our clients best:',
