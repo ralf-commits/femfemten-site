@@ -230,6 +230,22 @@
   .story p { margin: 0 0 0.9rem; color: var(--ink-soft); }
   .story p:first-child { color: var(--ink); font-weight: 500; }
 
+  .stepgrid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem 2.4rem;
+    margin-top: 1.6rem;
+  }
+  @media (max-width: 40rem) { .stepgrid { grid-template-columns: 1fr; } }
+  .step .stepnum {
+    font-weight: 900; font-size: 1.35rem; color: var(--orange);
+    margin-bottom: 0.2rem;
+  }
+  .step h3 { font-size: 1.05rem; font-weight: 800; margin: 0 0 0.4rem; letter-spacing: -0.005em; }
+  .step p { margin: 0; font-size: 0.95rem; color: var(--ink-soft); }
+  .colnote {
+    margin: 1.8rem 0 0; font-family: "Libre Caslon Text", Georgia, serif;
+    font-style: italic; color: var(--ink-soft); max-width: 40rem;
+  }
+
   .footband {
     background: #1b1a4a; color: #aebadd; position: relative; overflow: hidden;
     margin-top: 2rem;
@@ -325,18 +341,25 @@
     <div class="deep" id="deep-d1">
       <span class="tag" style="display:inline-block;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--orange)" data-i18n="s1tag">Data &amp; AI</span>
       <h3 data-i18n="d1h">Fra idé til løsning i drift</h3>
-      <p data-i18n="d1p">Vi hjælper med at finde de steder, hvor AI kan gøre en målbar forskel hos jer, få fundamentet på plads, og bygge den første løsning, så den bliver brugt i hverdagen. Hvor data ikke må forlade huset, arbejder vi med private AI-opsætninger.</p>
+      <p data-i18n="d1p">Vi hjælper med at finde de steder, hvor AI kan gøre en målbar forskel hos jer, og med at få fundamentet på plads: dataens vej fra kilde til beslutning kortlagt, flaskehalse og siloer synlige, og et datagrundlag der kan bære AI i drift. I regulerede brancher arbejder vi med FAIR-principperne som grundlag, og hvor data ikke må forlade huset, arbejder vi med private AI-opsætninger. Erfaringen kommer fra pharma og biotek, logistik og finans.</p>
       <div class="whenh" data-i18n="whenH">Typisk relevant, når</div>
       <ul>
         <li data-i18n="d1w1">Der er mange idéer, men ingen fælles retning</li>
         <li data-i18n="d1w2">Data ligger spredt i systemer, ark og indbakker</li>
         <li data-i18n="d1w3">Følsomme data sætter grænser for, hvad I tør bruge</li>
       </ul>
+      <div class="whenh" data-i18n="pkgH">Det køber kunder typisk som</div>
+      <ul>
+        <li data-i18n="d1k1">Data value chain assessment: hele dataværdikæden gennemgået, med quick wins og en prioriteret plan</li>
+        <li data-i18n="d1k2">FAIR by design: datapraksis og arkitektur bygget på FAIR-principperne, især til regulerede brancher</li>
+        <li data-i18n="d1k3">AI-klare dataworkflows: struktur, kvalitet og historik, så jeres data kan bære AI og machine learning</li>
+        <li data-i18n="d1k4">Strategic insights: realtidsoverblik og indsigter, bygget ind i beslutningsprocesserne</li>
+      </ul>
     </div>
     <div class="deep" id="deep-d2">
       <span class="tag" style="display:inline-block;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--orange)" data-i18n="s2tag">Strategi → eksekvering</span>
       <h3 data-i18n="d2h">Fra beslutning til fremdrift</h3>
-      <p data-i18n="d2p">Vi hjælper med at prioritere porteføljen, omsætte strategi til roadmaps og ansvar, og holde fremdriften med en styring, der er tydelig uden at være tung.</p>
+      <p data-i18n="d2p">Vi starter gerne med et sundhedstjek af jeres strategi: hvad findes på papir, hvad findes i virkeligheden, og hvor er hullerne. Derfra hjælper vi med det, der oftest mangler: en prioriteringsmodel, så ressourcerne går til de projekter, der flytter mest, en enkel styringsstruktur med roller og opfølgning, og en operating model, der passer til ambitionerne. Målt på ét: bliver strategien til handling.</p>
       <div class="whenh" data-i18n="whenH">Typisk relevant, når</div>
       <ul>
         <li data-i18n="d2w1">Der er for mange initiativer i gang, og alt føles vigtigt</li>
@@ -347,7 +370,7 @@
     <div class="deep" id="deep-d3">
       <span class="tag" style="display:inline-block;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--orange)" data-i18n="s3tag">Ledelsesrådgivning</span>
       <h3 data-i18n="d3h">Sparring og beslutningskraft</h3>
-      <p data-i18n="d3p">Vi er tæt sparringspartner for ledelsen om retning og prioritering, og vi hjælper med at indrette beslutningsfora, roller og ansvar, så beslutninger bliver truffet og fulgt til dørs.</p>
+      <p data-i18n="d3p">Coaching og sparring af ledere og ledergrupper, en til en og samlet. Og vigtigst: vi går med ud i driften, hvor arbejdet faktisk foregår, i stedet for kun at mødes i mødelokalet. Lige nu fylder ét spørgsmål mest hos de ledere, vi taler med: hvad betyder AI for min forretning og min måde at lede på? Det er også der, vi oftest starter.</p>
       <div class="whenh" data-i18n="whenH">Typisk relevant, når</div>
       <ul>
         <li data-i18n="d3w1">Beslutninger tager for lang tid eller bliver ikke truffet</li>
@@ -366,6 +389,34 @@
         <li data-i18n="d4w3">Ingen har det fulde overblik over systemer og omkostninger</li>
       </ul>
     </div>
+  </section>
+
+  <section class="section" id="samarbejde">
+    <div class="section-kicker" data-i18n="colKicker">Samarbejde</div>
+    <h2 data-i18n="colH2">Sådan arbejder vi sammen</h2>
+    <div class="stepgrid">
+      <div class="step">
+        <div class="stepnum">1</div>
+        <h3 data-i18n="step1h">Vi måler, før vi anbefaler</h3>
+        <p data-i18n="step1p">Første skridt er en vurdering af, hvor I står: parathedstesten her på siden, eller en halvdags modenhedsworkshop hos jer, hvor vi scorer jeres eksekveringsevne dimension for dimension.</p>
+      </div>
+      <div class="step">
+        <div class="stepnum">2</div>
+        <h3 data-i18n="step2h">I får en prioriteret plan, ikke en rapport til skuffen</h3>
+        <p data-i18n="step2p">Styrker, huller og 3 til 5 første skridt, hver med forventet effekt og indsats. Kort nok til at blive læst, konkret nok til at blive brugt.</p>
+      </div>
+      <div class="step">
+        <div class="stepnum">3</div>
+        <h3 data-i18n="step3h">Vi bygger det første sammen</h3>
+        <p data-i18n="step3p">Én afgrænset leverance med tydeligt output, målt i uger. Så har I set os arbejde, før I beslutter mere.</p>
+      </div>
+      <div class="step">
+        <div class="stepnum">4</div>
+        <h3 data-i18n="step4h">Derefter så meget eller lidt, som I har brug for</h3>
+        <p data-i18n="step4p">Nogle kører selv videre. Andre vil have os med på deltid, til fremdriften er robust. Begge dele er rigtige.</p>
+      </div>
+    </div>
+    <p class="colnote" data-i18n="colNote">Uanset omfang gælder det samme: jeres data forbliver jeres, og mennesker godkender, før noget sendes.</p>
   </section>
 
   <section class="section" id="workshop" style="padding-top:0">
@@ -466,17 +517,22 @@
         more: 'Læs mere',
         whenH: 'Typisk relevant, når',
         d1h: 'Fra idé til løsning i drift',
-        d1p: 'Vi hjælper med at finde de steder, hvor AI kan gøre en målbar forskel hos jer, få fundamentet på plads, og bygge den første løsning, så den bliver brugt i hverdagen. Hvor data ikke må forlade huset, arbejder vi med private AI-opsætninger.',
+        d1p: 'Vi hjælper med at finde de steder, hvor AI kan gøre en målbar forskel hos jer, og med at få fundamentet på plads: dataens vej fra kilde til beslutning kortlagt, flaskehalse og siloer synlige, og et datagrundlag der kan bære AI i drift. I regulerede brancher arbejder vi med FAIR-principperne som grundlag, og hvor data ikke må forlade huset, arbejder vi med private AI-opsætninger. Erfaringen kommer fra pharma og biotek, logistik og finans.',
+        pkgH: 'Det køber kunder typisk som',
+        d1k1: 'Data value chain assessment: hele dataværdikæden gennemgået, med quick wins og en prioriteret plan',
+        d1k2: 'FAIR by design: datapraksis og arkitektur bygget på FAIR-principperne, især til regulerede brancher',
+        d1k3: 'AI-klare dataworkflows: struktur, kvalitet og historik, så jeres data kan bære AI og machine learning',
+        d1k4: 'Strategic insights: realtidsoverblik og indsigter, bygget ind i beslutningsprocesserne',
         d1w1: 'Der er mange idéer, men ingen fælles retning',
         d1w2: 'Data ligger spredt i systemer, ark og indbakker',
         d1w3: 'Følsomme data sætter grænser for, hvad I tør bruge',
         d2h: 'Fra beslutning til fremdrift',
-        d2p: 'Vi hjælper med at prioritere porteføljen, omsætte strategi til roadmaps og ansvar, og holde fremdriften med en styring, der er tydelig uden at være tung.',
+        d2p: 'Vi starter gerne med et sundhedstjek af jeres strategi: hvad findes på papir, hvad findes i virkeligheden, og hvor er hullerne. Derfra hjælper vi med det, der oftest mangler: en prioriteringsmodel, så ressourcerne går til de projekter, der flytter mest, en enkel styringsstruktur med roller og opfølgning, og en operating model, der passer til ambitionerne. Målt på ét: bliver strategien til handling.',
         d2w1: 'Der er for mange initiativer i gang, og alt føles vigtigt',
         d2w2: 'Strategien er besluttet, men bliver ikke til handling',
         d2w3: 'Ledelsen mangler overblik over status og fremdrift',
         d3h: 'Sparring og beslutningskraft',
-        d3p: 'Vi er tæt sparringspartner for ledelsen om retning og prioritering, og vi hjælper med at indrette beslutningsfora, roller og ansvar, så beslutninger bliver truffet og fulgt til dørs.',
+        d3p: 'Coaching og sparring af ledere og ledergrupper, en til en og samlet. Og vigtigst: vi går med ud i driften, hvor arbejdet faktisk foregår, i stedet for kun at mødes i mødelokalet. Lige nu fylder ét spørgsmål mest hos de ledere, vi taler med: hvad betyder AI for min forretning og min måde at lede på? Det er også der, vi oftest starter.',
         d3w1: 'Beslutninger tager for lang tid eller bliver ikke truffet',
         d3w2: 'Ansvar falder mellem stole, når noget går på tværs',
         d3w3: 'Organisationen er vokset fra sin måde at arbejde på',
@@ -485,7 +541,18 @@
         d4w1: 'Systemlandskabet er vokset uden en samlet plan',
         d4w2: 'Centrale systemer er gamle, sårbare eller svære at ændre',
         d4w3: 'Ingen har det fulde overblik over systemer og omkostninger',
-        wKicker: 'Sådan starter et samarbejde typisk',
+        colKicker: 'Samarbejde',
+        colH2: 'Sådan arbejder vi sammen',
+        step1h: 'Vi måler, før vi anbefaler',
+        step1p: 'Første skridt er en vurdering af, hvor I står: parathedstesten her på siden, eller en halvdags modenhedsworkshop hos jer, hvor vi scorer jeres eksekveringsevne dimension for dimension.',
+        step2h: 'I får en prioriteret plan, ikke en rapport til skuffen',
+        step2p: 'Styrker, huller og 3 til 5 første skridt, hver med forventet effekt og indsats. Kort nok til at blive læst, konkret nok til at blive brugt.',
+        step3h: 'Vi bygger det første sammen',
+        step3p: 'Én afgrænset leverance med tydeligt output, målt i uger. Så har I set os arbejde, før I beslutter mere.',
+        step4h: 'Derefter så meget eller lidt, som I har brug for',
+        step4p: 'Nogle kører selv videre. Andre vil have os med på deltid, til fremdriften er robust. Begge dele er rigtige.',
+        colNote: 'Uanset omfang gælder det samme: jeres data forbliver jeres, og mennesker godkender, før noget sendes.',
+        wKicker: 'Det typiske første skridt',
         wH2: 'En workshop på 2½ time hos jer',
         wP: 'Den letteste måde at finde ud af, om vi kan gøre en forskel hos jer. Vi kommer ud, lægger jeres forretning på bordet, og I går derfra med en prioriteret plan og en skriftlig opsamling. Fast pris 18.000 kr. ekskl. moms, ingen binding bagefter. Vi har bedst erfaring med to tilgange:',
         v1h: 'Hvor står I?',
@@ -534,17 +601,22 @@
         more: 'Read more',
         whenH: 'Typically relevant when',
         d1h: 'From idea to a solution in production',
-        d1p: 'We help you find the places where AI can make a measurable difference, get the foundation in place, and build the first solution so it actually gets used. Where data can’t leave the building, we work with private AI setups.',
+        d1p: 'We help you find the places where AI can make a measurable difference, and get the foundation in place: the path of your data mapped from source to decision, bottlenecks and silos made visible, and a data foundation that can carry AI in production. In regulated industries we build on the FAIR principles, and where data can’t leave the building, we work with private AI setups. The experience comes from pharma and biotech, logistics and finance.',
+        pkgH: 'Clients typically buy this as',
+        d1k1: 'Data value chain assessment: your whole data value chain reviewed, with quick wins and a prioritised plan',
+        d1k2: 'FAIR by design: data practice and architecture built on the FAIR principles, especially for regulated industries',
+        d1k3: 'AI-ready data workflows: structure, quality and history, so your data can carry AI and machine learning',
+        d1k4: 'Strategic insights: live overviews and insights built into your decision processes',
         d1w1: 'There are plenty of ideas, but no shared direction',
         d1w2: 'Data is scattered across systems, spreadsheets and inboxes',
         d1w3: 'Sensitive data limits what you dare to use',
         d2h: 'From decisions to momentum',
-        d2p: 'We help you prioritise the portfolio, turn strategy into roadmaps and ownership, and keep up momentum with governance that is clear without being heavy.',
+        d2p: 'We like to start with a health check of your strategy: what exists on paper, what exists in reality, and where the gaps are. From there we help with what is most often missing: a prioritisation model so resources go to the projects that move the most, a simple governance structure with roles and follow-up, and an operating model that fits the ambitions. Measured on one thing: does the strategy turn into action.',
         d2w1: 'Too many initiatives are running, and everything feels important',
         d2w2: 'The strategy is decided but never turns into action',
         d2w3: 'Leadership lacks a view of status and progress',
         d3h: 'Sparring and the ability to decide',
-        d3p: 'We are a close sparring partner to leadership on direction and priorities, and we help shape decision forums, roles and accountability so decisions get made and followed through.',
+        d3p: 'Coaching and sparring for leaders and leadership teams, one to one and together. Most importantly: we go into the operation with you, where the work actually happens, instead of only meeting in the meeting room. Right now one question dominates among the leaders we talk to: what does AI mean for my business and the way I lead? That is also where we usually start.',
         d3w1: 'Decisions take too long or don’t get made',
         d3w2: 'Accountability falls between chairs when work crosses teams',
         d3w3: 'The organisation has outgrown the way it works',
@@ -553,7 +625,18 @@
         d4w1: 'The system landscape has grown without an overall plan',
         d4w2: 'Core systems are old, fragile or hard to change',
         d4w3: 'Nobody has the full picture of systems and costs',
-        wKicker: 'How most engagements begin',
+        colKicker: 'Working together',
+        colH2: 'How we work with you',
+        step1h: 'We measure before we recommend',
+        step1p: 'The first step is an assessment of where you stand: the readiness test on this site, or a half-day maturity workshop at your place, where we score your execution capability dimension by dimension.',
+        step2h: 'You get a prioritised plan, not a report for the drawer',
+        step2p: 'Strengths, gaps and 3 to 5 first steps, each with expected impact and effort. Short enough to be read, concrete enough to be used.',
+        step3h: 'We build the first thing together',
+        step3p: 'One well-defined delivery with a clear output, measured in weeks. So you have seen us work before you decide on more.',
+        step4h: 'After that, as much or as little as you need',
+        step4p: 'Some continue on their own. Others want us part-time until the momentum holds. Both are right.',
+        colNote: 'Whatever the scope, the same applies: your data stays yours, and people approve before anything is sent.',
+        wKicker: 'The typical first step',
         wH2: 'A 2½-hour workshop at your offices',
         wP: 'The quickest way to find out whether we can move the needle for you. We come to you, put your business on the table, and you leave with a prioritised plan and a written summary. Fixed fee of DKK 18,000 ex. VAT, no strings attached. Two approaches have served our clients best:',
         v1h: 'Where do you stand?',
