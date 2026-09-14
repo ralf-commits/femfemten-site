@@ -117,27 +117,37 @@
     font-size: 1.1rem; color: #c3cde6; max-width: 38rem; margin: 0;
   }
 
-  .radarviz { padding: 3rem 0 0.4rem; }
-  .radarviz svg { display: block; width: 100%; max-width: 40rem; height: auto; margin: 0 auto; }
-  .rband { stroke: var(--card-line); stroke-width: 1; }
-  .rz1 { fill: var(--rz1); }
-  .rz2 { fill: var(--rz2); }
-  .rz3 { fill: var(--rz3); }
-  .rlabel { font-family: "DM Sans", "Helvetica Neue", Arial, sans-serif; font-weight: 800; font-size: 17px; fill: var(--ink); }
-  .rlabel3 { fill: #ccd6ea; }
-  .dotB { fill: var(--orange); }
-  .dotP { fill: none; stroke: var(--orange); stroke-width: 2.5; }
-  .dotN { fill: none; stroke: var(--ink-soft); stroke-width: 2; }
-  .dotN3 { fill: none; stroke: #8f97c0; stroke-width: 2; }
+  .radarviz {
+    background: #1b1a4a; border-radius: 8px;
+    padding: 2.2rem 1.6rem 1.7rem; margin-top: 3rem;
+    position: relative; overflow: hidden;
+  }
+  .radarviz .lines { right: -3rem; top: -4rem; width: 12rem; height: 22rem; }
+  .radarviz svg { display: block; width: 100%; max-width: 40rem; height: auto; margin: 0 auto; position: relative; z-index: 1; }
+  .rband { stroke: rgba(209,222,237,0.25); stroke-width: 1; }
+  .rz1 { fill: #ffffff; }
+  .rz2 { fill: rgba(209,222,237,0.42); }
+  .rz3 { fill: rgba(209,222,237,0.1); }
+  .rlabel { font-family: "DM Sans", "Helvetica Neue", Arial, sans-serif; font-weight: 800; font-size: 17px; fill: #1b1a4a; }
+  .rlabel3 { fill: #e6ebf6; }
+  .dotB { fill: #eb4634; }
+  .dotP { fill: none; stroke: #eb4634; stroke-width: 2.5; }
+  .dotN { fill: none; stroke: #1b1a4a; stroke-width: 2; }
+  .dotN3 { fill: none; stroke: #aebadd; stroke-width: 2; }
   .legend {
     display: flex; flex-wrap: wrap; gap: 0.4rem 1.4rem; justify-content: center;
-    margin-top: 0.9rem; font-size: 0.85rem; color: var(--ink-soft);
+    margin-top: 1rem; font-size: 0.85rem; color: #c3cde6;
+    position: relative; z-index: 1;
   }
   .legend span { display: inline-flex; align-items: center; gap: 0.45rem; }
   .sw { display: inline-block; width: 0.72rem; height: 0.72rem; border-radius: 50%; }
-  .swB { background: var(--orange); }
-  .swP { border: 2.5px solid var(--orange); width: 0.55rem; height: 0.55rem; }
-  .swN { border: 2px solid var(--ink-soft); width: 0.58rem; height: 0.58rem; }
+  .swB { background: #eb4634; }
+  .swP { border: 2.5px solid #eb4634; width: 0.55rem; height: 0.55rem; }
+  .swN { border: 2px solid #aebadd; width: 0.58rem; height: 0.58rem; }
+  .rcap {
+    text-align: center; color: #e6ebf6; font-size: 0.95rem;
+    margin: 0.9rem auto 0; max-width: 32rem; position: relative; z-index: 1;
+  }
 
   .zone { padding: 2.8rem 0 0.6rem; }
   .zone:first-of-type { padding-top: 3rem; }
@@ -238,6 +248,7 @@
 
 <div class="wrap">
   <section class="radarviz" aria-hidden="true">
+    <div class="lines"></div>
     <svg viewBox="0 55 640 282" xmlns="http://www.w3.org/2000/svg">
       <path class="rband rz3" d="M 70 330 A 250 250 0 0 1 570 330 L 490 330 A 170 170 0 0 0 150 330 Z"></path>
       <path class="rband rz2" d="M 150 330 A 170 170 0 0 1 490 330 L 410 330 A 90 90 0 0 0 230 330 Z"></path>
@@ -245,26 +256,28 @@
       <text class="rlabel" x="320" y="316" text-anchor="middle" data-i18n="z1h">Virker nu</text>
       <text class="rlabel" x="320" y="186" text-anchor="middle" data-i18n="svgZ2">Forarbejde først</text>
       <text class="rlabel rlabel3" x="320" y="104" text-anchor="middle" data-i18n="z3h">Vent med</text>
-      <circle class="dotB" cx="376" cy="309" r="7"></circle>
-      <circle class="dotB" cx="362" cy="288" r="7"></circle>
-      <circle class="dotB" cx="334" cy="274" r="7"></circle>
-      <circle class="dotB" cx="290" cy="278" r="7"></circle>
-      <circle class="dotB" cx="264" cy="299" r="7"></circle>
-      <circle class="dotP" cx="308" cy="271" r="6.5"></circle>
-      <circle class="dotN" cx="252" cy="320" r="6.5"></circle>
-      <circle class="dotN" cx="426" cy="255" r="6.5"></circle>
-      <circle class="dotN" cx="354" cy="204" r="6.5"></circle>
-      <circle class="dotN" cx="276" cy="208" r="6.5"></circle>
+      <circle class="dotB" cx="378" cy="314" r="7"></circle>
+      <circle class="dotB" cx="367" cy="293" r="7"></circle>
+      <circle class="dotB" cx="349" cy="278" r="7"></circle>
+      <circle class="dotB" cx="326" cy="270" r="7"></circle>
+      <circle class="dotB" cx="302" cy="273" r="7"></circle>
+      <circle class="dotB" cx="267" cy="303" r="7"></circle>
+      <circle class="dotP" cx="281" cy="284" r="6.5"></circle>
+      <circle class="dotN" cx="261" cy="322" r="6.5"></circle>
+      <circle class="dotB" cx="426" cy="255" r="7"></circle>
+      <circle class="dotB" cx="354" cy="204" r="7"></circle>
+      <circle class="dotB" cx="276" cy="208" r="7"></circle>
       <circle class="dotN" cx="207" cy="265" r="6.5"></circle>
       <circle class="dotN3" cx="455" cy="169" r="6.5"></circle>
       <circle class="dotN3" cx="320" cy="135" r="6.5"></circle>
       <circle class="dotN3" cx="185" cy="169" r="6.5"></circle>
     </svg>
     <div class="legend">
-      <span><i class="sw swB"></i><em data-i18n="legB" style="font-style:normal">Det har vi bygget</em></span>
-      <span><i class="sw swP"></i><em data-i18n="legP" style="font-style:normal">Bygger vi hos en kunde nu</em></span>
-      <span><i class="sw swN"></i><em data-i18n="legN" style="font-style:normal">Ikke bygget af os endnu</em></span>
+      <span><i class="sw swB"></i><em data-i18n="legB" style="font-style:normal">Bygget af os</em></span>
+      <span><i class="sw swP"></i><em data-i18n="legP" style="font-style:normal">I gang hos en kunde</em></span>
+      <span><i class="sw swN"></i><em data-i18n="legN" style="font-style:normal">Ikke bygget endnu</em></span>
     </div>
+    <p class="rcap" data-i18n="rcap">De orange punkter er løsninger, vi selv har bygget, hos os selv eller hos kunder.</p>
   </section>
 
   <section class="zone">
@@ -275,27 +288,26 @@
     </div>
     <div class="cards">
       <div class="card">
-        <span class="badge" data-i18n="badgeBuilt">Det har vi bygget</span>
         <h3 data-i18n="c1h">Mødeopsamling</h3>
         <p data-i18n="c1p">Referat, beslutninger og actions med ejer og deadline, klar lige efter mødet.</p>
       </div>
       <div class="card">
-        <span class="badge" data-i18n="badgeBuilt">Det har vi bygget</span>
         <h3 data-i18n="c2h">Svarudkast på henvendelser</h3>
-        <p data-i18n="c2p">Indbakken sorteret og det rutineprægede besvaret som udkast, før nogen har åbnet den.</p>
+        <p data-i18n="c2p">Første svar til kunden ligger klar som udkast, før en supporter ser det igennem. Samme princip i den almindelige indbakke.</p>
       </div>
       <div class="card">
-        <span class="badge" data-i18n="badgeBuilt">Det har vi bygget</span>
         <h3 data-i18n="c3h">Tilbudsudkast</h3>
         <p data-i18n="c3p">Første version skrevet ud fra mødenoter, prisliste og tidligere vundne tilbud.</p>
       </div>
       <div class="card">
-        <span class="badge" data-i18n="badgeBuilt">Det har vi bygget</span>
         <h3 data-i18n="c14h">Kodeagenter i udvikling</h3>
         <p data-i18n="c14p">Udviklingsopgaver løst sammen med en kodeagent: mindre ventetid på små rettelser, og udvikleren har stadig sidste ord.</p>
       </div>
       <div class="card">
-        <span class="badge" data-i18n="badgeClient">Bygger vi hos en kunde nu</span>
+        <h3 data-i18n="c15h">Match af mennesker og job</h3>
+        <p data-i18n="c15p">Kandidater matchet til relevante job ud fra hele cv'et, ikke kun søgeord. Bygget som platform, og en brancheforening har købt løsningen til deres medlemmer.</p>
+      </div>
+      <div class="card">
         <h3 data-i18n="c4h">Salg på egne kundedata</h3>
         <p data-i18n="c4p">Find kunderne, der ikke har købt længe, og skriv personlige udkast ud fra, hvad de faktisk købte.</p>
       </div>
@@ -304,7 +316,6 @@
         <p data-i18n="c5p">LinkedIn og nyhedsbrev i jeres egen tone, ud fra det I allerede har sagt og skrevet.</p>
       </div>
       <div class="card">
-        <span class="badge" data-i18n="badgeBuilt">Det har vi bygget</span>
         <h3 data-i18n="c6h">Svar på &raquo;hvordan gør vi her&laquo;</h3>
         <p data-i18n="c6p">Nye medarbejdere spørger, og svaret findes i jeres egne dokumenter i stedet for hos sidemanden.</p>
       </div>
@@ -402,20 +413,21 @@
         lede: 'Ikke en komplet liste. Et kort over det, vi tør stå på mål for: hvad der virker nu, hvad der kræver forarbejde, og hvad I skal vente med.',
         z1k: 'Zone 1', z1h: 'Virker nu',
         z1p: 'Kan tages i brug på uger, ikke måneder. Fælles for dem alle: AI\'en skriver udkast, et menneske godkender.',
-        badgeBuilt: 'Det har vi bygget',
-        badgeClient: 'Bygger vi hos en kunde nu',
         svgZ2: 'Forarbejde først',
-        legB: 'Det har vi bygget',
-        legP: 'Bygger vi hos en kunde nu',
-        legN: 'Ikke bygget af os endnu',
+        legB: 'Bygget af os',
+        legP: 'I gang hos en kunde',
+        legN: 'Ikke bygget endnu',
+        rcap: 'De orange punkter er løsninger, vi selv har bygget, hos os selv eller hos kunder.',
         c1h: 'Mødeopsamling',
         c1p: 'Referat, beslutninger og actions med ejer og deadline, klar lige efter mødet.',
         c2h: 'Svarudkast på henvendelser',
-        c2p: 'Indbakken sorteret og det rutineprægede besvaret som udkast, før nogen har åbnet den.',
+        c2p: 'Første svar til kunden ligger klar som udkast, før en supporter ser det igennem. Samme princip i den almindelige indbakke.',
         c3h: 'Tilbudsudkast',
         c3p: 'Første version skrevet ud fra mødenoter, prisliste og tidligere vundne tilbud.',
         c14h: 'Kodeagenter i udvikling',
         c14p: 'Udviklingsopgaver løst sammen med en kodeagent: mindre ventetid på små rettelser, og udvikleren har stadig sidste ord.',
+        c15h: 'Match af mennesker og job',
+        c15p: 'Kandidater matchet til relevante job ud fra hele cv\'et, ikke kun søgeord. Bygget som platform, og en brancheforening har købt løsningen til deres medlemmer.',
         c4h: 'Salg på egne kundedata',
         c4p: 'Find kunderne, der ikke har købt længe, og skriv personlige udkast ud fra, hvad de faktisk købte.',
         c5h: 'Content-udkast',
@@ -459,20 +471,21 @@
         lede: 'Not a complete list. A map of what we are willing to vouch for: what works now, what needs groundwork first, and what to hold off on.',
         z1k: 'Zone 1', z1h: 'Working now',
         z1p: 'Weeks to adopt, not months. Common to all of them: the AI drafts, a person approves.',
-        badgeBuilt: 'We have built this',
-        badgeClient: 'Building this with a client now',
         svgZ2: 'Groundwork first',
-        legB: 'We have built this',
-        legP: 'Building this with a client now',
-        legN: 'Not built by us yet',
+        legB: 'Built by us',
+        legP: 'In progress with a client',
+        legN: 'Not built yet',
+        rcap: 'The orange points are solutions we have built ourselves, in our own shop or with clients.',
         c1h: 'Meeting capture',
         c1p: 'Minutes, decisions and actions with an owner and a deadline, ready right after the meeting.',
         c2h: 'Draft replies to enquiries',
-        c2p: 'The inbox sorted and routine messages answered as drafts before anyone has opened it.',
+        c2p: 'The first reply to the customer is ready as a draft before a support person reviews it. Same principle in the everyday inbox.',
         c3h: 'Draft quotes',
         c3p: 'A first version written from meeting notes, price lists and previously won quotes.',
         c14h: 'Coding agents in development',
         c14p: 'Development tasks solved alongside a coding agent: less waiting for small fixes, and the developer still has the final say.',
+        c15h: 'Matching people and jobs',
+        c15p: 'Candidates matched to relevant jobs from the whole CV, not just keywords. Built as a platform, and an industry association has bought the solution for its members.',
         c4h: 'Sales on your own customer data',
         c4p: 'Find the customers who haven\'t bought in a while, and draft personal messages based on what they actually bought.',
         c5h: 'Content drafts',
