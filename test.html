@@ -150,6 +150,11 @@
     color: #ffffff; font-size: 1.5rem; font-weight: 900; margin: 0 0 0.7rem;
   }
   .resultcard p { margin: 0 0 1rem; }
+  .resultcard .bench {
+    font-size: 0.88rem; color: #aebadd;
+    border-left: 3px solid var(--sage); padding-left: 0.85rem;
+    margin: 0 0 1.2rem;
+  }
 
   .bars { margin: 1.4rem 0 1.6rem; display: flex; flex-direction: column; gap: 0.9rem; }
   .bar-row { display: grid; grid-template-columns: 11rem 1fr 3.2rem; gap: 0 0.9rem; align-items: center; }
@@ -229,6 +234,7 @@
       <div class="kicker" data-i18n="rKicker">Jeres resultat</div>
       <h2 id="r-title"></h2>
       <p id="r-desc"></p>
+      <p class="bench" data-i18n="rBench">Til sammenligning: 42% af danske virksomheder med mindst 10 ansatte brugte AI i 2025. To år tidligere var det 15% (Danmarks Statistik).</p>
       <div class="bars" id="r-bars"></div>
       <ul class="verdicts" id="r-verdicts"></ul>
       <div class="recs">
@@ -266,6 +272,7 @@
         h1: 'Hvor AI-parate er I?',
         lede: '12 konkrete spørgsmål om jeres data, arbejdsgange, mennesker og regler. Resultatet kommer med det samme, fordelt på fire dimensioner.',
         rKicker: 'Jeres resultat',
+        rBench: 'Til sammenligning: 42% af danske virksomheder med mindst 10 ansatte brugte AI i 2025. To år tidligere var det 15% (Danmarks Statistik).',
         rRecsH: 'Start her',
         rCta: 'Se workshoppen, der starter her',
         rLeadP: 'Vil I have vores øjne på resultatet? Send det til os, og få en ærlig reaktion på, hvad vi ville gøre først hos jer.',
@@ -306,7 +313,7 @@
           { d: 'flow', q: 'Hvor lang tid tager et typisk tilbud, en sag eller et kundesvar?', a: ['Minutter til en time: det meste ligger klar', 'Timer: der skal samles ting fra flere steder', 'Dage: og ventetiden koster ordrer og utålmodige kunder'] },
           { d: 'flow', q: 'Hvor bor jeres vigtigste arbejdsgange?', a: ['I systemer med faste trin, som nye folk kan læres op i', 'I en blanding af systemer, Excel og mails', 'I hovederne på nøglepersoner'] },
           { d: 'flow', q: 'En ny medarbejder starter mandag. Hvornår kan de arbejde selvstændigt?', a: ['Inden for uger: det vigtigste er beskrevet', 'Efter måneder: det meste er mesterlære', 'Det afhænger helt af, hvem de kommer til at sidde ved siden af'] },
-          { d: 'people', q: 'Hvem beslutter, når der skal indføres nye systemer eller værktøjer?', a: ['Én person eller et lille forum, der faktisk beslutter', 'Flere skal ind over, og det trækker ud', 'Det ender ofte med, at der ikke besluttes noget'] },
+          { d: 'people', q: 'Er AI på ledelsens dagsorden, med mål og penge bag?', a: ['Ja: der er en ejer i ledelsen, og der er sat tid og penge af', 'Ledelsen er interesseret, men det er ikke blevet til mål eller budget', 'Det er ikke rigtig på ledelsens bord'] },
           { d: 'people', q: 'Hvor langt er I med AI i jeres virksomhed?', a: ['Mindst ét værktøj er i reel daglig brug', 'Der eksperimenteres hist og her, uden fælles retning', 'Nogle bruger det privat. Virksomheden gør ikke'] },
           { d: 'people', q: 'Hvordan tager organisationen imod nye værktøjer?', a: ['Nysgerrigt: folk prøver gerne ting af', 'Blandet: det står og falder med et par ildsjæle', 'Trætte: der har været for mange nye systemer'] },
           { d: 'rules', q: 'Må jeres data bruges i cloud- og AI-tjenester?', a: ['Ja, eller vi har klare regler for, hvad der må og ikke må', 'Noget må, men grænsen er aldrig trukket op', 'Uafklaret, så i praksis tør ingen bruge noget'] },
@@ -319,6 +326,7 @@
         h1: 'How AI-ready are you?',
         lede: '12 concrete questions about your data, workflows, people and rules. The result comes right away, across four dimensions.',
         rKicker: 'Your result',
+        rBench: 'For comparison: 42% of Danish companies with 10 or more employees used AI in 2025. Two years earlier it was 15% (Statistics Denmark).',
         rRecsH: 'Start here',
         rCta: 'See the workshop that starts here',
         rLeadP: 'Want our eyes on the result? Send it to us and get an honest take on what we would do first at your company.',
@@ -359,7 +367,7 @@
           { d: 'flow', q: 'How long does a typical quote, case or customer reply take?', a: ['Minutes to an hour: most of it is ready to go', 'Hours: things need gathering from several places', 'Days: and the wait costs us orders and patience'] },
           { d: 'flow', q: 'Where do your most important workflows live?', a: ['In systems with fixed steps that new people can be trained in', 'In a mix of systems, spreadsheets and email', 'In the heads of key people'] },
           { d: 'flow', q: 'A new employee starts Monday. When can they work independently?', a: ['Within weeks: the essentials are written down', 'After months: most of it is apprenticeship', 'It depends entirely on who they end up sitting next to'] },
-          { d: 'people', q: 'Who decides when a new system or tool is introduced?', a: ['One person or a small forum that actually decides', 'Several people need to weigh in, and it drags', 'It often ends with no decision at all'] },
+          { d: 'people', q: 'Is AI on the leadership agenda, with goals and money behind it?', a: ['Yes: it has an owner in leadership, and time and money are set aside', 'Leadership is interested, but it hasn\'t turned into goals or a budget', 'It isn\'t really on the leadership table'] },
           { d: 'people', q: 'How far along are you with AI in your company?', a: ['At least one tool is in real daily use', 'Scattered experiments, no shared direction', 'Some use it privately. The company doesn’t'] },
           { d: 'people', q: 'How does the organisation receive new tools?', a: ['Curiously: people are happy to try things', 'Mixed: it depends on a few enthusiasts', 'Tired: there have been too many new systems'] },
           { d: 'rules', q: 'May your data be used in cloud and AI services?', a: ['Yes, or we have clear rules for what may and may not', 'Some of it may, but the line was never drawn', 'Unresolved, so in practice nobody dares use anything'] },
