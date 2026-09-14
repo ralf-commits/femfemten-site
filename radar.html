@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Hvor virker AI i dag? Et kort over det, vi tør stå på mål for: hvad der virker nu, hvad der kræver forarbejde, og hvad I skal vente med.">
+<title>Hvor virker AI i dag?</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hvor virker AI i dag?">
+<meta property="og:description" content="Ikke en komplet liste. Et kort over det, vi tør stå på mål for: hvad der virker nu, hvad der kræver forarbejde, og hvad I skal vente med.">
+<meta property="og:url" content="https://femfemten.com/radar.html">
+<meta property="og:image" content="https://femfemten.com/share.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800;9..40,900&family=Libre+Caslon+Text:ital@1&display=swap">
+<style>
+  :root {
+    --navy: #1b1a4a;
+    --lightblue: #d1deed;
+    --sage: #b0cfc9;
+    --orange: #eb4634;
+    --paper: #d1deed;
+    --ink: #1b1a4a;
+    --ink-soft: #454b6e;
+    --card: #ffffff;
+    --card-line: #bccbdd;
+    --deepcard: #1b1a4a;
+    --deepcard-ink: #ccd6ea;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #121129;
+      --ink: #e9edf6;
+      --ink-soft: #a9b1c9;
+      --card: #1e1d4a;
+      --card-line: #312f60;
+      --deepcard: #16153a;
+      --deepcard-ink: #a9b1c9;
+      --orange: #f0604f;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #121129;
+    --ink: #e9edf6;
+    --ink-soft: #a9b1c9;
+    --card: #1e1d4a;
+    --card-line: #312f60;
+    --deepcard: #16153a;
+    --deepcard-ink: #a9b1c9;
+    --orange: #f0604f;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.02rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .wrap { max-width: 54rem; margin: 0 auto; padding: 0 1.4rem; }
+  a { color: inherit; }
+
+  .lines {
+    position: absolute; pointer-events: none;
+    background: repeating-linear-gradient(90deg,
+      rgba(209,222,237,0.3) 0 0.6rem, transparent 0.6rem 2.3rem);
+    transform: rotate(18deg);
+  }
+  .heroband {
+    background: #1b1a4a; color: #f4f7fc;
+    position: relative; overflow: hidden;
+  }
+  .heroband .lines { right: -3rem; top: -5rem; width: 14rem; height: 24rem; }
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; padding: 1.4rem 0; position: relative; z-index: 1;
+  }
+  .wordmark { display: inline-flex; align-items: center; }
+  .wordmark img { height: 2.3rem; width: auto; display: block; filter: brightness(0) invert(1); }
+  .topnav { display: flex; align-items: center; gap: 0.8rem; }
+  .topnav a.navlink {
+    font-weight: 700; font-size: 0.92rem; text-decoration: none;
+    color: #aebadd; padding: 0.45rem 0.5rem;
+  }
+  .topnav a.navlink:hover { color: #ffffff; }
+  .langswitch {
+    background: none; border: none; cursor: pointer;
+    font-family: inherit; font-weight: 700; font-size: 0.92rem;
+    color: #aebadd; padding: 0.45rem 0.5rem; letter-spacing: 0.04em;
+  }
+  .langswitch:hover { color: #ffffff; }
+  .langswitch:focus-visible { outline: 2px solid #d1deed; outline-offset: 2px; }
+  .hero { padding: 3rem 0 3.2rem; position: relative; z-index: 1; }
+  .eyebrow {
+    display: inline-block; font-size: 0.72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.15em;
+    color: var(--sage); border: 1px solid var(--sage);
+    border-radius: 2px; padding: 0.32rem 0.65rem; margin-bottom: 1.1rem;
+  }
+  .heroband h1 {
+    font-size: clamp(1.9rem, 5.5vw, 2.8rem); font-weight: 900;
+    line-height: 1.08; letter-spacing: -0.018em; text-wrap: balance;
+    color: #ffffff; margin: 0 0 1rem;
+  }
+  .lede {
+    font-family: "Libre Caslon Text", Georgia, serif; font-style: italic;
+    font-size: 1.1rem; color: #c3cde6; max-width: 38rem; margin: 0;
+  }
+
+  .zone { padding: 2.8rem 0 0.6rem; }
+  .zone:first-of-type { padding-top: 3rem; }
+  .zonehead { max-width: 38rem; margin-bottom: 1.5rem; }
+  .zonekicker {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.16em; color: var(--orange); margin-bottom: 0.4rem;
+  }
+  .zone h2 {
+    font-size: 1.55rem; font-weight: 900; letter-spacing: -0.015em;
+    margin: 0 0 0.4rem;
+  }
+  .zonehead p { margin: 0; color: var(--ink-soft); }
+
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 40rem) { .cards { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--card); border: 1px solid var(--card-line);
+    border-radius: 6px; padding: 1.25rem 1.35rem 1.3rem;
+  }
+  .card h3 {
+    font-size: 1.02rem; font-weight: 800; letter-spacing: -0.005em;
+    margin: 0 0 0.45rem;
+  }
+  .card p { margin: 0; font-size: 0.94rem; color: var(--ink-soft); }
+  .badge {
+    display: inline-block; background: var(--orange); color: #ffffff;
+    font-size: 0.66rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; border-radius: 2px;
+    padding: 0.22rem 0.5rem; margin-bottom: 0.6rem;
+  }
+  .req { margin-top: 0.6rem !important; font-size: 0.88rem !important; }
+  .req b { color: var(--ink); font-weight: 700; }
+
+  .zone.deep .card {
+    background: var(--deepcard); border-color: var(--deepcard);
+    color: var(--deepcard-ink);
+  }
+  .zone.deep .card h3 { color: #ffffff; }
+  .zone.deep .card p { color: var(--deepcard-ink); }
+
+  .ctaband {
+    background: #1b1a4a; color: #ccd6ea; position: relative; overflow: hidden;
+    margin-top: 3.2rem;
+  }
+  .ctaband .lines { right: -3rem; top: -4rem; width: 12rem; height: 22rem; }
+  .ctaband .inner { padding: 3rem 0 3.2rem; position: relative; z-index: 1; max-width: 38rem; }
+  .ctaband h2 {
+    color: #ffffff; font-size: 1.55rem; font-weight: 900;
+    letter-spacing: -0.015em; margin: 0 0 0.5rem;
+  }
+  .ctaband p { margin: 0 0 1.3rem; }
+  .ctarow { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
+  .btn {
+    display: inline-block; background: var(--orange); color: #ffffff;
+    text-decoration: none; font-weight: 700; font-size: 0.98rem;
+    padding: 0.85rem 1.5rem; border-radius: 3px;
+  }
+  .btn:hover { filter: brightness(1.07); }
+  .btn:focus-visible { outline: 2px solid #d1deed; outline-offset: 2px; }
+  .quiet { font-size: 0.95rem; color: #aebadd; }
+  .quiet a { color: #d1deed; }
+
+  .footband {
+    background: #1b1a4a; color: #aebadd; position: relative; overflow: hidden;
+    border-top: 1px solid rgba(209,222,237,0.18);
+  }
+  .footband .lines { left: -4rem; bottom: -8rem; width: 12rem; height: 20rem; }
+  .footband footer { padding: 1.8rem 0 2.2rem; font-size: 0.88rem; position: relative; z-index: 1; }
+  .footband a { color: #d1deed; }
+</style>
+</head>
+<body>
+<div class="heroband">
+  <div class="lines"></div>
+  <div class="wrap">
+    <nav class="topbar">
+      <a class="wordmark" href="index.html" aria-label="Fem Femten"><img src="logo.png" alt="5.15"></a>
+      <div class="topnav">
+        <a class="navlink" href="test.html" data-i18n="navTest">Parathedstest</a>
+        <button class="langswitch" id="langswitch" type="button" aria-label="Switch language">EN</button>
+      </div>
+    </nav>
+    <header class="hero">
+      <span class="eyebrow" data-i18n="badge">Opdateret september 2026</span>
+      <h1 data-i18n="h1">Hvor virker AI i dag?</h1>
+      <p class="lede" data-i18n="lede">Ikke en komplet liste. Et kort over det, vi tør stå på mål for: hvad der virker nu, hvad der kræver forarbejde, og hvad I skal vente med.</p>
+    </header>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="zone">
+    <div class="zonehead">
+      <div class="zonekicker" data-i18n="z1k">Zone 1</div>
+      <h2 data-i18n="z1h">Virker nu</h2>
+      <p data-i18n="z1p">Kan tages i brug på uger, ikke måneder. Fælles for dem alle: AI'en skriver udkast, et menneske godkender.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <span class="badge" data-i18n="badgeSelf">I drift hos os selv</span>
+        <h3 data-i18n="c1h">Mødeopsamling</h3>
+        <p data-i18n="c1p">Referat, beslutninger og actions med ejer og deadline, klar lige efter mødet.</p>
+      </div>
+      <div class="card">
+        <span class="badge" data-i18n="badgeSelf2">I drift hos os selv</span>
+        <h3 data-i18n="c2h">Svarudkast på henvendelser</h3>
+        <p data-i18n="c2p">Indbakken sorteret og det rutineprægede besvaret som udkast, før nogen har åbnet den.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="c3h">Tilbudsudkast</h3>
+        <p data-i18n="c3p">Første version skrevet ud fra mødenoter, prisliste og tidligere vundne tilbud.</p>
+      </div>
+      <div class="card">
+        <span class="badge" data-i18n="badgeClient">Bygger vi hos en kunde nu</span>
+        <h3 data-i18n="c4h">Salg på egne kundedata</h3>
+        <p data-i18n="c4p">Find kunderne, der ikke har købt længe, og skriv personlige udkast ud fra, hvad de faktisk købte.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="c5h">Content-udkast</h3>
+        <p data-i18n="c5p">LinkedIn og nyhedsbrev i jeres egen tone, ud fra det I allerede har sagt og skrevet.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="c6h">Svar på &raquo;hvordan gør vi her&laquo;</h3>
+        <p data-i18n="c6p">Nye medarbejdere spørger, og svaret findes i jeres egne dokumenter i stedet for hos sidemanden.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="zone">
+    <div class="zonehead">
+      <div class="zonekicker" data-i18n="z2k">Zone 2</div>
+      <h2 data-i18n="z2h">Virker, når forarbejdet er gjort</h2>
+      <p data-i18n="z2p">AI'en er sjældent problemet her. Datagrundlaget er. Forarbejdet er til gengæld overskueligt, og det er ofte der, vi starter.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h3 data-i18n="c7h">Bilag og kontering</h3>
+        <p data-i18n="c7p">Bilag matchet med betalinger og kontering foreslået automatisk.</p>
+        <p class="req" data-i18n="c7r"><b>Kræver:</b> at bogføringen er nogenlunde ordnet i forvejen.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="c8h">Rapportering på tværs</h3>
+        <p data-i18n="c8p">Ugens tal samlet fra økonomi, pipeline og timer, med afvigelser fremhævet.</p>
+        <p class="req" data-i18n="c8r"><b>Kræver:</b> adgang til kilderne. Ellers bliver det flotte tal på et forkert grundlag.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="c9h">Kontraktgennemgang</h3>
+        <p data-i18n="c9p">Første gennemlæsning med markering af alt, der afviger fra jeres standard.</p>
+        <p class="req" data-i18n="c9r"><b>Kræver:</b> en standard at holde kontrakten op imod.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="c10h">Rykkere og debitoropfølgning</h3>
+        <p data-i18n="c10p">Forfaldne fakturaer overvåget og venlige rykkere skrevet til godkendelse.</p>
+        <p class="req" data-i18n="c10r"><b>Kræver:</b> rene fakturadata.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="zone deep">
+    <div class="zonehead">
+      <div class="zonekicker" data-i18n="z3k">Zone 3</div>
+      <h2 data-i18n="z3h">Vent med</h2>
+      <p data-i18n="z3p">Det her bliver solgt mange steder. Vi ville ikke sætte det i drift endnu, og hos os selv gør vi det heller ikke.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h3 data-i18n="c11h">Beslutninger uden menneske</h3>
+        <p data-i18n="c11p">AI'en foreslår, et menneske afgør. Sådan kører vi det selv, og det ville vi ikke fravige hos jer.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="c12h">Automatisk afsendelse</h3>
+        <p data-i18n="c12p">Intet ryger til kunder uden godkendelse. Det er en regel, ikke en teknisk begrænsning.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="c13h">Prognoser på tyndt datagrundlag</h3>
+        <p data-i18n="c13p">To års rodede tal giver ikke en troværdig forudsigelse, uanset hvad leverandøren lover.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="ctaband">
+  <div class="lines"></div>
+  <div class="wrap">
+    <div class="inner">
+      <h2 data-i18n="ctaH">Hvor skulle I starte?</h2>
+      <p data-i18n="ctaP">Testen viser, hvor parate I er. Workshoppen finder de felter på kortet, der er jeres.</p>
+      <div class="ctarow">
+        <a class="btn" href="test.html" data-i18n="ctaBtn">Tag parathedstesten</a>
+        <span class="quiet" data-i18n="ctaAlt">eller <a href="index.html#workshop">se workshoppen</a></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footband">
+  <div class="lines"></div>
+  <div class="wrap">
+    <footer>
+      <span>Fem Femten · 5:15 ApS · <a href="mailto:hello@femfemten.com">hello@femfemten.com</a> · <a href="index.html">femfemten.com</a></span>
+    </footer>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var t = {
+      da: {
+        navTest: 'Parathedstest',
+        badge: 'Opdateret september 2026',
+        h1: 'Hvor virker AI i dag?',
+        lede: 'Ikke en komplet liste. Et kort over det, vi tør stå på mål for: hvad der virker nu, hvad der kræver forarbejde, og hvad I skal vente med.',
+        z1k: 'Zone 1', z1h: 'Virker nu',
+        z1p: 'Kan tages i brug på uger, ikke måneder. Fælles for dem alle: AI\'en skriver udkast, et menneske godkender.',
+        badgeSelf: 'I drift hos os selv',
+        badgeSelf2: 'I drift hos os selv',
+        badgeClient: 'Bygger vi hos en kunde nu',
+        c1h: 'Mødeopsamling',
+        c1p: 'Referat, beslutninger og actions med ejer og deadline, klar lige efter mødet.',
+        c2h: 'Svarudkast på henvendelser',
+        c2p: 'Indbakken sorteret og det rutineprægede besvaret som udkast, før nogen har åbnet den.',
+        c3h: 'Tilbudsudkast',
+        c3p: 'Første version skrevet ud fra mødenoter, prisliste og tidligere vundne tilbud.',
+        c4h: 'Salg på egne kundedata',
+        c4p: 'Find kunderne, der ikke har købt længe, og skriv personlige udkast ud fra, hvad de faktisk købte.',
+        c5h: 'Content-udkast',
+        c5p: 'LinkedIn og nyhedsbrev i jeres egen tone, ud fra det I allerede har sagt og skrevet.',
+        c6h: 'Svar på &raquo;hvordan gør vi her&laquo;',
+        c6p: 'Nye medarbejdere spørger, og svaret findes i jeres egne dokumenter i stedet for hos sidemanden.',
+        z2k: 'Zone 2', z2h: 'Virker, når forarbejdet er gjort',
+        z2p: 'AI\'en er sjældent problemet her. Datagrundlaget er. Forarbejdet er til gengæld overskueligt, og det er ofte der, vi starter.',
+        c7h: 'Bilag og kontering',
+        c7p: 'Bilag matchet med betalinger og kontering foreslået automatisk.',
+        c7r: '<b>Kræver:</b> at bogføringen er nogenlunde ordnet i forvejen.',
+        c8h: 'Rapportering på tværs',
+        c8p: 'Ugens tal samlet fra økonomi, pipeline og timer, med afvigelser fremhævet.',
+        c8r: '<b>Kræver:</b> adgang til kilderne. Ellers bliver det flotte tal på et forkert grundlag.',
+        c9h: 'Kontraktgennemgang',
+        c9p: 'Første gennemlæsning med markering af alt, der afviger fra jeres standard.',
+        c9r: '<b>Kræver:</b> en standard at holde kontrakten op imod.',
+        c10h: 'Rykkere og debitoropfølgning',
+        c10p: 'Forfaldne fakturaer overvåget og venlige rykkere skrevet til godkendelse.',
+        c10r: '<b>Kræver:</b> rene fakturadata.',
+        z3k: 'Zone 3', z3h: 'Vent med',
+        z3p: 'Det her bliver solgt mange steder. Vi ville ikke sætte det i drift endnu, og hos os selv gør vi det heller ikke.',
+        c11h: 'Beslutninger uden menneske',
+        c11p: 'AI\'en foreslår, et menneske afgør. Sådan kører vi det selv, og det ville vi ikke fravige hos jer.',
+        c12h: 'Automatisk afsendelse',
+        c12p: 'Intet ryger til kunder uden godkendelse. Det er en regel, ikke en teknisk begrænsning.',
+        c13h: 'Prognoser på tyndt datagrundlag',
+        c13p: 'To års rodede tal giver ikke en troværdig forudsigelse, uanset hvad leverandøren lover.',
+        ctaH: 'Hvor skulle I starte?',
+        ctaP: 'Testen viser, hvor parate I er. Workshoppen finder de felter på kortet, der er jeres.',
+        ctaBtn: 'Tag parathedstesten',
+        ctaAlt: 'eller <a href="index.html#workshop">se workshoppen</a>',
+        title: 'Hvor virker AI i dag?'
+      },
+      en: {
+        navTest: 'Readiness test',
+        badge: 'Updated September 2026',
+        h1: 'Where does AI work today?',
+        lede: 'Not a complete list. A map of what we are willing to vouch for: what works now, what needs groundwork first, and what to hold off on.',
+        z1k: 'Zone 1', z1h: 'Working now',
+        z1p: 'Weeks to adopt, not months. Common to all of them: the AI drafts, a person approves.',
+        badgeSelf: 'In daily use ourselves',
+        badgeSelf2: 'In daily use ourselves',
+        badgeClient: 'Building this with a client now',
+        c1h: 'Meeting capture',
+        c1p: 'Minutes, decisions and actions with an owner and a deadline, ready right after the meeting.',
+        c2h: 'Draft replies to enquiries',
+        c2p: 'The inbox sorted and routine messages answered as drafts before anyone has opened it.',
+        c3h: 'Draft quotes',
+        c3p: 'A first version written from meeting notes, price lists and previously won quotes.',
+        c4h: 'Sales on your own customer data',
+        c4p: 'Find the customers who haven\'t bought in a while, and draft personal messages based on what they actually bought.',
+        c5h: 'Content drafts',
+        c5p: 'LinkedIn and newsletters in your own voice, based on what you have already said and written.',
+        c6h: 'Answers to &ldquo;how do we do things here&rdquo;',
+        c6p: 'New employees ask, and the answer comes from your own documents instead of whoever sits closest.',
+        z2k: 'Zone 2', z2h: 'Works once the groundwork is done',
+        z2p: 'AI is rarely the problem here. The data underneath is. The groundwork is manageable, though, and it is often where we start.',
+        c7h: 'Receipts and bookkeeping',
+        c7p: 'Receipts matched to payments and postings suggested automatically.',
+        c7r: '<b>Requires:</b> reasonably tidy books to begin with.',
+        c8h: 'Cross-system reporting',
+        c8p: 'The week\'s numbers gathered from finance, pipeline and hours, with deviations highlighted.',
+        c8r: '<b>Requires:</b> access to the sources. Otherwise you get pretty numbers on the wrong foundation.',
+        c9h: 'Contract review',
+        c9p: 'A first read-through flagging everything that deviates from your standard.',
+        c9r: '<b>Requires:</b> a standard to hold the contract against.',
+        c10h: 'Payment reminders',
+        c10p: 'Overdue invoices monitored and friendly reminders drafted for approval.',
+        c10r: '<b>Requires:</b> clean invoice data.',
+        z3k: 'Zone 3', z3h: 'Hold off',
+        z3p: 'This gets sold in plenty of places. We wouldn\'t put it into production yet, and we don\'t in our own shop either.',
+        c11h: 'Decisions without a human',
+        c11p: 'AI proposes, a person decides. That is how we run it ourselves, and we wouldn\'t deviate at your company.',
+        c12h: 'Automatic sending',
+        c12p: 'Nothing goes to customers without approval. That is a rule, not a technical limitation.',
+        c13h: 'Forecasts on thin data',
+        c13p: 'Two years of messy numbers won\'t give you a trustworthy forecast, whatever the vendor promises.',
+        ctaH: 'Where should you start?',
+        ctaP: 'The test shows how ready you are. The workshop finds the fields on this map that are yours.',
+        ctaBtn: 'Take the readiness test',
+        ctaAlt: 'or <a href="index.html#workshop">see the workshop</a>',
+        title: 'Where does AI work today?'
+      }
+    };
+
+    var current = 'da';
+
+    function setLang(lang) {
+      if (!t[lang]) return;
+      current = lang;
+      document.documentElement.lang = lang;
+      var d = t[lang];
+      var els = document.querySelectorAll('[data-i18n]');
+      for (var i = 0; i < els.length; i++) {
+        var key = els[i].getAttribute('data-i18n');
+        if (d[key]) els[i].innerHTML = d[key];
+      }
+      document.getElementById('langswitch').textContent = lang === 'da' ? 'EN' : 'DA';
+      document.title = d.title;
+      try { localStorage.setItem('lang', lang); } catch (e) {}
+    }
+
+    document.getElementById('langswitch').addEventListener('click', function () {
+      setLang(current === 'da' ? 'en' : 'da');
+    });
+
+    var initial = 'da';
+    var qp = new URLSearchParams(location.search).get('lang');
+    if (qp === 'en' || qp === 'da') { initial = qp; }
+    else { try { var sv = localStorage.getItem('lang'); if (sv === 'en' || sv === 'da') initial = sv; } catch (e) {} }
+    if (initial !== 'da') setLang(initial);
+  })();
+</script>
+<script>
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a') : null;
+    if (!a || !window.goatcounter || !window.goatcounter.count) return;
+    var h = a.getAttribute('href') || '';
+    if (h.indexOf('mailto:') === 0) goatcounter.count({ path: 'klik-mail', title: 'Klik: skriv mail', event: true });
+    else if (h.indexOf('test.html') === 0) goatcounter.count({ path: 'radar-til-test', title: 'Radar: videre til test', event: true });
+  });
+</script>
+<script data-goatcounter="https://femfemten.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
