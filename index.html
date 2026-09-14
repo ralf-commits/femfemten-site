@@ -114,7 +114,12 @@
     height: 2.6rem; width: auto; display: block;
     filter: brightness(0) invert(1);
   }
-  .topnav { display: flex; align-items: center; gap: 0.8rem; }
+  .topnav { display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; justify-content: flex-end; }
+  @media (max-width: 40rem) {
+    .topnav { gap: 0.1rem 0.4rem; }
+    .topnav a.navlink, .langswitch { padding: 0.45rem 0.3rem; font-size: 0.88rem; }
+  }
+  .topnav a.navlink { white-space: nowrap; }
   .topbar a.contact {
     font-weight: 700; font-size: 0.92rem; text-decoration: none;
     border: 1.5px solid #d1deed; border-radius: 3px;
@@ -297,6 +302,7 @@
       <div class="topnav">
         <a class="navlink" href="radar.html" data-i18n="navRadar">AI-radar</a>
         <a class="navlink" href="test.html" data-i18n="navTest">Parathedstest</a>
+        <a class="navlink" href="cases.html" data-i18n="navCases">Cases</a>
         <button class="langswitch" id="langswitch" type="button" aria-label="Switch language">EN</button>
         <a class="contact" href="mailto:hello@femfemten.com" data-i18n="contact">Kontakt</a>
       </div>
@@ -522,6 +528,7 @@
       da: {
         navRadar: 'AI-radar',
         navTest: 'Parathedstest',
+        navCases: 'Cases',
         contact: 'Kontakt',
         kicker: 'Strategi · Data &amp; AI · Eksekvering',
         h1: 'Sæt retning. Kom i gang. <em>Skalér det, der virker.</em>',
@@ -606,6 +613,7 @@
       en: {
         navRadar: 'AI radar',
         navTest: 'Readiness test',
+        navCases: 'Work',
         contact: 'Contact',
         kicker: 'Strategy · Data &amp; AI · Execution',
         h1: 'Set the course. Get moving. <em>Scale what works.</em>',

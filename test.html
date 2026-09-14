@@ -77,6 +77,12 @@
   }
   .wordmark { display: inline-flex; align-items: center; }
   .wordmark img { height: 2.3rem; width: auto; display: block; filter: brightness(0) invert(1); }
+  .topnav { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; justify-content: flex-end; }
+  .topnav a.navlink {
+    font-weight: 700; font-size: 0.92rem; text-decoration: none;
+    color: #aebadd; padding: 0.45rem 0.4rem;
+  }
+  .topnav a.navlink:hover { color: #ffffff; }
   .langswitch {
     background: none; border: none; cursor: pointer;
     font-family: inherit; font-weight: 700; font-size: 0.92rem;
@@ -220,7 +226,11 @@
   <div class="wrap">
     <nav class="topbar">
       <a class="wordmark" href="index.html" aria-label="Fem Femten"><img src="logo.png" alt="5.15"></a>
-      <button class="langswitch" id="langswitch" type="button" aria-label="Switch language">EN</button>
+      <div class="topnav">
+        <a class="navlink" href="radar.html" data-i18n="navRadar">AI-radar</a>
+        <a class="navlink" href="cases.html" data-i18n="navCases">Cases</a>
+        <button class="langswitch" id="langswitch" type="button" aria-label="Switch language">EN</button>
+      </div>
     </nav>
     <header class="hero">
       <span class="eyebrow" data-i18n="badge">Gratis · 3 minutter</span>
@@ -273,6 +283,8 @@
 
     var t = {
       da: {
+        navRadar: 'AI-radar',
+        navCases: 'Cases',
         badge: 'Gratis · 3 minutter',
         h1: 'Hvor AI-parate er I?',
         lede: '12 konkrete spørgsmål om jeres data, arbejdsgange, mennesker og regler. Resultatet kommer med det samme, fordelt på fire dimensioner.',
@@ -327,6 +339,8 @@
         ]
       },
       en: {
+        navRadar: 'AI radar',
+        navCases: 'Work',
         badge: 'Free · 3 minutes',
         h1: 'How AI-ready are you?',
         lede: '12 concrete questions about your data, workflows, people and rules. The result comes right away, across four dimensions.',

@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Udvalgt arbejde fra Fem Femten: platforme og AI-agenter i drift, fortalt som det er.">
+<title>Udvalgt arbejde</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Udvalgt arbejde">
+<meta property="og:description" content="Situationen, det vi byggede, og hvordan det kører. Ingen kundenavne uden aftale, og ingen tal, der ikke kan dokumenteres.">
+<meta property="og:url" content="https://femfemten.com/cases.html">
+<meta property="og:image" content="https://femfemten.com/share.png">
+<meta property="og:locale" content="da_DK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://femfemten.com/cases.html">
+<link rel="alternate" hreflang="da" href="https://femfemten.com/cases.html">
+<link rel="alternate" hreflang="en" href="https://femfemten.com/cases.html?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://femfemten.com/cases.html">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800;9..40,900&family=Libre+Caslon+Text:ital@1&display=swap">
+<style>
+  :root {
+    --navy: #1b1a4a;
+    --lightblue: #d1deed;
+    --sage: #b0cfc9;
+    --orange: #eb4634;
+    --paper: #ffffff;
+    --ink: #1b1a4a;
+    --ink-soft: #4c5470;
+    --line: #d7dfec;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #121129;
+      --ink: #e9edf6;
+      --ink-soft: #a9b1c9;
+      --line: #312f60;
+      --orange: #f0604f;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #121129;
+    --ink: #e9edf6;
+    --ink-soft: #a9b1c9;
+    --line: #312f60;
+    --orange: #f0604f;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.02rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .wrap { max-width: 44rem; margin: 0 auto; padding: 0 1.4rem; }
+  a { color: inherit; }
+
+  .lines {
+    position: absolute; pointer-events: none;
+    background: repeating-linear-gradient(90deg,
+      rgba(209,222,237,0.3) 0 0.6rem, transparent 0.6rem 2.3rem);
+    transform: rotate(18deg);
+  }
+  .heroband {
+    background: #1b1a4a; color: #f4f7fc;
+    position: relative; overflow: hidden;
+  }
+  .heroband .lines { right: -3rem; top: -5rem; width: 14rem; height: 24rem; }
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; padding: 1.4rem 0; position: relative; z-index: 1;
+  }
+  .wordmark { display: inline-flex; align-items: center; }
+  .wordmark img { height: 2.3rem; width: auto; display: block; filter: brightness(0) invert(1); }
+  .topnav { display: flex; align-items: center; gap: 0.8rem; }
+  .topnav a.navlink {
+    font-weight: 700; font-size: 0.92rem; text-decoration: none;
+    color: #aebadd; padding: 0.45rem 0.5rem;
+  }
+  .topnav a.navlink:hover { color: #ffffff; }
+  .langswitch {
+    background: none; border: none; cursor: pointer;
+    font-family: inherit; font-weight: 700; font-size: 0.92rem;
+    color: #aebadd; padding: 0.45rem 0.5rem; letter-spacing: 0.04em;
+  }
+  .langswitch:hover { color: #ffffff; }
+  .langswitch:focus-visible { outline: 2px solid #d1deed; outline-offset: 2px; }
+  .hero { padding: 3rem 0 3.2rem; position: relative; z-index: 1; }
+  .heroband h1 {
+    font-size: clamp(1.9rem, 5.5vw, 2.8rem); font-weight: 900;
+    line-height: 1.08; letter-spacing: -0.018em; text-wrap: balance;
+    color: #ffffff; margin: 0 0 1rem;
+  }
+  .lede {
+    font-family: "Libre Caslon Text", Georgia, serif; font-style: italic;
+    font-size: 1.1rem; color: #c3cde6; max-width: 36rem; margin: 0;
+  }
+
+  .case { padding: 3rem 0 0.6rem; }
+  .case + .case { border-top: 1px solid var(--line); margin-top: 2.4rem; }
+  .casekicker {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.16em; color: var(--orange); margin-bottom: 0.5rem;
+  }
+  .case h2 {
+    font-size: 1.55rem; font-weight: 900; letter-spacing: -0.015em;
+    margin: 0 0 0.8rem;
+  }
+  .case p { margin: 0 0 1rem; max-width: 40rem; }
+  .case ul { margin: 0 0 1rem; padding-left: 1.2rem; max-width: 40rem; }
+  .case li { margin-bottom: 0.55rem; }
+  .case li b { font-weight: 700; }
+  .patternline {
+    font-family: "Libre Caslon Text", Georgia, serif; font-style: italic;
+    color: var(--ink-soft);
+  }
+
+  .ctaband {
+    background: #1b1a4a; color: #ccd6ea; position: relative; overflow: hidden;
+    margin-top: 3.2rem;
+  }
+  .ctaband .lines { right: -3rem; top: -4rem; width: 12rem; height: 22rem; }
+  .ctaband .inner { padding: 3rem 0 3.2rem; position: relative; z-index: 1; max-width: 38rem; }
+  .ctaband h2 {
+    color: #ffffff; font-size: 1.55rem; font-weight: 900;
+    letter-spacing: -0.015em; margin: 0 0 0.5rem;
+  }
+  .ctaband p { margin: 0 0 1.3rem; }
+  .ctarow { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
+  .btn {
+    display: inline-block; background: var(--orange); color: #ffffff;
+    text-decoration: none; font-weight: 700; font-size: 0.98rem;
+    padding: 0.85rem 1.5rem; border-radius: 3px;
+  }
+  .btn:hover { filter: brightness(1.07); }
+  .btn:focus-visible { outline: 2px solid #d1deed; outline-offset: 2px; }
+  .quiet { font-size: 0.95rem; color: #aebadd; }
+  .quiet a { color: #d1deed; }
+
+  .footband {
+    background: #1b1a4a; color: #aebadd; position: relative; overflow: hidden;
+    border-top: 1px solid rgba(209,222,237,0.18);
+  }
+  .footband .lines { left: -4rem; bottom: -8rem; width: 12rem; height: 20rem; }
+  .footband footer { padding: 1.8rem 0 2.2rem; font-size: 0.88rem; position: relative; z-index: 1; }
+  .footband a { color: #d1deed; }
+</style>
+</head>
+<body>
+<div class="heroband">
+  <div class="lines"></div>
+  <div class="wrap">
+    <nav class="topbar">
+      <a class="wordmark" href="index.html" aria-label="Fem Femten"><img src="logo.png" alt="5.15"></a>
+      <div class="topnav">
+        <a class="navlink" href="radar.html" data-i18n="navRadar">AI-radar</a>
+        <a class="navlink" href="test.html" data-i18n="navTest">Parathedstest</a>
+        <button class="langswitch" id="langswitch" type="button" aria-label="Switch language">EN</button>
+      </div>
+    </nav>
+    <header class="hero">
+      <h1 data-i18n="h1">Udvalgt arbejde</h1>
+      <p class="lede" data-i18n="lede">Situationen, det vi byggede, og hvordan det kører. Ingen kundenavne uden aftale, og ingen tal, der ikke kan dokumenteres.</p>
+    </header>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="case">
+    <div class="casekicker" data-i18n="c1k">Case 01 · Platform</div>
+    <h2 data-i18n="c1h">Match af mennesker og job</h2>
+    <p data-i18n="c1p1">En dansk brancheforening har netop købt vores matchløsning til deres medlemmer. Løsningen læser hele cv'et og matcher kandidater til relevante job på indhold, ikke på søgeord.</p>
+    <p data-i18n="c1p2">Vi byggede platformen selv og har skræddersyet den til foreningens medlemmer og deres branche.</p>
+  </section>
+
+  <section class="case">
+    <div class="casekicker" data-i18n="c2k">Case 02 · Agenter i drift</div>
+    <h2 data-i18n="c2h">Fire agenter i én virksomhed</h2>
+    <p data-i18n="c2p1">En dansk virksomhed driver i dag fire agenter, vi har bygget:</p>
+    <ul>
+      <li data-i18n="c2l1"><b>Supportagenten.</b> Første udkast til svar ligger klar, før en supporter åbner sagen.</li>
+      <li data-i18n="c2l2"><b>Bilagsagenten.</b> Bilag matchet med betalinger, kontering foreslået.</li>
+      <li data-i18n="c2l3"><b>Kontraktagenten.</b> Afvigelser fra virksomhedens standard markeret ved første gennemlæsning.</li>
+      <li data-i18n="c2l4"><b>Kodeagenten.</b> Med i udviklingsarbejdet, og udvikleren har sidste ord.</li>
+    </ul>
+    <p data-i18n="c2p2">Ingen af dem sender noget selv. Mennesker godkender.</p>
+    <p class="patternline" data-i18n="c2p3">Mønstret er pointen: AI i en mellemstor virksomhed er ikke ét stort projekt. Det er en portefølje af små, driftssikre aflastninger, bygget én ad gangen.</p>
+  </section>
+</div>
+
+<div class="ctaband">
+  <div class="lines"></div>
+  <div class="wrap">
+    <div class="inner">
+      <h2 data-i18n="ctaH">Skal vi finde jeres første?</h2>
+      <p data-i18n="ctaP">De fleste starter med en workshop på 2½ time hos dem selv. Eller med testen, hvis I vil se, hvor I står, først.</p>
+      <div class="ctarow">
+        <a class="btn" href="index.html#workshop" data-i18n="ctaBtn">Se workshoppen</a>
+        <span class="quiet" data-i18n="ctaAlt">eller <a href="test.html">tag parathedstesten</a></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footband">
+  <div class="lines"></div>
+  <div class="wrap">
+    <footer>
+      <span>Fem Femten · 5:15 ApS · <a href="mailto:hello@femfemten.com">hello@femfemten.com</a> · <a href="index.html">femfemten.com</a></span>
+    </footer>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var t = {
+      da: {
+        navRadar: 'AI-radar',
+        navTest: 'Parathedstest',
+        h1: 'Udvalgt arbejde',
+        lede: 'Situationen, det vi byggede, og hvordan det kører. Ingen kundenavne uden aftale, og ingen tal, der ikke kan dokumenteres.',
+        c1k: 'Case 01 · Platform',
+        c1h: 'Match af mennesker og job',
+        c1p1: 'En dansk brancheforening har netop købt vores matchløsning til deres medlemmer. Løsningen læser hele cv\'et og matcher kandidater til relevante job på indhold, ikke på søgeord.',
+        c1p2: 'Vi byggede platformen selv og har skræddersyet den til foreningens medlemmer og deres branche.',
+        c2k: 'Case 02 · Agenter i drift',
+        c2h: 'Fire agenter i én virksomhed',
+        c2p1: 'En dansk virksomhed driver i dag fire agenter, vi har bygget:',
+        c2l1: '<b>Supportagenten.</b> Første udkast til svar ligger klar, før en supporter åbner sagen.',
+        c2l2: '<b>Bilagsagenten.</b> Bilag matchet med betalinger, kontering foreslået.',
+        c2l3: '<b>Kontraktagenten.</b> Afvigelser fra virksomhedens standard markeret ved første gennemlæsning.',
+        c2l4: '<b>Kodeagenten.</b> Med i udviklingsarbejdet, og udvikleren har sidste ord.',
+        c2p2: 'Ingen af dem sender noget selv. Mennesker godkender.',
+        c2p3: 'Mønstret er pointen: AI i en mellemstor virksomhed er ikke ét stort projekt. Det er en portefølje af små, driftssikre aflastninger, bygget én ad gangen.',
+        ctaH: 'Skal vi finde jeres første?',
+        ctaP: 'De fleste starter med en workshop på 2½ time hos dem selv. Eller med testen, hvis I vil se, hvor I står, først.',
+        ctaBtn: 'Se workshoppen',
+        ctaAlt: 'eller <a href="test.html">tag parathedstesten</a>',
+        title: 'Udvalgt arbejde'
+      },
+      en: {
+        navRadar: 'AI radar',
+        navTest: 'Readiness test',
+        h1: 'Selected work',
+        lede: 'The situation, what we built, and how it runs. No client names without agreement, and no numbers that can\'t be documented.',
+        c1k: 'Case 01 · Platform',
+        c1h: 'Matching people and jobs',
+        c1p1: 'A Danish industry association has just bought our matching solution for its members. It reads the whole CV and matches candidates to relevant jobs on substance, not keywords.',
+        c1p2: 'We built the platform ourselves and tailored it to the association\'s members and their industry.',
+        c2k: 'Case 02 · Agents in production',
+        c2h: 'Four agents in one company',
+        c2p1: 'A Danish company runs four agents we built:',
+        c2l1: '<b>The support agent.</b> A first draft reply is ready before a support person opens the case.',
+        c2l2: '<b>The bookkeeping agent.</b> Receipts matched to payments, postings suggested.',
+        c2l3: '<b>The contract agent.</b> Deviations from the company\'s standard flagged on first read.',
+        c2l4: '<b>The coding agent.</b> Part of the development work, and the developer has the final say.',
+        c2p2: 'None of them sends anything on its own. People approve.',
+        c2p3: 'The pattern is the point: AI in a mid-sized company is not one big project. It is a portfolio of small, reliable automations, built one at a time.',
+        ctaH: 'Shall we find your first?',
+        ctaP: 'Most start with a 2½ hour workshop at their own place. Or with the test, if you want to see where you stand first.',
+        ctaBtn: 'See the workshop',
+        ctaAlt: 'or <a href="test.html">take the readiness test</a>',
+        title: 'Selected work'
+      }
+    };
+
+    var current = 'da';
+
+    function setLang(lang) {
+      if (!t[lang]) return;
+      current = lang;
+      document.documentElement.lang = lang;
+      var d = t[lang];
+      var els = document.querySelectorAll('[data-i18n]');
+      for (var i = 0; i < els.length; i++) {
+        var key = els[i].getAttribute('data-i18n');
+        if (d[key]) els[i].innerHTML = d[key];
+      }
+      document.getElementById('langswitch').textContent = lang === 'da' ? 'EN' : 'DA';
+      document.title = d.title;
+      try { localStorage.setItem('lang', lang); } catch (e) {}
+    }
+
+    document.getElementById('langswitch').addEventListener('click', function () {
+      setLang(current === 'da' ? 'en' : 'da');
+    });
+
+    var initial = 'da';
+    var qp = new URLSearchParams(location.search).get('lang');
+    if (qp === 'en' || qp === 'da') { initial = qp; }
+    else { try { var sv = localStorage.getItem('lang'); if (sv === 'en' || sv === 'da') initial = sv; } catch (e) {} }
+    if (initial !== 'da') setLang(initial);
+  })();
+</script>
+<script>
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a') : null;
+    if (!a || !window.goatcounter || !window.goatcounter.count) return;
+    var h = a.getAttribute('href') || '';
+    if (h.indexOf('mailto:') === 0) goatcounter.count({ path: 'klik-mail', title: 'Klik: skriv mail', event: true });
+    else if (h.indexOf('index.html#workshop') === 0) goatcounter.count({ path: 'cases-til-workshop', title: 'Cases: videre til workshop', event: true });
+  });
+</script>
+<script data-goatcounter="https://femfemten.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
