@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Hvor virker AI i dag? Et kort over det, vi tør stå på mål for: hvad der virker nu, hvad der kræver forarbejde, og hvad vi siger nej til.">
+<meta name="description" content="Hvor virker AI i dag? Et kort over det, vi tør stå på mål for: hvad der virker nu, hvad der kræver forarbejde, og hvad der kun kører med klare rammer.">
 <title>Hvor virker AI i dag?</title>
 <meta property="og:type" content="website">
 <meta property="og:title" content="Hvor virker AI i dag?">
-<meta property="og:description" content="Ikke en komplet liste. Et kort over det, vi tør stå på mål for: hvad der virker nu, hvad der kræver forarbejde, og hvad vi siger nej til.">
+<meta property="og:description" content="Ikke en komplet liste. Et kort over det, vi tør stå på mål for: hvad der virker nu, hvad der kræver forarbejde, og hvad der kun kører med klare rammer.">
 <meta property="og:url" content="https://femfemten.com/radar.html">
 <meta property="og:image" content="https://femfemten.com/share.png">
 <meta property="og:locale" content="da_DK">
@@ -130,9 +130,27 @@
   .radarviz .lines { right: -4rem; top: -5rem; width: 10rem; height: 20rem; opacity: 0.55; }
   .radarviz svg { display: block; width: 100%; max-width: 46rem; height: auto; margin: 0 auto; position: relative; z-index: 1; }
   .rring { fill: none; stroke: rgba(209,222,237,0.28); stroke-width: 1; }
-  .rz1 { fill: #ffffff; }
+  .rz1 { fill: #d1deed; }
   .rz2 { fill: rgba(209,222,237,0.13); }
   .rz3 { fill: rgba(10,9,38,0.4); }
+  .radargrid {
+    display: grid; grid-template-columns: minmax(0, 1fr) 16.5rem;
+    gap: 2.4rem; align-items: center; position: relative; z-index: 1;
+  }
+  @media (max-width: 48rem) { .radargrid { grid-template-columns: 1fr; gap: 1.6rem; } }
+  .zdesc { padding: 1rem 0; }
+  .zdesc + .zdesc { border-top: 1px solid rgba(209,222,237,0.15); }
+  .zdesc h4 {
+    display: flex; align-items: center; gap: 0.5rem;
+    margin: 0 0 0.35rem; font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase; color: #e6ebf6;
+  }
+  .zchip { display: inline-block; width: 0.6rem; height: 0.6rem; border-radius: 50%; flex: none; }
+  .zchip1 { background: #d1deed; }
+  .zchip2 { background: rgba(209,222,237,0.35); border: 1px solid rgba(209,222,237,0.5); }
+  .zchip3 { background: rgba(10,9,38,0.6); border: 1px solid #8f97c0; }
+  .zdesc p { margin: 0; font-size: 0.85rem; color: #aebadd; line-height: 1.55; }
+  .zdesc .zu { margin-top: 0.35rem; font-size: 0.8rem; color: #8f97c0; }
   .rlabel {
     font-family: "DM Sans", "Helvetica Neue", Arial, sans-serif;
     font-weight: 700; font-size: 12.5px; letter-spacing: 0.22em;
@@ -287,7 +305,7 @@
     <header class="hero">
       <span class="eyebrow" data-i18n="badge">Opdateret september 2026</span>
       <h1 data-i18n="h1">Hvor virker AI i dag?</h1>
-      <p class="lede" data-i18n="lede">Ikke en komplet liste. Et kort over det, vi tør stå på mål for: hvad der virker nu, hvad der kræver forarbejde, og hvad vi siger nej til.</p>
+      <p class="lede" data-i18n="lede">Ikke en komplet liste. Et kort over det, vi tør stå på mål for: hvad der virker nu, hvad der kræver forarbejde, og hvad der kun kører med klare rammer.</p>
     </header>
   </div>
 </div>
@@ -295,6 +313,7 @@
 <div class="wrap">
   <section class="radarviz">
     <div class="lines"></div>
+    <div class="radargrid">
     <svg viewBox="0 60 720 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path class="rz3" d="M 65 380 A 295 295 0 0 1 655 380 L 570 380 A 210 210 0 0 0 150 380 Z"></path>
       <path class="rz2" d="M 150 380 A 210 210 0 0 1 570 380 L 480 380 A 120 120 0 0 0 240 380 Z"></path>
@@ -305,7 +324,7 @@
       <line x1="65" y1="380" x2="655" y2="380" stroke="rgba(209,222,237,0.28)" stroke-width="1"></line>
       <text class="rlabel rlabel1" x="360" y="371" text-anchor="middle" data-i18n="z1h">Virker nu</text>
       <text class="rlabel rlabel2" x="360" y="196" text-anchor="middle" data-i18n="svgZ2">Forarbejde først</text>
-      <text class="rlabel rlabel3" x="360" y="112" text-anchor="middle" data-i18n="z3h">Her siger vi nej</text>
+      <text class="rlabel rlabel3" x="360" y="112" text-anchor="middle" data-i18n="z3h">Kun med rammer</text>
       <g class="blip" data-blip="1"><circle class="dotB" cx="335" cy="286" r="11"></circle><text class="tB" x="335" y="286">01</text></g>
       <g class="blip" data-blip="2"><circle class="dotB" cx="401" cy="292" r="11"></circle><text class="tB" x="401" y="292">02</text></g>
       <g class="blip" data-blip="3"><circle class="dotB" cx="281" cy="324" r="11"></circle><text class="tB" x="281" y="324">03</text></g>
@@ -322,6 +341,24 @@
       <g class="blip" data-blip="14"><circle class="dotN2" cx="360" cy="130" r="10"></circle><text class="tN2" x="360" y="130">14</text></g>
       <g class="blip" data-blip="15"><circle class="dotN2" cx="540" cy="200" r="10"></circle><text class="tN2" x="540" y="200">15</text></g>
     </svg>
+    <div class="zdescs">
+      <div class="zdesc">
+        <h4><i class="zchip zchip1"></i><span data-i18n="z1h">Virker nu</span></h4>
+        <p data-i18n="zd1p">Afgrænset opgave, moden teknologi, og et menneske godkender resultatet.</p>
+        <p class="zu" data-i18n="zd1u">Vores egne: mødeopsamling, svarudkast, tilbudsudkast.</p>
+      </div>
+      <div class="zdesc">
+        <h4><i class="zchip zchip2"></i><span data-i18n="svgZ2">Forarbejde først</span></h4>
+        <p data-i18n="zd2p">Virker, når grundlaget er der: adgang til kilderne, en standard at måle mod, rene data.</p>
+        <p class="zu" data-i18n="zd2u">Hos kunder: bilag og kontering, kontraktgennemgang.</p>
+      </div>
+      <div class="zdesc">
+        <h4><i class="zchip zchip3"></i><span data-i18n="z3h">Kun med rammer</span></h4>
+        <p data-i18n="zd3p">Kan køre automatisk, men kun med tracking, stikprøver og klare grænser for, hvad systemet må.</p>
+        <p class="zu" data-i18n="zd3u">Vi går kun derud, hvor vi kan måle og gribe ind.</p>
+      </div>
+    </div>
+    </div>
     <div class="rindex">
       <div>
         <h4 data-i18n="z1h">Virker nu</h4>
@@ -346,9 +383,9 @@
         </ul>
       </div>
       <div>
-        <h4 data-i18n="z3h">Her siger vi nej</h4>
+        <h4 data-i18n="z3h">Kun med rammer</h4>
         <ul>
-          <li data-blip="13"><span class="no">13</span><span data-i18n="c11h">Beslutninger uden menneske</span></li>
+          <li data-blip="13"><span class="no">13</span><span data-i18n="c11h">Automatiske beslutninger</span></li>
           <li data-blip="14"><span class="no">14</span><span data-i18n="c12h">Automatisk afsendelse</span></li>
           <li data-blip="15"><span class="no">15</span><span data-i18n="c13h">Prognoser på tyndt datagrundlag</span></li>
         </ul>
@@ -437,21 +474,21 @@
   <section class="zone deep">
     <div class="zonehead">
       <div class="zonekicker" data-i18n="z3k">Zone 3</div>
-      <h2 data-i18n="z3h">Her siger vi nej</h2>
-      <p data-i18n="z3p">Det her bliver solgt mange steder. Vi sælger det ikke, og hos os selv gør vi det heller ikke.</p>
+      <h2 data-i18n="z3h">Kun med rammer</h2>
+      <p data-i18n="z3p">Det her kan køre automatisk, og noget af det gør det også hos os selv. Men kun med tracking, stikprøver og klare grænser. Uden rammerne siger vi nej.</p>
     </div>
     <div class="cards">
       <div class="card">
-        <h3 data-i18n="c11h">Beslutninger uden menneske</h3>
-        <p data-i18n="c11p">AI'en foreslår, et menneske afgør. Sådan kører vi det selv, og det ville vi ikke fravige hos jer.</p>
+        <h3 data-i18n="c11h">Automatiske beslutninger</h3>
+        <p data-i18n="c11p">Kan køre i afgrænsede flows, når der er log, kontrol og en klar grænse for, hvad systemet må afgøre selv. Alt andet går forbi et menneske.</p>
       </div>
       <div class="card">
         <h3 data-i18n="c12h">Automatisk afsendelse</h3>
-        <p data-i18n="c12p">Intet ryger til kunder uden godkendelse. Det er en regel, ikke en teknisk begrænsning.</p>
+        <p data-i18n="c12p">Fint i faste flows som bekræftelser og opfølgninger, når alt trackes, og stikprøver fanger fejl. Personlige svar godkendes stadig af mennesker.</p>
       </div>
       <div class="card">
         <h3 data-i18n="c13h">Prognoser på tyndt datagrundlag</h3>
-        <p data-i18n="c13p">To års rodede tal giver ikke en troværdig forudsigelse, uanset hvad leverandøren lover.</p>
+        <p data-i18n="c13p">Kræver flere års rene tal og en klar ejer af modellen. Uden det er det gætteri.</p>
       </div>
     </div>
   </section>
@@ -493,10 +530,16 @@
         navCases: 'Cases',
         badge: 'Opdateret september 2026',
         h1: 'Hvor virker AI i dag?',
-        lede: 'Ikke en komplet liste. Et kort over det, vi tør stå på mål for: hvad der virker nu, hvad der kræver forarbejde, og hvad vi siger nej til.',
+        lede: 'Ikke en komplet liste. Et kort over det, vi tør stå på mål for: hvad der virker nu, hvad der kræver forarbejde, og hvad der kun kører med klare rammer.',
         z1k: 'Zone 1', z1h: 'Virker nu',
         z1p: 'Kan tages i brug på uger, ikke måneder. Fælles for dem alle: AI\'en skriver udkast, et menneske godkender.',
         svgZ2: 'Forarbejde først',
+        zd1p: 'Afgrænset opgave, moden teknologi, og et menneske godkender resultatet.',
+        zd1u: 'Vores egne: mødeopsamling, svarudkast, tilbudsudkast.',
+        zd2p: 'Virker, når grundlaget er der: adgang til kilderne, en standard at måle mod, rene data.',
+        zd2u: 'Hos kunder: bilag og kontering, kontraktgennemgang.',
+        zd3p: 'Kan køre automatisk, men kun med tracking, stikprøver og klare grænser for, hvad systemet må.',
+        zd3u: 'Vi går kun derud, hvor vi kan måle og gribe ind.',
         legB: 'Bygget af os',
         legP: 'I gang hos en kunde',
         legN: 'Ikke bygget endnu',
@@ -531,14 +574,14 @@
         c10h: 'Rykkere og debitoropfølgning',
         c10p: 'Forfaldne fakturaer overvåget og venlige rykkere skrevet til godkendelse.',
         c10r: '<b>Kræver:</b> rene fakturadata.',
-        z3k: 'Zone 3', z3h: 'Her siger vi nej',
-        z3p: 'Det her bliver solgt mange steder. Vi sælger det ikke, og hos os selv gør vi det heller ikke.',
-        c11h: 'Beslutninger uden menneske',
+        z3k: 'Zone 3', z3h: 'Kun med rammer',
+        z3p: 'Det her kan køre automatisk, og noget af det gør det også hos os selv. Men kun med tracking, stikprøver og klare grænser. Uden rammerne siger vi nej.',
+        c11h: 'Automatiske beslutninger',
         c11p: 'AI\'en foreslår, et menneske afgør. Sådan kører vi det selv, og det ville vi ikke fravige hos jer.',
         c12h: 'Automatisk afsendelse',
-        c12p: 'Intet ryger til kunder uden godkendelse. Det er en regel, ikke en teknisk begrænsning.',
+        c12p: 'Fint i faste flows som bekræftelser og opfølgninger, når alt trackes, og stikprøver fanger fejl. Personlige svar godkendes stadig af mennesker.',
         c13h: 'Prognoser på tyndt datagrundlag',
-        c13p: 'To års rodede tal giver ikke en troværdig forudsigelse, uanset hvad leverandøren lover.',
+        c13p: 'Kræver flere års rene tal og en klar ejer af modellen. Uden det er det gætteri.',
         euH: 'Og det hele kan bo i Europa',
         euP: 'Alt på dette kort kan bygges på et EU-baseret eller dansk setup, hvor I selv ejer data, adgange og aftaler. Hvor jeres data må bo, afgør I, før vi vælger værktøj. Ikke omvendt.',
         ctaH: 'Hvor skulle I starte?',
@@ -552,10 +595,16 @@
         navCases: 'Work',
         badge: 'Updated September 2026',
         h1: 'Where does AI work today?',
-        lede: 'Not a complete list. A map of what we are willing to vouch for: what works now, what needs groundwork first, and what we say no to.',
+        lede: 'Not a complete list. A map of what we are willing to vouch for: what works now, what needs groundwork first, and what only runs with clear guardrails.',
         z1k: 'Zone 1', z1h: 'Working now',
         z1p: 'Weeks to adopt, not months. Common to all of them: the AI drafts, a person approves.',
         svgZ2: 'Groundwork first',
+        zd1p: 'A well-defined task, mature technology, and a person approving the result.',
+        zd1u: 'Our own: meeting capture, draft replies, draft quotes.',
+        zd2p: 'Works once the foundation is there: access to the sources, a standard to measure against, clean data.',
+        zd2u: 'With clients: bookkeeping, contract review.',
+        zd3p: 'Can run automatically, but only with tracking, spot checks and clear limits on what the system may do.',
+        zd3u: 'We only go there where we can measure and intervene.',
         legB: 'Built by us',
         legP: 'In progress with a client',
         legN: 'Not built yet',
@@ -590,14 +639,14 @@
         c10h: 'Payment reminders',
         c10p: 'Overdue invoices monitored and friendly reminders drafted for approval.',
         c10r: '<b>Requires:</b> clean invoice data.',
-        z3k: 'Zone 3', z3h: 'Where we say no',
-        z3p: 'This gets sold in plenty of places. We don\'t sell it, and we don\'t do it in our own shop either.',
-        c11h: 'Decisions without a human',
-        c11p: 'AI proposes, a person decides. That is how we run it ourselves, and we wouldn\'t deviate at your company.',
+        z3k: 'Zone 3', z3h: 'Only with guardrails',
+        z3p: 'This can run automatically, and some of it does in our own shop. But only with tracking, spot checks and clear limits. Without the guardrails, we say no.',
+        c11h: 'Automated decisions',
+        c11p: 'Can run in well-defined flows with logging, control and a clear limit on what the system may decide on its own. Everything else passes a person.',
         c12h: 'Automatic sending',
-        c12p: 'Nothing goes to customers without approval. That is a rule, not a technical limitation.',
+        c12p: 'Fine in fixed flows like confirmations and follow-ups, when everything is tracked and spot checks catch errors. Personal replies are still approved by people.',
         c13h: 'Forecasts on thin data',
-        c13p: 'Two years of messy numbers won\'t give you a trustworthy forecast, whatever the vendor promises.',
+        c13p: 'Requires several years of clean numbers and a clear owner of the model. Without that, it is guesswork.',
         euH: 'And all of it can live in Europe',
         euP: 'Everything on this map can be built on an EU-based or Danish setup where you own the data, the access and the agreements. You decide where your data is allowed to live before we pick tools. Not the other way around.',
         ctaH: 'Where should you start?',
