@@ -123,35 +123,44 @@
   }
 
   .radarviz {
-    background: #1b1a4a; border-radius: 8px;
-    padding: 2.2rem 1.6rem 1.7rem; margin-top: 3rem;
+    background: #1b1a4a; border-radius: 10px;
+    padding: 3rem 2rem 2.2rem; margin-top: 3rem;
     position: relative; overflow: hidden;
   }
-  .radarviz .lines { right: -3rem; top: -4rem; width: 12rem; height: 22rem; }
-  .radarviz svg { display: block; width: 100%; max-width: 40rem; height: auto; margin: 0 auto; position: relative; z-index: 1; }
-  .rband { stroke: rgba(209,222,237,0.25); stroke-width: 1; }
+  .radarviz .lines { right: -4rem; top: -5rem; width: 10rem; height: 20rem; opacity: 0.55; }
+  .radarviz svg { display: block; width: 100%; max-width: 46rem; height: auto; margin: 0 auto; position: relative; z-index: 1; }
+  .rring { fill: none; stroke: rgba(209,222,237,0.28); stroke-width: 1; }
   .rz1 { fill: #ffffff; }
-  .rz2 { fill: rgba(209,222,237,0.42); }
-  .rz3 { fill: rgba(209,222,237,0.1); }
-  .rlabel { font-family: "DM Sans", "Helvetica Neue", Arial, sans-serif; font-weight: 800; font-size: 17px; fill: #1b1a4a; }
-  .rlabel3 { fill: #e6ebf6; }
+  .rz2 { fill: rgba(209,222,237,0.13); }
+  .rlabel {
+    font-family: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700; font-size: 12.5px; letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  .rlabel1 { fill: #1b1a4a; }
+  .rlabel2 { fill: #c3cde6; }
+  .rlabel3 { fill: #aebadd; }
+  @media (max-width: 40rem) {
+    .rlabel { font-size: 19px; letter-spacing: 0.16em; }
+    .radarviz { padding: 2rem 1.2rem 1.6rem; }
+  }
   .dotB { fill: #eb4634; }
   .dotP { fill: none; stroke: #eb4634; stroke-width: 2.5; }
-  .dotN { fill: none; stroke: #1b1a4a; stroke-width: 2; }
-  .dotN3 { fill: none; stroke: #aebadd; stroke-width: 2; }
+  .dotN { fill: none; stroke: #1b1a4a; stroke-width: 2; opacity: 0.55; }
+  .dotN2 { fill: none; stroke: #aebadd; stroke-width: 2; }
   .legend {
-    display: flex; flex-wrap: wrap; gap: 0.4rem 1.4rem; justify-content: center;
-    margin-top: 1rem; font-size: 0.85rem; color: #c3cde6;
+    display: flex; flex-wrap: wrap; gap: 0.4rem 1.8rem; justify-content: center;
+    margin-top: 1.6rem; font-size: 0.82rem; color: #aebadd;
     position: relative; z-index: 1;
   }
-  .legend span { display: inline-flex; align-items: center; gap: 0.45rem; }
-  .sw { display: inline-block; width: 0.72rem; height: 0.72rem; border-radius: 50%; }
+  .legend span { display: inline-flex; align-items: center; gap: 0.5rem; }
+  .sw { display: inline-block; width: 0.68rem; height: 0.68rem; border-radius: 50%; }
   .swB { background: #eb4634; }
-  .swP { border: 2.5px solid #eb4634; width: 0.55rem; height: 0.55rem; }
-  .swN { border: 2px solid #aebadd; width: 0.58rem; height: 0.58rem; }
+  .swP { border: 2.5px solid #eb4634; width: 0.5rem; height: 0.5rem; }
+  .swN { border: 2px solid #aebadd; width: 0.54rem; height: 0.54rem; }
   .rcap {
-    text-align: center; color: #e6ebf6; font-size: 0.95rem;
-    margin: 0.9rem auto 0; max-width: 32rem; position: relative; z-index: 1;
+    text-align: center; color: #c3cde6; font-size: 0.9rem;
+    margin: 0.7rem auto 0; max-width: 32rem; position: relative; z-index: 1;
   }
 
   .zone { padding: 2.8rem 0 0.6rem; }
@@ -255,28 +264,31 @@
 <div class="wrap">
   <section class="radarviz" aria-hidden="true">
     <div class="lines"></div>
-    <svg viewBox="0 55 640 282" xmlns="http://www.w3.org/2000/svg">
-      <path class="rband rz3" d="M 70 330 A 250 250 0 0 1 570 330 L 490 330 A 170 170 0 0 0 150 330 Z"></path>
-      <path class="rband rz2" d="M 150 330 A 170 170 0 0 1 490 330 L 410 330 A 90 90 0 0 0 230 330 Z"></path>
-      <path class="rband rz1" d="M 230 330 A 90 90 0 0 1 410 330 Z"></path>
-      <text class="rlabel" x="320" y="316" text-anchor="middle" data-i18n="z1h">Virker nu</text>
-      <text class="rlabel" x="320" y="186" text-anchor="middle" data-i18n="svgZ2">Forarbejde først</text>
-      <text class="rlabel rlabel3" x="320" y="104" text-anchor="middle" data-i18n="z3h">Vent med</text>
-      <circle class="dotB" cx="378" cy="314" r="7"></circle>
-      <circle class="dotB" cx="367" cy="293" r="7"></circle>
-      <circle class="dotB" cx="349" cy="278" r="7"></circle>
-      <circle class="dotB" cx="326" cy="270" r="7"></circle>
-      <circle class="dotB" cx="302" cy="273" r="7"></circle>
-      <circle class="dotB" cx="267" cy="303" r="7"></circle>
-      <circle class="dotP" cx="281" cy="284" r="6.5"></circle>
-      <circle class="dotN" cx="261" cy="322" r="6.5"></circle>
-      <circle class="dotB" cx="426" cy="255" r="7"></circle>
-      <circle class="dotB" cx="354" cy="204" r="7"></circle>
-      <circle class="dotB" cx="276" cy="208" r="7"></circle>
-      <circle class="dotN" cx="207" cy="265" r="6.5"></circle>
-      <circle class="dotN3" cx="455" cy="169" r="6.5"></circle>
-      <circle class="dotN3" cx="320" cy="135" r="6.5"></circle>
-      <circle class="dotN3" cx="185" cy="169" r="6.5"></circle>
+    <svg viewBox="0 60 720 340" xmlns="http://www.w3.org/2000/svg">
+      <path class="rz2" d="M 150 380 A 210 210 0 0 1 570 380 L 480 380 A 120 120 0 0 0 240 380 Z"></path>
+      <path class="rz1" d="M 240 380 A 120 120 0 0 1 480 380 Z"></path>
+      <path class="rring" d="M 65 380 A 295 295 0 0 1 655 380"></path>
+      <path class="rring" d="M 150 380 A 210 210 0 0 1 570 380"></path>
+      <path class="rring" d="M 240 380 A 120 120 0 0 1 480 380"></path>
+      <line x1="65" y1="380" x2="655" y2="380" stroke="rgba(209,222,237,0.28)" stroke-width="1"></line>
+      <text class="rlabel rlabel1" x="360" y="371" text-anchor="middle" data-i18n="z1h">Virker nu</text>
+      <text class="rlabel rlabel2" x="360" y="196" text-anchor="middle" data-i18n="svgZ2">Forarbejde først</text>
+      <text class="rlabel rlabel3" x="360" y="112" text-anchor="middle" data-i18n="z3h">Vent med</text>
+      <circle class="dotB" cx="448" cy="339" r="8"></circle>
+      <circle class="dotB" cx="401" cy="292" r="8"></circle>
+      <circle class="dotB" cx="335" cy="286" r="8"></circle>
+      <circle class="dotB" cx="281" cy="324" r="8"></circle>
+      <circle class="dotB" cx="393" cy="333" r="8"></circle>
+      <circle class="dotB" cx="360" cy="322" r="8"></circle>
+      <circle class="dotP" cx="327" cy="333" r="7"></circle>
+      <circle class="dotN" cx="265" cy="360" r="7"></circle>
+      <circle class="dotB" cx="504" cy="297" r="8"></circle>
+      <circle class="dotB" cx="417" cy="224" r="8"></circle>
+      <circle class="dotB" cx="303" cy="224" r="8"></circle>
+      <circle class="dotN2" cx="216" cy="297" r="7"></circle>
+      <circle class="dotN2" cx="540" cy="200" r="7"></circle>
+      <circle class="dotN2" cx="360" cy="130" r="7"></circle>
+      <circle class="dotN2" cx="180" cy="200" r="7"></circle>
     </svg>
     <div class="legend">
       <span><i class="sw swB"></i><em data-i18n="legB" style="font-style:normal">Bygget af os</em></span>
