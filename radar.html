@@ -123,93 +123,123 @@
   }
 
   .radarviz {
-    background: #1b1a4a; border-radius: 10px;
-    padding: 3rem 2rem 2.2rem; margin-top: 3rem;
+    background:
+      radial-gradient(130% 100% at 50% -12%, #222155 0%, #1b1a4a 50%, #141335 100%);
+    border: 1px solid rgba(209,222,237,0.10);
+    border-radius: 18px;
+    box-shadow: 0 40px 80px -45px rgba(8,7,32,0.85);
+    padding: 3.2rem 2.8rem 2.6rem;
+    margin: 3rem 0 0 50%;
+    transform: translateX(-50%);
+    width: min(100vw - 2.8rem, 68rem);
+    box-sizing: border-box;
     position: relative; overflow: hidden;
   }
-  .radarviz .lines { right: -4rem; top: -5rem; width: 10rem; height: 20rem; opacity: 0.55; }
-  .radarviz svg { display: block; width: 100%; max-width: 46rem; height: auto; margin: 0 auto; position: relative; z-index: 1; }
-  .rring { fill: none; stroke: rgba(209,222,237,0.28); stroke-width: 1; }
-  .rz1 { fill: #d1deed; }
-  .rz2 { fill: rgba(209,222,237,0.13); }
-  .rz3 { fill: rgba(10,9,38,0.4); }
+  .radarviz .lines { right: -4.5rem; top: -6rem; width: 11rem; height: 22rem; opacity: 0.35; }
+  .radarviz svg { display: block; width: 100%; height: auto; margin: 0 auto; position: relative; z-index: 1; }
+  .rz1 { fill: url(#gz1); }
+  .rz2 { fill: url(#gz2); }
+  .rz3 { fill: url(#gz3); }
+  .rring { fill: none; stroke: rgba(209,222,237,0.22); stroke-width: 1; }
+  .rring.faint { stroke: rgba(209,222,237,0.07); }
+  .rring.rim { stroke: rgba(255,255,255,0.6); stroke-width: 1.2; }
+  .rticks { fill: none; stroke: rgba(209,222,237,0.26); stroke-width: 6; stroke-dasharray: 1.4 30.12; }
   .radargrid {
-    display: grid; grid-template-columns: minmax(0, 1fr) 16.5rem;
-    gap: 2.4rem; align-items: center; position: relative; z-index: 1;
+    display: grid; grid-template-columns: minmax(0, 1fr) 15rem;
+    gap: 3.2rem; align-items: end; position: relative; z-index: 1;
   }
-  @media (max-width: 48rem) { .radargrid { grid-template-columns: 1fr; gap: 1.6rem; } }
-  .zdesc { padding: 1rem 0; }
-  .zdesc + .zdesc { border-top: 1px solid rgba(209,222,237,0.15); }
+  @media (max-width: 48rem) { .radargrid { grid-template-columns: 1fr; gap: 1.8rem; } }
+  .zdesc { padding: 1.15rem 0; }
+  .zdesc:first-child { padding-top: 0.2rem; }
+  .zdesc + .zdesc { border-top: 1px solid rgba(209,222,237,0.10); }
   .zdesc h4 {
-    display: flex; align-items: center; gap: 0.5rem;
-    margin: 0 0 0.35rem; font-size: 0.7rem; font-weight: 700;
-    letter-spacing: 0.18em; text-transform: uppercase; color: #e6ebf6;
+    display: flex; align-items: center; gap: 0.55rem;
+    margin: 0 0 0.45rem; font-size: 0.66rem; font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase; color: #dfe6f4;
   }
-  .zchip { display: inline-block; width: 0.6rem; height: 0.6rem; border-radius: 50%; flex: none; }
-  .zchip1 { background: #d1deed; }
-  .zchip2 { background: rgba(209,222,237,0.35); border: 1px solid rgba(209,222,237,0.5); }
-  .zchip3 { background: rgba(10,9,38,0.6); border: 1px solid #8f97c0; }
-  .zdesc p { margin: 0; font-size: 0.85rem; color: #aebadd; line-height: 1.55; }
-  .zdesc .zu { margin-top: 0.35rem; font-size: 0.8rem; color: #8f97c0; }
+  .zchip { display: inline-block; width: 0.55rem; height: 0.55rem; border-radius: 50%; flex: none; }
+  .zchip1 { background: #e9f0f8; box-shadow: 0 0 9px rgba(209,222,237,0.8); }
+  .zchip2 { background: rgba(209,222,237,0.22); border: 1px solid rgba(209,222,237,0.55); }
+  .zchip3 { background: rgba(12,11,42,0.8); border: 1px dashed #7d86b4; }
+  .zdesc p { margin: 0; font-size: 0.84rem; color: #a6b1d2; line-height: 1.6; }
+  .zdesc .zu { margin-top: 0.4rem; font-size: 0.78rem; color: #7d86b4; }
   .rlabel {
     font-family: "DM Sans", "Helvetica Neue", Arial, sans-serif;
-    font-weight: 700; font-size: 12.5px; letter-spacing: 0.22em;
+    font-weight: 700; font-size: 12px; letter-spacing: 0.26em;
     text-transform: uppercase;
   }
-  .rlabel1 { fill: #1b1a4a; }
-  .rlabel2 { fill: #c3cde6; }
-  .rlabel3 { fill: #aebadd; }
+  .rlabel1 { fill: #3c4275; }
+  .rlabel2 { fill: #aab5d8; }
+  .rlabel3 { fill: #8790ba; }
   @media (max-width: 40rem) {
-    .rlabel { font-size: 19px; letter-spacing: 0.16em; }
-    .radarviz { padding: 2rem 1.2rem 1.6rem; }
+    .rlabel { font-size: 18px; letter-spacing: 0.2em; }
+    .radarviz { padding: 2.2rem 1.25rem 1.8rem; border-radius: 14px; }
+    .radarviz .lines { display: none; }
+    .rindex { margin-top: 1.6rem; padding-top: 1.6rem; }
+    .dotB { r: 16px; }
+    .dotP, .dotN, .dotN2 { r: 15px; }
+    .blip .halo { r: 26px; }
+    .blip .haloP { r: 21px; }
+    .blip text { font-size: 15px; }
   }
-  .dotB { fill: #eb4634; }
-  .dotP { fill: rgba(235,70,52,0.08); stroke: #eb4634; stroke-width: 2; }
-  .dotN { fill: none; stroke: #6a7396; stroke-width: 1.8; }
-  .dotN2 { fill: rgba(27,26,74,0.5); stroke: #8f97c0; stroke-width: 1.8; }
+  .blip circle { transition: stroke 0.16s ease, opacity 0.2s ease; }
+  .blip .halo { fill: url(#ghalo); opacity: 0.75; }
+  .blip .haloP { fill: url(#ghalo); opacity: 0.4; }
+  .dotB { fill: url(#gdot); stroke: rgba(255,255,255,0.28); stroke-width: 0.8; filter: url(#lift); }
+  .dotP { fill: #f3f7fc; stroke: #eb4634; stroke-width: 2; filter: url(#lift); }
+  .dotN { fill: rgba(255,255,255,0.35); stroke: #5f668f; stroke-width: 1.6; stroke-dasharray: 3 2.7; }
+  .dotN2 { fill: rgba(19,18,51,0.45); stroke: #99a2ca; stroke-width: 1.6; stroke-dasharray: 3 2.7; }
   .blip text {
     font-family: "DM Sans", "Helvetica Neue", Arial, sans-serif;
-    font-weight: 700; font-size: 10.5px; text-anchor: middle;
-    dominant-baseline: central; pointer-events: none;
+    font-weight: 700; font-size: 10.5px; letter-spacing: 0.03em;
+    text-anchor: middle; dominant-baseline: central; pointer-events: none;
   }
   .blip .tB { fill: #ffffff; }
   .blip .tP { fill: #eb4634; }
-  .blip .tN { fill: #6a7396; }
-  .blip .tN2 { fill: #aebadd; }
-  .blip.hot circle { stroke: #ffffff; stroke-width: 2.5; }
+  .blip .tN { fill: #565d87; }
+  .blip .tN2 { fill: #b6c0de; }
+  .blip.hot .halo, .blip.hot .haloP { opacity: 1; }
+  .blip.hot .dotB, .blip.hot .dotP { stroke: #ffffff; stroke-width: 2.2; }
+  .blip.hot .dotN { stroke: #1b1a4a; stroke-dasharray: none; }
+  .blip.hot .dotN2 { stroke: #ffffff; stroke-dasharray: none; }
   .rindex {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem 2rem;
-    margin-top: 2rem; position: relative; z-index: 1;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem 2.6rem;
+    margin-top: 2.5rem; padding-top: 2rem;
+    border-top: 1px solid rgba(209,222,237,0.10);
+    position: relative; z-index: 1;
   }
-  @media (max-width: 40rem) { .rindex { grid-template-columns: 1fr; gap: 1.2rem; } }
+  @media (max-width: 40rem) { .rindex { grid-template-columns: 1fr; gap: 1.4rem; } }
   .rindex h4 {
-    margin: 0 0 0.55rem; font-size: 0.68rem; font-weight: 700;
-    letter-spacing: 0.18em; text-transform: uppercase; color: #8f97c0;
+    margin: 0 0 0.65rem; font-size: 0.66rem; font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase; color: #8790ba;
   }
   .rindex ul { list-style: none; margin: 0; padding: 0; }
   .rindex li {
-    display: flex; align-items: center; gap: 0.55rem;
-    font-size: 0.88rem; color: #c3cde6; padding: 0.16rem 0; cursor: default;
+    display: flex; align-items: baseline; gap: 0.65rem;
+    font-size: 0.87rem; color: #b9c3e0; padding: 0.2rem 0; cursor: default;
+    transition: color 0.15s ease;
   }
   .rindex li .no {
-    font-variant-numeric: tabular-nums; color: #8f97c0;
-    font-weight: 700; font-size: 0.76rem; width: 1.3rem;
+    font-variant-numeric: tabular-nums; color: #6f78a6;
+    font-weight: 700; font-size: 0.72rem; width: 1.35rem; flex: none;
+    transition: color 0.15s ease;
   }
   .rindex li.hot { color: #ffffff; }
   .rindex li.hot .no { color: #ffffff; }
   .legend {
-    display: flex; flex-wrap: wrap; gap: 0.4rem 1.8rem; justify-content: center;
-    margin-top: 1.6rem; font-size: 0.82rem; color: #aebadd;
+    display: flex; flex-wrap: wrap; gap: 0.5rem 2.1rem; justify-content: center;
+    margin-top: 2.3rem; font-size: 0.8rem; color: #98a2c8;
     position: relative; z-index: 1;
   }
-  .legend span { display: inline-flex; align-items: center; gap: 0.5rem; }
-  .sw { display: inline-block; width: 0.68rem; height: 0.68rem; border-radius: 50%; }
-  .swB { background: #eb4634; }
-  .swP { border: 2.5px solid #eb4634; width: 0.5rem; height: 0.5rem; }
-  .swN { border: 2px solid #aebadd; width: 0.54rem; height: 0.54rem; }
+  .legend span { display: inline-flex; align-items: center; gap: 0.55rem; }
+  .sw { display: inline-block; width: 0.66rem; height: 0.66rem; border-radius: 50%; flex: none; }
+  .swB { background: radial-gradient(circle at 35% 30%, #f4705c, #eb4634 70%); box-shadow: 0 0 9px rgba(235,70,52,0.55); }
+  .swP { border: 2px solid #eb4634; width: 0.52rem; height: 0.52rem; background: #f3f7fc; }
+  .swN { border: 1.5px dashed #99a2ca; width: 0.56rem; height: 0.56rem; }
   .rcap {
-    text-align: center; color: #c3cde6; font-size: 0.9rem;
-    margin: 0.7rem auto 0; max-width: 32rem; position: relative; z-index: 1;
+    text-align: center; color: #8f97c0; font-size: 0.92rem;
+    font-family: "Libre Caslon Text", Georgia, serif; font-style: italic;
+    margin: 1.1rem auto 0; max-width: 32rem; position: relative; z-index: 1;
   }
 
   .zone { padding: 2.8rem 0 0.6rem; }
@@ -314,32 +344,85 @@
   <section class="radarviz">
     <div class="lines"></div>
     <div class="radargrid">
-    <svg viewBox="0 60 720 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <svg viewBox="28 46 664 352" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <radialGradient id="gz1" gradientUnits="userSpaceOnUse" cx="360" cy="380" r="120">
+          <stop offset="0" stop-color="#fdfeff"></stop>
+          <stop offset="0.45" stop-color="#eef3f9"></stop>
+          <stop offset="1" stop-color="#c9d8ea"></stop>
+        </radialGradient>
+        <radialGradient id="gz2" gradientUnits="userSpaceOnUse" cx="360" cy="380" r="210">
+          <stop offset="0.57" stop-color="rgba(209,222,237,0.26)"></stop>
+          <stop offset="0.8" stop-color="rgba(209,222,237,0.14)"></stop>
+          <stop offset="1" stop-color="rgba(209,222,237,0.08)"></stop>
+        </radialGradient>
+        <radialGradient id="gz3" gradientUnits="userSpaceOnUse" cx="360" cy="380" r="295">
+          <stop offset="0.712" stop-color="#1e1d50"></stop>
+          <stop offset="0.88" stop-color="#161540"></stop>
+          <stop offset="1" stop-color="#0e0d2b"></stop>
+        </radialGradient>
+        <radialGradient id="gzhalo" gradientUnits="userSpaceOnUse" cx="360" cy="380" r="330">
+          <stop offset="0.86" stop-color="rgba(209,222,237,0)"></stop>
+          <stop offset="0.91" stop-color="rgba(209,222,237,0.07)"></stop>
+          <stop offset="1" stop-color="rgba(209,222,237,0)"></stop>
+        </radialGradient>
+        <radialGradient id="gref" gradientUnits="userSpaceOnUse" cx="360" cy="381" r="170">
+          <stop offset="0" stop-color="rgba(209,222,237,0.28)"></stop>
+          <stop offset="1" stop-color="rgba(209,222,237,0)"></stop>
+        </radialGradient>
+        <linearGradient id="gbase" gradientUnits="userSpaceOnUse" x1="30" y1="380" x2="690" y2="380">
+          <stop offset="0" stop-color="rgba(209,222,237,0)"></stop>
+          <stop offset="0.12" stop-color="rgba(209,222,237,0.45)"></stop>
+          <stop offset="0.5" stop-color="rgba(209,222,237,0.75)"></stop>
+          <stop offset="0.88" stop-color="rgba(209,222,237,0.45)"></stop>
+          <stop offset="1" stop-color="rgba(209,222,237,0)"></stop>
+        </linearGradient>
+        <radialGradient id="ghalo">
+          <stop offset="0" stop-color="rgba(235,70,52,0.5)"></stop>
+          <stop offset="0.5" stop-color="rgba(235,70,52,0.16)"></stop>
+          <stop offset="1" stop-color="rgba(235,70,52,0)"></stop>
+        </radialGradient>
+        <radialGradient id="gdot" cx="0.35" cy="0.3" r="0.85">
+          <stop offset="0" stop-color="#f4705c"></stop>
+          <stop offset="0.6" stop-color="#eb4634"></stop>
+          <stop offset="1" stop-color="#d43524"></stop>
+        </radialGradient>
+        <filter id="lift" x="-60%" y="-60%" width="220%" height="220%">
+          <feDropShadow dx="0" dy="2.5" stdDeviation="3" flood-color="#0a0926" flood-opacity="0.35"></feDropShadow>
+        </filter>
+        <path id="lz2" d="M 168 380 A 192 192 0 0 1 552 380"></path>
+        <path id="lz3" d="M 84 380 A 276 276 0 0 1 636 380"></path>
+      </defs>
+      <path fill="url(#gzhalo)" d="M 30 380 A 330 330 0 0 1 690 380 Z"></path>
+      <ellipse cx="360" cy="381" rx="160" ry="9" fill="url(#gref)"></ellipse>
       <path class="rz3" d="M 65 380 A 295 295 0 0 1 655 380 L 570 380 A 210 210 0 0 0 150 380 Z"></path>
       <path class="rz2" d="M 150 380 A 210 210 0 0 1 570 380 L 480 380 A 120 120 0 0 0 240 380 Z"></path>
       <path class="rz1" d="M 240 380 A 120 120 0 0 1 480 380 Z"></path>
+      <path class="rring faint" d="M 108 380 A 252 252 0 0 1 612 380"></path>
+      <path class="rring faint" d="M 195 380 A 165 165 0 0 1 525 380"></path>
       <path class="rring" d="M 65 380 A 295 295 0 0 1 655 380"></path>
       <path class="rring" d="M 150 380 A 210 210 0 0 1 570 380"></path>
-      <path class="rring" d="M 240 380 A 120 120 0 0 1 480 380"></path>
-      <line x1="65" y1="380" x2="655" y2="380" stroke="rgba(209,222,237,0.28)" stroke-width="1"></line>
-      <text class="rlabel rlabel1" x="360" y="371" text-anchor="middle" data-i18n="z1h">Virker nu</text>
-      <text class="rlabel rlabel2" x="360" y="196" text-anchor="middle" data-i18n="svgZ2">Forarbejde først</text>
-      <text class="rlabel rlabel3" x="360" y="112" text-anchor="middle" data-i18n="z3h">Kun med rammer</text>
-      <g class="blip" data-blip="1"><circle class="dotB" cx="335" cy="286" r="11"></circle><text class="tB" x="335" y="286">01</text></g>
-      <g class="blip" data-blip="2"><circle class="dotB" cx="401" cy="292" r="11"></circle><text class="tB" x="401" y="292">02</text></g>
-      <g class="blip" data-blip="3"><circle class="dotB" cx="281" cy="324" r="11"></circle><text class="tB" x="281" y="324">03</text></g>
-      <g class="blip" data-blip="4"><circle class="dotB" cx="448" cy="339" r="11"></circle><text class="tB" x="448" y="339">04</text></g>
-      <g class="blip" data-blip="5"><circle class="dotB" cx="393" cy="333" r="11"></circle><text class="tB" x="393" y="333">05</text></g>
-      <g class="blip" data-blip="6"><circle class="dotB" cx="360" cy="316" r="11"></circle><text class="tB" x="360" y="316">06</text></g>
-      <g class="blip" data-blip="7"><circle class="dotP" cx="325" cy="334" r="10"></circle><text class="tP" x="325" y="334">07</text></g>
-      <g class="blip" data-blip="8"><circle class="dotN" cx="265" cy="358" r="10"></circle><text class="tN" x="265" y="358">08</text></g>
-      <g class="blip" data-blip="9"><circle class="dotB" cx="303" cy="224" r="11"></circle><text class="tB" x="303" y="224">09</text></g>
-      <g class="blip" data-blip="10"><circle class="dotB" cx="417" cy="224" r="11"></circle><text class="tB" x="417" y="224">10</text></g>
-      <g class="blip" data-blip="11"><circle class="dotB" cx="504" cy="297" r="11"></circle><text class="tB" x="504" y="297">11</text></g>
-      <g class="blip" data-blip="12"><circle class="dotN2" cx="216" cy="297" r="10"></circle><text class="tN2" x="216" y="297">12</text></g>
-      <g class="blip" data-blip="13"><circle class="dotN2" cx="180" cy="200" r="10"></circle><text class="tN2" x="180" y="200">13</text></g>
-      <g class="blip" data-blip="14"><circle class="dotN2" cx="360" cy="130" r="10"></circle><text class="tN2" x="360" y="130">14</text></g>
-      <g class="blip" data-blip="15"><circle class="dotN2" cx="540" cy="200" r="10"></circle><text class="tN2" x="540" y="200">15</text></g>
+      <path class="rring rim" d="M 240 380 A 120 120 0 0 1 480 380"></path>
+      <path class="rticks" d="M 59 380 A 301 301 0 0 1 661 380"></path>
+      <line x1="30" y1="380" x2="690" y2="380" stroke="url(#gbase)" stroke-width="1.4"></line>
+      <text class="rlabel rlabel1" x="360" y="370" text-anchor="middle" data-i18n="z1h">Virker nu</text>
+      <text class="rlabel rlabel2"><textPath href="#lz2" startOffset="50%" text-anchor="middle" data-i18n="svgZ2">Forarbejde først</textPath></text>
+      <text class="rlabel rlabel3"><textPath href="#lz3" startOffset="50%" text-anchor="middle" data-i18n="z3h">Kun med rammer</textPath></text>
+      <g class="blip" data-blip="1"><circle class="halo" cx="335" cy="286" r="20"></circle><circle class="dotB" cx="335" cy="286" r="11.5"></circle><text class="tB" x="335" y="286">01</text></g>
+      <g class="blip" data-blip="2"><circle class="halo" cx="401" cy="292" r="20"></circle><circle class="dotB" cx="401" cy="292" r="11.5"></circle><text class="tB" x="401" y="292">02</text></g>
+      <g class="blip" data-blip="3"><circle class="halo" cx="276" cy="321" r="20"></circle><circle class="dotB" cx="276" cy="321" r="11.5"></circle><text class="tB" x="276" y="321">03</text></g>
+      <g class="blip" data-blip="4"><circle class="halo" cx="448" cy="339" r="20"></circle><circle class="dotB" cx="448" cy="339" r="11.5"></circle><text class="tB" x="448" y="339">04</text></g>
+      <g class="blip" data-blip="5"><circle class="halo" cx="393" cy="333" r="20"></circle><circle class="dotB" cx="393" cy="333" r="11.5"></circle><text class="tB" x="393" y="333">05</text></g>
+      <g class="blip" data-blip="6"><circle class="halo" cx="360" cy="316" r="20"></circle><circle class="dotB" cx="360" cy="316" r="11.5"></circle><text class="tB" x="360" y="316">06</text></g>
+      <g class="blip" data-blip="7"><circle class="haloP" cx="318" cy="340" r="16"></circle><circle class="dotP" cx="318" cy="340" r="10.5"></circle><text class="tP" x="318" y="340">07</text></g>
+      <g class="blip" data-blip="8"><circle class="dotN" cx="265" cy="358" r="10.5"></circle><text class="tN" x="265" y="358">08</text></g>
+      <g class="blip" data-blip="9"><circle class="halo" cx="303" cy="224" r="20"></circle><circle class="dotB" cx="303" cy="224" r="11.5"></circle><text class="tB" x="303" y="224">09</text></g>
+      <g class="blip" data-blip="10"><circle class="halo" cx="417" cy="224" r="20"></circle><circle class="dotB" cx="417" cy="224" r="11.5"></circle><text class="tB" x="417" y="224">10</text></g>
+      <g class="blip" data-blip="11"><circle class="halo" cx="504" cy="297" r="20"></circle><circle class="dotB" cx="504" cy="297" r="11.5"></circle><text class="tB" x="504" y="297">11</text></g>
+      <g class="blip" data-blip="12"><circle class="dotN2" cx="216" cy="297" r="10.5"></circle><text class="tN2" x="216" y="297">12</text></g>
+      <g class="blip" data-blip="13"><circle class="dotN2" cx="180" cy="200" r="10.5"></circle><text class="tN2" x="180" y="200">13</text></g>
+      <g class="blip" data-blip="14"><circle class="dotN2" cx="360" cy="130" r="10.5"></circle><text class="tN2" x="360" y="130">14</text></g>
+      <g class="blip" data-blip="15"><circle class="dotN2" cx="540" cy="200" r="10.5"></circle><text class="tN2" x="540" y="200">15</text></g>
     </svg>
     <div class="zdescs">
       <div class="zdesc">
