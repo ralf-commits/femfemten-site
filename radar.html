@@ -146,9 +146,39 @@
     .radarviz { padding: 2rem 1.2rem 1.6rem; }
   }
   .dotB { fill: #eb4634; }
-  .dotP { fill: none; stroke: #eb4634; stroke-width: 2.5; }
-  .dotN { fill: none; stroke: #1b1a4a; stroke-width: 2; opacity: 0.55; }
-  .dotN2 { fill: none; stroke: #aebadd; stroke-width: 2; }
+  .dotP { fill: rgba(235,70,52,0.08); stroke: #eb4634; stroke-width: 2; }
+  .dotN { fill: none; stroke: #6a7396; stroke-width: 1.8; }
+  .dotN2 { fill: rgba(27,26,74,0.5); stroke: #8f97c0; stroke-width: 1.8; }
+  .blip text {
+    font-family: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700; font-size: 10.5px; text-anchor: middle;
+    dominant-baseline: central; pointer-events: none;
+  }
+  .blip .tB { fill: #ffffff; }
+  .blip .tP { fill: #eb4634; }
+  .blip .tN { fill: #6a7396; }
+  .blip .tN2 { fill: #aebadd; }
+  .blip.hot circle { stroke: #ffffff; stroke-width: 2.5; }
+  .rindex {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem 2rem;
+    margin-top: 2rem; position: relative; z-index: 1;
+  }
+  @media (max-width: 40rem) { .rindex { grid-template-columns: 1fr; gap: 1.2rem; } }
+  .rindex h4 {
+    margin: 0 0 0.55rem; font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase; color: #8f97c0;
+  }
+  .rindex ul { list-style: none; margin: 0; padding: 0; }
+  .rindex li {
+    display: flex; align-items: center; gap: 0.55rem;
+    font-size: 0.88rem; color: #c3cde6; padding: 0.16rem 0; cursor: default;
+  }
+  .rindex li .no {
+    font-variant-numeric: tabular-nums; color: #8f97c0;
+    font-weight: 700; font-size: 0.76rem; width: 1.3rem;
+  }
+  .rindex li.hot { color: #ffffff; }
+  .rindex li.hot .no { color: #ffffff; }
   .legend {
     display: flex; flex-wrap: wrap; gap: 0.4rem 1.8rem; justify-content: center;
     margin-top: 1.6rem; font-size: 0.82rem; color: #aebadd;
@@ -263,9 +293,9 @@
 </div>
 
 <div class="wrap">
-  <section class="radarviz" aria-hidden="true">
+  <section class="radarviz">
     <div class="lines"></div>
-    <svg viewBox="0 60 720 340" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 60 720 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path class="rz3" d="M 65 380 A 295 295 0 0 1 655 380 L 570 380 A 210 210 0 0 0 150 380 Z"></path>
       <path class="rz2" d="M 150 380 A 210 210 0 0 1 570 380 L 480 380 A 120 120 0 0 0 240 380 Z"></path>
       <path class="rz1" d="M 240 380 A 120 120 0 0 1 480 380 Z"></path>
@@ -276,22 +306,54 @@
       <text class="rlabel rlabel1" x="360" y="371" text-anchor="middle" data-i18n="z1h">Virker nu</text>
       <text class="rlabel rlabel2" x="360" y="196" text-anchor="middle" data-i18n="svgZ2">Forarbejde først</text>
       <text class="rlabel rlabel3" x="360" y="112" text-anchor="middle" data-i18n="z3h">Her siger vi nej</text>
-      <circle class="dotB" cx="448" cy="339" r="8"></circle>
-      <circle class="dotB" cx="401" cy="292" r="8"></circle>
-      <circle class="dotB" cx="335" cy="286" r="8"></circle>
-      <circle class="dotB" cx="281" cy="324" r="8"></circle>
-      <circle class="dotB" cx="393" cy="333" r="8"></circle>
-      <circle class="dotB" cx="360" cy="322" r="8"></circle>
-      <circle class="dotP" cx="327" cy="333" r="7"></circle>
-      <circle class="dotN" cx="265" cy="360" r="7"></circle>
-      <circle class="dotB" cx="504" cy="297" r="8"></circle>
-      <circle class="dotB" cx="417" cy="224" r="8"></circle>
-      <circle class="dotB" cx="303" cy="224" r="8"></circle>
-      <circle class="dotN2" cx="216" cy="297" r="7"></circle>
-      <circle class="dotN2" cx="540" cy="200" r="7"></circle>
-      <circle class="dotN2" cx="360" cy="130" r="7"></circle>
-      <circle class="dotN2" cx="180" cy="200" r="7"></circle>
+      <g class="blip" data-blip="1"><circle class="dotB" cx="335" cy="286" r="11"></circle><text class="tB" x="335" y="286">01</text></g>
+      <g class="blip" data-blip="2"><circle class="dotB" cx="401" cy="292" r="11"></circle><text class="tB" x="401" y="292">02</text></g>
+      <g class="blip" data-blip="3"><circle class="dotB" cx="281" cy="324" r="11"></circle><text class="tB" x="281" y="324">03</text></g>
+      <g class="blip" data-blip="4"><circle class="dotB" cx="448" cy="339" r="11"></circle><text class="tB" x="448" y="339">04</text></g>
+      <g class="blip" data-blip="5"><circle class="dotB" cx="393" cy="333" r="11"></circle><text class="tB" x="393" y="333">05</text></g>
+      <g class="blip" data-blip="6"><circle class="dotB" cx="360" cy="316" r="11"></circle><text class="tB" x="360" y="316">06</text></g>
+      <g class="blip" data-blip="7"><circle class="dotP" cx="325" cy="334" r="10"></circle><text class="tP" x="325" y="334">07</text></g>
+      <g class="blip" data-blip="8"><circle class="dotN" cx="265" cy="358" r="10"></circle><text class="tN" x="265" y="358">08</text></g>
+      <g class="blip" data-blip="9"><circle class="dotB" cx="303" cy="224" r="11"></circle><text class="tB" x="303" y="224">09</text></g>
+      <g class="blip" data-blip="10"><circle class="dotB" cx="417" cy="224" r="11"></circle><text class="tB" x="417" y="224">10</text></g>
+      <g class="blip" data-blip="11"><circle class="dotB" cx="504" cy="297" r="11"></circle><text class="tB" x="504" y="297">11</text></g>
+      <g class="blip" data-blip="12"><circle class="dotN2" cx="216" cy="297" r="10"></circle><text class="tN2" x="216" y="297">12</text></g>
+      <g class="blip" data-blip="13"><circle class="dotN2" cx="180" cy="200" r="10"></circle><text class="tN2" x="180" y="200">13</text></g>
+      <g class="blip" data-blip="14"><circle class="dotN2" cx="360" cy="130" r="10"></circle><text class="tN2" x="360" y="130">14</text></g>
+      <g class="blip" data-blip="15"><circle class="dotN2" cx="540" cy="200" r="10"></circle><text class="tN2" x="540" y="200">15</text></g>
     </svg>
+    <div class="rindex">
+      <div>
+        <h4 data-i18n="z1h">Virker nu</h4>
+        <ul>
+          <li data-blip="1"><span class="no">01</span><span data-i18n="c1h">Mødeopsamling</span></li>
+          <li data-blip="2"><span class="no">02</span><span data-i18n="c2h">Svarudkast på henvendelser</span></li>
+          <li data-blip="3"><span class="no">03</span><span data-i18n="c3h">Tilbudsudkast</span></li>
+          <li data-blip="4"><span class="no">04</span><span data-i18n="c14h">Kodeagenter i udvikling</span></li>
+          <li data-blip="5"><span class="no">05</span><span data-i18n="c15h">Match af mennesker og job</span></li>
+          <li data-blip="6"><span class="no">06</span><span data-i18n="c6h">Svar på &raquo;hvordan gør vi her&laquo;</span></li>
+          <li data-blip="7"><span class="no">07</span><span data-i18n="c4h">Salg på egne kundedata</span></li>
+          <li data-blip="8"><span class="no">08</span><span data-i18n="c5h">Content-udkast</span></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="svgZ2">Forarbejde først</h4>
+        <ul>
+          <li data-blip="9"><span class="no">09</span><span data-i18n="c7h">Bilag og kontering</span></li>
+          <li data-blip="10"><span class="no">10</span><span data-i18n="c8h">Rapportering på tværs</span></li>
+          <li data-blip="11"><span class="no">11</span><span data-i18n="c9h">Kontraktgennemgang</span></li>
+          <li data-blip="12"><span class="no">12</span><span data-i18n="c10h">Rykkere og debitoropfølgning</span></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="z3h">Her siger vi nej</h4>
+        <ul>
+          <li data-blip="13"><span class="no">13</span><span data-i18n="c11h">Beslutninger uden menneske</span></li>
+          <li data-blip="14"><span class="no">14</span><span data-i18n="c12h">Automatisk afsendelse</span></li>
+          <li data-blip="15"><span class="no">15</span><span data-i18n="c13h">Prognoser på tyndt datagrundlag</span></li>
+        </ul>
+      </div>
+    </div>
     <div class="legend">
       <span><i class="sw swB"></i><em data-i18n="legB" style="font-style:normal">Bygget af os</em></span>
       <span><i class="sw swP"></i><em data-i18n="legP" style="font-style:normal">I gang hos en kunde</em></span>
@@ -328,16 +390,16 @@
         <p data-i18n="c15p">Kandidater matchet til relevante job ud fra hele cv'et, ikke kun søgeord. Bygget som platform, og en brancheforening har købt løsningen til deres medlemmer.</p>
       </div>
       <div class="card">
+        <h3 data-i18n="c6h">Svar på &raquo;hvordan gør vi her&laquo;</h3>
+        <p data-i18n="c6p">Nye medarbejdere spørger, og svaret findes i jeres egne dokumenter i stedet for hos sidemanden.</p>
+      </div>
+      <div class="card">
         <h3 data-i18n="c4h">Salg på egne kundedata</h3>
         <p data-i18n="c4p">Find kunderne, der ikke har købt længe, og skriv personlige udkast ud fra, hvad de faktisk købte.</p>
       </div>
       <div class="card">
         <h3 data-i18n="c5h">Content-udkast</h3>
         <p data-i18n="c5p">LinkedIn og nyhedsbrev i jeres egen tone, ud fra det I allerede har sagt og skrevet.</p>
-      </div>
-      <div class="card">
-        <h3 data-i18n="c6h">Svar på &raquo;hvordan gør vi her&laquo;</h3>
-        <p data-i18n="c6p">Nye medarbejdere spørger, og svaret findes i jeres egne dokumenter i stedet for hos sidemanden.</p>
       </div>
     </div>
   </section>
@@ -572,6 +634,22 @@
     if (qp === 'en' || qp === 'da') { initial = qp; }
     else { try { var sv = localStorage.getItem('lang'); if (sv === 'en' || sv === 'da') initial = sv; } catch (e) {} }
     if (initial !== 'da') setLang(initial);
+  })();
+</script>
+<script>
+  (function () {
+    var els = document.querySelectorAll('[data-blip]');
+    function setHot(id, on) {
+      for (var i = 0; i < els.length; i++) {
+        if (els[i].getAttribute('data-blip') === id) els[i].classList[on ? 'add' : 'remove']('hot');
+      }
+    }
+    for (var i = 0; i < els.length; i++) {
+      (function (el) {
+        el.addEventListener('mouseenter', function () { setHot(el.getAttribute('data-blip'), true); });
+        el.addEventListener('mouseleave', function () { setHot(el.getAttribute('data-blip'), false); });
+      })(els[i]);
+    }
   })();
 </script>
 <script>
