@@ -226,6 +226,24 @@
     letter-spacing: 0.15em; color: var(--ink-soft); margin: 0 0 0.5rem;
   }
   .methodnote p { font-size: 0.9rem; color: var(--ink-soft); max-width: 40rem; margin: 0; }
+  .analysebox {
+    background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+    padding: 1.4rem 1.5rem 1.3rem; margin-top: 1.2rem;
+  }
+  .analysebox h3 { font-size: 1.05rem; font-weight: 800; margin: 0 0 0.3rem; }
+  .analysebox > p { margin: 0 0 0.9rem; font-size: 0.93rem; color: var(--ink-soft); }
+  .anfields { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+  .anfields input {
+    flex: 1; min-width: 9rem; padding: 0.7rem 0.9rem;
+    border: 1px solid var(--line); border-radius: 4px;
+    font-family: inherit; font-size: 0.95rem;
+    background: var(--paper); color: var(--ink);
+  }
+  .anfields input:focus-visible { outline: 2px solid var(--orange); outline-offset: 1px; }
+  .ansmall { font-size: 0.78rem; color: var(--ink-soft); margin: 0.7rem 0 0 !important; }
+  .anerr { color: var(--orange); font-size: 0.9rem; margin: 0.7rem 0 0 !important; }
+  .budbox { margin-top: 1.1rem; border-left: 3px solid var(--sage); padding: 0.2rem 0 0.2rem 0.95rem; }
+  .budbox p { margin: 0 0 0.7rem; font-size: 0.95rem; }
   [hidden] { display: none !important; }
   @media print {
     .heroband, .quiz, .footband { display: none !important; }
@@ -292,6 +310,18 @@
         <p class="small"><button type="button" id="r-print" data-i18n="rPrint">Eller gem resultatet som PDF</button></p>
       </div>
     </div>
+    <div class="analysebox" id="analysebox" hidden>
+      <h3 data-i18n="anH">Få et skarpere bud</h3>
+      <p data-i18n="anP">Tilføj jeres CVR-nummer og hjemmeside, så læser vi jeres site og holder det op mod svarene.</p>
+      <div class="anfields">
+        <input id="an-cvr" inputmode="numeric" autocomplete="off" placeholder="CVR (8 cifre)" data-i18n-ph="anCvrPh">
+        <input id="an-web" autocomplete="off" placeholder="jeresfirma.dk" data-i18n-ph="anWebPh">
+        <button class="btn" type="button" id="an-go" data-i18n="anGo">Analysér</button>
+      </div>
+      <p class="ansmall" data-i18n="anNote">Bruger I analysen, gemmer vi svar og virksomhedsoplysninger, så vi kan følge op. Testen alene gemmer intet.</p>
+      <p class="anerr" id="an-err" hidden></p>
+      <div class="budbox" id="an-bud" hidden></div>
+    </div>
   </section>
 
   <section class="methodnote">
@@ -333,6 +363,15 @@
         rShareDone: 'Link kopieret',
         mNoteH: 'Om testen',
         mNoteP: 'Testen bygger på de fire dimensioner, der går igen i internationale modenhedsmodeller for data og AI, skåret til små og mellemstore virksomheder. Skalaen måler, hvad der er på plads i dag, ikke hvad der er planlagt. Og den måler ikke alt: strategi, kompetencer og økonomi kræver en rigtig gennemgang. Testen viser, hvor samtalen skal starte.',
+        anH: 'Få et skarpere bud',
+        anP: 'Tilføj jeres CVR-nummer og hjemmeside, så læser vi jeres site og holder det op mod svarene.',
+        anCvrPh: 'CVR (8 cifre)',
+        anWebPh: 'jeresfirma.dk',
+        anGo: 'Analysér',
+        anNote: 'Bruger I analysen, gemmer vi svar og virksomhedsoplysninger, så vi kan følge op. Testen alene gemmer intet.',
+        anErrCvr: 'Skriv et CVR-nummer på 8 cifre og jeres hjemmeside.',
+        anWait: 'Læser jeres hjemmeside, det tager op til et minut',
+        anErr: 'Analysen kunne ikke gennemføres lige nu. Prøv igen senere.',
         submit: 'Se jeres resultat',
         progress: '{n} af 12 besvaret',
         progressMissing: 'Besvar alle 12 spørgsmål ({n} af 12)',
@@ -395,6 +434,15 @@
         rShareDone: 'Link copied',
         mNoteH: 'About the test',
         mNoteP: 'The test builds on the four dimensions that recur in international maturity models for data and AI, cut to fit small and mid-sized companies. The scale measures what is in place today, not what is planned. And it does not measure everything: strategy, skills and finances need a proper review. The test shows where the conversation should start.',
+        anH: 'Get a sharper read',
+        anP: 'Add your CVR number and website, and we will read your site and hold it up against your answers.',
+        anCvrPh: 'CVR (8 digits)',
+        anWebPh: 'yourcompany.com',
+        anGo: 'Analyse',
+        anNote: 'If you use the analysis, we store your answers and company details so we can follow up. The test alone stores nothing.',
+        anErrCvr: 'Enter an 8-digit CVR number and your website.',
+        anWait: 'Reading your website, this can take up to a minute',
+        anErr: 'The analysis could not run right now. Try again later.',
         submit: 'See your result',
         progress: '{n} of 12 answered',
         progressMissing: 'Answer all 12 questions ({n} of 12)',
@@ -440,7 +488,9 @@
       }
     };
 
+    var ANALYSE_URL = '';
     var current = 'da';
+    var lastZeros = [];
     var form = document.getElementById('quiz');
 
     function dict() { return t[current]; }
@@ -490,6 +540,11 @@
       for (var i = 0; i < els.length; i++) {
         var key = els[i].getAttribute('data-i18n');
         if (d[key]) els[i].innerHTML = d[key];
+      }
+      var phs = document.querySelectorAll('[data-i18n-ph]');
+      for (var pi = 0; pi < phs.length; pi++) {
+        var pkey = phs[pi].getAttribute('data-i18n-ph');
+        if (d[pkey]) phs[pi].setAttribute('placeholder', d[pkey]);
       }
       document.getElementById('langswitch').textContent = lang === 'da' ? 'EN' : 'DA';
       document.title = lang === 'da' ? 'Hvor AI-parate er I?' : 'How AI-ready are you?';
@@ -554,6 +609,11 @@
           if (cz && cz.value === '0') zeros.push(z);
         }
       }
+      lastZeros = zeros.map(function (zi) {
+        var qq = d.questions[zi];
+        return qq.q + ' Svar: ' + qq.a[2];
+      });
+      if (ANALYSE_URL) document.getElementById('analysebox').hidden = false;
       if (zeros.length) {
         for (var y = 0; y < Math.min(zeros.length, 4); y++) {
           var qz = d.questions[zeros[y]];
@@ -651,6 +711,46 @@
     if (qp === 'en' || qp === 'da') { initial = qp; }
     else { try { var sv = localStorage.getItem('lang'); if (sv === 'en' || sv === 'da') initial = sv; } catch (e) {} }
     if (initial !== 'da') { setLang(initial); } else { renderQuiz(); }
+    document.getElementById('an-go').addEventListener('click', function () {
+      var d = dict();
+      var anGo = document.getElementById('an-go');
+      var err = document.getElementById('an-err');
+      var cvr = document.getElementById('an-cvr').value.replace(/\D/g, '');
+      var web = document.getElementById('an-web').value.trim();
+      err.hidden = true;
+      if (cvr.length !== 8 || !web) {
+        err.textContent = d.anErrCvr; err.hidden = false; return;
+      }
+      if (!lastScores || anGo.disabled) return;
+      anGo.disabled = true;
+      anGo.textContent = d.anWait;
+      fetch(ANALYSE_URL + '/analyse', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ scores: lastScores, zeros: lastZeros, cvr: cvr, website: web, lang: current })
+      }).then(function (r) {
+        if (!r.ok) throw new Error('status ' + r.status);
+        return r.json();
+      }).then(function (data) {
+        var box = document.getElementById('an-bud');
+        box.innerHTML = '';
+        String(data.bud || '').split(/\n\n+/).forEach(function (para) {
+          var pEl = document.createElement('p');
+          pEl.textContent = para;
+          box.appendChild(pEl);
+        });
+        box.hidden = false;
+        if (window.goatcounter && window.goatcounter.count) {
+          goatcounter.count({ path: 'analyse-koert', title: 'Analyse gennemfoert', event: true });
+        }
+      }).catch(function () {
+        err.textContent = dict().anErr; err.hidden = false;
+      }).then(function () {
+        anGo.disabled = false;
+        anGo.textContent = dict().anGo;
+      });
+    });
+
     var rp = new URLSearchParams(location.search).get('r');
     if (rp && /^[0-6]-[0-6]-[0-6]-[0-6]$/.test(rp)) {
       var pr = rp.split('-');
