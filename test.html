@@ -148,7 +148,10 @@
 
   .result { padding: 1rem 0 2rem; }
   .resultcard {
-    background: #1b1a4a; color: #ccd6ea; border-radius: 6px;
+    background: radial-gradient(120% 100% at 50% -10%, #222155 0%, #1b1a4a 55%, #141335 100%);
+    color: #ccd6ea; border-radius: 12px;
+    border: 1px solid rgba(209,222,237,0.10);
+    box-shadow: 0 30px 60px -35px rgba(8,7,32,0.8);
     padding: 2rem 2rem 1.9rem; position: relative; overflow: hidden;
   }
   .resultcard .lines { right: -2rem; top: -3rem; width: 10rem; height: 18rem; }
@@ -174,7 +177,7 @@
     display: block; height: 0.65rem; background: rgba(209,222,237,0.16);
     border-radius: 4px; overflow: hidden;
   }
-  .bar-fill { display: block; height: 100%; background: #d1deed; border-radius: 4px; }
+  .bar-fill { display: block; height: 100%; background: linear-gradient(90deg, #9db4d8, #e9f0f8); border-radius: 4px; box-shadow: 0 0 10px rgba(209,222,237,0.4); }
   .bar-val { font-size: 0.85rem; color: #aebadd; font-variant-numeric: tabular-nums; text-align: right; }
   @media (max-width: 34rem) {
     .bar-row { grid-template-columns: 1fr 3.2rem; }
@@ -204,6 +207,25 @@
     background: none; border: none; cursor: pointer; font-family: inherit;
     color: #d1deed; text-decoration: underline; font-size: 0.85rem; padding: 0;
   }
+  .drag { border-top: 1px solid rgba(209,222,237,0.25); padding-top: 1.2rem; margin-bottom: 1.3rem; }
+  .drag h3 {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.15em; color: var(--sage); margin: 0 0 0.7rem;
+  }
+  .drag ul { margin: 0; padding-left: 1.1rem; }
+  .drag li { margin-bottom: 0.55rem; font-size: 0.93rem; }
+  .drag b { color: #ffffff; font-weight: 700; }
+  .recs a, .drag a { color: #d1deed; }
+  .btn.ghost {
+    background: none; border: 1.5px solid rgba(209,222,237,0.45); color: #d1deed;
+  }
+  .btn.ghost:hover { filter: none; background: rgba(209,222,237,0.1); }
+  .methodnote { border-top: 1px solid var(--line); margin: 2.5rem 0 0; padding: 1.6rem 0 0.4rem; }
+  .methodnote h3 {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.15em; color: var(--ink-soft); margin: 0 0 0.5rem;
+  }
+  .methodnote p { font-size: 0.9rem; color: var(--ink-soft); max-width: 40rem; margin: 0; }
   [hidden] { display: none !important; }
   @media print {
     .heroband, .quiz, .footband { display: none !important; }
@@ -252,12 +274,17 @@
       <p class="bench" data-i18n="rBench">Til sammenligning: 42% af danske virksomheder med mindst 10 ansatte brugte AI i 2025. To år tidligere var det 15% (Danmarks Statistik).</p>
       <div class="bars" id="r-bars"></div>
       <ul class="verdicts" id="r-verdicts"></ul>
+      <div class="drag" id="r-drag" hidden>
+        <h3 data-i18n="rDragH">Det trækker mest ned</h3>
+        <ul id="r-drag-list"></ul>
+      </div>
       <div class="recs">
         <h3 data-i18n="rRecsH">Start her</h3>
         <ol id="r-recs"></ol>
       </div>
       <div class="ctarow">
         <a class="btn" href="workshop.html" data-i18n="rCta">Se workshoppen, der starter her</a>
+        <button class="btn ghost" type="button" id="r-share" data-i18n="rShare">Kopiér link til resultatet</button>
       </div>
       <div class="leadbox">
         <p data-i18n="rLeadP">Vil I have vores øjne på resultatet? Send det til os, og få en ærlig reaktion på, hvad vi ville gøre først hos jer.</p>
@@ -265,6 +292,11 @@
         <p class="small"><button type="button" id="r-print" data-i18n="rPrint">Eller gem resultatet som PDF</button></p>
       </div>
     </div>
+  </section>
+
+  <section class="methodnote">
+    <h3 data-i18n="mNoteH">Om testen</h3>
+    <p data-i18n="mNoteP">Testen bygger på de fire dimensioner, der går igen i internationale modenhedsmodeller for data og AI, skåret til små og mellemstore virksomheder. Skalaen måler, hvad der er på plads i dag, ikke hvad der er planlagt. Og den måler ikke alt: strategi, kompetencer og økonomi kræver en rigtig gennemgang. Testen viser, hvor samtalen skal starte.</p>
   </section>
 </div>
 
@@ -295,6 +327,12 @@
         rLeadP: 'Vil I have vores øjne på resultatet? Send det til os, og få en ærlig reaktion på, hvad vi ville gøre først hos jer.',
         rLeadBtn: 'Send resultatet, og få vores reaktion',
         rPrint: 'Eller gem resultatet som PDF',
+        rDragH: 'Det trækker mest ned',
+        rDragSaid: 'I svarede:',
+        rShare: 'Kopiér link til resultatet',
+        rShareDone: 'Link kopieret',
+        mNoteH: 'Om testen',
+        mNoteP: 'Testen bygger på de fire dimensioner, der går igen i internationale modenhedsmodeller for data og AI, skåret til små og mellemstore virksomheder. Skalaen måler, hvad der er på plads i dag, ikke hvad der er planlagt. Og den måler ikke alt: strategi, kompetencer og økonomi kræver en rigtig gennemgang. Testen viser, hvor samtalen skal starte.',
         submit: 'Se jeres resultat',
         progress: '{n} af 12 besvaret',
         progressMissing: 'Besvar alle 12 spørgsmål ({n} af 12)',
@@ -312,10 +350,10 @@
           rules: ['Reglerne er uafklarede, så ingen tør bruge noget.', 'Grænserne skal på papir, før eksperimenterne kan starte trygt.', 'I har klare rammer at eksperimentere indenfor.']
         },
         dimRecs: {
-          data: 'Saml prislister, kunde- eller produktdata ét sted. Start med det område, der gør mest ondt.',
-          flow: 'Vælg én manuel arbejdsgang og skriv trinnene ned. Det, der kan beskrives, kan aflastes.',
+          data: 'Saml prislister, kunde- eller produktdata ét sted. Start med det område, der gør mest ondt. Se <a href="radar.html">punkt 09 til 12 på AI-radaren</a>.',
+          flow: 'Vælg én manuel arbejdsgang og skriv trinnene ned. Det, der kan beskrives, kan aflastes. Se <a href="radar.html">punkt 01 til 03 på AI-radaren</a>.',
           people: 'Udpeg én ejer af beslutningen, og sæt en deadline for beslutningen, ikke kun projektet.',
-          rules: 'Træk grænsen op for, hvad jeres data må i cloud- og AI-tjenester. En side papir er nok.'
+          rules: 'Træk grænsen op for, hvad jeres data må i cloud- og AI-tjenester. En side papir er nok. Se <a href="radar.html">zonen Sæt rammerne på AI-radaren</a>.'
         },
         profiles: {
           fundament: { title: 'Fundamentet først', desc: 'AI oven på rod giver bare hurtigere rod. Jeres tid forsvinder i ark, indbakker og hoveder, og det er dér, arbejdet skal starte. Til gengæld er gevinsten stor, og første skridt behøver ikke at handle om AI overhovedet.' },
@@ -351,6 +389,12 @@
         rLeadP: 'Want our eyes on the result? Send it to us and get an honest take on what we would do first at your company.',
         rLeadBtn: 'Send the result and get our take',
         rPrint: 'Or save the result as a PDF',
+        rDragH: 'What pulls you down the most',
+        rDragSaid: 'You answered:',
+        rShare: 'Copy a link to the result',
+        rShareDone: 'Link copied',
+        mNoteH: 'About the test',
+        mNoteP: 'The test builds on the four dimensions that recur in international maturity models for data and AI, cut to fit small and mid-sized companies. The scale measures what is in place today, not what is planned. And it does not measure everything: strategy, skills and finances need a proper review. The test shows where the conversation should start.',
         submit: 'See your result',
         progress: '{n} of 12 answered',
         progressMissing: 'Answer all 12 questions ({n} of 12)',
@@ -368,10 +412,10 @@
           rules: ['The rules are unresolved, so nobody dares use anything.', 'The boundaries need to go on paper before experiments can start safely.', 'You have clear guardrails to experiment within.']
         },
         dimRecs: {
-          data: 'Gather price lists, customer or product data in one place. Start where it hurts the most.',
-          flow: 'Pick one manual workflow and write down the steps. What can be described can be offloaded.',
+          data: 'Gather price lists, customer or product data in one place. Start where it hurts the most. See <a href="radar.html">points 09 to 12 on the AI radar</a>.',
+          flow: 'Pick one manual workflow and write down the steps. What can be described can be offloaded. See <a href="radar.html">points 01 to 03 on the AI radar</a>.',
           people: 'Appoint one owner of the decision, and set a deadline for the decision, not just the project.',
-          rules: 'Draw the line for what your data may be used for in cloud and AI services. One page is enough.'
+          rules: 'Draw the line for what your data may be used for in cloud and AI services. One page is enough. See <a href="radar.html">the Set the guardrails zone on the AI radar</a>.'
         },
         profiles: {
           fundament: { title: 'Foundations first', desc: 'AI on top of a mess just gives you a faster mess. Your time disappears into spreadsheets, inboxes and heads, and that is where the work should start. On the upside, the payoff is big, and the first step doesn’t need to involve AI at all.' },
@@ -464,9 +508,12 @@
       return s;
     }
 
-    function showResult() {
+    var lastScores = null;
+
+    function showResult(sIn) {
       var d = dict();
-      var s = scores();
+      var s = sIn || lastScores || scores();
+      lastScores = s;
       var total = s.data + s.flow + s.people + s.rules;
       var pKey = total <= 8 ? 'fundament' : total <= 16 ? 'taettere' : 'klar';
       var p = d.profiles[pKey];
@@ -497,12 +544,34 @@
       li2.innerHTML = '<b>' + d.weakest + ': ' + d.dimNames[weakest] + '.</b> ' + d.dimVerdicts[weakest][band(s[weakest])];
       vd.appendChild(li1); vd.appendChild(li2);
 
+      var dragWrap = document.getElementById('r-drag');
+      var dragList = document.getElementById('r-drag-list');
+      dragList.innerHTML = '';
+      var zeros = [];
+      if (answered() === 12) {
+        for (var z = 0; z < 12; z++) {
+          var cz = form.querySelector('input[name="q' + z + '"]:checked');
+          if (cz && cz.value === '0') zeros.push(z);
+        }
+      }
+      if (zeros.length) {
+        for (var y = 0; y < Math.min(zeros.length, 4); y++) {
+          var qz = d.questions[zeros[y]];
+          var lz = document.createElement('li');
+          lz.innerHTML = '<b>' + qz.q + '</b> ' + d.rDragSaid + ' \u00bb' + qz.a[2] + '\u00ab';
+          dragList.appendChild(lz);
+        }
+        dragWrap.hidden = false;
+      } else {
+        dragWrap.hidden = true;
+      }
+
       var recs = document.getElementById('r-recs');
       recs.innerHTML = '';
       var weakTwo = sorted.slice(-2).reverse();
       for (var j = 0; j < weakTwo.length; j++) {
         var li = document.createElement('li');
-        li.textContent = d.dimRecs[weakTwo[j]];
+        li.innerHTML = d.dimRecs[weakTwo[j]];
         recs.appendChild(li);
       }
 
@@ -530,7 +599,12 @@
         if (el) el.textContent = dict().progressMissing.replace('{n}', String(answered()));
         return;
       }
-      var pKey = showResult();
+      var pKey = showResult(scores());
+      try {
+        var qp2 = new URLSearchParams(location.search);
+        qp2.set('r', [lastScores.data, lastScores.flow, lastScores.people, lastScores.rules].join('-'));
+        history.replaceState(null, '', location.pathname + '?' + qp2.toString());
+      } catch (e2) {}
       document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
       if (window.goatcounter && window.goatcounter.count) {
         goatcounter.count({ path: 'test-resultat-' + pKey, title: 'Testresultat: ' + pKey, event: true });
@@ -548,6 +622,24 @@
       setLang(current === 'da' ? 'en' : 'da');
     });
     document.getElementById('r-print').addEventListener('click', function () { window.print(); });
+    var shareBtn = document.getElementById('r-share');
+    shareBtn.addEventListener('click', function () {
+      if (!lastScores) return;
+      var qp3 = new URLSearchParams();
+      qp3.set('r', [lastScores.data, lastScores.flow, lastScores.people, lastScores.rules].join('-'));
+      if (current === 'en') qp3.set('lang', 'en');
+      var base = (location.origin && location.origin !== 'null') ? location.origin + location.pathname : location.pathname;
+      var url = base + '?' + qp3.toString();
+      function done() {
+        shareBtn.textContent = dict().rShareDone;
+        setTimeout(function () { shareBtn.textContent = dict().rShare; }, 2000);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done, done);
+      } else {
+        try { window.prompt('', url); } catch (e3) {}
+      }
+    });
     document.getElementById('r-lead').addEventListener('click', function () {
       if (window.goatcounter && window.goatcounter.count) {
         goatcounter.count({ path: 'test-lead', title: 'Testresultat sendt til os', event: true });
@@ -559,6 +651,11 @@
     if (qp === 'en' || qp === 'da') { initial = qp; }
     else { try { var sv = localStorage.getItem('lang'); if (sv === 'en' || sv === 'da') initial = sv; } catch (e) {} }
     if (initial !== 'da') { setLang(initial); } else { renderQuiz(); }
+    var rp = new URLSearchParams(location.search).get('r');
+    if (rp && /^[0-6]-[0-6]-[0-6]-[0-6]$/.test(rp)) {
+      var pr = rp.split('-');
+      showResult({ data: +pr[0], flow: +pr[1], people: +pr[2], rules: +pr[3] });
+    }
   })();
 </script>
 <script data-goatcounter="https://femfemten.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
