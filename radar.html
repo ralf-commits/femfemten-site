@@ -132,6 +132,7 @@
   .rring { fill: none; stroke: rgba(209,222,237,0.28); stroke-width: 1; }
   .rz1 { fill: #ffffff; }
   .rz2 { fill: rgba(209,222,237,0.13); }
+  .rz3 { fill: rgba(10,9,38,0.4); }
   .rlabel {
     font-family: "DM Sans", "Helvetica Neue", Arial, sans-serif;
     font-weight: 700; font-size: 12.5px; letter-spacing: 0.22em;
@@ -265,6 +266,7 @@
   <section class="radarviz" aria-hidden="true">
     <div class="lines"></div>
     <svg viewBox="0 60 720 340" xmlns="http://www.w3.org/2000/svg">
+      <path class="rz3" d="M 65 380 A 295 295 0 0 1 655 380 L 570 380 A 210 210 0 0 0 150 380 Z"></path>
       <path class="rz2" d="M 150 380 A 210 210 0 0 1 570 380 L 480 380 A 120 120 0 0 0 240 380 Z"></path>
       <path class="rz1" d="M 240 380 A 120 120 0 0 1 480 380 Z"></path>
       <path class="rring" d="M 65 380 A 295 295 0 0 1 655 380"></path>
@@ -273,7 +275,7 @@
       <line x1="65" y1="380" x2="655" y2="380" stroke="rgba(209,222,237,0.28)" stroke-width="1"></line>
       <text class="rlabel rlabel1" x="360" y="371" text-anchor="middle" data-i18n="z1h">Virker nu</text>
       <text class="rlabel rlabel2" x="360" y="196" text-anchor="middle" data-i18n="svgZ2">Forarbejde først</text>
-      <text class="rlabel rlabel3" x="360" y="112" text-anchor="middle" data-i18n="z3h">Vent med</text>
+      <text class="rlabel rlabel3" x="360" y="112" text-anchor="middle" data-i18n="z3h">For tidligt</text>
       <circle class="dotB" cx="448" cy="339" r="8"></circle>
       <circle class="dotB" cx="401" cy="292" r="8"></circle>
       <circle class="dotB" cx="335" cy="286" r="8"></circle>
@@ -373,7 +375,7 @@
   <section class="zone deep">
     <div class="zonehead">
       <div class="zonekicker" data-i18n="z3k">Zone 3</div>
-      <h2 data-i18n="z3h">Vent med</h2>
+      <h2 data-i18n="z3h">For tidligt</h2>
       <p data-i18n="z3p">Det her bliver solgt mange steder. Vi ville ikke sætte det i drift endnu, og hos os selv gør vi det heller ikke.</p>
     </div>
     <div class="cards">
@@ -467,7 +469,7 @@
         c10h: 'Rykkere og debitoropfølgning',
         c10p: 'Forfaldne fakturaer overvåget og venlige rykkere skrevet til godkendelse.',
         c10r: '<b>Kræver:</b> rene fakturadata.',
-        z3k: 'Zone 3', z3h: 'Vent med',
+        z3k: 'Zone 3', z3h: 'For tidligt',
         z3p: 'Det her bliver solgt mange steder. Vi ville ikke sætte det i drift endnu, og hos os selv gør vi det heller ikke.',
         c11h: 'Beslutninger uden menneske',
         c11p: 'AI\'en foreslår, et menneske afgør. Sådan kører vi det selv, og det ville vi ikke fravige hos jer.',
@@ -526,7 +528,7 @@
         c10h: 'Payment reminders',
         c10p: 'Overdue invoices monitored and friendly reminders drafted for approval.',
         c10r: '<b>Requires:</b> clean invoice data.',
-        z3k: 'Zone 3', z3h: 'Hold off',
+        z3k: 'Zone 3', z3h: 'Too early',
         z3p: 'This gets sold in plenty of places. We wouldn\'t put it into production yet, and we don\'t in our own shop either.',
         c11h: 'Decisions without a human',
         c11p: 'AI proposes, a person decides. That is how we run it ourselves, and we wouldn\'t deviate at your company.',
