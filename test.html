@@ -319,7 +319,7 @@
         <input id="an-mail" type="email" autocomplete="email" placeholder="Jeres mail (valgfrit)" data-i18n-ph="anMailPh">
         <button class="btn" type="button" id="an-go" data-i18n="anGo">Analysér</button>
       </div>
-      <p class="ansmall" data-i18n="anNote">Bruger I analysen, gemmer vi svar og virksomhedsoplysninger, så vi kan følge op. Mailen er frivillig og betyder, at vi må skrive til jer, hvis I vil have mere. Testen alene gemmer intet.</p>
+      <p class="ansmall" data-i18n="anNote">Testens svar logges anonymt, uden navn, mail eller andet, der peger på jer. Bruger I analysen, gemmer vi også virksomhedsoplysningerne, så vi kan følge op. Mailen er frivillig og betyder, at vi må skrive til jer, hvis I vil have mere.</p>
       <p class="anerr" id="an-err" hidden></p>
       <div class="budbox" id="an-bud" hidden></div>
     </div>
@@ -370,7 +370,7 @@
         anWebPh: 'jeresfirma.dk',
         anMailPh: 'Jeres mail (valgfrit)',
         anGo: 'Analysér',
-        anNote: 'Bruger I analysen, gemmer vi svar og virksomhedsoplysninger, så vi kan følge op. Mailen er frivillig og betyder, at vi må skrive til jer, hvis I vil have mere. Testen alene gemmer intet.',
+        anNote: 'Testens svar logges anonymt, uden navn, mail eller andet, der peger på jer. Bruger I analysen, gemmer vi også virksomhedsoplysningerne, så vi kan følge op. Mailen er frivillig og betyder, at vi må skrive til jer, hvis I vil have mere.',
         anErrCvr: 'Skriv et CVR-nummer på 8 cifre og jeres hjemmeside.',
         anWait: 'Læser jeres hjemmeside, det tager op til et minut',
         anErr: 'Analysen kunne ikke gennemføres lige nu. Prøv igen senere.',
@@ -442,7 +442,7 @@
         anWebPh: 'yourcompany.com',
         anMailPh: 'Your email (optional)',
         anGo: 'Analyse',
-        anNote: 'If you use the analysis, we store your answers and company details so we can follow up. The email is optional and means we may write to you if you want more. The test alone stores nothing.',
+        anNote: 'Test answers are logged anonymously, with no name, email or anything else that points to you. If you use the analysis, we also store the company details so we can follow up. The email is optional and means we may write to you if you want more.',
         anErrCvr: 'Enter an 8-digit CVR number and your website.',
         anWait: 'Reading your website, this can take up to a minute',
         anErr: 'The analysis could not run right now. Try again later.',
@@ -669,6 +669,15 @@
         history.replaceState(null, '', location.pathname + '?' + qp2.toString());
       } catch (e2) {}
       document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+      if (ANALYSE_URL) {
+        try {
+          fetch(ANALYSE_URL + '/log', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ scores: lastScores, zeros: lastZeros, lang: current })
+          }).catch(function () {});
+        } catch (e3) {}
+      }
       if (window.goatcounter && window.goatcounter.count) {
         goatcounter.count({ path: 'test-resultat-' + pKey, title: 'Testresultat: ' + pKey, event: true });
         var s = scores();

@@ -35,7 +35,13 @@ og vi tester sammen, før der linkes til noget.
   hjemmeside, mail hvis oplyst, scorer, svageste svar, buddet). Hentes med:
   `GET <worker-url>/leads` med headeren `Authorization: Bearer <ADMIN_TOKEN>`.
   Saga kan gøre det på heartbeat og lægge nye leads i lead-arket + give Telegram-besked.
+  Leads med mail udfyldt er dem, der har sagt ja til en henvendelse.
+- **Testlog**: hver gennemført test logges anonymt (tidspunkt, de fire scorer, de svar
+  der trak ned, sprog). Ingen IP, navn eller kontaktdata. Hentes med:
+  `GET <worker-url>/stats` med samme Authorization-header som `/leads`.
 - **Forbrugslofter**: 5 analyser pr. IP pr. dag, 300 pr. måned i alt
-  (kan ændres med variablerne `DAILY_IP_CAP` / `MONTHLY_CAP`).
+  (kan ændres med variablerne `DAILY_IP_CAP` / `MONTHLY_CAP`). Testloggen er
+  begrænset til 30 pr. IP pr. dag.
 - **CVR-data** slås op via cvrapi.dk (gratis, med kildeangivelse i User-Agent).
-- Testen alene logger fortsat intet; kun analysen gemmer data, og det står der ved feltet.
+- Teksten ved analysefeltet fortæller, hvad der logges: testsvar anonymt, og
+  virksomhedsoplysninger + mail kun hvis man bruger analysen.

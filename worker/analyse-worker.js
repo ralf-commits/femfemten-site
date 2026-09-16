@@ -122,11 +122,12 @@ export default {
       return new Response(null, { status: 204, headers: corsHeaders(origin) });
     }
 
-    // Admin: hent seneste leads som JSON. Authorization: Bearer <ADMIN_TOKEN>
-    if (url.pathname === '/leads' && request.method === 'GET') {
+    // Admin: hent seneste leads eller testlogs som JSON. Authorization: Bearer <ADMIN_TOKEN>
+    if ((url.pathname === '/leads' || url.pathname === '/stats') && request.method === 'GET') {
       const auth = request.headers.get('Authorization') || '';
       if (auth !== 'Bearer ' + env.ADMIN_TOKEN) return new Response('nej', { status: 401 });
-      const list = await env.LEADS.list({ prefix: 'lead:', limit: 100 });
+      const prefix = url.pathname === '/leads' ? 'lead:' : 'stat:';
+      const list = await env.LEADS.list({ prefix: prefix, limit: 200 });
       const out = [];
       for (const k of list.keys.reverse()) {
         const v = await env.LEADS.get(k.name);
@@ -135,6 +136,36 @@ export default {
       return new Response(JSON.stringify(out, null, 2), {
         headers: { 'Content-Type': 'application/json' },
       });
+    }
+
+    // Anonym testlog: gemmes uden IP, navn eller kontaktdata.
+    if (url.pathname === '/log' && request.method === 'POST') {
+      const logIp = request.headers.get('CF-Connecting-IP') || 'ukendt';
+      const logDay = new Date().toISOString().slice(0, 10);
+      const logKey = 'ratelog:' + logIp + ':' + logDay;
+      const logCount = parseInt((await env.LEADS.get(logKey)) || '0', 10);
+      if (logCount >= 30) return json({ ok: false }, 429, origin);
+      let body;
+      try {
+        body = await request.json();
+      } catch (e) {
+        return json({ ok: false }, 400, origin);
+      }
+      const sc = body.scores || {};
+      const okScores = ['data', 'flow', 'people', 'rules'].every(function (k) {
+        return Number.isInteger(sc[k]) && sc[k] >= 0 && sc[k] <= 6;
+      });
+      if (!okScores) return json({ ok: false }, 400, origin);
+      const stat = {
+        ts: new Date().toISOString(),
+        scores: { data: sc.data, flow: sc.flow, people: sc.people, rules: sc.rules },
+        zeros: (body.zeros || []).slice(0, 6).map(function (z) { return String(z).slice(0, 200); }),
+        lang: body.lang === 'en' ? 'en' : 'da',
+      };
+      await env.LEADS.put(logKey, String(logCount + 1), { expirationTtl: 90000 });
+      await env.LEADS.put('stat:' + stat.ts + ':' + Math.random().toString(36).slice(2, 8),
+        JSON.stringify(stat));
+      return json({ ok: true }, 200, origin);
     }
 
     if (url.pathname !== '/analyse' || request.method !== 'POST') {
