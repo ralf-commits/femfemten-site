@@ -316,9 +316,10 @@
       <div class="anfields">
         <input id="an-cvr" inputmode="numeric" autocomplete="off" placeholder="CVR (8 cifre)" data-i18n-ph="anCvrPh">
         <input id="an-web" autocomplete="off" placeholder="jeresfirma.dk" data-i18n-ph="anWebPh">
+        <input id="an-mail" type="email" autocomplete="email" placeholder="Jeres mail (valgfrit)" data-i18n-ph="anMailPh">
         <button class="btn" type="button" id="an-go" data-i18n="anGo">Analysér</button>
       </div>
-      <p class="ansmall" data-i18n="anNote">Bruger I analysen, gemmer vi svar og virksomhedsoplysninger, så vi kan følge op. Testen alene gemmer intet.</p>
+      <p class="ansmall" data-i18n="anNote">Bruger I analysen, gemmer vi svar og virksomhedsoplysninger, så vi kan følge op. Mailen er frivillig og betyder, at vi må skrive til jer, hvis I vil have mere. Testen alene gemmer intet.</p>
       <p class="anerr" id="an-err" hidden></p>
       <div class="budbox" id="an-bud" hidden></div>
     </div>
@@ -367,8 +368,9 @@
         anP: 'Tilføj jeres CVR-nummer og hjemmeside, så læser vi jeres site og holder det op mod svarene.',
         anCvrPh: 'CVR (8 cifre)',
         anWebPh: 'jeresfirma.dk',
+        anMailPh: 'Jeres mail (valgfrit)',
         anGo: 'Analysér',
-        anNote: 'Bruger I analysen, gemmer vi svar og virksomhedsoplysninger, så vi kan følge op. Testen alene gemmer intet.',
+        anNote: 'Bruger I analysen, gemmer vi svar og virksomhedsoplysninger, så vi kan følge op. Mailen er frivillig og betyder, at vi må skrive til jer, hvis I vil have mere. Testen alene gemmer intet.',
         anErrCvr: 'Skriv et CVR-nummer på 8 cifre og jeres hjemmeside.',
         anWait: 'Læser jeres hjemmeside, det tager op til et minut',
         anErr: 'Analysen kunne ikke gennemføres lige nu. Prøv igen senere.',
@@ -438,8 +440,9 @@
         anP: 'Add your CVR number and website, and we will read your site and hold it up against your answers.',
         anCvrPh: 'CVR (8 digits)',
         anWebPh: 'yourcompany.com',
+        anMailPh: 'Your email (optional)',
         anGo: 'Analyse',
-        anNote: 'If you use the analysis, we store your answers and company details so we can follow up. The test alone stores nothing.',
+        anNote: 'If you use the analysis, we store your answers and company details so we can follow up. The email is optional and means we may write to you if you want more. The test alone stores nothing.',
         anErrCvr: 'Enter an 8-digit CVR number and your website.',
         anWait: 'Reading your website, this can take up to a minute',
         anErr: 'The analysis could not run right now. Try again later.',
@@ -717,6 +720,7 @@
       var err = document.getElementById('an-err');
       var cvr = document.getElementById('an-cvr').value.replace(/\D/g, '');
       var web = document.getElementById('an-web').value.trim();
+      var mail = document.getElementById('an-mail').value.trim();
       err.hidden = true;
       if (cvr.length !== 8 || !web) {
         err.textContent = d.anErrCvr; err.hidden = false; return;
@@ -727,7 +731,7 @@
       fetch(ANALYSE_URL + '/analyse', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ scores: lastScores, zeros: lastZeros, cvr: cvr, website: web, lang: current })
+        body: JSON.stringify({ scores: lastScores, zeros: lastZeros, cvr: cvr, website: web, email: mail, lang: current })
       }).then(function (r) {
         if (!r.ok) throw new Error('status ' + r.status);
         return r.json();

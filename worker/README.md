@@ -32,7 +32,7 @@ og vi tester sammen, før der linkes til noget.
 ## Drift
 
 - **Leads**: hver gennemført analyse gemmes i KV (tidspunkt, CVR, firma, branche, ansatte,
-  hjemmeside, scorer, svageste svar, buddet). Hentes med:
+  hjemmeside, mail hvis oplyst, scorer, svageste svar, buddet). Hentes med:
   `GET <worker-url>/leads` med headeren `Authorization: Bearer <ADMIN_TOKEN>`.
   Saga kan gøre det på heartbeat og lægge nye leads i lead-arket + give Telegram-besked.
 - **Forbrugslofter**: 5 analyser pr. IP pr. dag, 300 pr. måned i alt

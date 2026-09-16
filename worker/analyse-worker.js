@@ -179,6 +179,9 @@ export default {
     payload.zeros = (payload.zeros || []).slice(0, 6).map(function (z) {
       return String(z).slice(0, 200);
     });
+    // Mail er frivillig; en ugyldig adresse smides bare vaek, den stopper ikke analysen.
+    let email = String(payload.email || '').trim().slice(0, 120);
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) email = null;
 
     await env.LEADS.put(ipKey, String(ipCount + 1), { expirationTtl: 90000 });
     await env.LEADS.put(monthKey, String(monthCount + 1), { expirationTtl: 3200000 });
@@ -198,6 +201,7 @@ export default {
       branche: cvrData ? cvrData.industry : null,
       ansatte: cvrData ? cvrData.employees : null,
       website: website,
+      email: email,
       scores: s,
       zeros: payload.zeros,
       lang: payload.lang === 'en' ? 'en' : 'da',
