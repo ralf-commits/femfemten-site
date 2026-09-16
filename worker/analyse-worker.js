@@ -122,6 +122,30 @@ export default {
       return new Response(null, { status: 204, headers: corsHeaders(origin) });
     }
 
+    // Selvtjek: aaben /check i en browser, saa fortaeller den selv, hvad der mangler.
+    // Viser aldrig noegler eller vaerdier, kun om de findes.
+    if (url.pathname === '/check' && request.method === 'GET') {
+      const status = {
+        koden: 'ok, den nyeste kode er sat ind',
+        anthropic_noegle: env.ANTHROPIC_API_KEY
+          ? 'ok'
+          : 'MANGLER: Settings > Variables and Secrets > Add > navn ANTHROPIC_API_KEY, type Secret',
+        admin_kode: env.ADMIN_TOKEN
+          ? 'ok'
+          : 'MANGLER: Settings > Variables and Secrets > Add > navn ADMIN_TOKEN, type Secret',
+        lager: env.LEADS
+          ? 'ok'
+          : 'MANGLER: Bindings > Add > KV namespace > variabelnavn LEADS',
+      };
+      const klar = env.ANTHROPIC_API_KEY && env.ADMIN_TOKEN && env.LEADS;
+      status.samlet = klar
+        ? 'ALT KLAR. Sig til Claude/Saga, saa proevekoeres analysen.'
+        : 'Ikke faerdig endnu. Ret det, der staar MANGLER ved, og genindlaes denne side.';
+      return new Response(JSON.stringify(status, null, 2), {
+        headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      });
+    }
+
     // Admin: hent seneste leads eller testlogs som JSON. Authorization: Bearer <ADMIN_TOKEN>
     if ((url.pathname === '/leads' || url.pathname === '/stats') && request.method === 'GET') {
       const auth = request.headers.get('Authorization') || '';
