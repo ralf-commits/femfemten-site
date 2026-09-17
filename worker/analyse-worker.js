@@ -113,6 +113,101 @@ async function runAnalysis(env, payload, cvrData) {
   return text;
 }
 
+const ADMIN_HTML = `<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>5:15 leads</title>
+<style>
+  body { font-family: "Helvetica Neue", Arial, sans-serif; background: #f4f7fc; color: #1b1a4a;
+    margin: 0; padding: 2rem 1rem; line-height: 1.5; }
+  .wrap { max-width: 46rem; margin: 0 auto; }
+  h1 { font-size: 1.3rem; }
+  .row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin: 1rem 0 1.6rem; }
+  input { flex: 1; min-width: 12rem; padding: 0.6rem 0.8rem; border: 1px solid #d7dfec; border-radius: 4px; font-size: 1rem; }
+  button { background: #1b1a4a; color: #fff; border: 0; border-radius: 4px; padding: 0.6rem 1.1rem;
+    font-size: 0.95rem; font-weight: 700; cursor: pointer; }
+  button.alt { background: #4c5470; }
+  .card { background: #fff; border: 1px solid #d7dfec; border-left: 3px solid #eb4634;
+    border-radius: 0 6px 6px 0; padding: 1rem 1.2rem; margin-bottom: 1rem; }
+  .card.stat { border-left-color: #b0cfc9; }
+  .meta { font-size: 0.85rem; color: #4c5470; }
+  .bud { white-space: pre-wrap; margin-top: 0.6rem; font-size: 0.95rem; }
+  .fejl { color: #eb4634; font-weight: 700; }
+  h2 { font-size: 1.05rem; margin: 0 0 0.2rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>5:15 · leads og testlog</h1>
+  <div class="row">
+    <input id="kode" type="password" placeholder="Admin-kode (fra dit papir)" autocomplete="off">
+    <button id="hentLeads">Vis leads</button>
+    <button id="hentStats" class="alt">Vis testlog</button>
+  </div>
+  <p id="besked"></p>
+  <div id="liste"></div>
+</div>
+<script>
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text) e.textContent = text;
+    return e;
+  }
+  function hent(sti) {
+    var kode = document.getElementById('kode').value.trim();
+    var besked = document.getElementById('besked');
+    var liste = document.getElementById('liste');
+    liste.textContent = '';
+    besked.textContent = '';
+    if (!kode) { besked.textContent = 'Tast admin-koden foerst.'; return; }
+    besked.textContent = 'Henter...';
+    fetch(sti, { headers: { Authorization: 'Bearer ' + kode } })
+      .then(function (r) {
+        if (r.status === 401) throw new Error('Forkert kode.');
+        if (!r.ok) throw new Error('Kunne ikke hente (' + r.status + ').');
+        return r.json();
+      })
+      .then(function (data) {
+        besked.textContent = data.length
+          ? data.length + (sti === '/leads' ? ' leads, nyeste foerst:' : ' gennemfoerte tests, nyeste foerst:')
+          : 'Ingen endnu.';
+        for (var i = 0; i < data.length; i++) {
+          var d = data[i];
+          var kort = el('div', sti === '/leads' ? 'card' : 'card stat');
+          var tid = (d.ts || '').replace('T', ' ').slice(0, 16);
+          if (sti === '/leads') {
+            kort.appendChild(el('h2', null, (d.firma || 'Ukendt firma') + ' (CVR ' + d.cvr + ')'));
+            kort.appendChild(el('div', 'meta', tid + ' · ' + [d.branche, d.ansatte ? d.ansatte + ' ansatte' : null, d.website].filter(Boolean).join(' · ')));
+            kort.appendChild(el('div', 'meta', d.email ? 'VIL KONTAKTES: ' + d.email : 'Ingen mail oplyst'));
+            var s = d.scores || {};
+            kort.appendChild(el('div', 'meta', 'Scorer: Data ' + s.data + ' · Arbejdsgange ' + s.flow + ' · Mennesker ' + s.people + ' · Regler ' + s.rules));
+            if (d.zeros && d.zeros.length) kort.appendChild(el('div', 'meta', 'Trak ned: ' + d.zeros.join(' | ')));
+            kort.appendChild(el('div', 'bud', d.bud || ''));
+          } else {
+            var s2 = d.scores || {};
+            kort.appendChild(el('h2', null, tid + ' (' + (d.lang || 'da') + ')'));
+            kort.appendChild(el('div', 'meta', 'Scorer: Data ' + s2.data + ' · Arbejdsgange ' + s2.flow + ' · Mennesker ' + s2.people + ' · Regler ' + s2.rules));
+            if (d.zeros && d.zeros.length) kort.appendChild(el('div', 'meta', 'Trak ned: ' + d.zeros.join(' | ')));
+          }
+          liste.appendChild(kort);
+        }
+      })
+      .catch(function (e) {
+        besked.textContent = '';
+        var f = el('p', 'fejl', e.message || 'Noget gik galt.');
+        liste.appendChild(f);
+      });
+  }
+  document.getElementById('hentLeads').addEventListener('click', function () { hent('/leads'); });
+  document.getElementById('hentStats').addEventListener('click', function () { hent('/stats'); });
+</script>
+</body>
+</html>`;
+
 export default {
   async fetch(request, env) {
     const origin = request.headers.get('Origin') || '';
@@ -143,6 +238,14 @@ export default {
         : 'Ikke faerdig endnu. Ret det, der staar MANGLER ved, og genindlaes denne side.';
       return new Response(JSON.stringify(status, null, 2), {
         headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      });
+    }
+
+    // Adminside: aaben /admin i en browser, tast admin-koden, og se leads og testlog.
+    // Selve siden er tom uden koden; data hentes foerst, naar koden er tastet.
+    if (url.pathname === '/admin' && request.method === 'GET') {
+      return new Response(ADMIN_HTML, {
+        headers: { 'Content-Type': 'text/html; charset=utf-8' },
       });
     }
 
