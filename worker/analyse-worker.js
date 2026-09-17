@@ -73,7 +73,7 @@ const SYSTEM = `Du er analysemotoren bag 5:15's parathedstest (femfemten.com). D
 
 Form: maks 170 ord. Tre afsnit adskilt af blank linje: (1) hvad du kan se om virksomheden, og hvordan det spiller sammen med testscorerne, (2) det vigtigste at tage fat i og hvorfor, (3) to konkrete foerste skridt som to linjer, der starter med "1." og "2.".
 
-Tone: rolig, konkret, konstaterende. Brug ALDRIG tankestreger (hverken em dash eller en dash). Ingen AI-floskler, ingen ophobede forsikringer, intet salgssprog. Det er et bud paa afstand: skriv "herfra ligner det" eller "vores bud er". Lov aldrig resultater, naevn aldrig priser, anbefal aldrig konkrete leverandoerer eller produkter. Kan hjemmesiden ikke laeses, saa sig det i en enkelt saetning og byg buddet paa resten.`;
+Tone: rolig, konkret, konstaterende. Brug ALDRIG tankestreger (hverken em dash eller en dash). Ingen AI-floskler, ingen ophobede forsikringer, intet salgssprog. Undgaa vendinger af typen "Ikke X, men Y" og "X. Ikke Y." som selvstaendige pointer; skriv i stedet direkte, hvad der gaelder, og hvorfor. Det er et bud paa afstand: skriv "herfra ligner det" eller "vores bud er". Lov aldrig resultater, naevn aldrig priser, anbefal aldrig konkrete leverandoerer eller produkter. Kan hjemmesiden ikke laeses, saa sig det i en enkelt saetning og byg buddet paa resten.`;
 
 async function runAnalysis(env, payload, cvrData) {
   const res = await fetch('https://api.anthropic.com/v1/messages', {
@@ -126,7 +126,7 @@ export default {
     // Viser aldrig noegler eller vaerdier, kun om de findes.
     if (url.pathname === '/check' && request.method === 'GET') {
       const status = {
-        koden: 'ok, den nyeste kode er sat ind',
+        koden: 'ok, version 2, rullet ud automatisk fra GitHub',
         anthropic_noegle: env.ANTHROPIC_API_KEY
           ? 'ok'
           : 'MANGLER: Settings > Variables and Secrets > Add > navn ANTHROPIC_API_KEY, type Secret',
