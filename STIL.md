@@ -17,8 +17,12 @@ Den bedste rettelse er næsten altid at slette, ikke at omskrive.
 - Inversioner som pointe: "X. Ikke Y." og "Ikke X, men Y". Skriv direkte, hvad der
   gælder, og hvorfor.
 - Ophobede forsikringer: to beroligelser i træk er én for meget.
-- Fyldord brugt som tic: "konkret", "reel", "ægte", "tydelig". Én gang kan de bære,
-  fem gange lugter de.
+- Fyldord: ord, der kan slettes, uden at sætningen mister betydning, skal slettes.
+  Det er funktionen, ikke ordet, der dømmes. "Vi tror på, det er vigtigt at være
+  konkrete og lave en løsning, man kan bygge videre på" er godt sprog, for der
+  bærer ordet påstanden. "12 konkrete spørgsmål" var pynt. Typiske syndere som
+  pynt: "konkret", "reel", "ægte", "tydelig", og de afsløres af gentagelsen: står
+  ordet der fem gange på en side, er det blevet en tic.
 - Imperativer til læseren: "Svar ærligt", "Kom i gang i dag". Læseren skal ikke
   kommanderes.
 - Tre ting i træk med samme rytme, og perfekt parallelitet i det hele taget.
