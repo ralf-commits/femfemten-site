@@ -1,0 +1,14 @@
+// Konfiguration til automatisk udrulning (Cloudflare Workers Builds).
+// Naar GitHub-repoet er koblet til workeren, deployes analyse-worker.js
+// automatisk ved hvert push. Secrets (ANTHROPIC_API_KEY, ADMIN_TOKEN)
+// ligger i Cloudflare-dashboardet og roeres ikke af udrulningen.
+{
+  "name": "femfemten-analyse",
+  "main": "analyse-worker.js",
+  "compatibility_date": "2026-09-01",
+  "keep_vars": true,
+  "observability": { "enabled": true },
+  "kv_namespaces": [
+    { "binding": "LEADS", "id": "b9a5ba6cb44e40fcbf8e75abe0c10477" }
+  ]
+}

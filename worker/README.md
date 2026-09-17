@@ -29,6 +29,20 @@ ingen kommandolinje. Regn med 15 minutter.
 Send worker-URL'en i chatten (IKKE nøglerne). Så aktiveres analysefeltet på test.html,
 og vi tester sammen, før der linkes til noget.
 
+## Automatisk udrulning (så ingen skal indsætte kode manuelt igen)
+
+Workeren kan kobles til GitHub, så den opdaterer sig selv ved hvert push:
+
+1. Åbn workeren i Cloudflare > **Settings** > **Builds** > **Connect** (Connect repository)
+2. Log på GitHub, når den spørger, og vælg repoet `femfemten-site`
+3. Indstillinger: Branch `main`, **Root directory** `worker`. Byggekommando kan stå tom;
+   deploy-kommandoen `npx wrangler deploy` er standard. Findes feltet "Build watch paths",
+   så skriv `worker` der (så udløser rene hjemmeside-ændringer ikke en udrulning).
+4. Gem. Fra nu af ruller enhver ændring af `analyse-worker.js` ud automatisk.
+
+Konfigurationen ligger i `wrangler.jsonc`. Secrets og forbrugslofter i dashboardet
+bevares; udrulningen rører dem ikke.
+
 ## Drift
 
 - **Leads**: hver gennemført analyse gemmes i KV (tidspunkt, CVR, firma, branche, ansatte,
