@@ -380,7 +380,9 @@
         of: 'af',
         points: 'point',
         strongest: 'Stærkest',
+        strongestLow: 'Mindst presset',
         weakest: 'Svagest',
+        weakestHigh: 'Næste løft',
         mailSubject: 'Vores parathedsresultat',
         mailIntro: 'Hej Fem Femten. Vi har taget jeres parathedstest og vil gerne have jeres reaktion.',
         dimNames: { data: 'Data', flow: 'Arbejdsgange', people: 'Mennesker & beslutninger', rules: 'Regler & robusthed' },
@@ -452,7 +454,9 @@
         of: 'of',
         points: 'points',
         strongest: 'Strongest',
+        strongestLow: 'Least strained',
         weakest: 'Weakest',
+        weakestHigh: 'Next lift',
         mailSubject: 'Our readiness result',
         mailIntro: 'Hi Fem Femten. We took your readiness test and would like your take.',
         dimNames: { data: 'Data', flow: 'Workflows', people: 'People & decisions', rules: 'Rules & resilience' },
@@ -597,31 +601,39 @@
       vd.innerHTML = '';
       var strongest = sorted[0], weakest = sorted[sorted.length - 1];
       var li1 = document.createElement('li');
-      li1.innerHTML = '<b>' + d.strongest + ': ' + d.dimNames[strongest] + '.</b> ' + d.dimVerdicts[strongest][band(s[strongest])];
+      var labS = band(s[strongest]) === 0 ? d.strongestLow : d.strongest;
+      li1.innerHTML = '<b>' + labS + ': ' + d.dimNames[strongest] + '.</b> ' + d.dimVerdicts[strongest][band(s[strongest])];
       var li2 = document.createElement('li');
-      li2.innerHTML = '<b>' + d.weakest + ': ' + d.dimNames[weakest] + '.</b> ' + d.dimVerdicts[weakest][band(s[weakest])];
+      var labW = band(s[weakest]) === 2 ? d.weakestHigh : d.weakest;
+      li2.innerHTML = '<b>' + labW + ': ' + d.dimNames[weakest] + '.</b> ' + d.dimVerdicts[weakest][band(s[weakest])];
       vd.appendChild(li1); vd.appendChild(li2);
 
       var dragWrap = document.getElementById('r-drag');
       var dragList = document.getElementById('r-drag-list');
       dragList.innerHTML = '';
-      var zeros = [];
+      var zeros = [], ones = [];
       if (answered() === 12) {
         for (var z = 0; z < 12; z++) {
           var cz = form.querySelector('input[name="q' + z + '"]:checked');
           if (cz && cz.value === '0') zeros.push(z);
+          else if (cz && cz.value === '1') ones.push(z);
         }
       }
       lastZeros = zeros.map(function (zi) {
         var qq = d.questions[zi];
         return qq.q + ' Svar: ' + qq.a[3];
-      });
+      }).concat(ones.map(function (oi) {
+        var qo = d.questions[oi];
+        return qo.q + ' Svar: ' + qo.a[2];
+      })).slice(0, 6);
       if (ANALYSE_URL) document.getElementById('analysebox').hidden = false;
-      if (zeros.length) {
-        for (var y = 0; y < Math.min(zeros.length, 4); y++) {
-          var qz = d.questions[zeros[y]];
+      var dragIdx = zeros.length ? zeros : ones;
+      var dragA = zeros.length ? 3 : 2;
+      if (dragIdx.length) {
+        for (var y = 0; y < Math.min(dragIdx.length, 4); y++) {
+          var qz = d.questions[dragIdx[y]];
           var lz = document.createElement('li');
-          lz.innerHTML = '<b>' + qz.q + '</b> ' + d.rDragSaid + ' \u00bb' + qz.a[3] + '\u00ab';
+          lz.innerHTML = '<b>' + qz.q + '</b> ' + d.rDragSaid + ' \u00bb' + qz.a[dragA] + '\u00ab';
           dragList.appendChild(lz);
         }
         dragWrap.hidden = false;
