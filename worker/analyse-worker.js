@@ -49,7 +49,7 @@ async function cvrLookup(cvr) {
 function buildPrompt(payload, cvrData) {
   const s = payload.scores;
   const lines = [];
-  lines.push('Testscorer (0-6 pr. dimension): Data ' + s.data + ', Arbejdsgange ' + s.flow +
+  lines.push('Testscorer (0-9 pr. dimension): Data ' + s.data + ', Arbejdsgange ' + s.flow +
     ', Mennesker og beslutninger ' + s.people + ', Regler og robusthed ' + s.rules + '.');
   if (payload.zeros && payload.zeros.length) {
     lines.push('Svar, der kostede point: ' + payload.zeros.join(' | '));
@@ -334,7 +334,7 @@ export default {
     const s = payload.scores || {};
     const dims = ['data', 'flow', 'people', 'rules'];
     const scoresOk = dims.every(function (k) {
-      return Number.isInteger(s[k]) && s[k] >= 0 && s[k] <= 6;
+      return Number.isInteger(s[k]) && s[k] >= 0 && s[k] <= 9;
     });
     if (cvr.length !== 8 || !website || !scoresOk) {
       return json({ error: 'udfyld CVR (8 cifre) og hjemmeside' }, 400, origin);

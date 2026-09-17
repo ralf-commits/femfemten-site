@@ -403,18 +403,18 @@
         },
         dimHeads: { data: 'Del 1 · Jeres data', flow: 'Del 2 · Jeres arbejdsgange', people: 'Del 3 · Mennesker og beslutninger', rules: 'Del 4 · Regler og robusthed' },
         questions: [
-          { d: 'data', q: 'Hvor ligger jeres priser, produkter og stamdata?', a: ['Samlet i ét eller få systemer, som folk faktisk bruger', 'Spredt over systemer, Excel-ark og mapper', 'I hoveder, indbakker og gamle filer'] },
-          { d: 'data', q: 'Hvem ejer jeres kundedata?', a: ['Klart ejerskab: én ved, hvor de bor, og hvad de må bruges til', 'Delvist: det afhænger af, hvilke data man spørger om', 'Ingen har ejerskabet i dag'] },
-          { d: 'data', q: 'Hvordan står det til med jeres rapportering?', a: ['Vi har faste tal, og de trækkes stort set automatisk', 'Vi har tal, men de samles i hånden hver måned', 'Vi styrer mest efter mavefornemmelse og bankkontoen'] },
-          { d: 'flow', q: 'Hvor lang tid tager et typisk tilbud, en sag eller et kundesvar?', a: ['Minutter til en time: det meste ligger klar', 'Timer: der skal samles ting fra flere steder', 'Dage: og ventetiden koster ordrer og utålmodige kunder'] },
-          { d: 'flow', q: 'Hvor bor jeres vigtigste arbejdsgange?', a: ['I systemer med faste trin, som nye folk kan læres op i', 'I en blanding af systemer, Excel og mails', 'I hovederne på nøglepersoner'] },
-          { d: 'flow', q: 'En ny medarbejder starter mandag. Hvornår kan de arbejde selvstændigt?', a: ['Inden for uger: det vigtigste er beskrevet', 'Efter måneder: det meste er mesterlære', 'Det afhænger helt af, hvem de kommer til at sidde ved siden af'] },
-          { d: 'people', q: 'Er AI på ledelsens dagsorden, med mål og penge bag?', a: ['Ja: der er en ejer i ledelsen, og der er sat tid og penge af', 'Ledelsen er interesseret, men det er ikke blevet til mål eller budget', 'Det er ikke rigtig på ledelsens bord'] },
-          { d: 'people', q: 'Hvor langt er I med AI i jeres virksomhed?', a: ['Mindst ét værktøj er i reel daglig brug', 'Der eksperimenteres hist og her, uden fælles retning', 'Nogle bruger det privat. Virksomheden gør ikke'] },
-          { d: 'people', q: 'Hvordan tager organisationen imod nye værktøjer?', a: ['Nysgerrigt: folk prøver gerne ting af', 'Blandet: det står og falder med et par ildsjæle', 'Trætte: der har været for mange nye systemer'] },
-          { d: 'rules', q: 'Må jeres data bruges i cloud- og AI-tjenester?', a: ['Ja, eller vi har klare regler for, hvad der må og ikke må', 'Noget må, men grænsen er aldrig trukket op', 'Uafklaret, så i praksis tør ingen bruge noget'] },
-          { d: 'rules', q: 'Jeres vigtigste system driller i morgen. Hvem fikser det?', a: ['Det ved vi: der er en klar ansvarlig eller leverandør', 'Det finder vi nok ud af, men det tager tid', 'Det afhænger af én bestemt person, og alle ved hvem'] },
-          { d: 'rules', q: 'Ved I, hvor jeres følsomme data ligger? Persondata, kontrakter, priser?', a: ['Ja, det er kortlagt og styret', 'Nogenlunde: vi ved det vigtigste, men det er ikke skrevet ned', 'Nej, det ville kræve en eftersøgning'] }
+          { d: 'data', q: 'Hvor ligger jeres priser, produkter og stamdata?', a: ['Samlet i ét eller få systemer, som folk faktisk bruger', 'Samlet i systemer, men folk arbejder ofte uden om dem', 'Spredt over systemer, Excel-ark og mapper', 'I hoveder, indbakker og gamle filer'] },
+          { d: 'data', q: 'Hvem ejer jeres kundedata?', a: ['Klart ejerskab: én ved, hvor de bor, og hvad de må bruges til', 'Ejerskabet findes på papir, men følges ikke i hverdagen', 'Delvist: det afhænger af, hvilke data man spørger om', 'Ingen har ejerskabet i dag'] },
+          { d: 'data', q: 'Hvordan står det til med jeres rapportering?', a: ['Vi har faste tal, og de trækkes stort set automatisk', 'Faste tal, men de samles i hånden hver måned', 'Tal findes, men de skifter form og kommer, når nogen har tid', 'Vi styrer mest efter mavefornemmelse og bankkontoen'] },
+          { d: 'flow', q: 'Hvor lang tid tager et typisk tilbud, en sag eller et kundesvar?', a: ['Minutter til en time: det meste ligger klar', 'Timer: der skal samles fra flere steder, men det sker samme dag', 'Et par dage: bestemte personer skal have tid først', 'Dage til uger, og ventetiden koster ordrer og utålmodige kunder'] },
+          { d: 'flow', q: 'Hvor bor jeres vigtigste arbejdsgange?', a: ['I systemer med faste trin, som nye folk kan læres op i', 'Beskrevet et sted, men hverdagen kører på rutine og genveje', 'I en blanding af systemer, Excel og mails', 'I hovederne på nøglepersoner'] },
+          { d: 'flow', q: 'En ny medarbejder starter mandag. Hvornår kan de arbejde selvstændigt?', a: ['Inden for uger: det vigtigste er beskrevet', 'En måneds tid: noget er beskrevet, resten er sidemandsoplæring', 'Efter måneder: det meste er mesterlære', 'Det afhænger helt af, hvem de kommer til at sidde ved siden af'] },
+          { d: 'people', q: 'Er AI på ledelsens dagsorden, med mål og penge bag?', a: ['Ja: der er en ejer i ledelsen, og der er sat tid og penge af', 'Der er en ejer, men hverken mål eller penge endnu', 'Interessen er der, men det er ikke nogens ansvar', 'Det er ikke rigtig på ledelsens bord'] },
+          { d: 'people', q: 'Hvor langt er I med AI i jeres virksomhed?', a: ['Mindst ét værktøj er i reel daglig brug', 'Værktøjer er købt og prøvet, men brugen hviler på få personer', 'Der eksperimenteres hist og her, uden fælles retning', 'Nogle bruger det privat. Virksomheden gør ikke'] },
+          { d: 'people', q: 'Hvordan tager organisationen imod nye værktøjer?', a: ['Nysgerrigt: folk prøver gerne ting af', 'Positivt, men kun når nogen går forrest', 'Blandet: det står og falder med et par ildsjæle', 'Trætte: der har været for mange nye systemer'] },
+          { d: 'rules', q: 'Må jeres data bruges i cloud- og AI-tjenester?', a: ['Ja, og vi har klare regler for, hvad der må og ikke må', 'Ja i praksis, men reglerne er aldrig skrevet ned', 'Det afgøres fra sag til sag af den, der spørger', 'Uafklaret, så i praksis tør ingen bruge noget'] },
+          { d: 'rules', q: 'Jeres vigtigste system driller i morgen. Hvem fikser det?', a: ['Det ved vi: der er en klar ansvarlig eller leverandør', 'Der er en aftale, men i praksis ringer vi til den samme hver gang', 'Det finder vi nok ud af, men det tager tid', 'Det afhænger af én bestemt person, og alle ved hvem'] },
+          { d: 'rules', q: 'Ved I, hvor jeres følsomme data ligger? Persondata, kontrakter, priser?', a: ['Ja, det er kortlagt og styret', 'Kortlagt engang, men ikke holdt ved lige', 'Nogenlunde: vi ved det vigtigste, men det er ikke skrevet ned', 'Nej, det ville kræve en eftersøgning'] }
         ]
       },
       en: {
@@ -475,18 +475,18 @@
         },
         dimHeads: { data: 'Part 1 · Your data', flow: 'Part 2 · Your workflows', people: 'Part 3 · People and decisions', rules: 'Part 4 · Rules and resilience' },
         questions: [
-          { d: 'data', q: 'Where do your prices, products and master data live?', a: ['In one or a few systems people actually use', 'Spread across systems, spreadsheets and folders', 'In heads, inboxes and old files'] },
-          { d: 'data', q: 'Who owns your customer data?', a: ['Clear ownership: one person knows where it lives and what it may be used for', 'Partly: it depends which data you ask about', 'Nobody owns it today'] },
-          { d: 'data', q: 'How is your reporting doing?', a: ['We have fixed numbers, pulled more or less automatically', 'We have numbers, but they are assembled by hand every month', 'We mostly steer by gut feeling and the bank account'] },
-          { d: 'flow', q: 'How long does a typical quote, case or customer reply take?', a: ['Minutes to an hour: most of it is ready to go', 'Hours: things need gathering from several places', 'Days: and the wait costs us orders and patience'] },
-          { d: 'flow', q: 'Where do your most important workflows live?', a: ['In systems with fixed steps that new people can be trained in', 'In a mix of systems, spreadsheets and email', 'In the heads of key people'] },
-          { d: 'flow', q: 'A new employee starts Monday. When can they work independently?', a: ['Within weeks: the essentials are written down', 'After months: most of it is apprenticeship', 'It depends entirely on who they end up sitting next to'] },
-          { d: 'people', q: 'Is AI on the leadership agenda, with goals and money behind it?', a: ['Yes: it has an owner in leadership, and time and money are set aside', 'Leadership is interested, but it hasn\'t turned into goals or a budget', 'It isn\'t really on the leadership table'] },
-          { d: 'people', q: 'How far along are you with AI in your company?', a: ['At least one tool is in real daily use', 'Scattered experiments, no shared direction', 'Some use it privately. The company doesn’t'] },
-          { d: 'people', q: 'How does the organisation receive new tools?', a: ['Curiously: people are happy to try things', 'Mixed: it depends on a few enthusiasts', 'Tired: there have been too many new systems'] },
-          { d: 'rules', q: 'May your data be used in cloud and AI services?', a: ['Yes, or we have clear rules for what may and may not', 'Some of it may, but the line was never drawn', 'Unresolved, so in practice nobody dares use anything'] },
-          { d: 'rules', q: 'Your most important system breaks tomorrow. Who fixes it?', a: ['We know: there is a clear owner or vendor', 'We would figure it out, but it takes time', 'It depends on one specific person, and everyone knows who'] },
-          { d: 'rules', q: 'Do you know where your sensitive data lives? Personal data, contracts, prices?', a: ['Yes, it is mapped and governed', 'Roughly: we know the essentials, but it isn’t written down', 'No, that would require a search party'] }
+          { d: 'data', q: 'Where do your prices, products and master data live?', a: ['In one or a few systems people actually use', 'In systems, but people often work around them', 'Spread across systems, spreadsheets and folders', 'In heads, inboxes and old files'] },
+          { d: 'data', q: 'Who owns your customer data?', a: ['Clear ownership: one person knows where it lives and what it may be used for', 'Ownership exists on paper, but isn’t followed day to day', 'Partly: it depends which data you ask about', 'Nobody owns it today'] },
+          { d: 'data', q: 'How is your reporting doing?', a: ['We have fixed numbers, pulled more or less automatically', 'Fixed numbers, but assembled by hand every month', 'Numbers exist, but they change shape and arrive when someone has time', 'We mostly steer by gut feeling and the bank account'] },
+          { d: 'flow', q: 'How long does a typical quote, case or customer reply take?', a: ['Minutes to an hour: most of it is ready to go', 'Hours: things need gathering from several places, but it happens the same day', 'A couple of days: specific people need to find the time first', 'Days to weeks, and the wait costs us orders and patience'] },
+          { d: 'flow', q: 'Where do your most important workflows live?', a: ['In systems with fixed steps that new people can be trained in', 'Described somewhere, but daily work runs on routine and shortcuts', 'In a mix of systems, spreadsheets and email', 'In the heads of key people'] },
+          { d: 'flow', q: 'A new employee starts Monday. When can they work independently?', a: ['Within weeks: the essentials are written down', 'About a month: some is written down, the rest is learned beside a colleague', 'After months: most of it is apprenticeship', 'It depends entirely on who they end up sitting next to'] },
+          { d: 'people', q: 'Is AI on the leadership agenda, with goals and money behind it?', a: ['Yes: it has an owner in leadership, and time and money are set aside', 'There is an owner, but no goals or money yet', 'The interest is there, but it is nobody’s responsibility', 'It isn\'t really on the leadership table'] },
+          { d: 'people', q: 'How far along are you with AI in your company?', a: ['At least one tool is in real daily use', 'Tools have been bought and tried, but usage rests on a few people', 'Scattered experiments, no shared direction', 'Some use it privately. The company doesn’t'] },
+          { d: 'people', q: 'How does the organisation receive new tools?', a: ['Curiously: people are happy to try things', 'Positive, but only when someone leads the way', 'Mixed: it depends on a few enthusiasts', 'Tired: there have been too many new systems'] },
+          { d: 'rules', q: 'May your data be used in cloud and AI services?', a: ['Yes, and we have clear rules for what may and may not', 'Yes in practice, but the rules were never written down', 'It is decided case by case by whoever asks', 'Unresolved, so in practice nobody dares use anything'] },
+          { d: 'rules', q: 'Your most important system breaks tomorrow. Who fixes it?', a: ['We know: there is a clear owner or vendor', 'There is an agreement, but in practice we call the same person every time', 'We would figure it out, but it takes time', 'It depends on one specific person, and everyone knows who'] },
+          { d: 'rules', q: 'Do you know where your sensitive data lives? Personal data, contracts, prices?', a: ['Yes, it is mapped and governed', 'Mapped once, but not kept up to date', 'Roughly: we know the essentials, but it isn’t written down', 'No, that would require a search party'] }
         ]
       }
     };
@@ -514,8 +514,8 @@
           lastDim = q.d;
         }
         html += '<div class="q"><h2><span class="n">' + (j + 1) + '</span>' + q.q + '</h2><div class="opts">';
-        var vals = [2, 1, 0];
-        for (var k = 0; k < 3; k++) {
+        var vals = [3, 2, 1, 0];
+        for (var k = 0; k < 4; k++) {
           var checked = saved[j] === String(vals[k]) ? ' checked' : '';
           html += '<label class="opt"><input type="radio" name="q' + j + '" value="' + vals[k] + '"' + checked + '>' + q.a[k] + '</label>';
         }
@@ -573,10 +573,10 @@
       var s = sIn || lastScores || scores();
       lastScores = s;
       var total = s.data + s.flow + s.people + s.rules;
-      var pKey = total <= 8 ? 'fundament' : total <= 16 ? 'taettere' : 'klar';
+      var pKey = total <= 12 ? 'fundament' : total <= 24 ? 'taettere' : 'klar';
       var p = d.profiles[pKey];
 
-      document.getElementById('r-title').textContent = p.title + ' · ' + total + ' ' + d.of + ' 24 ' + d.points;
+      document.getElementById('r-title').textContent = p.title + ' · ' + total + ' ' + d.of + ' 36 ' + d.points;
       document.getElementById('r-desc').textContent = p.desc;
 
       var bars = document.getElementById('r-bars');
@@ -587,12 +587,12 @@
         var row = document.createElement('div');
         row.className = 'bar-row';
         row.innerHTML = '<span class="bar-label">' + d.dimNames[k] + '</span>' +
-          '<span class="bar-track"><span class="bar-fill" style="width:' + Math.max(4, (s[k] / 6) * 100) + '%"></span></span>' +
-          '<span class="bar-val">' + s[k] + ' ' + d.of + ' 6</span>';
+          '<span class="bar-track"><span class="bar-fill" style="width:' + Math.max(4, (s[k] / 9) * 100) + '%"></span></span>' +
+          '<span class="bar-val">' + s[k] + ' ' + d.of + ' 9</span>';
         bars.appendChild(row);
       }
 
-      var band = function (v) { return v <= 2 ? 0 : v <= 4 ? 1 : 2; };
+      var band = function (v) { return v <= 3 ? 0 : v <= 6 ? 1 : 2; };
       var vd = document.getElementById('r-verdicts');
       vd.innerHTML = '';
       var strongest = sorted[0], weakest = sorted[sorted.length - 1];
@@ -614,14 +614,14 @@
       }
       lastZeros = zeros.map(function (zi) {
         var qq = d.questions[zi];
-        return qq.q + ' Svar: ' + qq.a[2];
+        return qq.q + ' Svar: ' + qq.a[3];
       });
       if (ANALYSE_URL) document.getElementById('analysebox').hidden = false;
       if (zeros.length) {
         for (var y = 0; y < Math.min(zeros.length, 4); y++) {
           var qz = d.questions[zeros[y]];
           var lz = document.createElement('li');
-          lz.innerHTML = '<b>' + qz.q + '</b> ' + d.rDragSaid + ' \u00bb' + qz.a[2] + '\u00ab';
+          lz.innerHTML = '<b>' + qz.q + '</b> ' + d.rDragSaid + ' \u00bb' + qz.a[3] + '\u00ab';
           dragList.appendChild(lz);
         }
         dragWrap.hidden = false;
@@ -639,9 +639,9 @@
       }
 
       var lines = [d.mailIntro, ''];
-      lines.push(p.title + ' (' + total + '/24)');
+      lines.push(p.title + ' (' + total + '/36)');
       for (var m = 0; m < DIMS.length; m++) {
-        lines.push(d.dimNames[DIMS[m]] + ': ' + s[DIMS[m]] + '/6');
+        lines.push(d.dimNames[DIMS[m]] + ': ' + s[DIMS[m]] + '/9');
       }
       document.getElementById('r-lead').href = 'mailto:ralf@femfemten.com?subject=' +
         encodeURIComponent(d.mailSubject) + '&body=' + encodeURIComponent(lines.join('\n'));
@@ -765,7 +765,7 @@
     });
 
     var rp = new URLSearchParams(location.search).get('r');
-    if (rp && /^[0-6]-[0-6]-[0-6]-[0-6]$/.test(rp)) {
+    if (rp && /^[0-9]-[0-9]-[0-9]-[0-9]$/.test(rp)) {
       var pr = rp.split('-');
       showResult({ data: +pr[0], flow: +pr[1], people: +pr[2], rules: +pr[3] });
     }
