@@ -61,6 +61,11 @@ function buildPrompt(payload, cvrData) {
       cvrData.startdate ? 'startet ' + cvrData.startdate : null,
       cvrData.city,
     ].filter(Boolean).join(', ') + '.');
+    // cvrapi kan angive ansatte som tal eller interval, fx "200-499"
+    const emp = parseInt(String(cvrData.employees || '').replace(/\D+/g, ' ').trim().split(' ')[0], 10);
+    if (emp >= 100) {
+      lines.push('Bemaerk: virksomheden er stor. Testen er besvaret af en enkelt person og er et billede af svarpersonens omraade eller afdeling, ikke hele organisationen.');
+    }
   } else {
     lines.push('CVR-opslag lykkedes ikke; byg paa resten.');
   }
@@ -70,6 +75,8 @@ function buildPrompt(payload, cvrData) {
 }
 
 const SYSTEM = `Du er analysemotoren bag 5:15's parathedstest (femfemten.com). Du faar en virksomheds testscorer, deres svageste svar, CVR-data og deres hjemmeside. Laes hjemmesiden med web_fetch (forsiden er nok, hent hoejst 3 sider), og skriv et kort, kvalificeret bud paa, hvor virksomheden staar med AI, og hvad de foerste skridt ville vaere.
+
+Stoerrelse: skaler raadene til virksomhedens stoerrelse ud fra CVR-data. I smaa og mellemstore virksomheder taler du til ejeren eller ledelsen om hele forretningen. I store virksomheder (over ca. 100 ansatte) laeser du svarene som et billede af svarpersonens eget omraade, taler til en leder i det omraade, og peger paa skridt der passer der: en afgraenset pilot i eget omraade, forankring hos naermeste ledelse, og samspil med koncernens eksisterende rammer for data og AI. Giv aldrig raad, der kun giver mening i en lille virksomhed, til en stor.
 
 Form: maks 170 ord. Tre afsnit adskilt af blank linje: (1) hvad du kan se om virksomheden, og hvordan det spiller sammen med testscorerne, (2) det vigtigste at tage fat i og hvorfor, (3) to konkrete foerste skridt som to linjer, der starter med "1." og "2.".
 
