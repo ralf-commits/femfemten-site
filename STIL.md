@@ -27,9 +27,13 @@ Den bedste rettelse er næsten altid at slette, ikke at omskrive.
   kommanderes.
 - Tre ting i træk med samme rytme, og perfekt parallelitet i det hele taget.
   Mennesker skriver ujævnt.
+- Samme gode greb brugt to gange i ét dokument. Kontrasten, indrømmelsen, modet
+  til at fraråde: én gang er det en pointe, anden gang er det en formel.
 - Oversat engelsk og floskler: "unlock", "empower", "rejse", "styrke jeres...".
-- Priser, løfter om resultater og adgang til kunders data nævnes aldrig på sitet.
-  Det hører til i et møde.
+- Timepriser og priser på forløb nævnes ikke på sitet; de hører til i et møde.
+  Undtagelserne er workshopprisen og tydeligt mærkede, illustrative overslag i
+  eksempelmateriale. Løfter om resultater og adgang til kunders data nævnes
+  aldrig, uden undtagelse.
 
 ## Menneskeligt (det, der skal være der)
 
