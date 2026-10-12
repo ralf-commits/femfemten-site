@@ -1,951 +1,185 @@
 <!doctype html>
 <html lang="da">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Fem Femten hjælper virksomheder med at sætte retning, komme i gang og skalere det, der virker. Strategi, data og AI omsat til daglig drift.">
-<title>Fem Femten</title>
-<meta property="og:type" content="website">
-<meta property="og:title" content="Fem Femten">
-<meta property="og:description" content="Sæt retning. Kom i gang. Skalér det, der virker. Strategi, data og AI omsat til daglig drift.">
-<meta property="og:url" content="https://femfemten.com/">
-<meta property="og:image" content="https://femfemten.com/share.png">
-<meta property="og:locale" content="da_DK">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://femfemten.com/">
-<link rel="alternate" hreflang="da" href="https://femfemten.com/">
-<link rel="alternate" hreflang="en" href="https://femfemten.com/?lang=en">
-<link rel="alternate" hreflang="x-default" href="https://femfemten.com/">
-<link rel="icon" type="image/png" href="logo.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://femfemten.com/#org",
-      "name": "Fem Femten",
-      "legalName": "5:15 ApS",
-      "taxID": "44632012",
-      "vatID": "DK44632012",
-      "url": "https://femfemten.com/",
-      "logo": "https://femfemten.com/logo.png",
-      "email": "hello@femfemten.com",
-      "description": "Strategi, data og AI omsat til daglig drift. Rådgivning og løsninger i både store organisationer og SMV'er."
-    },
-    {
-      "@type": "WebSite",
-      "url": "https://femfemten.com/",
-      "name": "Fem Femten",
-      "publisher": { "@id": "https://femfemten.com/#org" },
-      "inLanguage": ["da", "en"]
-    }
-  ]
-}
-</script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800;9..40,900&family=Libre+Caslon+Text:ital@0;1&display=swap">
-<style>
-  :root {
-    --navy: #1b1a4a;
-    --teal: #113e4f;
-    --lightblue: #d1deed;
-    --sage: #b0cfc9;
-    --orange: #eb4634;
-    --paper: #ffffff;
-    --tint: #eaf0f8;
-    --ink: #1b1a4a;
-    --ink-soft: #4c5470;
-    --line: #d7dfec;
-    --card: #ffffff;
-    --band-ink: #f4f7fc;
-    --band-soft: #c3cde6;
-    --shadow-card: 0 1px 2px rgba(27,26,74,0.05), 0 14px 30px -20px rgba(27,26,74,0.28);
-    --shadow-card-hover: 0 2px 4px rgba(27,26,74,0.06), 0 22px 44px -20px rgba(27,26,74,0.4);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --paper: #121129;
-      --tint: #1a1940;
-      --ink: #e9edf6;
-      --ink-soft: #a9b1c9;
-      --line: #312f60;
-      --card: #1e1d4a;
-      --orange: #f0604f;
-      --shadow-card: 0 1px 2px rgba(0,0,0,0.3), 0 14px 30px -18px rgba(0,0,0,0.55);
-      --shadow-card-hover: 0 2px 4px rgba(0,0,0,0.35), 0 22px 44px -18px rgba(0,0,0,0.7);
-    }
-  }
-  :root[data-theme="dark"] {
-    --paper: #121129;
-    --tint: #1a1940;
-    --ink: #e9edf6;
-    --ink-soft: #a9b1c9;
-    --line: #312f60;
-    --card: #1e1d4a;
-    --orange: #f0604f;
-    --shadow-card: 0 1px 2px rgba(0,0,0,0.3), 0 14px 30px -18px rgba(0,0,0,0.55);
-    --shadow-card-hover: 0 2px 4px rgba(0,0,0,0.35), 0 22px 44px -18px rgba(0,0,0,0.7);
-  }
-
-  body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: "DM Sans", "Helvetica Neue", Arial, sans-serif;
-    font-size: 1.02rem;
-    line-height: 1.6;
-    margin: 0;
-  }
-  .wrap { max-width: 64rem; margin: 0 auto; padding: 0 1.4rem; }
-  a { color: inherit; }
-
-  .lines {
-    position: absolute; pointer-events: none;
-    background: repeating-linear-gradient(90deg,
-      rgba(209,222,237,0.3) 0 0.6rem, transparent 0.6rem 2.3rem);
-    transform: rotate(18deg);
-  }
-
-  .heroband {
-    background: linear-gradient(180deg, var(--paper) 0%, var(--tint) 100%);
-    color: var(--ink);
-    position: relative; overflow: hidden;
-    box-shadow: inset 0 -1px 0 var(--line);
-  }
-  .heroband .lines { right: -4rem; top: -9rem; width: 22rem; height: 30rem; opacity: 0.9; }
-  .heroband .wrap { position: relative; }
-  .topbar {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 1rem; padding: 1.4rem 0; position: relative; z-index: 1;
-  }
-  .wordmark {
-    font-weight: 900; font-size: 1.3rem; letter-spacing: -0.01em;
-    color: var(--ink); text-decoration: none; display: inline-flex; align-items: center;
-  }
-  .wordmark img {
-    height: 2.6rem; width: auto; display: block;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) .wordmark img { filter: brightness(0) invert(1); }
-  }
-  :root[data-theme="dark"] .wordmark img { filter: brightness(0) invert(1); }
-  .topnav { display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; justify-content: flex-end; }
-  @media (max-width: 40rem) {
-    .topnav { gap: 0.1rem 0.4rem; }
-    .topnav a.navlink, .langswitch { padding: 0.45rem 0.3rem; font-size: 0.88rem; }
-  }
-  .topnav a.navlink { white-space: nowrap; }
-  .topbar a.contact {
-    font-weight: 700; font-size: 0.92rem; text-decoration: none;
-    border: 1.5px solid var(--ink); border-radius: 3px;
-    padding: 0.45rem 1rem; color: var(--ink);
-  }
-  .topbar a.contact:hover { background: rgba(27,26,74,0.07); }
-  .topnav a.navlink {
-    font-weight: 700; font-size: 0.92rem; text-decoration: none;
-    color: var(--ink-soft); padding: 0.45rem 0.5rem;
-  }
-  .topnav a.navlink:hover { color: var(--ink); }
-  .langswitch {
-    background: none; border: none; cursor: pointer;
-    font-family: inherit; font-weight: 700; font-size: 0.92rem;
-    color: var(--ink-soft); padding: 0.45rem 0.5rem; letter-spacing: 0.04em;
-  }
-  .langswitch:hover { color: var(--ink); }
-  .langswitch:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
-
-  .hero { padding: 5rem 0 5rem; max-width: 50rem; position: relative; z-index: 1; }
-  .hero::before {
-    content: ""; position: absolute; z-index: -1; pointer-events: none;
-    left: -13rem; top: -7rem; width: 48rem; height: 34rem;
-    background: radial-gradient(closest-side,
-      rgba(209,222,237,0.55) 0%, rgba(209,222,237,0.2) 45%, rgba(209,222,237,0) 72%);
-  }
-  .hero::after {
-    content: ""; position: absolute; z-index: -1; pointer-events: none;
-    left: 8rem; bottom: -9rem; width: 30rem; height: 22rem;
-    background: radial-gradient(closest-side,
-      rgba(176,207,201,0.22) 0%, rgba(176,207,201,0) 70%);
-  }
-
-  /* Entrance: staggered rise. Lives only under no-preference, so
-     reduced-motion (and any CSS-only fallback) shows everything at once. */
-  @media (prefers-reduced-motion: no-preference) {
-    .hero .kicker, .heroband h1, .hero .lead, .hero .cta-row, .radar-teaser svg {
-      opacity: 0; animation: riseIn 0.75s cubic-bezier(0.2, 0.65, 0.2, 1) forwards;
-    }
-    .hero .kicker { animation-delay: 0.08s; }
-    .heroband h1 { animation-delay: 0.18s; }
-    .hero .lead { animation-delay: 0.32s; }
-    .hero .cta-row { animation-delay: 0.46s; }
-    .radar-teaser svg { animation-delay: 0.55s; animation-duration: 0.9s; }
-  }
-  @keyframes riseIn {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: none; }
-  }
-
-  /* Radar-teaser: kvart radarkort som moerkt panel/artefakt paa den lyse hero */
-  .radar-teaser {
-    display: none; position: absolute; right: 0; bottom: 5rem;
-    width: 18rem; z-index: 0;
-    background: radial-gradient(130% 120% at 30% -10%, #232257 0%, #1b1a4a 55%, #131230 100%);
-    border-radius: 14px; overflow: hidden;
-    border: 1px solid rgba(27,26,74,0.2);
-    box-shadow: 0 2px 4px rgba(27,26,74,0.08), 0 30px 55px -28px rgba(27,26,74,0.55);
-    transition: box-shadow 0.25s ease;
-  }
-  .radar-teaser:hover {
-    box-shadow: 0 3px 6px rgba(27,26,74,0.1), 0 36px 62px -28px rgba(27,26,74,0.65);
-  }
-  @media (min-width: 69rem) {
-    .radar-teaser { display: block; }
-    .hero { max-width: 42rem; }
-  }
-  .radar-teaser svg { display: block; width: 100%; height: auto; margin-top: -20%; }
-  .radar-teaser .rt-ring { fill: none; stroke: rgba(209,222,237,0.22); stroke-width: 1; }
-  .radar-teaser .rt-ring.faint { stroke: rgba(209,222,237,0.08); }
-  .radar-teaser .rt-ticks {
-    fill: none; stroke: rgba(209,222,237,0.28); stroke-width: 6;
-    stroke-dasharray: 1.4 30.4;
-  }
-  .radar-teaser .rt-blip { transform-box: fill-box; transform-origin: center; }
-  @media (prefers-reduced-motion: no-preference) {
-    .radar-teaser .rt-halo {
-      transform-box: fill-box; transform-origin: center;
-      animation: rtPulse 3.4s ease-in-out infinite;
-    }
-    .radar-teaser .rt-b2 .rt-halo { animation-delay: 1.1s; }
-    .radar-teaser .rt-b3 .rt-halo { animation-delay: 0.6s; animation-duration: 4.1s; }
-    .radar-teaser .rt-b4 .rt-halo { animation-delay: 1.9s; animation-duration: 4.5s; }
-    .radar-teaser .rt-b5 .rt-halo { animation-delay: 2.6s; animation-duration: 3.8s; }
-  }
-  @keyframes rtPulse {
-    0%, 100% { opacity: 0.55; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.28); }
-  }
-  .radar-teaser svg { transition: filter 0.25s ease; }
-  .radar-teaser:hover svg { filter: brightness(1.12); }
-  .kicker {
-    font-size: 0.74rem; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.16em; margin-bottom: 1.1rem; color: var(--ink-soft);
-  }
-  .heroband h1 {
-    font-size: clamp(3rem, 9vw, 6.4rem); font-weight: 900;
-    line-height: 0.99; letter-spacing: -0.03em; text-wrap: balance;
-    color: var(--ink); margin: 0 0 1.6rem;
-  }
-  .heroband h1 em { font-style: normal; color: var(--ink); }
-  .hero .kicker::before {
-    content: ""; display: inline-block; width: 1.7rem; height: 3px;
-    background: var(--orange); margin-right: 0.65rem; vertical-align: 0.18em;
-  }
-  .lead {
-    font-family: "Libre Caslon Text", Georgia, serif; font-style: italic;
-    font-size: 1.2rem; line-height: 1.6; color: var(--ink-soft);
-    max-width: 36rem; margin: 0 0 2rem;
-  }
-  .cta-row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
-  .btn {
-    display: inline-block; background: var(--orange); color: #ffffff;
-    font-weight: 700; font-size: 0.95rem; text-decoration: none;
-    padding: 0.85rem 1.5rem; border-radius: 3px;
-  }
-  .btn:hover { filter: brightness(1.07); }
-  .btn:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
-  .cta-row .quiet { font-size: 0.92rem; color: var(--ink-soft); }
-  .cta-row .quiet a { color: var(--ink); }
-
-  h2 {
-    font-size: 1.55rem; font-weight: 800; letter-spacing: -0.015em;
-    text-wrap: balance; margin: 0 0 0.5rem; color: var(--ink);
-  }
-  .section { padding: 3.2rem 0; }
-  .section-intro { color: var(--ink-soft); max-width: 40rem; margin: 0 0 1.8rem; }
-  .section-kicker {
-    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.16em; color: var(--orange); margin-bottom: 0.6rem;
-  }
-
-  .grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    gap: 1.1rem;
-  }
-  .svc {
-    background: var(--card); border: 1px solid var(--line); border-top: none;
-    border-radius: 8px;
-    padding: 1.55rem 1.5rem 1.4rem;
-    position: relative; overflow: hidden;
-    box-shadow: var(--shadow-card);
-    transition: transform 0.28s cubic-bezier(0.2, 0.65, 0.2, 1), box-shadow 0.28s ease;
-  }
-  .svc::before {
-    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, var(--navy) 0%, #4c4a96 38%, var(--sage) 78%, var(--orange) 100%);
-  }
-  .svc:hover { box-shadow: var(--shadow-card-hover); }
-  @media (prefers-reduced-motion: no-preference) {
-    .svc:hover { transform: translateY(-4px); }
-  }
-  .svc h3 { margin: 0 0 0.45rem; font-size: 1.05rem; font-weight: 700; }
-  .svc p { margin: 0 0 0.7rem; font-size: 0.93rem; color: var(--ink-soft); }
-  .svc ul { margin: 0; padding-left: 1.1rem; font-size: 0.9rem; color: var(--ink-soft); }
-  .svc li { margin-bottom: 0.25rem; }
-  .svc .tag {
-    display: inline-block; font-size: 0.68rem; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.12em;
-    color: var(--orange); margin-bottom: 0.6rem;
-  }
-  .svc .morelink {
-    display: inline-block; margin-top: 0.8rem; font-size: 0.88rem;
-    font-weight: 700; color: var(--ink);
-  }
-
-  /* Ydelser i dybden */
-  .deep {
-    border-top: 1px solid var(--line); padding: 2rem 0 1.9rem;
-    max-width: 42rem;
-  }
-  .deep:first-of-type { border-top: none; padding-top: 0.4rem; }
-  .deep h3 {
-    margin: 0.3rem 0 0.6rem; font-size: 1.2rem; font-weight: 800;
-    letter-spacing: -0.01em;
-  }
-  .deep p { margin: 0 0 1rem; color: var(--ink-soft); }
-  .deep .whenh {
-    font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.12em; color: var(--ink-soft); margin-bottom: 0.5rem;
-  }
-  .deep ul { margin: 0; padding-left: 1.15rem; color: var(--ink-soft); font-size: 0.95rem; }
-  .deep li { margin-bottom: 0.35rem; }
-
-  .workshop {
-    background: radial-gradient(120% 100% at 50% -10%, #222155 0%, #1b1a4a 55%, #141335 100%);
-    color: #ccd6ea;
-    border: 1px solid rgba(209,222,237,0.10);
-    border-radius: 12px; padding: 2.4rem 2.4rem 2.2rem; margin: 1rem 0 0;
-    position: relative; overflow: hidden;
-    box-shadow: 0 30px 60px -35px rgba(8,7,32,0.8);
-  }
-  .workshop .lines { right: -2rem; top: -3rem; width: 12rem; height: 20rem; }
-  .workshop .kicker { color: var(--sage); }
-  .workshop h2 { color: #ffffff; max-width: 32rem; position: relative; z-index: 1; }
-  .workshop > p { max-width: 36rem; position: relative; z-index: 1; }
-  .variants {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    gap: 1rem; margin: 1.4rem 0 1.6rem; position: relative; z-index: 1;
-  }
-  .variant {
-    background: linear-gradient(160deg, rgba(209,222,237,0.13), rgba(209,222,237,0.06));
-    border: 1px solid rgba(209,222,237,0.24);
-    border-radius: 8px; padding: 1.15rem 1.25rem;
-    transition: border-color 0.2s ease, background 0.2s ease;
-  }
-  .variant:hover { border-color: rgba(209,222,237,0.45); }
-  .variant h3 { margin: 0 0 0.4rem; font-size: 1rem; font-weight: 700; color: #ffffff; }
-  .variant p { margin: 0; font-size: 0.92rem; }
-  .variant a { color: var(--sage); }
-  .workshop .btn { position: relative; z-index: 1; }
-
-  /* Erfaring: lyseblåt bånd, to verdener */
-  .refsband {
-    background: linear-gradient(180deg, #dde7f2 0%, #d1deed 40%, #c7d6e8 100%);
-    color: #1b1a4a;
-  }
-  .refsband .section { padding: 2.8rem 0; }
-  .refsband h2 { color: #1b1a4a; }
-  .worlds {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
-    gap: 1.2rem; margin-top: 1.4rem;
-  }
-  .world {
-    background: rgba(255,255,255,0.62); border-left: 3px solid #1b1a4a;
-    border-radius: 0 7px 7px 0; padding: 1.2rem 1.4rem;
-    box-shadow: 0 10px 24px -16px rgba(27,26,74,0.35);
-  }
-  .world h3 { margin: 0 0 0.3rem; font-size: 1.02rem; font-weight: 800; color: #1b1a4a; }
-  .world p { margin: 0 0 0.6rem; font-size: 0.92rem; color: #3c486e; }
-  .world .names { font-weight: 800; font-size: 0.98rem; color: #1b1a4a; }
-
-  .story { max-width: 42rem; border-left: 3px solid var(--orange); padding-left: 1.5rem; }
-  .story p { margin: 0 0 0.9rem; color: var(--ink-soft); }
-  .story p:first-child { color: var(--ink); font-weight: 500; }
-
-  .stepgrid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem 2.4rem;
-    margin-top: 1.6rem;
-  }
-  @media (max-width: 40rem) { .stepgrid { grid-template-columns: 1fr; } }
-  .step .stepnum {
-    font-weight: 900; font-size: 1.35rem; color: var(--orange);
-    margin-bottom: 0.2rem;
-  }
-  .step h3 { font-size: 1.05rem; font-weight: 800; margin: 0 0 0.4rem; letter-spacing: -0.005em; }
-  .step p { margin: 0; font-size: 0.95rem; color: var(--ink-soft); }
-  .colnote {
-    margin: 1.8rem 0 0; font-family: "Libre Caslon Text", Georgia, serif;
-    font-style: italic; color: var(--ink-soft); max-width: 40rem;
-  }
-
-  .footband {
-    background: radial-gradient(130% 130% at 50% -20%, #222155 0%, #1b1a4a 55%, #141335 100%);
-    color: #aebadd; position: relative; overflow: hidden;
-    margin-top: 2rem;
-  }
-
-  /* Scroll-reveal: kun aktiv når JS har sat html.js-reveal, og aldrig ved reduced motion.
-     Uden JS er alt synligt. */
-  @media (prefers-reduced-motion: no-preference) {
-    html.js-reveal .reveal {
-      opacity: 0; transform: translateY(18px);
-      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.65, 0.2, 1);
-    }
-    html.js-reveal .reveal.is-in { opacity: 1; transform: none; }
-  }
-  .footband .lines { left: -4rem; bottom: -8rem; width: 14rem; height: 24rem; }
-  .footband footer {
-    padding: 2rem 0 2.4rem; font-size: 0.88rem;
-    display: flex; flex-wrap: wrap; gap: 0.4rem 1.8rem;
-    position: relative; z-index: 1;
-  }
-  .footband a { color: #d1deed; }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090a0c">
+  <meta name="description" content="5:15. Strategi, data og AI i et tempo, hvor du kan følge med. Fra første workshop til løsninger i drift.">
+  <link rel="canonical" href="https://femfemten.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="5:15 — Tempo til at tænke">
+  <meta property="og:description" content="Strategi, data og AI i et tempo, hvor du kan følge med. Fra første workshop til løsninger i drift.">
+  <meta property="og:url" content="https://femfemten.com/">
+  <meta property="og:image" content="https://femfemten.com/share.png">
+  <meta property="og:locale" content="da_DK">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://femfemten.com/#org", "name": "Fem Femten", "legalName": "5:15 ApS", "taxID": "44632012", "vatID": "DK44632012", "url": "https://femfemten.com/", "logo": "https://femfemten.com/logo.png", "email": "hello@femfemten.com", "description": "Strategi, data og AI omsat til daglig drift. Rådgivning og løsninger i både store organisationer og SMV'er."}, {"@type": "WebSite", "url": "https://femfemten.com/", "name": "Fem Femten", "publisher": {"@id": "https://femfemten.com/#org"}, "inLanguage": ["da"]}]}</script>
+  <title>5:15 — Tempo til at tænke</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23090a0c'/%3E%3Ctext x='32' y='41' font-family='Arial' font-size='27' font-weight='700' text-anchor='middle' fill='%234898ff'%3E5:15%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/phone.css">
+  <link rel="stylesheet" href="/v2.css?v=6">
 </head>
 <body>
-<div class="heroband">
-  <div class="lines"></div>
-  <div class="wrap">
-    <nav class="topbar">
-      <a class="wordmark" href="#" aria-label="Fem Femten"><img src="logo.png" alt="5.15"></a>
-      <div class="topnav">
-        <a class="navlink" href="radar.html" data-i18n="navRadar">AI-radar</a>
-        <a class="navlink" href="test.html" data-i18n="navTest">Parathedstest</a>
-        <a class="navlink" href="cases.html" data-i18n="navCases">Cases</a>
-        <button class="langswitch" id="langswitch" type="button" aria-label="Switch language">EN</button>
-        <a class="contact" href="mailto:hello@femfemten.com" data-i18n="contact">Kontakt</a>
-      </div>
-    </nav>
-    <header class="hero">
-      <div class="kicker" data-i18n="kicker">Strategi · Data &amp; AI · Eksekvering</div>
-      <h1 data-i18n="h1">Sæt retning. Kom i gang. <em>Skalér det, der virker.</em></h1>
-      <p class="lead" data-i18n="lead">Man vælger ikke nødvendigvis rigtigt på et whiteboard. Man tager et kvalificeret valg, kommer i gang og bliver klogere i virkeligheden. Vi hjælper med begge dele.</p>
-      <div class="cta-row">
-        <a class="btn" href="#ydelser" data-i18n="cta1">Se, hvad vi hjælper med</a>
-        <span class="quiet" data-i18n="cta2">eller <a href="#workshop">start med en workshop</a></span>
-      </div>
-    </header>
-    <a class="radar-teaser" href="radar.html" aria-hidden="true" tabindex="-1">
-      <svg viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="rtZone" gradientUnits="userSpaceOnUse" cx="340" cy="340" r="155">
-            <stop offset="0" stop-color="rgba(209,222,237,0.20)"></stop>
-            <stop offset="1" stop-color="rgba(209,222,237,0.05)"></stop>
-          </radialGradient>
-          <radialGradient id="rtHaloO">
-            <stop offset="0" stop-color="rgba(235,70,52,0.5)"></stop>
-            <stop offset="0.5" stop-color="rgba(235,70,52,0.16)"></stop>
-            <stop offset="1" stop-color="rgba(235,70,52,0)"></stop>
-          </radialGradient>
-          <radialGradient id="rtHaloS">
-            <stop offset="0" stop-color="rgba(176,207,201,0.5)"></stop>
-            <stop offset="0.5" stop-color="rgba(176,207,201,0.14)"></stop>
-            <stop offset="1" stop-color="rgba(176,207,201,0)"></stop>
-          </radialGradient>
-          <radialGradient id="rtHaloL">
-            <stop offset="0" stop-color="rgba(209,222,237,0.45)"></stop>
-            <stop offset="0.5" stop-color="rgba(209,222,237,0.12)"></stop>
-            <stop offset="1" stop-color="rgba(209,222,237,0)"></stop>
-          </radialGradient>
-          <radialGradient id="rtDotO" cx="0.35" cy="0.3" r="0.85">
-            <stop offset="0" stop-color="#f4705c"></stop>
-            <stop offset="0.6" stop-color="#eb4634"></stop>
-            <stop offset="1" stop-color="#d43524"></stop>
-          </radialGradient>
-          <linearGradient id="rtBase" gradientUnits="userSpaceOnUse" x1="40" y1="340" x2="340" y2="340">
-            <stop offset="0" stop-color="rgba(209,222,237,0)"></stop>
-            <stop offset="1" stop-color="rgba(209,222,237,0.5)"></stop>
-          </linearGradient>
-          <linearGradient id="rtEdge" gradientUnits="userSpaceOnUse" x1="340" y1="40" x2="340" y2="340">
-            <stop offset="0" stop-color="rgba(209,222,237,0)"></stop>
-            <stop offset="1" stop-color="rgba(209,222,237,0.5)"></stop>
-          </linearGradient>
-          <filter id="rtLift" x="-60%" y="-60%" width="220%" height="220%">
-            <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#0a0926" flood-opacity="0.35"></feDropShadow>
-          </filter>
-        </defs>
-        <path fill="url(#rtZone)" d="M 340 185 A 155 155 0 0 0 185 340 L 340 340 Z"></path>
-        <path class="rt-ring faint" d="M 340 40 A 300 300 0 0 0 40 340"></path>
-        <path class="rt-ring" d="M 340 110 A 230 230 0 0 0 110 340"></path>
-        <path class="rt-ring" d="M 340 185 A 155 155 0 0 0 185 340"></path>
-        <path class="rt-ticks" d="M 340 32 A 308 308 0 0 0 32 340"></path>
-        <line x1="40" y1="340" x2="340" y2="340" stroke="url(#rtBase)" stroke-width="1.2"></line>
-        <line x1="340" y1="40" x2="340" y2="340" stroke="url(#rtEdge)" stroke-width="1.2"></line>
-        <g class="rt-blip rt-b1">
-          <circle class="rt-halo" cx="250" cy="200" r="26" fill="url(#rtHaloO)"></circle>
-          <circle cx="250" cy="200" r="7" fill="url(#rtDotO)" stroke="rgba(255,255,255,0.28)" stroke-width="0.8" filter="url(#rtLift)"></circle>
-        </g>
-        <g class="rt-blip rt-b2">
-          <circle class="rt-halo" cx="170" cy="300" r="24" fill="url(#rtHaloO)"></circle>
-          <circle cx="170" cy="300" r="6.5" fill="url(#rtDotO)" stroke="rgba(255,255,255,0.28)" stroke-width="0.8" filter="url(#rtLift)"></circle>
-        </g>
-        <g class="rt-blip rt-b3">
-          <circle class="rt-halo" cx="230" cy="260" r="20" fill="url(#rtHaloS)"></circle>
-          <circle cx="230" cy="260" r="5.5" fill="#b0cfc9" stroke="rgba(255,255,255,0.35)" stroke-width="0.8" filter="url(#rtLift)"></circle>
-        </g>
-        <g class="rt-blip rt-b4">
-          <circle class="rt-halo" cx="280" cy="120" r="17" fill="url(#rtHaloL)"></circle>
-          <circle cx="280" cy="120" r="4.5" fill="#d1deed" filter="url(#rtLift)"></circle>
-        </g>
-        <g class="rt-blip rt-b5">
-          <circle class="rt-halo" cx="130" cy="250" r="17" fill="url(#rtHaloL)"></circle>
-          <circle cx="130" cy="250" r="4.5" fill="#d1deed" filter="url(#rtLift)"></circle>
-        </g>
-      </svg>
-    </a>
-  </div>
-</div>
-
-<div class="wrap">
-  <section class="section" id="ydelser">
-    <div class="section-kicker" data-i18n="svcKicker">Ydelser</div>
-    <h2 data-i18n="svcH2">Det hjælper vi med</h2>
-    <p class="section-intro" data-i18n="svcIntro">Konkrete leverancer med et tydeligt output. Kernen er den samme hele vejen: tag et kvalificeret valg, kom i gang, og skalér det, der virker.</p>
-    <div class="grid">
-      <div class="svc">
-        <span class="tag" data-i18n="s1tag">Data &amp; AI</span>
-        <h3 data-i18n="s1h">Fra AI-ambition til drift</h3>
-        <p data-i18n="s1p">Hvor giver AI mening hos jer, hvad skal være på plads først, og hvordan kommer den første løsning i drift?</p>
-        <ul>
-          <li data-i18n="s1a">AI-readiness og use case-prioritering</li>
-          <li data-i18n="s1b">Datafundament og governance</li>
-          <li data-i18n="s1c">Automatisering af manuelle arbejdsgange</li>
-        </ul>
-        <a class="morelink" href="#deep-d1" data-i18n="more">Læs mere</a>
-      </div>
-      <div class="svc">
-        <span class="tag" data-i18n="s2tag">Strategi → eksekvering</span>
-        <h3 data-i18n="s2h">Fra beslutning til fremdrift</h3>
-        <p data-i18n="s2p">Når alt føles vigtigt, og strategien ikke bliver til handling, hjælper vi med at prioritere og holde tempo.</p>
-        <ul>
-          <li data-i18n="s2a">Porteføljeprioritering</li>
-          <li data-i18n="s2b">Strategieksekvering og roadmaps</li>
-          <li data-i18n="s2c">PMO og transformationsstyring</li>
-        </ul>
-        <a class="morelink" href="#deep-d2" data-i18n="more">Læs mere</a>
-      </div>
-      <div class="svc">
-        <span class="tag" data-i18n="s3tag">Ledelsesrådgivning</span>
-        <h3 data-i18n="s3h">Sparring, når beslutningerne er svære</h3>
-        <p data-i18n="s3p">Tæt sparring med ledelsen om retning, prioritering og de beslutninger, der ikke kan uddelegeres.</p>
-        <ul>
-          <li data-i18n="s3a">Strategisk ledelsessparring</li>
-          <li data-i18n="s3b">Beslutnings- og governancemodel</li>
-          <li data-i18n="s3c">Operating model, roller og ansvar</li>
-        </ul>
-        <a class="morelink" href="#deep-d3" data-i18n="more">Læs mere</a>
-      </div>
-      <div class="svc">
-        <span class="tag" data-i18n="s4tag">IT-forenkling</span>
-        <h3 data-i18n="s4h">Færre systemer, mindre friktion</h3>
-        <p data-i18n="s4p">Overblik over applikationslandskabet og en realistisk vej fra legacy til et landskab, der kan udvikles på.</p>
-        <ul>
-          <li data-i18n="s4a">Applikationsportefølje og konsolidering</li>
-          <li data-i18n="s4b">Legacy-modernisering og målbillede</li>
-          <li data-i18n="s4c">Data der sidder fast i gamle systemer</li>
-        </ul>
-        <a class="morelink" href="#deep-d4" data-i18n="more">Læs mere</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="dybde" style="padding-top:1.4rem">
-    <div class="deep" id="deep-d1">
-      <span class="tag" style="display:inline-block;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--orange)" data-i18n="s1tag">Data &amp; AI</span>
-      <h3 data-i18n="d1h">Fra idé til løsning i drift</h3>
-      <p data-i18n="d1p">Vi hjælper med at finde de steder, hvor AI kan gøre en målbar forskel hos jer, og med at få fundamentet på plads: dataens vej fra kilde til beslutning kortlagt, flaskehalse og siloer synlige, og et datagrundlag der kan bære AI i drift. I regulerede brancher arbejder vi med FAIR-principperne som grundlag, og hvor data ikke må forlade huset, arbejder vi med private AI-opsætninger. Erfaringen kommer fra pharma og biotek, logistik og finans.</p>
-      <div class="whenh" data-i18n="whenH">Typisk relevant, når</div>
-      <ul>
-        <li data-i18n="d1w1">Der er mange idéer, men ingen fælles retning</li>
-        <li data-i18n="d1w2">Data ligger spredt i systemer, ark og indbakker</li>
-        <li data-i18n="d1w3">Følsomme data sætter grænser for, hvad I tør bruge</li>
-      </ul>
-      <div class="whenh" data-i18n="pkgH">Det køber kunder typisk som</div>
-      <ul>
-        <li data-i18n="d1k1">Data value chain assessment: hele dataværdikæden gennemgået, med quick wins og en prioriteret plan</li>
-        <li data-i18n="d1k2">FAIR by design: datapraksis og arkitektur bygget på FAIR-principperne, især til regulerede brancher</li>
-        <li data-i18n="d1k3">AI-klare dataworkflows: struktur, kvalitet og historik, så jeres data kan bære AI og machine learning</li>
-        <li data-i18n="d1k4">Strategic insights: realtidsoverblik og indsigter, bygget ind i beslutningsprocesserne</li>
-      </ul>
-    </div>
-    <div class="deep" id="deep-d2">
-      <span class="tag" style="display:inline-block;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--orange)" data-i18n="s2tag">Strategi → eksekvering</span>
-      <h3 data-i18n="d2h">Fra beslutning til fremdrift</h3>
-      <p data-i18n="d2p">Vi starter gerne med et sundhedstjek af jeres strategi: hvad findes på papir, hvad findes i virkeligheden, og hvor er hullerne. Derfra hjælper vi med det, der oftest mangler: en prioriteringsmodel, så ressourcerne går til de projekter, der flytter mest, en enkel styringsstruktur med roller og opfølgning, og en operating model, der passer til ambitionerne. Målt på ét: bliver strategien til handling.</p>
-      <div class="whenh" data-i18n="whenH">Typisk relevant, når</div>
-      <ul>
-        <li data-i18n="d2w1">Der er for mange initiativer i gang, og alt føles vigtigt</li>
-        <li data-i18n="d2w2">Strategien er besluttet, men bliver ikke til handling</li>
-        <li data-i18n="d2w3">Ledelsen mangler overblik over status og fremdrift</li>
-      </ul>
-    </div>
-    <div class="deep" id="deep-d3">
-      <span class="tag" style="display:inline-block;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--orange)" data-i18n="s3tag">Ledelsesrådgivning</span>
-      <h3 data-i18n="d3h">Sparring og beslutningskraft</h3>
-      <p data-i18n="d3p">Coaching og sparring af ledere og ledergrupper, en til en og samlet. Og vigtigst: vi går med ud i driften, hvor arbejdet faktisk foregår, i stedet for kun at mødes i mødelokalet. Lige nu fylder ét spørgsmål mest hos de ledere, vi taler med: hvad betyder AI for min forretning og min måde at lede på? Det er også der, vi oftest starter.</p>
-      <div class="whenh" data-i18n="whenH">Typisk relevant, når</div>
-      <ul>
-        <li data-i18n="d3w1">Beslutninger tager for lang tid eller bliver ikke truffet</li>
-        <li data-i18n="d3w2">Ansvar falder mellem stole, når noget går på tværs</li>
-        <li data-i18n="d3w3">Organisationen er vokset fra sin måde at arbejde på</li>
-      </ul>
-    </div>
-    <div class="deep" id="deep-d4">
-      <span class="tag" style="display:inline-block;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--orange)" data-i18n="s4tag">IT-forenkling</span>
-      <h3 data-i18n="d4h">Færre systemer, mindre teknisk gæld</h3>
-      <p data-i18n="d4p">Vi skaber overblik over applikationslandskabet, finder kandidater til konsolidering og udfasning, og lægger en realistisk plan for vejen fra legacy til et landskab, der kan udvikles på.</p>
-      <div class="whenh" data-i18n="whenH">Typisk relevant, når</div>
-      <ul>
-        <li data-i18n="d4w1">Systemlandskabet er vokset uden en samlet plan</li>
-        <li data-i18n="d4w2">Centrale systemer er gamle, sårbare eller svære at ændre</li>
-        <li data-i18n="d4w3">Ingen har det fulde overblik over systemer og omkostninger</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="section" id="samarbejde">
-    <div class="section-kicker" data-i18n="colKicker">Samarbejde</div>
-    <h2 data-i18n="colH2">Sådan arbejder vi sammen</h2>
-    <div class="stepgrid">
-      <div class="step">
-        <div class="stepnum">1</div>
-        <h3 data-i18n="step1h">Vi måler, før vi anbefaler</h3>
-        <p data-i18n="step1p">Første skridt er en vurdering: parathedstesten her på siden, eller en workshop på 2½ time hos jer, hvor vi tjekker, hvor I står på udvalgte dimensioner, så vi kan gå videre derfra.</p>
-      </div>
-      <div class="step">
-        <div class="stepnum">2</div>
-        <h3 data-i18n="step2h">I får en prioriteret plan, ikke en rapport til skuffen</h3>
-        <p data-i18n="step2p">Styrker, huller og 2 til 3 første skridt, hver med forventet effekt og indsats. Kort nok til at blive læst, konkret nok til at blive brugt.</p>
-      </div>
-      <div class="step">
-        <div class="stepnum">3</div>
-        <h3 data-i18n="step3h">Vi bygger det første sammen</h3>
-        <p data-i18n="step3p">Én afgrænset leverance med et tydeligt output, vi kan levere på uger. Så har I set os arbejde, før I beslutter mere.</p>
-      </div>
-      <div class="step">
-        <div class="stepnum">4</div>
-        <h3 data-i18n="step4h">Herfra ser vi gerne på det næste sammen med jer</h3>
-        <p data-i18n="step4p">Nogle kører selv videre. Andre vil have os med på deltid, til fremdriften er robust. Begge dele er rigtige.</p>
-      </div>
-    </div>
-    <p class="colnote" data-i18n="colNote">Uanset omfang gælder det samme: jeres data forbliver jeres, og mennesker godkender, før noget sendes.</p>
-  </section>
-
-  <section class="section" id="workshop" style="padding-top:0">
-    <div class="workshop">
-      <div class="lines"></div>
-      <div class="kicker" data-i18n="wKicker">Sådan starter et samarbejde typisk</div>
-      <h2 data-i18n="wH2">En workshop på 2½ time hos jer</h2>
-      <p data-i18n="wP">Den letteste måde at finde ud af, om vi kan gøre en forskel hos jer. Vi kommer ud, lægger jeres forretning på bordet, og I går derfra med en prioriteret plan og en skriftlig opsamling. Fast pris 18.000 kr. ekskl. moms, ingen binding bagefter. Vi har bedst erfaring med to tilgange:</p>
-      <div class="variants">
-        <div class="variant">
-          <h3 data-i18n="v1h">Hvor står I?</h3>
-          <p data-i18n="v1p">Afklaring på tværs af strategi, systemer, data og organisation. Hvad er det rette næste skridt for netop jer, med eller uden AI?</p>
-        </div>
-        <div class="variant">
-          <h3 data-i18n="v2h">Kom i gang med AI</h3>
-          <p data-i18n="v2p">Konkret og hands-on: use cases i drift, jeres muligheder prioriteret, og en plan for den første løsning. <a href="workshop.html">Læs mere om formatet</a>.</p>
-        </div>
-      </div>
-      <a class="btn" href="mailto:hello@femfemten.com?subject=Workshop" data-i18n="wBtn">Skriv, så finder vi en dato</a>
-    </div>
-  </section>
-</div>
-
-<div class="refsband">
-  <div class="wrap">
-    <section class="section">
-      <h2 data-i18n="rH2">Erfaring fra både de største og de helt små</h2>
-      <div class="worlds">
-        <div class="world">
-          <h3 data-i18n="r1h">De største</h3>
-          <p data-i18n="r1p">Lifescience, finans og shipping, hvor styring, dokumentation og skala ikke er til forhandling.</p>
-        </div>
-        <div class="world">
-          <h3 data-i18n="r2h">De helt små</h3>
-          <p data-i18n="r2p">Ejerledede virksomheder, hvor hver time skal skabe værdi, og løsningerne skal virke fra dag ét.</p>
-        </div>
-      </div>
+  <noscript><div style="position:fixed;inset:0;z-index:99999;background:#08090b;color:white;padding:3rem;font:18px/1.6 system-ui;overflow:auto"><h1>5:15 — Strategi, data og AI</h1><p>Den interaktive løbetur kræver JavaScript. Du kan stadig læse om vores arbejde og kontakte os:</p><p><a style="color:#74b5ff" href="/cases.html">Cases</a> · <a style="color:#74b5ff" href="/workshop.html">Workshop</a> · <a style="color:#74b5ff" href="/privatliv.html">Privatliv</a></p><p><a style="color:#74b5ff" href="mailto:hello@femfemten.com">hello@femfemten.com</a> · +45 21 60 09 84</p></div></noscript>
+  <a class="skip" href="#lens">Spring til indhold</a>
+  <div id="scenery" class="scenery" aria-hidden="true"><canvas id="road"></canvas><div class="photo-fallback"></div></div>
+  <div class="atmosphere" aria-hidden="true"></div>
+  <div class="visor" aria-hidden="true"></div>
+  <div class="lens-edge" aria-hidden="true"></div>
+  <div class="lens-flash" aria-hidden="true"></div>
+  <header class="header">
+    <button class="wordmark" id="home" aria-label="5:15 Consultancy — tilbage til start">5:15 <span class="wordmark-descriptor">Consultancy</span></button>
+    <span class="header-caption">Strategi · Data · AI</span><nav class="top-nav" aria-label="Genveje"><button data-panel="services">Find din rute</button><button data-panel="radar">AI-radar</button><button data-panel="test">Test jer selv</button></nav><button class="primary-cta header-cta" data-panel="start">Book første etape</button>
+    <button class="motion" id="motion" aria-pressed="false" aria-label="Sæt bevægelsen på pause"><span id="motionIcon">Ⅱ</span><span id="motionText">Pause turen</span></button>
+  </header>
+  <main id="main">
+    <div class="chapter-marker"><span class="marker-line"></span><span id="chapterLabel">01 / 04 · TEMPOET</span></div>
+    <section class="lens" id="lens" aria-live="polite" aria-atomic="true" tabindex="-1">
+      <p class="eyebrow" id="eyebrow">ET GODT STED AT BEGYNDE</p>
+      <h1 id="title">Tempo til<br>at tænke.</h1>
+      <p class="body-copy" id="copy">5:15 min/km. Hurtigt nok til at komme frem.<br>Roligt nok til at få en idé.</p>
+      <p class="lens-note" id="lensNote">Vi omsætter strategi, data og AI til noget, du kan bruge.</p>
+      <div class="lens-actions"><button class="primary-cta" data-panel="start">Book første etape</button><button class="lens-action" id="nextLens">Find din rute</button></div>
     </section>
-  </div>
-</div>
-
-<div class="wrap">
-  <section class="section" id="kontakt">
-    <div class="section-kicker" data-i18n="aKicker">Hvem er vi</div>
-    <h2 data-i18n="aH2">Rådgivning, der bliver til noget</h2>
-    <div class="story">
-      <p data-i18n="aP1">Rådgivning er først noget værd, når den bliver til noget. Vi har siddet på begge sider af bordet: som ledere i store, regulerede organisationer, og som selvstændige i små virksomheder, hvor der ikke er råd til projekter uden effekt.</p>
-      <p data-i18n="aP2">Vi har stor erfaring i at få forretning og teknologi til at understøtte hinanden: at omsætte behov til systemer, der faktisk bliver brugt, og teknologi til resultater, der kan måles. Og vi bygger selv med værktøjerne hver dag. Derfor anbefaler vi kun det, vi selv kan stå inde for, og I får en ærlig vurdering, også når svaret er, at I ikke skal købe noget af os.</p>
-      <p data-i18n="aP3">Vi holder af små hold, korte veje fra beslutning til handling, og leverancer man kan pege på, når vi er gået igen.</p>
+    <div class="horizon-caption" aria-hidden="true">PLADS TIL DET NÆSTE</div>
+    <div class="equipment">
+    <button class="earlier-routes" id="openPhone" aria-haspopup="dialog" aria-controls="phoneDialog">
+      <span class="phone-glyph" aria-hidden="true"><svg viewBox="0 0 24 30"><rect x="4.5" y="2" width="15" height="26" rx="4"/><path d="M9 5h6M10 24.5h4M8 18l3-5 3 2 3-5"/></svg></span>
+      <span class="earlier-routes-copy"><strong>Cases</strong><span>7 cases · fra idé til leverance</span></span>
+      <span class="earlier-routes-arrow" aria-hidden="true">↗</span>
+    </button>
+    <aside class="notification" id="notification" aria-label="Vores leverancer">
+      <span class="notification-kicker"><span class="signal-dot"></span> LEVERANCER <span class="example-label">3 OMRÅDER</span></span>
+      <button id="openWatch" class="notification-button" aria-haspopup="dialog">
+        <span><strong id="notificationTitle">Fra ambition til drift.</strong><span id="notificationCopy">Processer, AI og kommerciel udvikling.</span></span>
+        <span class="watch-glyph" aria-hidden="true"><svg viewBox="0 0 24 30"><path d="M7 7 8 2h8l1 5M7 23l1 5h8l1-5"/><rect x="4" y="7" width="16" height="16" rx="5"/><path d="M8 16h3l1-4 2 7 1-3h2"/></svg></span>
+      </button>
+      <span class="notification-foot">Se leverancer på uret <span aria-hidden="true">↗</span></span>
+    </aside>
     </div>
-    <div class="cta-row" style="margin-top:1.6rem">
-      <a class="btn" href="mailto:hello@femfemten.com" data-i18n="cBtn">Skriv til os</a>
-      <span class="quiet" style="color:var(--ink-soft)" data-i18n="cAlt">eller ring: <a href="tel:+4521600984" style="color:var(--ink)">+45 21 60 09 84</a></span>
+  </main>
+  <footer class="cockpit">
+    <div class="telemetry">
+      <div class="pace"><span class="metric-label">TEMPO</span><div><strong>5<span class="colon">:</span>15</strong><span class="metric-unit"> / km</span></div></div>
+      <div class="pulse"><span class="metric-label">PULS</span><div><span class="heart" aria-hidden="true">♥</span><strong id="bpm">132</strong><span class="metric-unit"> bpm</span></div></div>
+      <svg class="pulse-wave" aria-hidden="true" viewBox="0 0 120 30"><path d="M0 17h26l5-4 5 5 5-15 7 26 5-12h21l5-4 5 5 5-15 7 26 5-12h19"/></svg>
     </div>
-  </section>
-</div>
-
-<div class="footband">
-  <div class="lines"></div>
-  <div class="wrap">
-    <footer>
-      <span>5:15 ApS · CVR 44 63 20 12 · <a href="privatliv.html">Privatliv</a></span>
-      <span><a href="mailto:hello@femfemten.com">hello@femfemten.com</a></span>
-      <span><a href="tel:+4521600984">+45 21 60 09 84</a></span>
-      <span>femfemten.com</span>
-    </footer>
-  </div>
-</div>
-
-<script>
-  (function () {
-    var t = {
-      da: {
-        navRadar: 'AI-radar',
-        navTest: 'Parathedstest',
-        navCases: 'Cases',
-        contact: 'Kontakt',
-        kicker: 'Strategi · Data &amp; AI · Eksekvering',
-        h1: 'Sæt retning. Kom i gang. <em>Skalér det, der virker.</em>',
-        lead: 'Man vælger ikke nødvendigvis rigtigt på et whiteboard. Man tager et kvalificeret valg, kommer i gang og bliver klogere i virkeligheden. Vi hjælper med begge dele.',
-        cta1: 'Se, hvad vi hjælper med',
-        cta2: 'eller <a href="#workshop">start med en workshop</a>',
-        svcKicker: 'Ydelser',
-        svcH2: 'Det hjælper vi med',
-        svcIntro: 'Konkrete leverancer med et tydeligt output. Kernen er den samme hele vejen: tag et kvalificeret valg, kom i gang, og skalér det, der virker.',
-        s1tag: 'Data &amp; AI', s1h: 'Fra AI-ambition til drift',
-        s1p: 'Hvor giver AI mening hos jer, hvad skal være på plads først, og hvordan kommer den første løsning i drift?',
-        s1a: 'AI-readiness og use case-prioritering', s1b: 'Datafundament og governance', s1c: 'Automatisering af manuelle arbejdsgange',
-        s2tag: 'Strategi → eksekvering', s2h: 'Fra beslutning til fremdrift',
-        s2p: 'Når alt føles vigtigt, og strategien ikke bliver til handling, hjælper vi med at prioritere og holde tempo.',
-        s2a: 'Porteføljeprioritering', s2b: 'Strategieksekvering og roadmaps', s2c: 'PMO og transformationsstyring',
-        s3tag: 'Ledelsesrådgivning', s3h: 'Sparring, når beslutningerne er svære',
-        s3p: 'Tæt sparring med ledelsen om retning, prioritering og de beslutninger, der ikke kan uddelegeres.',
-        s3a: 'Strategisk ledelsessparring', s3b: 'Beslutnings- og governancemodel', s3c: 'Operating model, roller og ansvar',
-        s4tag: 'IT-forenkling', s4h: 'Færre systemer, mindre friktion',
-        s4p: 'Overblik over applikationslandskabet og en realistisk vej fra legacy til et landskab, der kan udvikles på.',
-        s4a: 'Applikationsportefølje og konsolidering', s4b: 'Legacy-modernisering og målbillede', s4c: 'Data der sidder fast i gamle systemer',
-        more: 'Læs mere',
-        whenH: 'Typisk relevant, når',
-        d1h: 'Fra idé til løsning i drift',
-        d1p: 'Vi hjælper med at finde de steder, hvor AI kan gøre en målbar forskel hos jer, og med at få fundamentet på plads: dataens vej fra kilde til beslutning kortlagt, flaskehalse og siloer synlige, og et datagrundlag der kan bære AI i drift. I regulerede brancher arbejder vi med FAIR-principperne som grundlag, og hvor data ikke må forlade huset, arbejder vi med private AI-opsætninger. Erfaringen kommer fra pharma og biotek, logistik og finans.',
-        pkgH: 'Det køber kunder typisk som',
-        d1k1: 'Data value chain assessment: hele dataværdikæden gennemgået, med quick wins og en prioriteret plan',
-        d1k2: 'FAIR by design: datapraksis og arkitektur bygget på FAIR-principperne, især til regulerede brancher',
-        d1k3: 'AI-klare dataworkflows: struktur, kvalitet og historik, så jeres data kan bære AI og machine learning',
-        d1k4: 'Strategic insights: realtidsoverblik og indsigter, bygget ind i beslutningsprocesserne',
-        d1w1: 'Der er mange idéer, men ingen fælles retning',
-        d1w2: 'Data ligger spredt i systemer, ark og indbakker',
-        d1w3: 'Følsomme data sætter grænser for, hvad I tør bruge',
-        d2h: 'Fra beslutning til fremdrift',
-        d2p: 'Vi starter gerne med et sundhedstjek af jeres strategi: hvad findes på papir, hvad findes i virkeligheden, og hvor er hullerne. Derfra hjælper vi med det, der oftest mangler: en prioriteringsmodel, så ressourcerne går til de projekter, der flytter mest, en enkel styringsstruktur med roller og opfølgning, og en operating model, der passer til ambitionerne. Målt på ét: bliver strategien til handling.',
-        d2w1: 'Der er for mange initiativer i gang, og alt føles vigtigt',
-        d2w2: 'Strategien er besluttet, men bliver ikke til handling',
-        d2w3: 'Ledelsen mangler overblik over status og fremdrift',
-        d3h: 'Sparring og beslutningskraft',
-        d3p: 'Coaching og sparring af ledere og ledergrupper, en til en og samlet. Og vigtigst: vi går med ud i driften, hvor arbejdet faktisk foregår, i stedet for kun at mødes i mødelokalet. Lige nu fylder ét spørgsmål mest hos de ledere, vi taler med: hvad betyder AI for min forretning og min måde at lede på? Det er også der, vi oftest starter.',
-        d3w1: 'Beslutninger tager for lang tid eller bliver ikke truffet',
-        d3w2: 'Ansvar falder mellem stole, når noget går på tværs',
-        d3w3: 'Organisationen er vokset fra sin måde at arbejde på',
-        d4h: 'Færre systemer, mindre teknisk gæld',
-        d4p: 'Vi skaber overblik over applikationslandskabet, finder kandidater til konsolidering og udfasning, og lægger en realistisk plan for vejen fra legacy til et landskab, der kan udvikles på.',
-        d4w1: 'Systemlandskabet er vokset uden en samlet plan',
-        d4w2: 'Centrale systemer er gamle, sårbare eller svære at ændre',
-        d4w3: 'Ingen har det fulde overblik over systemer og omkostninger',
-        colKicker: 'Samarbejde',
-        colH2: 'Sådan arbejder vi sammen',
-        step1h: 'Vi måler, før vi anbefaler',
-        step1p: 'Første skridt er en vurdering: parathedstesten her på siden, eller en workshop på 2½ time hos jer, hvor vi tjekker, hvor I står på udvalgte dimensioner, så vi kan gå videre derfra.',
-        step2h: 'I får en prioriteret plan, ikke en rapport til skuffen',
-        step2p: 'Styrker, huller og 2 til 3 første skridt, hver med forventet effekt og indsats. Kort nok til at blive læst, konkret nok til at blive brugt.',
-        step3h: 'Vi bygger det første sammen',
-        step3p: 'Én afgrænset leverance med et tydeligt output, vi kan levere på uger. Så har I set os arbejde, før I beslutter mere.',
-        step4h: 'Herfra ser vi gerne på det næste sammen med jer',
-        step4p: 'Nogle kører selv videre. Andre vil have os med på deltid, til fremdriften er robust. Begge dele er rigtige.',
-        colNote: 'Uanset omfang gælder det samme: jeres data forbliver jeres, og mennesker godkender, før noget sendes.',
-        wKicker: 'Det typiske første skridt',
-        wH2: 'En workshop på 2½ time hos jer',
-        wP: 'Den letteste måde at finde ud af, om vi kan gøre en forskel hos jer. Vi kommer ud, lægger jeres forretning på bordet, og I går derfra med en prioriteret plan og en skriftlig opsamling. Fast pris 18.000 kr. ekskl. moms, ingen binding bagefter. Vi har bedst erfaring med to tilgange:',
-        v1h: 'Hvor står I?',
-        v1p: 'Afklaring på tværs af strategi, systemer, data og organisation. Hvad er det rette næste skridt for netop jer, med eller uden AI?',
-        v2h: 'Kom i gang med AI',
-        v2p: 'Konkret og hands-on: use cases i drift, jeres muligheder prioriteret, og en plan for den første løsning. <a href="workshop.html">Læs mere om formatet</a>.',
-        wBtn: 'Skriv, så finder vi en dato',
-        rH2: 'Erfaring fra både de største og de helt små',
-        r1h: 'De største',
-        r1p: 'Lifescience, finans og shipping, hvor styring, dokumentation og skala ikke er til forhandling.',
-        r2h: 'De helt små',
-        r2p: 'Ejerledede virksomheder, hvor hver time skal skabe værdi, og løsningerne skal virke fra dag ét.',
-        aKicker: 'Hvem er vi',
-        aH2: 'Rådgivning, der bliver til noget',
-        aP1: 'Rådgivning er først noget værd, når den bliver til noget. Vi har siddet på begge sider af bordet: som ledere i store, regulerede organisationer, og som selvstændige i små virksomheder, hvor der ikke er råd til projekter uden effekt.',
-        aP2: 'Vi har stor erfaring i at få forretning og teknologi til at understøtte hinanden: at omsætte behov til systemer, der faktisk bliver brugt, og teknologi til resultater, der kan måles. Og vi bygger selv med værktøjerne hver dag. Derfor anbefaler vi kun det, vi selv kan stå inde for, og I får en ærlig vurdering, også når svaret er, at I ikke skal købe noget af os.',
-        aP3: 'Vi holder af små hold, korte veje fra beslutning til handling, og leverancer man kan pege på, når vi er gået igen.',
-        cBtn: 'Skriv til os',
-        cAlt: 'eller ring: <a href="tel:+4521600984" style="color:var(--ink)">+45 21 60 09 84</a>'
-      },
-      en: {
-        navRadar: 'AI radar',
-        navTest: 'Readiness test',
-        navCases: 'Work',
-        contact: 'Contact',
-        kicker: 'Strategy · Data &amp; AI · Execution',
-        h1: 'Set the course. Get moving. <em>Scale what works.</em>',
-        lead: 'The right call isn’t necessarily made on a whiteboard. You make an informed choice, get moving, and learn from reality. We help with both.',
-        cta1: 'What we do',
-        cta2: 'or <a href="#workshop">start with a workshop</a>',
-        svcKicker: 'Services',
-        svcH2: 'What we do',
-        svcIntro: 'Well-defined engagements with a clear outcome. The thread running through all of it: make an informed choice, get moving, and scale what works.',
-        s1tag: 'Data &amp; AI', s1h: 'From ambition to production',
-        s1p: 'Where AI genuinely fits your business, what has to be in place first, and how the first solution makes it into everyday use.',
-        s1a: 'AI readiness and use-case prioritisation', s1b: 'Data foundations and governance', s1c: 'Automating manual workflows',
-        s2tag: 'Strategy → execution', s2h: 'From decisions to momentum',
-        s2p: 'When everything feels urgent and strategy stalls on its way to action, we help you prioritise and keep up the pace.',
-        s2a: 'Portfolio prioritisation', s2b: 'Strategy execution and roadmaps', s2c: 'PMO and transformation management',
-        s3tag: 'Leadership advisory', s3h: 'Sparring for the hard calls',
-        s3p: 'Close sparring with leadership on direction, priorities and the decisions only you can make.',
-        s3a: 'Strategic sparring for leaders', s3b: 'Decision-making and governance', s3c: 'Operating model, roles and accountability',
-        s4tag: 'IT simplification', s4h: 'Fewer systems, less drag',
-        s4p: 'A clear view of your application landscape and a realistic route from legacy to a platform you can build on.',
-        s4a: 'Application portfolio and consolidation', s4b: 'Legacy modernisation and target architecture', s4c: 'Unlocking data stuck in old systems',
-        more: 'Read more',
-        whenH: 'Typically relevant when',
-        d1h: 'From idea to a solution in production',
-        d1p: 'We help you find the places where AI can make a measurable difference, and get the foundation in place: the path of your data mapped from source to decision, bottlenecks and silos made visible, and a data foundation that can carry AI in production. In regulated industries we build on the FAIR principles, and where data can’t leave the building, we work with private AI setups. The experience comes from pharma and biotech, logistics and finance.',
-        pkgH: 'Clients typically buy this as',
-        d1k1: 'Data value chain assessment: your whole data value chain reviewed, with quick wins and a prioritised plan',
-        d1k2: 'FAIR by design: data practice and architecture built on the FAIR principles, especially for regulated industries',
-        d1k3: 'AI-ready data workflows: structure, quality and history, so your data can carry AI and machine learning',
-        d1k4: 'Strategic insights: live overviews and insights built into your decision processes',
-        d1w1: 'There are plenty of ideas, but no shared direction',
-        d1w2: 'Data is scattered across systems, spreadsheets and inboxes',
-        d1w3: 'Sensitive data limits what you dare to use',
-        d2h: 'From decisions to momentum',
-        d2p: 'We like to start with a health check of your strategy: what exists on paper, what exists in reality, and where the gaps are. From there we help with what is most often missing: a prioritisation model so resources go to the projects that move the most, a simple governance structure with roles and follow-up, and an operating model that fits the ambitions. Measured on one thing: does the strategy turn into action.',
-        d2w1: 'Too many initiatives are running, and everything feels important',
-        d2w2: 'The strategy is decided but never turns into action',
-        d2w3: 'Leadership lacks a view of status and progress',
-        d3h: 'Sparring and the ability to decide',
-        d3p: 'Coaching and sparring for leaders and leadership teams, one to one and together. Most importantly: we go into the operation with you, where the work actually happens, instead of only meeting in the meeting room. Right now one question dominates among the leaders we talk to: what does AI mean for my business and the way I lead? That is also where we usually start.',
-        d3w1: 'Decisions take too long or don’t get made',
-        d3w2: 'Accountability falls between chairs when work crosses teams',
-        d3w3: 'The organisation has outgrown the way it works',
-        d4h: 'Fewer systems, less technical debt',
-        d4p: 'We map the application landscape, find candidates for consolidation and retirement, and lay out a realistic path from legacy to a landscape you can build on.',
-        d4w1: 'The system landscape has grown without an overall plan',
-        d4w2: 'Core systems are old, fragile or hard to change',
-        d4w3: 'Nobody has the full picture of systems and costs',
-        colKicker: 'Working together',
-        colH2: 'How we work with you',
-        step1h: 'We measure before we recommend',
-        step1p: 'The first step is an assessment: the readiness test on this site, or a 2½-hour workshop at your place, where we check where you stand on selected dimensions, so we can move on from there.',
-        step2h: 'You get a prioritised plan, not a report for the drawer',
-        step2p: 'Strengths, gaps and 2 to 3 first steps, each with expected impact and effort. Short enough to be read, concrete enough to be used.',
-        step3h: 'We build the first thing together',
-        step3p: 'One well-defined delivery with a clear output we can hand over in weeks. So you have seen us work before you decide on more.',
-        step4h: 'From here, we look at the next step together',
-        step4p: 'Some continue on their own. Others want us part-time until the momentum holds. Both are right.',
-        colNote: 'Whatever the scope, the same applies: your data stays yours, and people approve before anything is sent.',
-        wKicker: 'The typical first step',
-        wH2: 'A 2½-hour workshop at your offices',
-        wP: 'The quickest way to find out whether we can move the needle for you. We come to you, put your business on the table, and you leave with a prioritised plan and a written summary. Fixed fee of DKK 18,000 ex. VAT, no strings attached. Two approaches have served our clients best:',
-        v1h: 'Where do you stand?',
-        v1p: 'A clear-eyed look across strategy, systems, data and organisation. What is genuinely the right next move for you, with or without AI?',
-        v2h: 'Getting started with AI',
-        v2p: 'Hands-on and specific: solutions running in production today, your opportunities ranked, and a plan for shipping the first one. <a href="workshop.html">More about the format</a>.',
-        wBtn: 'Get in touch and we’ll find a date',
-        rH2: 'At home with the very largest and the very smallest',
-        r1h: 'The largest',
-        r1p: 'Life science, finance and shipping, where governance, documentation and scale are non-negotiable.',
-        r2h: 'The smallest',
-        r2p: 'Owner-led companies where every hour has to count and solutions must work from day one.',
-        aKicker: 'Who we are',
-        aH2: 'Advice that gets built',
-        aP1: 'Advice only counts once something exists because of it. We’ve sat on both sides of the table: leading in large, regulated organisations, and running small companies with no room for projects that don’t deliver.',
-        aP2: 'Much of our work is about making business and technology pull in the same direction: turning needs into systems people actually use, and technology into results you can measure. We build with these tools ourselves, every day, so we only recommend what we’d stake our own name on. And you’ll get a straight answer, even when it’s that you shouldn’t buy anything from us.',
-        aP3: 'We believe in small teams, short distances from decision to action, and work you can point to after we’re gone.',
-        cBtn: 'Write to us',
-        cAlt: 'or call: <a href="tel:+4521600984" style="color:var(--ink)">+45 21 60 09 84</a>'
-      }
-    };
-
-    var current = 'da';
-    function setLang(lang) {
-      if (!t[lang]) return;
-      current = lang;
-      document.documentElement.lang = lang;
-      var dict = t[lang];
-      var els = document.querySelectorAll('[data-i18n]');
-      for (var i = 0; i < els.length; i++) {
-        var key = els[i].getAttribute('data-i18n');
-        if (dict[key]) els[i].innerHTML = dict[key];
-      }
-      document.getElementById('langswitch').textContent = lang === 'da' ? 'EN' : 'DA';
-      try { localStorage.setItem('lang', lang); } catch (e) {}
-    }
-
-    document.getElementById('langswitch').addEventListener('click', function () {
-      setLang(current === 'da' ? 'en' : 'da');
-    });
-
-    var initial = 'da';
-    var qp = new URLSearchParams(location.search).get('lang');
-    if (qp === 'en' || qp === 'da') { initial = qp; }
-    else { try { var s = localStorage.getItem('lang'); if (s === 'en' || s === 'da') initial = s; } catch (e) {} }
-    if (initial !== 'da') setLang(initial);
-  })();
-</script>
-<script>
-  (function () {
-    try {
-      if (!('IntersectionObserver' in window)) return;
-      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      var targets = document.querySelectorAll('.wrap > .section, .refsband .section');
-      if (!targets.length) return;
-      document.documentElement.classList.add('js-reveal');
-      var io = new IntersectionObserver(function (entries) {
-        for (var i = 0; i < entries.length; i++) {
-          if (entries[i].isIntersecting) {
-            entries[i].target.classList.add('is-in');
-            io.unobserve(entries[i].target);
-          }
-        }
-      }, { threshold: 0.06, rootMargin: '0px 0px -6% 0px' });
-      for (var j = 0; j < targets.length; j++) {
-        targets[j].classList.add('reveal');
-        io.observe(targets[j]);
-      }
-    } catch (e) {}
-  })();
-</script>
-<script>
-  window.goatcounter = {
-    path: function () {
-      var p = new URLSearchParams(location.search);
-      var path = location.pathname;
-      if (p.get('til')) path += '?til=' + p.get('til');
-      return path;
-    }
-  };
-  document.addEventListener('click', function (e) {
-    var a = e.target.closest ? e.target.closest('a') : null;
-    if (!a || !window.goatcounter || !window.goatcounter.count) return;
-    var h = a.getAttribute('href') || '';
-    if (h.indexOf('mailto:') === 0) goatcounter.count({ path: 'klik-mail', title: 'Klik: skriv mail', event: true });
-    else if (h.indexOf('tel:') === 0) goatcounter.count({ path: 'klik-ring', title: 'Klik: ring op', event: true });
-  });
-</script>
-<script data-goatcounter="https://femfemten.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-
+    <nav class="route" aria-label="Linser på turen">
+      <div class="route-track"><span id="routeProgress"></span></div>
+      <button class="route-stop active" data-chapter="0" aria-label="Tempoet, 1 af 4" aria-current="step"><span></span><b>Tempoet</b></button>
+      <button class="route-stop" data-chapter="1" aria-label="Idéerne, 2 af 4"><span></span><b>Idéerne</b></button>
+      <button class="route-stop" data-chapter="2" aria-label="Arbejdet, 3 af 4"><span></span><b>Arbejdet</b></button>
+      <button class="route-stop" data-chapter="3" aria-label="Din fremdrift, 4 af 4"><span></span><b>Din fremdrift</b></button>
+    </nav>
+    <div class="scroll-cue"><span id="scrollText">Scroll for at skifte linse</span><span class="scroll-arrow" aria-hidden="true">↓</span></div>
+  </footer>
+  <dialog id="watchDialog" aria-labelledby="watchTitle">
+    <div class="watch-overlay">
+      <button class="close-watch" id="closeWatch" aria-label="Løft blikket tilbage mod vejen">Tilbage til turen <span aria-hidden="true">×</span></button>
+      <div class="watch-scene">
+        <img class="wrist" src="/assets/wrist.png" alt="Et løbeur på håndleddet" width="1536" height="1024">
+        <div class="watch-screen">
+          <div class="watch-top"><span>5:15</span><span id="watchClock">15:48</span></div>
+          <div class="watch-status-icon" id="watchStatusIcon" aria-hidden="true">↗</div>
+          <p class="watch-eyebrow">LEVERANCER</p>
+          <h2 id="watchTitle">Operational Excellence</h2>
+          <div class="watch-metric"><strong id="watchMetric">Flow</strong><span id="watchUnit">fra proces til praksis</span></div>
+          <div class="watch-dots" aria-hidden="true"><i class="active"></i><i></i><i></i></div>
+        </div>
+      </div>
+      <div class="project-detail">
+        <p class="eyebrow">DET KAN VI LEVERE</p>
+        <div class="delivery-details" aria-live="polite" aria-atomic="true"><h3 id="detailTitle">Bedre flow. Tydeligt ansvar.</h3>
+        <p id="detailCopy">Vi kortlægger arbejdsgange, finder flaskehalse og hjælper jer med at få forbedringer ind i den daglige drift. Med tydelige ejere, enkle målepunkter og en fast rytme for opfølgning.</p>
+        <dl class="project-facts"><div><dt>Leverancer</dt><dd id="deliverable">Proceskort, forbedringsplan og KPI-overblik</dd></div><div><dt>Forløbet</dt><dd id="deliveryApproach">Kortlægning → prioritering → indarbejdelse</dd></div></dl><p class="delivery-experience" id="deliveryExperience">Praktisk erfaring med operational excellence og komplekse organisationer i life science.</p></div>
+        <p class="status-picker-label">Vælg et område</p>
+        <div class="status-picker" id="offeringPicker" role="group" aria-label="Vælg leveranceområde"></div>
+      </div>
+    </div>
+  </dialog>
+  <dialog id="phoneDialog" class="phone-dialog" aria-labelledby="phoneTitle">
+    <div class="phone-stage" id="phoneStage">
+      <button class="close-phone" id="closePhone" aria-label="Læg telefonen væk og vend tilbage til turen">Tilbage til turen <span aria-hidden="true">×</span></button>
+      <div class="phone-intro">
+        <p class="eyebrow">5:15 · CASEARKIV</p>
+        <h2 id="phoneTitle">Cases fra<br>praksis.</h2>
+        <p>Forskellige opgaver.<br>Samme lyst til at komme frem.</p>
+        <nav class="case-index" aria-label="Vælg en tidligere case">
+          <button data-case-jump="0" aria-current="true"><span>01</span><strong>Fra idé til jobplatform</strong><span aria-hidden="true">↗</span></button>
+          <button data-case-jump="1"><span>02</span><strong>Rådgivning i life science</strong><span aria-hidden="true">↗</span></button>
+          <button data-case-jump="2"><span>03</span><strong>Markedet for veterinær software</strong><span aria-hidden="true">↗</span></button>
+        <button data-case-jump="3"><span>04</span><strong>Dataværdikæden</strong></button><button data-case-jump="4"><span>05</span><strong>Kodeagenten</strong></button><button data-case-jump="5"><span>06</span><strong>Fra prototype til drift</strong></button><button data-case-jump="6"><span>07</span><strong>Bilag til godkendelse</strong></button></nav>
+        <div class="phone-scroll-hint"><span aria-hidden="true">↓</span> Scroll på telefonen</div>
+      </div>
+      <div class="phone-device">
+        <img class="phone-hand" src="/assets/phone-hand.png" alt="En hånd holder en mobiltelefon med tidligere cases" width="1024" height="1536">
+        <div class="phone-screen">
+          <div class="phone-system-bar" aria-hidden="true"><span>5:15</span><svg viewBox="0 0 56 14"><path d="M1 11V9m4 2V6m4 5V3m4 8V1M21 4q7-6 14 0M24 7q4-4 8 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="28" cy="10" r="1.2"/><rect x="40" y="3" width="13" height="8" rx="2" fill="none" stroke="currentColor"/><path d="M55 5v4" stroke="currentColor"/><rect x="42" y="5" width="9" height="4" rx=".5" fill="currentColor"/></svg></div>
+          <div class="phone-app-header"><div><span class="app-wordmark">5:15</span><span class="app-section-label">CASES</span></div><div><h3>Cases</h3><span class="case-total">7 cases</span></div></div>
+          <div class="phone-feed" id="phoneFeed" tabindex="0" role="region" aria-label="Scroll gennem tidligere cases">
+            <article class="activity-card" id="case-0" aria-labelledby="caseTitle0">
+              <div class="activity-top"><span class="activity-avatar" aria-hidden="true">5:15</span><div><strong>5:15</strong><span>Produktudvikling · Rekruttering</span></div><span class="activity-number">01</span></div>
+              <h4 id="caseTitle0">Fra idé til jobplatform</h4>
+              <p class="activity-summary">Fra idé til jobplatform. Et samlet overblik over jobmuligheder på tværs af virksomheders karrieresider.</p>
+              <div class="activity-route">
+                <div class="route-caption"><span>PROJEKTSPOR</span><span>Idé → platform</span></div>
+                <svg viewBox="0 0 320 138" role="img" aria-label="Illustreret projektforløb fra idé gennem prototype til platform">
+                  <path class="route-guide" d="M12 33h296M12 69h296M12 105h296M52 13v112M124 13v112M196 13v112M268 13v112"/>
+                  <path class="case-route-shadow" d="M36 101C66 105 55 39 94 40S122 110 166 98S175 24 216 31S243 85 287 32"/>
+                  <path class="case-route-line" d="M36 101C66 105 55 39 94 40S122 110 166 98S175 24 216 31S243 85 287 32"/>
+                  <circle class="route-origin" cx="36" cy="101" r="6"/><circle class="route-waypoint" cx="166" cy="98" r="4"/><circle class="route-destination" cx="287" cy="32" r="7"/>
+                </svg>
+                <div class="route-milestones"><span>Idé</span><span>Prototype</span><span>Platform</span></div>
+              </div>
+              <dl class="activity-stats"><div><dt>Leverance</dt><dd>Jobplatform</dd></div><div><dt>Område</dt><dd>Rekruttering</dd></div></dl>
+              <div class="activity-story"><span>DET, VI HAR ARBEJDET MED</span><p>Fra koncept og datamodel til en platform med jobimport, relevante søgninger og brancheportaler.</p><span>UDFORDRINGEN</span><p>Jobopslag og CV’er bruger ikke altid de samme ord. Relevante muligheder bliver overset.</p><span>LØSNINGEN</span><p>Job fra virksomhedernes egne karrieresider samles, og hele CV’ets betydning kan indgå i matchet.</p></div>
+              <div class="activity-tags"><span>Koncept</span><span>Udvikling</span><span>AI</span></div>
+            </article>
+            <article class="activity-card" id="case-1" aria-labelledby="caseTitle1">
+              <div class="activity-top"><span class="activity-avatar" aria-hidden="true">5:15</span><div><strong>5:15</strong><span>Consultancy · Life science</span></div><span class="activity-number">02</span></div>
+              <h4 id="caseTitle1">Rådgivning i<br><span>life science</span></h4>
+              <p class="activity-summary">Rådgivning i en stor international life science-virksomhed. Erfaring med at arbejde i en kompleks organisation.</p>
+              <div class="activity-route route-blue">
+                <div class="route-caption"><span>PROJEKTSPOR</span><span>Dialog → leverance</span></div>
+                <svg viewBox="0 0 320 138" role="img" aria-label="Illustreret projektforløb fra dialog gennem samarbejde til leverance">
+                  <path class="route-guide" d="M12 33h296M12 69h296M12 105h296M52 13v112M124 13v112M196 13v112M268 13v112"/>
+                  <path class="case-route-shadow" d="M35 107C74 107 72 37 111 37S143 73 180 73S225 16 278 29"/>
+                  <path class="case-route-line" d="M35 107C74 107 72 37 111 37S143 73 180 73S225 16 278 29"/>
+                  <circle class="route-origin" cx="35" cy="107" r="6"/><circle class="route-waypoint" cx="180" cy="73" r="4"/><circle class="route-destination" cx="278" cy="29" r="7"/>
+                </svg>
+                <div class="route-milestones"><span>Dialog</span><span>Samarbejde</span><span>Leverance</span></div>
+              </div>
+              <dl class="activity-stats"><div><dt>Forløb</dt><dd>Consultancy</dd></div><div><dt>Område</dt><dd>Life science</dd></div></dl>
+              <div class="activity-tags"><span>Rådgivning</span><span>Samarbejde</span></div>
+            </article>
+            <article class="activity-card" id="case-2" aria-labelledby="caseTitle2">
+              <div class="activity-top"><span class="activity-avatar" aria-hidden="true">5:15</span><div><strong>5:15</strong><span>Analyse &amp; strategi · Veterinær</span></div><span class="activity-number">03</span></div>
+              <h4 id="caseTitle2">Markedet for veterinær software</h4>
+              <p class="activity-summary">Et klarere billede af markedet for veterinære journalsystemer. Fra spørgsmål til et konkret beslutningsgrundlag.</p>
+              <div class="activity-route route-green">
+                <div class="route-caption"><span>PROJEKTSPOR</span><span>Spørgsmål → indsigt</span></div>
+                <svg viewBox="0 0 320 138" role="img" aria-label="Illustreret projektforløb fra spørgsmål gennem analyse til beslutningsgrundlag">
+                  <path class="route-guide" d="M12 33h296M12 69h296M12 105h296M52 13v112M124 13v112M196 13v112M268 13v112"/>
+                  <path class="case-route-shadow" d="M37 103C87 119 96 109 106 78S69 28 122 25S154 110 204 97S229 34 284 37"/>
+                  <path class="case-route-line" d="M37 103C87 119 96 109 106 78S69 28 122 25S154 110 204 97S229 34 284 37"/>
+                  <circle class="route-origin" cx="37" cy="103" r="6"/><circle class="route-waypoint" cx="161" cy="62" r="4"/><circle class="route-destination" cx="284" cy="37" r="7"/>
+                </svg>
+                <div class="route-milestones"><span>Spørgsmål</span><span>Analyse</span><span>Indsigt</span></div>
+              </div>
+              <dl class="activity-stats"><div><dt>Leverance</dt><dd>Markedsanalyse</dd></div><div><dt>Område</dt><dd>Veterinær software</dd></div></dl>
+              <div class="activity-story"><span>DET, VI HAR ARBEJDET MED</span><p>Konkurrenter, priser og forretningsmodeller i Danmark og Norden. Et grundlag for at vurdere muligheder, positionering og næste skridt.</p></div>
+              <div class="activity-tags"><span>Markedsindsigt</span><span>Strategi</span></div>
+            </article>
+            <article class="activity-card" id="case-3" aria-labelledby="caseTitle3"><div class="activity-top"><span class="activity-avatar">5:15</span><div><strong>Anonymiseret forløb</strong><span>Data & ledelse</span></div><span class="activity-number">04</span></div><h4 id="caseTitle3">Dataværdikæden</h4><p class="activity-summary">En stor dansk virksomhed manglede overblik over, hvordan data bevægede sig fra kilde til beslutning.</p><dl class="activity-stats"><div><dt>Leverance</dt><dd>Datakortlægning</dd></div><div><dt>Samarbejde</dt><dd>Dansk virksomhed</dd></div></dl><div class="activity-story"><span>RUTEN</span><p>Vi interviewede på tværs af dataværdikæden og vurderede ni dimensioner. Fundene blev afprøvet med de involverede før den fælles præsentation.</p><span>VED MÅLSTREGEN</span><p>Et fælles overblik, tydeligere ejerskab og en plan i tre tidshorisonter.</p></div><button class="case-contact" data-panel="start">Har I en lignende opgave?</button></article><article class="activity-card" id="case-4" aria-labelledby="caseTitle4"><div class="activity-top"><span class="activity-avatar">5:15</span><div><strong>Anonymiseret forløb</strong><span>AI & udvikling</span></div><span class="activity-number">05</span></div><h4 id="caseTitle4">Kodeagenten</h4><p class="activity-summary">Et lille udviklingsteam havde en stor kodebase og tilbagevendende supportopgaver.</p><dl class="activity-stats"><div><dt>Leverance</dt><dd>AI-agenter</dd></div><div><dt>Samarbejde</dt><dd>Dansk virksomhed</dd></div></dl><div class="activity-story"><span>RUTEN</span><p>Agenter undersøger fejl og forbereder rettelser med tests. Mennesker tager den endelige beslutning om ændringerne.</p><span>VED MÅLSTREGEN</span><p>Et arbejdsforløb i daglig brug hos en dansk softwarevirksomhed.</p></div><button class="case-contact" data-panel="start">Har I en lignende opgave?</button></article><article class="activity-card" id="case-5" aria-labelledby="caseTitle5"><div class="activity-top"><span class="activity-avatar">5:15</span><div><strong>Anonymiseret forløb</strong><span>Produkt & teknologi</span></div><span class="activity-number">06</span></div><h4 id="caseTitle5">Fra prototype til drift</h4><p class="activity-summary">En AI-bygget prototype skulle kunne bruges sikkert i en rigtig virksomhed.</p><dl class="activity-stats"><div><dt>Leverance</dt><dd>Produktmodning</dd></div><div><dt>Samarbejde</dt><dd>Dansk virksomhed</dd></div></dl><div class="activity-story"><span>RUTEN</span><p>Kode og adgange gennemgås. Tests, et testmiljø og kontrollerede releases gør vejen til drift mere overskuelig.</p><span>VED MÅLSTREGEN</span><p>Et forløb fra hurtig prototype til en løsning, der kan sættes i drift.</p></div><button class="case-contact" data-panel="start">Har I en lignende opgave?</button></article><article class="activity-card" id="case-6" aria-labelledby="caseTitle6"><div class="activity-top"><span class="activity-avatar">5:15</span><div><strong>Anonymiseret forløb</strong><span>AI & økonomi</span></div><span class="activity-number">07</span></div><h4 id="caseTitle6">Bilag til godkendelse</h4><p class="activity-summary">Bilag lå spredt i mails, billeder og portaler og skulle forbindes med de rigtige betalinger.</p><dl class="activity-stats"><div><dt>Leverance</dt><dd>Automatisering</dd></div><div><dt>Samarbejde</dt><dd>Dansk virksomhed</dd></div></dl><div class="activity-story"><span>RUTEN</span><p>Et samlet flow henter bilag, matcher betalinger og foreslår kontering. Et menneske godkender.</p><span>VED MÅLSTREGEN</span><p>Løsningen anvendes dagligt i en dansk virksomhed.</p></div><button class="case-contact" data-panel="start">Har I en lignende opgave?</button></article><div class="activity-end"><span class="finish-mark" aria-hidden="true">✓</span><strong>Din rute kan blive den næste.</strong><p>Vi finder det første konkrete skridt sammen.</p><button class="case-contact" data-panel="start">Book første etape</button><span>Projektsporene er illustrationer af forløbene.</span></div>
+          </div>
+          <div class="phone-app-footer"><span>CASEARKIV</span><span id="phoneCaseCount">01 / 07</span></div>
+          <div class="phone-home-indicator" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+  <dialog id="routePanel" class="route-panel" aria-labelledby="panelTitle"><div class="panel-shell"><button class="panel-close" id="closePanel" aria-label="Tilbage til løbeturen">Tilbage til turen <span aria-hidden="true">×</span></button><div id="panelContent"><h2 id="panelTitle">Første etape</h2></div></div></dialog>
+  <script src="/app.js?v=6" defer></script><script src="/tools-data.js" defer></script><script src="/route-tools.js" defer></script><script src="/v2.js?v=5" defer></script>
 </body>
 </html>

@@ -1,39 +1,41 @@
-# femfemten.com
+# femfemten.com — klargjort ny forside
 
-Statisk site for Fem Femten (5:15 ApS). Ingen build, ingen dependencies. Ren HTML.
+Statisk hjemmeside til GitHub Pages. Filerne ligger i repository-roden; ingen installation eller build er nødvendig. CNAME skal fortsat indeholde femfemten.com. .nojekyll lader Pages udgive filerne direkte.
 
-Disse filer er klar til at blive flyttet til deres eget offentlige repo `ralf-commits/femfemten-site`
-og hostet med GitHub Pages. Indtil det repo findes, er dette den autoritative kopi.
+## Denne version
 
-## Filer
+- Forsiden er den sorte/blå løbeoplevelse fra Sites version 7, kildecommit 9659dada8133ca4bb580ecf48da447daa5d1f9b3.
+- Workshop: 5.000 kr. ekskl. moms, 2,5 timer hos kunden, inklusive forberedelse og skriftlig opsamling. Prisen er synkroniseret i forsidens panel, workshop.html på dansk/engelsk og workshop-onepager.pdf. Det tidligere feedbacktilbud er fjernet fra PDF'en.
+- Eksisterende cases, radar, selvstændig test med virksomhedsanalyse, privatlivsside, eksempel-PDF, delingsbilleder og Google-verifikation er bevaret.
+- index.html#workshop åbner workshoppen; #ydelser, #kontakt, #om, #radar og #test åbner de tilsvarende paneler.
+- Domænehenvisning, metadata til deling, virksomhedsdata, privatlivslink og en enkel JavaScript-fri kontaktvisning er tilføjet.
 
-- `index.html`: forsiden (femfemten.com)
-- `workshop.html`: salgsside for AI-workshoppen, bruges i outreach (femfemten.com/workshop)
-- `CNAME`: fortæller GitHub Pages, at sitet skal svare på femfemten.com
+Den nye forside er dansk. De eksisterende undersider bevarer deres sprogvalg. Den integrerede test behandler svar lokalt. Den selvstændige test.html bevarer sin eksisterende Cloudflare-analyse og logning. Uret viser Operational Excellence, AI-implementering og Commercial Excellence. Cases og erfaringsbeskrivelser på forsiden er anonymiserede.
 
-## Personalisering af workshop-siden
+## Udgivelse
 
-Siden læser URL-parametre og tilpasser sig modtageren. Ingen server, alt sker i browseren:
+GitHub Pages udgiver main. Publiceringsgrenen er prepare/five-fifteen-v7. Den oprindelige side er desuden gemt på backup/before-five-fifteen-2026-10-12 ved commit 76b89e266da38bb152bec8a18b1714c4cca3f298. Der er ikke ændret DNS, mail eller Cloudflare-konfiguration.
 
-- `workshop.html?til=Danske+Havne`: overskrift og badge bliver "Forberedt til Danske Havne"
-- `&branche=havnedrift`: afsnittet "Eksemplerne og rådene er valgt til jer" bliver branchespecifikt
+Den nye forside er gennemgået i browser på desktop og mobil (390 × 844), inklusive ur, de tre leveranceområder, cases, spørgeskemanavigation, radarfilter og workshopkontakt.
 
-Hvert personaliseret link er samtidig tracking: nar analytics er sat pa, viser `til`-parameteren
-praecis hvilken modtager der klikkede.
+## Backup og tilbageførsel
 
-## Sadan opdateres sitet
+Den eksisterende version er commit 76b89e266da38bb152bec8a18b1714c4cca3f298, tree b5b6c93ed392d690810d432a5a5c52efefc87eea. En separat ZIP og en komplet Git-bundle med 63 commits er gemt i leverancens backups-mappe. Backupen er kontrolleret med git fsck og git bundle verify.
 
-1. Ret HTML-filen
-2. Commit og push
-3. GitHub Pages deployer automatisk inden for et minut
+Hvis en senere udgivelse skal tilbageføres, opret en ny gren fra den aktuelle main, gendan **hele træet** fra backup-committet, og lav en ny commit og pull request. Bevar historikken; undgå force-push. Det fjerner også de nye forsidefiler, som ikke fandtes i backupen. Kontroller altid senere ændringer fra andre før tilbageførsel.
 
-## Priser (holdes synkrone med al outreach)
+Eksempel i en ren checkout efter hentning af seneste main:
 
-- Workshop: 18.000 kr. ekskl. moms, fast pris, 2,5 time hos kunden
-- Feedback-tilbud til de foerste kunder: 10.000 kr. mod en times aerlig feedback
+```sh
+git switch -c restore/previous-site origin/main
+git restore --source=76b89e266da38bb152bec8a18b1714c4cca3f298 --staged --worktree -- .
+git commit -m "Restore previous femfemten.com site"
+```
 
-## Udestaaende
+Hvis GitHub-kopien går tabt, kan repository og historik genskabes fra den separate bundle:
 
-- Analytics-script mangler (afventer valg af konto: Plausible eller Cloudflare Web Analytics)
-- Bookinglink til Google Kalender mangler (afventer at Ralf opretter bookingside)
-- Logo: brug `5-15-logo-blue.png` fra Drive i stedet for tekst-headeren, naar filen laegges ind
+```sh
+git clone /absolute/path/femfemten-site-2026-10-07.bundle femfemten-restored
+```
+
+Backupen omfatter repository-filer og Git-historik. Cloudflare KV-data/leads, serverhemmeligheder, DNS og kontokonfiguration er ikke eksporteret. Denne klargøring ændrer ingen af disse, og worker-mappen er bevaret byte for byte.
