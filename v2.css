@@ -25,3 +25,5 @@
 @media(max-width:760px){.watch-overlay{min-height:100%}.delivery-details>p{line-height:1.6}.delivery-details .delivery-experience{font-size:14px}}
 
 .wordmark-logo{display:block;height:40px;width:auto}@media(max-width:760px){.wordmark-logo{height:32px}}
+
+.corporate-switch{display:inline-flex;align-items:center;min-height:34px;align-self:center;padding:0 12px;border:1px solid rgba(238,238,238,.45);border-radius:3px;font-size:13px;color:#dee2e7;text-decoration:none;white-space:nowrap}.corporate-switch:hover{border-color:var(--acid);color:var(--acid)}@media(max-width:760px){.top-nav{gap:16px}.corporate-switch{min-height:30px;padding:0 9px;font-size:13px;margin-left:auto}.corporate-switch .cs-long{display:none}}

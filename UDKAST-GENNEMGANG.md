@@ -43,6 +43,28 @@ Commercial Excellence, ruten:
 
 OBS: "konkrete opgaver", "konkret salgsindsats" og "Et konkret sted at begynde" står i jeres eksisterende tekster. STIL.md nævner "konkret" som typisk pyntord, så overvej dem.
 
+### Corporate-udgaven (ny)
+
+`corporate.html` viser løbeturens nuværende indhold i septemberstilen: lys baggrund, navy, orange og DM Sans. Den nås via "Show me corporate" i forsidens menu (på mobil står der "corporate"), i panelernes fod og på ydelsessiderne. Corporate har "Tilbage til løbeturen" øverst og i bunden.
+
+Indhold i rækkefølge: Tre områder (ydelserne med leverancer og forløb), Erfaring, Cases fra praksis (alle 7 fra casearkivet), Om os, Workshop (2½ time, 5.000 kr., det får I med hjem) og links til parathedstesten og AI-radaren. Al brødtekst er jeres egen fra løbeturens paneler. Løbeordene er skiftet ud: "Book første etape" blev "Book en workshop", og ved casene blev "Ruten" til "Forløbet" og "Ved målstregen" til "Resultatet".
+
+Google: corporate har `noindex` og står ikke i sitemappet, så Google viser løbeturen. Corporate er kun til dem, der trykker på knappen.
+
+De gamle sider hører nu til corporate: workshop, cases, radar og test. Logoet fører til corporate.html, og der er et link "Tilbage til løbeturen". De vises altid lyst, ligesom corporate. Cases, radar og test har fået `noindex` og er taget ud af sitemappet sammen med workshop. Search Console siden maj: radar og test 0 visninger, cases 20 visninger og 1 klik.
+
+OBS: radar.html, test.html og cases.html har indholdet fra september. Casene der er de fem gamle, ikke de syv nye. Corporate-siden selv har de syv nye. "Tilbage til løbeturen" bliver ikke oversat, når man trykker EN på de gamle sider.
+
+**Ny tekst, skrevet af Claude, som skal godkendes (STIL.md):**
+- Overlinje: "Strategi · Data · AI"
+- Manchet: "Vi omsætter strategi, data og AI til noget, I kan bruge: bedre processer, AI i praksis og en stærkere kommerciel indsats." (sat sammen af to af jeres sætninger)
+- "Book en workshop", "eller ring på +45 21 60 09 84"
+- Under Cases: "Et udvalg af opgaver, vi har arbejdet med. Forløbene fra 04 til 07 er anonymiserede."
+- Workshopfakta: "Skriftlig opsamling: sendes efter workshoppen"
+- Knapper: "Show me corporate" og "Tilbage til løbeturen"
+
+Fotos (løbetøj og briller på løbeturen, jakkesæt på corporate) mangler og sættes ind, når I har dem.
+
 ### Tankestreger (STIL.md forbyder dem)
 
 19 fjernet i forsiden, app.js og v2.js. Eksempler: "kapacitet — med afsæt" blev "kapacitet, med afsæt", "modspil — og finder" blev "modspil og finder", "2–3 prioriterede" blev "2 til 3 prioriterede", "aftales sammen — ingen automatisk booking" blev "aftales sammen. Ingen automatisk booking". De fire meta-titler "5:15 Consultancy — Tempo til at tænke" blev "5:15 Consultancy: Tempo til at tænke".
@@ -53,8 +75,8 @@ Har `noindex` og beholder det. Den er i den gamle stil, og i løbeturen er førs
 
 ### Sitemap
 
-De tre ydelsessider er tilføjet.
+De tre ydelsessider er tilføjet. Test, radar, cases og workshop er taget ud. Tilbage står forsiden, privatliv og de tre ydelsessider.
 
 ## Ikke ændret
 
-Løbeoplevelsen, cases.html, radar.html, test.html, workshop.html og privatliv.html. De gamle sider i septemberstilen er urørte, fordi de kan blive udgangspunkt for en corporate-udgave.
+Løbeoplevelsen, cases.html, radar.html, test.html, workshop.html og privatliv.html. Indholdet på de gamle sider er ikke ændret, kun navigation, lys visning og noindex (se Corporate).

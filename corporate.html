@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="da" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>5:15 Consultancy | Strategi, data og AI</title>
+<meta name="description" content="5:15 Consultancy hjælper med operational excellence, AI-implementering og commercial excellence. Workshop på 2½ time hos jer.">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800;9..40,900&family=Libre+Caslon+Text:ital@0;1&display=swap">
+<style>
+  :root {
+    --navy: #1b1a4a;
+    --lightblue: #d1deed;
+    --sage: #b0cfc9;
+    --orange: #eb4634;
+    --paper: #ffffff;
+    --ink: #1b1a4a;
+    --ink-soft: #4c5470;
+    --line: #d7dfec;
+    --card: #f4f7fc;
+    --band-ink: #f4f7fc;
+    --band-soft: #c3cde6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #121129;
+      --ink: #e9edf6;
+      --ink-soft: #a9b1c9;
+      --line: #312f60;
+      --card: #1e1d4a;
+      --orange: #f0604f;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #121129;
+    --ink: #e9edf6;
+    --ink-soft: #a9b1c9;
+    --line: #312f60;
+    --card: #1e1d4a;
+    --orange: #f0604f;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.02rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+  .wrap { max-width: 46rem; margin: 0 auto; padding: 0 1.4rem; }
+  a { color: inherit; }
+
+  .lines {
+    position: absolute; pointer-events: none;
+    background: repeating-linear-gradient(90deg,
+      rgba(209,222,237,0.3) 0 0.6rem, transparent 0.6rem 2.3rem);
+    transform: rotate(18deg);
+  }
+
+  .heroband {
+    background: #1b1a4a; color: var(--band-ink);
+    position: relative; overflow: hidden;
+  }
+  .heroband .lines { right: -3rem; top: -5rem; width: 16rem; height: 28rem; }
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; padding: 1.4rem 0; position: relative; z-index: 1;
+  }
+  .wordmark {
+    font-weight: 900; font-size: 1.2rem; letter-spacing: -0.01em;
+    color: #ffffff; text-decoration: none; display: inline-flex; align-items: center;
+  }
+  .wordmark img {
+    height: 2.3rem; width: auto; display: block;
+    filter: brightness(0) invert(1);
+  }
+  .langswitch {
+    background: none; border: none; cursor: pointer;
+    font-family: inherit; font-weight: 700; font-size: 0.92rem;
+    color: #aebadd; padding: 0.45rem 0.5rem; letter-spacing: 0.04em;
+  }
+  .langswitch:hover { color: #ffffff; }
+  .langswitch:focus-visible { outline: 2px solid #d1deed; outline-offset: 2px; }
+
+  .hero { padding: 3.4rem 0 3.6rem; position: relative; z-index: 1; }
+  .eyebrow {
+    display: inline-block; font-size: 0.72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.15em;
+    color: var(--sage); border: 1px solid var(--sage);
+    border-radius: 2px; padding: 0.32rem 0.65rem; margin-bottom: 1.1rem;
+  }
+  .heroband h1 {
+    font-size: clamp(1.9rem, 5.5vw, 2.9rem); font-weight: 900;
+    line-height: 1.08; letter-spacing: -0.018em; text-wrap: balance;
+    color: #ffffff; margin: 0 0 1rem;
+  }
+  .lede {
+    font-family: "Libre Caslon Text", Georgia, serif; font-style: italic;
+    font-size: 1.13rem; line-height: 1.6; color: var(--band-soft);
+    max-width: 38rem; margin: 0;
+  }
+
+  .facts {
+    display: flex; flex-wrap: wrap; gap: 0;
+    border-block: 1px solid var(--line);
+    margin: 2.4rem 0 0;
+  }
+  .fact {
+    flex: 1 1 10rem; padding: 1rem 1rem 1rem 0; padding-left: 1rem;
+    border-right: 1px solid var(--line);
+  }
+  .fact:first-child { padding-left: 0; }
+  .fact:last-child { border-right: none; }
+  .fact b {
+    display: block; font-size: 1.08rem; font-weight: 800;
+    font-variant-numeric: tabular-nums;
+  }
+  .fact span { font-size: 0.82rem; color: var(--ink-soft); }
+
+  h2 {
+    font-size: 1.35rem; font-weight: 800; letter-spacing: -0.012em;
+    text-wrap: balance; margin: 0 0 0.7rem;
+  }
+  section { margin: 2.9rem 0; }
+  p { margin: 0 0 1rem; }
+
+  .steps { display: flex; flex-direction: column; margin-top: 1.1rem; }
+  .step {
+    display: grid; grid-template-columns: 2.6rem 1fr; gap: 0 1rem;
+    padding: 1.1rem 0; border-top: 1px solid var(--line);
+  }
+  .step:last-child { border-bottom: 1px solid var(--line); }
+  .step-n {
+    font-weight: 900; font-size: 1.5rem; color: var(--orange);
+    line-height: 1.2; font-variant-numeric: tabular-nums;
+  }
+  .step h3 { margin: 0 0 0.3rem; font-size: 1.02rem; font-weight: 700; }
+  .step p { margin: 0; color: var(--ink-soft); font-size: 0.97rem; }
+
+  .outcome {
+    background: var(--card); border: 1px solid var(--line);
+    border-left: 3px solid var(--orange); border-radius: 0 5px 5px 0;
+    padding: 1.3rem 1.5rem;
+  }
+  .outcome ul { margin: 0.6rem 0 0; padding-left: 1.2rem; }
+  .outcome li { margin-bottom: 0.4rem; }
+
+  .price {
+    font-size: 2rem; font-weight: 900; letter-spacing: -0.015em;
+    font-variant-numeric: tabular-nums;
+  }
+  .price small { font-size: 0.95rem; font-weight: 500; color: var(--ink-soft); }
+  .fineprint { color: var(--ink-soft); font-size: 0.92rem; }
+
+  .cta { margin-top: 1.4rem; display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
+  .btn {
+    display: inline-block; background: var(--orange); color: #ffffff;
+    text-decoration: none; font-weight: 700; font-size: 0.95rem;
+    padding: 0.8rem 1.4rem; border-radius: 3px;
+  }
+  .btn:hover { filter: brightness(1.07); }
+  .btn:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+  .cta .alt { font-size: 0.92rem; color: var(--ink-soft); }
+  .cta .alt a { color: var(--ink); font-weight: 500; }
+
+  .footband {
+    background: #1b1a4a; color: #aebadd; position: relative; overflow: hidden;
+    margin-top: 3rem;
+  }
+  .footband .lines { left: -4rem; bottom: -8rem; width: 12rem; height: 20rem; }
+  .footband footer {
+    padding: 1.8rem 0 2.2rem; font-size: 0.88rem;
+    position: relative; z-index: 1;
+  }
+  .footband a { color: #d1deed; }
+  .navlink{color:#d1deed;text-decoration:none;font-size:.92rem;font-weight:500;margin-left:auto}
+  .navlink:hover{color:#fff}
+</style>
+<style>
+.wrap{max-width:64rem}
+.topnav{display:flex;align-items:center;gap:.4rem 1.3rem;flex-wrap:wrap;justify-content:flex-end}
+.navlink{color:#d1deed;text-decoration:none;font-size:.92rem;font-weight:500}
+.navlink:hover{color:#fff}
+.switch{color:#fff;font-size:.86rem;font-weight:700;text-decoration:none;border:1px solid #aebadd;border-radius:3px;padding:.38rem .7rem}
+.switch:hover{background:#fff;color:#1b1a4a}
+.hero{max-width:46rem}
+.heroband h1{font-size:clamp(2.2rem,6vw,3.6rem)}
+.hero .cta .alt,.hero .cta .alt a{color:var(--band-soft)}
+.section-lede{max-width:44rem;color:var(--ink-soft)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:1.4rem}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin-top:1.4rem}
+.card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--orange);border-radius:0 0 5px 5px;padding:1.3rem 1.4rem}
+.card .num{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.card h3{font-size:1.15rem;font-weight:800;line-height:1.3;margin:.5rem 0 .6rem}
+.card p{font-size:.95rem;color:var(--ink-soft)}
+.card dl{margin:1rem 0 0;font-size:.9rem}
+.card dt{font-weight:700;margin-top:.7rem}
+.card dd{margin:.15rem 0 0;color:var(--ink-soft)}
+.case.card{border-top-color:var(--sage)}
+.note{border-left:3px solid var(--orange);padding:.2rem 0 .2rem 1rem;max-width:44rem}
+.note h3{margin:0 0 .4rem;font-size:1.05rem}
+.note p{margin:0;color:var(--ink-soft)}
+.facts{margin-top:1.2rem}
+.tools{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;align-items:center;border-top:1px solid var(--line);padding-top:1.2rem;font-size:.95rem}
+.tools span{color:var(--ink-soft)}
+.footband footer span{display:block;margin-bottom:.4rem}
+@media(max-width:860px){.grid3,.grid2{grid-template-columns:1fr}.topbar{flex-wrap:wrap}.topnav{justify-content:flex-start}}
+</style>
+</head>
+<body>
+<div class="heroband">
+  <div class="lines"></div>
+  <div class="wrap">
+    <nav class="topbar">
+      <a class="wordmark" href="corporate.html" aria-label="5:15 Consultancy"><img src="logo.png" alt="5.15"></a>
+      <div class="topnav">
+        <a class="navlink" href="#ydelser">Ydelser</a>
+        <a class="navlink" href="#cases">Cases</a>
+        <a class="navlink" href="#om">Om os</a>
+        <a class="navlink" href="#workshop">Workshop</a>
+        <a class="switch" href="/" data-goatcounter-click="skift-til-loebetur" data-goatcounter-title="Skift: tilbage til løbeturen">Tilbage til løbeturen</a>
+      </div>
+    </nav>
+    <header class="hero">
+      <span class="eyebrow">Strategi · Data · AI</span>
+      <h1>Fra ambition til drift.</h1>
+      <p class="lede">Vi omsætter strategi, data og AI til noget, I kan bruge: bedre processer, AI i praksis og en stærkere kommerciel indsats.</p>
+      <div class="cta">
+        <a class="btn" href="#workshop">Book en workshop</a>
+        <span class="alt">eller ring på <a href="tel:+4521600984">+45 21 60 09 84</a></span>
+      </div>
+    </header>
+  </div>
+</div>
+
+<div class="wrap">
+  <section id="ydelser">
+    <h2>Tre områder</h2>
+    <p class="section-lede">Vi hjælper med at få processer, teknologi og kommercielle indsatser til at fungere i praksis. Vi aftaler en afgrænset opgave og følger den fra første analyse til jeres hverdag.</p>
+    <div class="grid3"><article class="card"><span class="num">01 · Operational Excellence</span><h3>Bedre workflows. AI fra start.</h3><p>Vi analyserer status quo og gentænker opgaven med AI som en del af arbejdsgangen fra begyndelsen. Det, der ikke virker, bliver lagt om. Vi hjælper med at sætte roller, AI og menneskelig kontrol op, oplære teamet og få den nye måde at arbejde på i drift.</p><dl><dt>Det kan vi levere</dt><dd>Analyse af status quo, design og implementering af et nyt workflow samt oplæring og opfølgning på tid, kvalitet og kapacitet.</dd><dt>Forløbet</dt><dd>Forstå arbejdet → gentænk → implementér → mål gevinsten</dd></dl></article><article class="card"><span class="num">02 · AI-implementering</span><h3>Byg med AI. Få det til at virke.</h3><p>AI skal blive til mere end pænere marketing, mere støj og endeløse PowerPoints. Vi hjælper jer med at bygge og implementere løsninger til konkrete opgaver. Det kræver de rette data, opsætning, integrationer og et forløb, der passer til jeres hverdag.</p><dl><dt>Det kan vi levere</dt><dd>En AI-løsning med integrationer, afprøvning og oplæring samt klare aftaler om drift og løbende tilpasning.</dd><dt>Forløbet</dt><dd>Afklar opgaven → byg → test → sæt i drift</dd></dl></article><article class="card"><span class="num">03 · Commercial Excellence</span><h3>Mere salg. Bedre indtjening.</h3><p>Vi hjælper jer med at vinde flere kunder, udvikle de eksisterende og styrke indtjeningen. Vi har selv skabt vækst på både top- og bundlinjen i egne virksomheder og hos tidligere arbejdsgivere og omsætter den erfaring til konkrete indsatser i jeres forretning.</p><dl><dt>Det kan vi levere</dt><dd>Vækstplan, kundeprioritering, pris- og salgsindsatser samt opfølgning på omsætning og indtjening.</dd><dt>Forløbet</dt><dd>Find potentialet → sæt ind → mål væksten</dd></dl></article></div>
+  </section>
+
+  <section>
+    <div class="note"><h3>Erfaring på tværs af strategi og drift.</h3><p>Vi bygger på erfaring fra international life science, ejerskab af en virksomhed med veterinær software og mange års arbejde med salg, product management og operational excellence på globalt, regionalt og lokalt niveau.</p></div>
+  </section>
+
+  <section id="cases">
+    <h2>Cases fra praksis</h2>
+    <p class="section-lede">Et udvalg af opgaver, vi har arbejdet med. Forløbene fra 04 til 07 er anonymiserede.</p>
+    <div class="grid2"><article class="case card"><span class="num">01</span><h3>Fra idé til jobplatform</h3><p>Et samlet overblik over jobmuligheder på tværs af virksomheders karrieresider.</p><dl><dt>Udfordringen</dt><dd>Jobopslag og CV’er bruger ikke altid de samme ord. Relevante muligheder bliver overset.</dd><dt>Løsningen</dt><dd>Job fra virksomhedernes egne karrieresider samles, og hele CV’ets betydning kan indgå i matchet.</dd><dt>Det, vi har arbejdet med</dt><dd>Fra koncept og datamodel til en platform med jobimport, relevante søgninger og brancheportaler.</dd></dl></article><article class="case card"><span class="num">02</span><h3>Rådgivning i life science</h3><p>Rådgivning i en stor international life science-virksomhed. Erfaring med at arbejde i en kompleks organisation.</p></article><article class="case card"><span class="num">03</span><h3>Markedet for veterinær software</h3><p>Et klarere billede af markedet for veterinære journalsystemer. Fra spørgsmål til et konkret beslutningsgrundlag.</p><dl><dt>Det, vi har arbejdet med</dt><dd>Konkurrenter, priser og forretningsmodeller i Danmark og Norden. Et grundlag for at vurdere muligheder, positionering og næste skridt.</dd></dl></article><article class="case card"><span class="num">04 · Data & ledelse</span><h3>Dataværdikæden</h3><p>En stor dansk virksomhed manglede overblik over, hvordan data bevægede sig fra kilde til beslutning.</p><dl><dt>Forløbet</dt><dd>Vi interviewede på tværs af dataværdikæden og vurderede ni dimensioner. Fundene blev afprøvet med de involverede før den fælles præsentation.</dd><dt>Resultatet</dt><dd>Et fælles overblik, tydeligere ejerskab og en plan i tre tidshorisonter.</dd></dl></article><article class="case card"><span class="num">05 · AI & udvikling</span><h3>Kodeagenten</h3><p>Et lille udviklingsteam havde en stor kodebase og tilbagevendende supportopgaver.</p><dl><dt>Forløbet</dt><dd>Agenter undersøger fejl og forbereder rettelser med tests. Mennesker tager den endelige beslutning om ændringerne.</dd><dt>Resultatet</dt><dd>Et arbejdsforløb i daglig brug hos en dansk softwarevirksomhed.</dd></dl></article><article class="case card"><span class="num">06 · Produkt & teknologi</span><h3>Fra prototype til drift</h3><p>En AI-bygget prototype skulle kunne bruges sikkert i en rigtig virksomhed.</p><dl><dt>Forløbet</dt><dd>Kode og adgange gennemgås. Tests, et testmiljø og kontrollerede releases gør vejen til drift mere overskuelig.</dd><dt>Resultatet</dt><dd>Et forløb fra hurtig prototype til en løsning, der kan sættes i drift.</dd></dl></article><article class="case card"><span class="num">07 · AI & økonomi</span><h3>Bilag til godkendelse</h3><p>Bilag lå spredt i mails, billeder og portaler og skulle forbindes med de rigtige betalinger.</p><dl><dt>Forløbet</dt><dd>Et samlet flow henter bilag, matcher betalinger og foreslår kontering. Et menneske godkender.</dd><dt>Resultatet</dt><dd>Løsningen anvendes dagligt i en dansk virksomhed.</dd></dl></article></div>
+  </section>
+
+  <section id="om">
+    <h2>Vi kender planen. Og hverdagen.</h2>
+    <p class="section-lede">Vi kombinerer erfaring fra store internationale organisationer med det ansvar, der følger med at eje og udvikle en virksomhed.</p>
+    <div class="grid2">
+      <article class="card"><h3>Fra global retning til lokal handling.</h3><p>Års erfaring med salg, product management og operational excellence på globalt, regionalt og lokalt niveau. Vi ved, at en strategi først får værdi, når den kan bruges af dem, der møder kunderne og får hverdagen til at fungere.</p></article>
+      <article class="card"><h3>Fra kompleks organisation til eget ansvar.</h3><p>Erfaring fra international life science og ejerskab af en virksomhed med veterinær software. Det giver blik for både organisation, produkt, kunder og de prioriteringer, der skal holde en forretning i gang.</p></article>
+    </div>
+    <p style="margin-top:1.2rem" class="section-lede">Vi omsætter erfaringen til bedre processer, AI i praksis og en stærkere kommerciel indsats. Vi aftaler leverancer, ansvar og opfølgning sammen med jer og hjælper med at få løsningen ind i hverdagen.</p>
+  </section>
+
+  <section id="workshop">
+    <h2>En klar retning. Et konkret første skridt.</h2>
+    <p class="section-lede">Tag jeres vigtigste udfordring med. Vi finder de steder, hvor data, AI og bedre arbejdsgange kan gøre en forskel, og beslutter, hvor I begynder.</p>
+    <div class="facts">
+      <div class="fact"><b>2½ time</b><span>hos jer</span></div>
+      <div class="fact"><b>5.000 kr.</b><span>ekskl. moms, inkl. forberedelse</span></div>
+      <div class="fact"><b>Skriftlig opsamling</b><span>sendes efter workshoppen</span></div>
+    </div>
+    <div class="grid2">
+      <div class="outcome"><h3 style="margin-top:0">Det får I med hjem</h3><ul><li>2 til 3 prioriterede muligheder med tydeligt formål.</li><li>En plan for den første løsning og et prisestimat.</li><li>En vurdering af jeres parathed og en skriftlig opsamling.</li></ul></div>
+      <div><h3 style="margin-top:0">Sådan begynder vi</h3><p>Send et par linjer om jeres situation. Vi tager en indledende samtale og aftaler, om workshoppen er det rigtige næste skridt.</p>
+        <div class="cta"><a class="btn" href="mailto:hello@femfemten.com?subject=5%3A15%3A%20workshop&body=Hej%205%3A15%0A%0AVi%20vil%20gerne%20tale%20om%20en%20workshop.%0A%0AVores%20udfordring%3A%0AVirksomhed%3A%0ANavn%20og%20telefon%3A">Aftal en workshop</a><span class="alt"><a href="workshop.html">Workshop i detaljer</a></span></div>
+        <p class="fineprint" style="margin-top:.8rem">Åbner din mail. Dato og opgave aftales sammen. Ingen automatisk booking eller efterfølgende binding.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="tools"><span>Vil du orientere dig først?</span><a href="test.html">Tag parathedstesten · 5 min.</a><a href="radar.html">Udforsk AI-radaren</a></div>
+  </section>
+</div>
+
+<div class="footband">
+  <div class="lines"></div>
+  <div class="wrap">
+    <footer>
+      <span>5:15 ApS · CVR 44632012 · <a href="mailto:hello@femfemten.com">hello@femfemten.com</a> · <a href="tel:+4521600984">+45 21 60 09 84</a> · <a href="privatliv.html">Privatliv</a></span>
+      <span><a href="/" data-goatcounter-click="skift-til-loebetur-fod" data-goatcounter-title="Skift: tilbage til løbeturen (fod)">Tilbage til løbeturen</a></span>
+    </footer>
+  </div>
+</div>
+<script data-goatcounter="https://femfemten.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a') : null;
+    if (!a || !window.goatcounter || !window.goatcounter.count) return;
+    var h = a.getAttribute('href') || '';
+    if (h.indexOf('mailto:') === 0) goatcounter.count({ path: 'klik-mail', title: 'Klik: skriv mail', event: true });
+    else if (h.indexOf('tel:') === 0) goatcounter.count({ path: 'klik-telefon', title: 'Klik: ring', event: true });
+  });
+</script>
+</body>
+</html>
