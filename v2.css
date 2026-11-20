@@ -23,3 +23,5 @@
 .project-detail{padding-top:15px;padding-bottom:15px}
 .watch-overlay{min-height:760px;height:auto}
 @media(max-width:760px){.watch-overlay{min-height:100%}.delivery-details>p{line-height:1.6}.delivery-details .delivery-experience{font-size:14px}}
+
+.wordmark-logo{display:block;height:40px;width:auto}@media(max-width:760px){.wordmark-logo{height:32px}}
