@@ -190,5 +190,15 @@
   </dialog>
   <dialog id="routePanel" class="route-panel" aria-labelledby="panelTitle"><div class="panel-shell"><button class="panel-close" id="closePanel" aria-label="Tilbage til løbeturen">Tilbage til turen <span aria-hidden="true">×</span></button><div id="panelContent"><h2 id="panelTitle">Første etape</h2></div></div></dialog>
   <script src="/app.js?v=7" defer></script><script src="/tools-data.js" defer></script><script src="/route-tools.js" defer></script><script src="/v2.js?v=6" defer></script>
+<script>
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a') : null;
+    if (!a || !window.goatcounter || !window.goatcounter.count) return;
+    var h = a.getAttribute('href') || '';
+    if (h.indexOf('mailto:') === 0) goatcounter.count({ path: 'klik-mail', title: 'Klik: skriv mail', event: true });
+    else if (h.indexOf('tel:') === 0) goatcounter.count({ path: 'klik-telefon', title: 'Klik: ring', event: true });
+  });
+</script>
+<script data-goatcounter="https://femfemten.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
