@@ -43,11 +43,40 @@ Commercial Excellence, ruten:
 
 OBS: "konkrete opgaver", "konkret salgsindsats" og "Et konkret sted at begynde" står i jeres eksisterende tekster. STIL.md nævner "konkret" som typisk pyntord, så overvej dem.
 
-### Corporate-udgaven (ny)
+### Corporate-udgaven (ny, version 2)
 
-`corporate.html` viser løbeturens nuværende indhold i septemberstilen: lys baggrund, navy, orange og DM Sans. Den nås via "Show me corporate" i forsidens menu (på mobil står der "corporate"), i panelernes fod og på ydelsessiderne. Corporate har "Tilbage til løbeturen" øverst og i bunden.
+`corporate.html` er corporate-udgaven i septemberstilen: lys baggrund, navy, orange og DM Sans. Den nås via "Show me corporate" i forsidens menu (på mobil står der "corporate"), i panelernes fod og på ydelsessiderne. Corporate har "Tilbage til løbeturen" øverst og i bunden. På mobil vises kun logo og "Tilbage til løbeturen" i menuen.
 
-Indhold i rækkefølge: Tre områder (ydelserne med leverancer og forløb), Erfaring, Cases fra praksis (alle 7 fra casearkivet), Om os, Workshop (2½ time, 5.000 kr., det får I med hjem) og links til parathedstesten og AI-radaren. Al brødtekst er jeres egen fra løbeturens paneler. Løbeordene er skiftet ud: "Book første etape" blev "Book en workshop", og ved casene blev "Ruten" til "Forløbet" og "Ved målstregen" til "Resultatet".
+Version 1 havde løbeturens tekst med tre ord skiftet ud. Version 2 har sin egen stemme: beskrivende overskrifter i stedet for løbeturens slogans, og en opbygning, som en indkøber forventer.
+
+Indhold i rækkefølge: Ydelser, Arbejdsform, Hvem vi er, Udvalgte opgaver (alle 7, som liste), Workshop og links til parathedstesten og AI-radaren.
+
+**Før/efter (stemmebærende tekst, skal godkendes):**
+
+| Sted | Før (løbeturens tekst) | Efter |
+|---|---|---|
+| Titel | 5:15 Consultancy \| Strategi, data og AI | 5:15 Consultancy \| Operational excellence, AI-implementering og commercial excellence |
+| Overskrift | Fra ambition til drift. | Rådgivning i operational excellence, AI-implementering og commercial excellence |
+| Manchet | Vi omsætter strategi, data og AI til noget, I kan bruge ... | Vi hjælper virksomheder med at forbedre arbejdsgange, bygge AI-løsninger til daglig drift og øge salg og indtjening. Samarbejdet begynder med en workshop på 2½ time. |
+| Knap | Book en workshop | Om workshoppen |
+| Ydelser, intro | Vi hjælper med at få processer, teknologi og kommercielle indsatser til at fungere i praksis ... | Tre områder, som ofte hænger sammen i praksis. Et forløb kan ligge inden for ét af dem eller gå på tværs. |
+| OE, overskrift | Bedre workflows. AI fra start. | Operational Excellence. Arbejdsgange med AI som en del af designet. |
+| OE, tekst | Vi analyserer status quo og gentænker opgaven ... | Vi kortlægger, hvordan opgaven løses i dag, sammen med dem, der løser den. Arbejdsgangen designes derefter om med AI fra begyndelsen, og roller og menneskelig kontrol indgår i designet. Vi står for oplæring og følger op, når den nye arbejdsgang er i drift. |
+| AI, overskrift | Byg med AI. Få det til at virke. | AI-implementering. AI-løsninger til afgrænsede opgaver, bygget til daglig drift. |
+| AI, tekst | AI skal blive til mere end pænere marketing, mere støj og endeløse PowerPoints ... | Vi bygger og implementerer løsningen sammen med jer. Det omfatter data, opsætning og integrationer til de systemer, I allerede bruger. Løsningen afprøves med brugerne, før den sættes i drift. |
+| CE, overskrift | Mere salg. Bedre indtjening. | Commercial Excellence. Salg, kundeprioritering og pris. |
+| CE, tekst | Vi hjælper jer med at vinde flere kunder ... | Vi finder, hvor der er mest at hente i marked, kunder, produkt og pris, og omsætter det til en salgsindsats. Erfaringen kommer fra vækst på både omsætning og indtjening i egne virksomheder og hos tidligere arbejdsgivere. |
+| Forløb (de tre) | Forstå arbejdet → gentænk → ... | Kortlægning, nyt design, implementering og måling af gevinsten. / Afklaring af opgaven, udvikling, test med brugerne og overgang til drift. / Analyse af potentialet, prioriteret indsats og opfølgning på omsætning og indtjening. |
+| Arbejdsform (ny) | | Afgrænset opgave: "Før vi går i gang, aftaler vi opgaven, leverancerne, ansvaret og opfølgningen. Vi følger opgaven fra første analyse til den er en del af hverdagen." En ansvarlig hos jer: kanon "Automatisering uden en ansvarlig ..." + "Hver løsning får en ejer i jeres organisation, og mennesker godkender, hvor det betyder noget." Data i Europa: radarens egen tekst. AI, hvor det giver mening: "Nogle arbejdsgange bliver bedre uden AI. Når det er tilfældet, siger vi det." |
+| Om os | Vi kender planen. Og hverdagen. + erfaringsboks + to kort (samme erfaring to gange) | Hvem vi er: workshopsidens "Hvem er vi?" og erfaringsteksten samlet i to afsnit. "ikke demoer" er taget ud (inversion). |
+| Cases, intro | Cases fra praksis. Et udvalg af opgaver ... | Udvalgte opgaver. Opgave 04 til 07 er anonymiserede kundeforløb. |
+| Workshop | En klar retning. Et konkret første skridt. Tag jeres vigtigste udfordring med. ... | Workshop. Workshoppen er indgangen til et samarbejde. Vi gennemgår jeres vigtigste udfordring ... Bagefter ved I, hvor I begynder. |
+| Første skridt | Send et par linjer om jeres situation. | Det begynder med en kort mail om jeres situation. (imperativ fjernet) |
+| Værktøjer | Vil du orientere dig først? | Til forberedelse: Parathedstest, 5 min. · AI-radar |
+
+Uændret: casenes tekst, leverancerne, workshopfakta og "Det får I med hjem".
+
+Mangler: navne, roller og jakkesætsfotos under "Hvem vi er". Jeg har ikke opfundet nogen.
 
 Google: corporate har `noindex` og står ikke i sitemappet, så Google viser løbeturen. Corporate er kun til dem, der trykker på knappen.
 
