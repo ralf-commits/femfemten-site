@@ -19,7 +19,7 @@
  panel.addEventListener('keydown',e=>{if(e.key!=='Escape')e.stopPropagation();});
  // Preserve incoming links from the existing site and outreach.
  const linkedViews={workshop:'start',kontakt:'start',ydelser:'services',om:'about',radar:'radar',test:'test'};
- function openLinkedView(){const view=linkedViews[window.location.hash.slice(1)];if(view)window.openRoutePanel(view);}
+ function openLinkedView(){if(window.location.hash==='#cases'){document.getElementById('openPhone')?.click();return;}const view=linkedViews[window.location.hash.slice(1)];if(view)window.openRoutePanel(view);}
  window.addEventListener('hashchange',openLinkedView);
  openLinkedView();
 })();

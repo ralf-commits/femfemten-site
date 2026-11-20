@@ -2,7 +2,8 @@
 <html lang="da">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#121212">
 <title>AI-implementering i virksomheden | 5:15 Consultancy</title>
 <meta name="description" content="Vi bygger og implementerer AI-løsninger, der løser en bestemt opgave i jeres hverdag. Data, værktøjer og integrationer på plads, afprøvet med dem, der skal bruge løsningen.">
 <link rel="canonical" href="https://femfemten.com/ai-implementering.html">
@@ -12,243 +13,68 @@
 <meta property="og:url" content="https://femfemten.com/ai-implementering.html">
 <meta property="og:image" content="https://femfemten.com/share-515-consultancy-v2.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="logo.png">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800;9..40,900&family=Libre+Caslon+Text:ital@0;1&display=swap">
+<link rel="icon" type="image/png" href="/logo.png">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/v2.css?v=7">
 <style>
-  :root {
-    --navy: #1b1a4a;
-    --lightblue: #d1deed;
-    --sage: #b0cfc9;
-    --orange: #eb4634;
-    --paper: #ffffff;
-    --ink: #1b1a4a;
-    --ink-soft: #4c5470;
-    --line: #d7dfec;
-    --card: #f4f7fc;
-    --band-ink: #f4f7fc;
-    --band-soft: #c3cde6;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --paper: #121129;
-      --ink: #e9edf6;
-      --ink-soft: #a9b1c9;
-      --line: #312f60;
-      --card: #1e1d4a;
-      --orange: #f0604f;
-    }
-  }
-  :root[data-theme="dark"] {
-    --paper: #121129;
-    --ink: #e9edf6;
-    --ink-soft: #a9b1c9;
-    --line: #312f60;
-    --card: #1e1d4a;
-    --orange: #f0604f;
-  }
-
-  body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: "DM Sans", "Helvetica Neue", Arial, sans-serif;
-    font-size: 1.02rem;
-    line-height: 1.65;
-    margin: 0;
-  }
-  .wrap { max-width: 46rem; margin: 0 auto; padding: 0 1.4rem; }
-  a { color: inherit; }
-
-  .lines {
-    position: absolute; pointer-events: none;
-    background: repeating-linear-gradient(90deg,
-      rgba(209,222,237,0.3) 0 0.6rem, transparent 0.6rem 2.3rem);
-    transform: rotate(18deg);
-  }
-
-  .heroband {
-    background: #1b1a4a; color: var(--band-ink);
-    position: relative; overflow: hidden;
-  }
-  .heroband .lines { right: -3rem; top: -5rem; width: 16rem; height: 28rem; }
-  .topbar {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 1rem; padding: 1.4rem 0; position: relative; z-index: 1;
-  }
-  .wordmark {
-    font-weight: 900; font-size: 1.2rem; letter-spacing: -0.01em;
-    color: #ffffff; text-decoration: none; display: inline-flex; align-items: center;
-  }
-  .wordmark img {
-    height: 2.3rem; width: auto; display: block;
-    filter: brightness(0) invert(1);
-  }
-  .langswitch {
-    background: none; border: none; cursor: pointer;
-    font-family: inherit; font-weight: 700; font-size: 0.92rem;
-    color: #aebadd; padding: 0.45rem 0.5rem; letter-spacing: 0.04em;
-  }
-  .langswitch:hover { color: #ffffff; }
-  .langswitch:focus-visible { outline: 2px solid #d1deed; outline-offset: 2px; }
-
-  .hero { padding: 3.4rem 0 3.6rem; position: relative; z-index: 1; }
-  .eyebrow {
-    display: inline-block; font-size: 0.72rem; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.15em;
-    color: var(--sage); border: 1px solid var(--sage);
-    border-radius: 2px; padding: 0.32rem 0.65rem; margin-bottom: 1.1rem;
-  }
-  .heroband h1 {
-    font-size: clamp(1.9rem, 5.5vw, 2.9rem); font-weight: 900;
-    line-height: 1.08; letter-spacing: -0.018em; text-wrap: balance;
-    color: #ffffff; margin: 0 0 1rem;
-  }
-  .lede {
-    font-family: "Libre Caslon Text", Georgia, serif; font-style: italic;
-    font-size: 1.13rem; line-height: 1.6; color: var(--band-soft);
-    max-width: 38rem; margin: 0;
-  }
-
-  .facts {
-    display: flex; flex-wrap: wrap; gap: 0;
-    border-block: 1px solid var(--line);
-    margin: 2.4rem 0 0;
-  }
-  .fact {
-    flex: 1 1 10rem; padding: 1rem 1rem 1rem 0; padding-left: 1rem;
-    border-right: 1px solid var(--line);
-  }
-  .fact:first-child { padding-left: 0; }
-  .fact:last-child { border-right: none; }
-  .fact b {
-    display: block; font-size: 1.08rem; font-weight: 800;
-    font-variant-numeric: tabular-nums;
-  }
-  .fact span { font-size: 0.82rem; color: var(--ink-soft); }
-
-  h2 {
-    font-size: 1.35rem; font-weight: 800; letter-spacing: -0.012em;
-    text-wrap: balance; margin: 0 0 0.7rem;
-  }
-  section { margin: 2.9rem 0; }
-  p { margin: 0 0 1rem; }
-
-  .steps { display: flex; flex-direction: column; margin-top: 1.1rem; }
-  .step {
-    display: grid; grid-template-columns: 2.6rem 1fr; gap: 0 1rem;
-    padding: 1.1rem 0; border-top: 1px solid var(--line);
-  }
-  .step:last-child { border-bottom: 1px solid var(--line); }
-  .step-n {
-    font-weight: 900; font-size: 1.5rem; color: var(--orange);
-    line-height: 1.2; font-variant-numeric: tabular-nums;
-  }
-  .step h3 { margin: 0 0 0.3rem; font-size: 1.02rem; font-weight: 700; }
-  .step p { margin: 0; color: var(--ink-soft); font-size: 0.97rem; }
-
-  .outcome {
-    background: var(--card); border: 1px solid var(--line);
-    border-left: 3px solid var(--orange); border-radius: 0 5px 5px 0;
-    padding: 1.3rem 1.5rem;
-  }
-  .outcome ul { margin: 0.6rem 0 0; padding-left: 1.2rem; }
-  .outcome li { margin-bottom: 0.4rem; }
-
-  .price {
-    font-size: 2rem; font-weight: 900; letter-spacing: -0.015em;
-    font-variant-numeric: tabular-nums;
-  }
-  .price small { font-size: 0.95rem; font-weight: 500; color: var(--ink-soft); }
-  .fineprint { color: var(--ink-soft); font-size: 0.92rem; }
-
-  .cta { margin-top: 1.4rem; display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
-  .btn {
-    display: inline-block; background: var(--orange); color: #ffffff;
-    text-decoration: none; font-weight: 700; font-size: 0.95rem;
-    padding: 0.8rem 1.4rem; border-radius: 3px;
-  }
-  .btn:hover { filter: brightness(1.07); }
-  .btn:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
-  .cta .alt { font-size: 0.92rem; color: var(--ink-soft); }
-  .cta .alt a { color: var(--ink); font-weight: 500; }
-
-  .footband {
-    background: #1b1a4a; color: #aebadd; position: relative; overflow: hidden;
-    margin-top: 3rem;
-  }
-  .footband .lines { left: -4rem; bottom: -8rem; width: 12rem; height: 20rem; }
-  .footband footer {
-    padding: 1.8rem 0 2.2rem; font-size: 0.88rem;
-    position: relative; z-index: 1;
-  }
-  .footband a { color: #d1deed; }
-</style>
-<style>
-.case-list{display:grid;gap:1rem;margin-top:1rem}
-.case{border-left:3px solid currentColor;padding:.2rem 0 .2rem 1rem}
-.case h3{margin:0 0 .3rem}
-.case p{margin:.2rem 0}
-.case .tag{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
-.related{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;margin-top:.6rem}
+html{height:auto}
+body.page{height:auto;min-height:100%;overflow:auto;overscroll-behavior:auto;background:#121212}
+.page-bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:#121212}
+.page-bg::before{content:"";position:absolute;inset:-30px;background:url(/assets/coast.jpg) center/cover;filter:blur(15px)}
+.page-main{display:block;position:relative;inset:auto;z-index:auto;pointer-events:auto;min-height:100vh}
+.route-panel h1{font-size:clamp(2.7rem,5.6vw,5rem);font-weight:400;letter-spacing:-.055em;line-height:1.03;margin:0 0 25px}
+.page-logo{position:absolute;left:60px;top:26px;display:flex;flex-direction:column;align-items:flex-start;text-decoration:none}
+.page-logo img{display:block;height:34px;width:auto}
+.page-logo span{display:block;margin-top:5px;font-size:13px;font-weight:500;color:var(--ink)}
+.route-panel a.panel-close{color:#c7ccd3;text-decoration:none}
+.route-panel a.panel-close:hover{color:var(--acid)}
+.page-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;margin:0 0 45px}
+.page-facts p,.page-cases .route-output{font-size:14px;color:#cbcfd6;border-left:2px solid var(--acid);padding-left:14px;margin:0}
+.page-cases .route-output{margin-top:16px}
+.page-section{border-top:1px solid var(--line);padding-top:28px;margin-top:10px}
+.page-section>.eyebrow{margin-bottom:10px}
+.page-note{font-size:21px;line-height:1.5;color:#dde1e7;max-width:760px;margin:0}
+.page-contact{display:flex;flex-wrap:wrap;gap:12px 28px;font-size:14px;margin:18px 0 0}
+@media(max-width:1100px){.page-logo{left:7%}}
+@media(max-width:760px){.page-logo{top:18px}.page-logo img{height:28px}.page-logo span{font-size:12px}.page-facts{grid-template-columns:1fr;gap:16px}.page-note{font-size:18px}.route-panel h1{font-size:2.7rem}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "AI-implementering", "serviceType": "AI-implementering", "description": "Vi bygger og implementerer AI-løsninger, der løser en bestemt opgave i jeres hverdag. Data, værktøjer og integrationer på plads, afprøvet med dem, der skal bruge løsningen.", "url": "https://femfemten.com/ai-implementering.html", "areaServed": "DK", "inLanguage": "da", "provider": {"@id": "https://femfemten.com/#org", "@type": "Organization", "name": "Fem Femten", "alternateName": "5:15 Consultancy", "url": "https://femfemten.com/"}}</script>
 </head>
-<body>
-<div class="heroband">
-  <div class="lines"></div>
-  <div class="wrap">
-    <nav class="topbar">
-      <a class="wordmark" href="index.html" aria-label="Fem Femten, til forsiden"><img src="logo.png" alt="5.15"></a>
-    </nav>
-    <header class="hero">
-      <span class="eyebrow">AI-implementering</span>
-      <h1>Byg med AI. Få det til at virke.</h1>
-      <p class="lede">AI skal blive til mere end pænere marketing, mere støj og endeløse PowerPoints. Vi hjælper jer med at bygge og implementere løsninger, der løser konkrete opgaver. Vi får data, værktøjer og integrationer på plads og afprøver løsningen med dem, der skal bruge den.</p>
-    </header>
-  </div>
+<body class="page">
+<div class="page-bg" aria-hidden="true"></div>
+<main class="route-panel page-main"><div class="panel-shell">
+<a class="page-logo" href="/" aria-label="5:15 Consultancy, til forsiden"><img src="/logo-hvid.png" alt="5:15" width="420" height="248"><span>Consultancy</span></a>
+<a class="panel-close" href="/">Tilbage til turen <span aria-hidden="true">×</span></a>
+
+<p class="eyebrow">FIND DIN RUTE · 02 / AI-IMPLEMENTERING</p>
+<h1>Byg med AI.<br>Få det til at virke.</h1>
+<p class="panel-lead">AI skal blive til mere end pænere marketing, mere støj og endeløse PowerPoints. Vi hjælper jer med at bygge og implementere løsninger, der løser konkrete opgaver. Vi får data, værktøjer og integrationer på plads og afprøver løsningen med dem, der skal bruge den.</p>
+
+<div class="page-facts">
+<p class="route-output"><strong>DET KAN VI LEVERE</strong>AI-løsning, integrationer, afprøvning og oplæring.</p>
+<p class="route-output"><strong>FORLØBET</strong>Afklar opgaven → byg → test → sæt i drift.</p>
+<p class="route-output"><strong>EFTER LANCERING</strong>Klare aftaler om drift og løbende tilpasning.</p>
 </div>
 
-<div class="wrap">
-  <div class="facts"><div class="fact"><b>Leverance</b><span>AI-løsning, integrationer, afprøvning og oplæring</span></div><div class="fact"><b>Forløbet</b><span>afklar opgaven, byg, test, sæt i drift</span></div><div class="fact"><b>Tilpasset</b><span>et forløb bygget op omkring jeres opgave</span></div><div class="fact"><b>Første skridt</b><span>workshop på 2½ time hos jer</span></div></div>
-
-  <section>
-    <h2>Sådan foregår det</h2>
-    <div class="steps"><div class="step"><div class="step-n">1</div><div><h3>Afklar opgaven</h3><p>Vi starter med opgaven: hvem bruger løsningen, hvad skal den gøre, og hvilke data findes der allerede.</p></div></div><div class="step"><div class="step-n">2</div><div><h3>Byg</h3><p>Vi bygger trin for trin og får data, værktøjer og integrationer på plads undervejs.</p></div></div><div class="step"><div class="step-n">3</div><div><h3>Test med brugerne</h3><p>Løsningen afprøves med dem, der skal bruge den, før den kommer i drift. Det er dér, de fleste justeringer opstår.</p></div></div><div class="step"><div class="step-n">4</div><div><h3>Sæt i drift</h3><p>Vi aftaler ansvar og drift og hjælper med den løbende tilpasning, der får AI til at fungere i hverdagen.</p></div></div></div>
-  </section>
-
-  <section>
-    <p>Automatisering uden en ansvarlig er der, hvor tingene sander til. Derfor får hver løsning en ejer hos jer, og mennesker godkender, hvor det betyder noget.</p>
-  </section>
-
-  <section>
-    <h2>Fra vores arbejde</h2>
-    <p class="fineprint">Forløbene er anonymiserede.</p>
-    <div class="case-list"><div class="case"><span class="tag">AI & udvikling</span><h3>Kodeagenten</h3><p>Et lille udviklingsteam havde en stor kodebase og tilbagevendende supportopgaver.</p><p><b>Ruten:</b> Agenter undersøger fejl og forbereder rettelser med tests. Mennesker tager den endelige beslutning om ændringerne.</p><p><b>Ved målstregen:</b> Et arbejdsforløb i daglig brug hos en dansk softwarevirksomhed.</p></div><div class="case"><span class="tag">AI & økonomi</span><h3>Bilag til godkendelse</h3><p>Bilag lå spredt i mails, billeder og portaler og skulle forbindes med de rigtige betalinger.</p><p><b>Ruten:</b> Et samlet flow henter bilag, matcher betalinger og foreslår kontering. Et menneske godkender.</p><p><b>Ved målstregen:</b> Løsningen anvendes dagligt i en dansk virksomhed.</p></div><div class="case"><span class="tag">Produkt & teknologi</span><h3>Fra prototype til drift</h3><p>En AI-bygget prototype skulle kunne bruges sikkert i en rigtig virksomhed.</p><p><b>Ruten:</b> Kode og adgange gennemgås. Tests, et testmiljø og kontrollerede releases gør vejen til drift mere overskuelig.</p><p><b>Ved målstregen:</b> Et forløb fra hurtig prototype til en løsning, der kan sættes i drift.</p></div></div>
-    <p class="fineprint" style="margin-top:.9rem"><a href="cases.html">Se alle cases</a></p>
-  </section>
-
-  <section>
-    <h2>Første skridt</h2>
-    <p>De fleste forløb starter med en <a href="workshop.html">workshop på 2½ time</a> hos jer, hvor vi finder ud af, hvor der er mest at hente, og hvad der skal på plads først.</p>
-    <div class="cta">
-      <a class="btn" href="mailto:ralf@femfemten.com?subject=AI-implementering">Skriv til os</a>
-      <span class="alt">Eller ring til Ralf Nielsen: <a href="tel:+4521600984">+45 21 60 09 84</a></span>
-    </div>
-  </section>
-
-  <section>
-    <h2>Vores andre områder</h2>
-    <div class="related"><a href="operational-excellence.html">Operational Excellence</a><a href="commercial-excellence.html">Commercial Excellence</a><a href="workshop.html">Workshop</a></div>
-  </section>
+<div class="page-section">
+<p class="eyebrow">RUTEN</p>
+<div class="service-list"><section><span>01</span><h3>Afklar opgaven</h3><p>Vi starter med opgaven: hvem bruger løsningen, hvad skal den gøre, og hvilke data findes der allerede.</p></section><section><span>02</span><h3>Byg</h3><p>Vi bygger trin for trin og får data, værktøjer og integrationer på plads undervejs.</p></section><section><span>03</span><h3>Test med brugerne</h3><p>Løsningen afprøves med dem, der skal bruge den, før den kommer i drift. Det er dér, de fleste justeringer opstår.</p></section><section><span>04</span><h3>Sæt i drift</h3><p>Vi aftaler ansvar og drift og hjælper med den løbende tilpasning, der får AI til at fungere i hverdagen.</p></section></div>
 </div>
 
-<div class="footband">
-  <div class="lines"></div>
-  <div class="wrap">
-    <footer>
-      <span>Ralf Nielsen · <a href="mailto:ralf@femfemten.com">ralf@femfemten.com</a> · <a href="tel:+4521600984">+45 21 60 09 84</a> · 5:15 ApS · CVR 44 63 20 12 · <a href="index.html">femfemten.com</a> · <a href="privatliv.html">Privatliv</a></span>
-    </footer>
-  </div>
+<div class="working-principles"><p class="page-note">Automatisering uden en ansvarlig er der, hvor tingene sander til. Derfor får hver løsning en ejer hos jer, og mennesker godkender, hvor det betyder noget.</p></div>
+
+<div class="page-section page-cases">
+<p class="eyebrow">FRA CASEARKIVET · ANONYMISEREDE FORLØB</p>
+<div class="service-list"><section><span>AI & UDVIKLING</span><h3>Kodeagenten</h3><p>Et lille udviklingsteam havde en stor kodebase og tilbagevendende supportopgaver.</p><p class="route-output"><strong>RUTEN</strong>Agenter undersøger fejl og forbereder rettelser med tests. Mennesker tager den endelige beslutning om ændringerne.</p><p class="route-output"><strong>VED MÅLSTREGEN</strong>Et arbejdsforløb i daglig brug hos en dansk softwarevirksomhed.</p></section><section><span>AI & ØKONOMI</span><h3>Bilag til godkendelse</h3><p>Bilag lå spredt i mails, billeder og portaler og skulle forbindes med de rigtige betalinger.</p><p class="route-output"><strong>RUTEN</strong>Et samlet flow henter bilag, matcher betalinger og foreslår kontering. Et menneske godkender.</p><p class="route-output"><strong>VED MÅLSTREGEN</strong>Løsningen anvendes dagligt i en dansk virksomhed.</p></section><section><span>PRODUKT & TEKNOLOGI</span><h3>Fra prototype til drift</h3><p>En AI-bygget prototype skulle kunne bruges sikkert i en rigtig virksomhed.</p><p class="route-output"><strong>RUTEN</strong>Kode og adgange gennemgås. Tests, et testmiljø og kontrollerede releases gør vejen til drift mere overskuelig.</p><p class="route-output"><strong>VED MÅLSTREGEN</strong>Et forløb fra hurtig prototype til en løsning, der kan sættes i drift.</p></section></div>
+<div class="route-proof"><p>Se eksempler fra vores arbejde.</p><a class="route-case-link" href="/#cases">Se cases</a></div>
 </div>
+
+<div class="next-etape"><div><h3>Et konkret sted at begynde.</h3><p>På første etape prioriterer vi udfordringen og aftaler, hvad I skal stå med bagefter.</p></div><a class="primary-cta" href="/#workshop">Book første etape</a></div>
+<p class="page-contact"><a href="mailto:hello@femfemten.com?subject=5:15:%20AI-implementering">Skriv til os</a><a href="tel:+4521600984">Ring til os · +45 21 60 09 84</a></p>
+
+<div class="trail-tools" style="margin-top:30px"><span>Andre ruter</span><a href="/operational-excellence.html">Operational Excellence</a><a href="/commercial-excellence.html">Commercial Excellence</a><a href="/#radar">AI-radaren</a><a href="/#test">Parathedstesten</a></div>
+<footer class="panel-footer"><span>5:15 ApS · CVR 44632012</span><a href="mailto:hello@femfemten.com">hello@femfemten.com</a><a href="tel:+4521600984">+45 21 60 09 84</a><a href="/privatliv.html">Privatliv</a></footer>
+</div></main>
 <script data-goatcounter="https://femfemten.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script>
   document.addEventListener('click', function (e) {
@@ -257,7 +83,7 @@
     var h = a.getAttribute('href') || '';
     if (h.indexOf('mailto:') === 0) goatcounter.count({ path: 'klik-mail', title: 'Klik: skriv mail', event: true });
     else if (h.indexOf('tel:') === 0) goatcounter.count({ path: 'klik-telefon', title: 'Klik: ring', event: true });
-    else if (h.indexOf('workshop.html') !== -1) goatcounter.count({ path: 'ydelse-til-workshop', title: 'Ydelsesside: videre til workshop', event: true });
+    else if (h === '/#workshop') goatcounter.count({ path: 'ydelse-til-workshop', title: 'Ydelsesside: book første etape', event: true });
   });
 </script>
 </body>
